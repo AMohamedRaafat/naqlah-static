@@ -134,18 +134,26 @@
       <main class="flex-1 container mx-auto px-4 py-6">
         <!-- Breadcrumb -->
         <div class="mb-4 text-sm text-[#7E7E7E]">
-          <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard">لوحة التحكم</a>
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium">عروض شركات النقل</span>
+          <span class="text-[#312E37] font-medium" data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
         </div>
+        <h3 class="text-[14px] font-semibold text-[#3C3D41] flex items-center gap-2">
+          <i class="fas fa-tag text-[#3C3D41] text-lg"></i>
+          طلبات عروض الأسعار
+        </h3>
 
         <!-- Section Header -->
-        <button id="company-offers-toggle" onclick="toggleQuotesOffers()" class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3">
-          <i id="offers-icon" class="fas fa-chevron-up"></i>
+        <button
+          id="company-offers-toggle"
+          onclick="toggleQuotesOffers()"
+          class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
+        >
           <h3 class="text-[14px] font-semibold text-[#3C3D41] flex items-center gap-2">
             <i class="fas fa-tag text-[#3C3D41] text-lg"></i>
-            طلبات عروض الأسعار
+            <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
           </h3>
+          <i id="offers-icon" class="fas fa-chevron-up"></i>
         </button>
 
         <!-- Offers list (same design as dashboard) -->
