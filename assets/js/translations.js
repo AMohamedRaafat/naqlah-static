@@ -108,7 +108,28 @@ const translations = {
             "mada": "Mada",
             "visa": "Visa Card",
             "applepay": "Apple Pay",
-            "tamara": "Tamara"
+            "tamara": "Tamara",
+            "successTitle": "Payment Successful",
+            "successBody": "Please follow the moving journey with the company at the specified date and time.",
+            "failureTitle": "Payment Failed",
+            "failureBody": "An error occurred while attempting payment. Please verify your payment details or try again later.",
+            "ok": "OK"
+        },
+        "paymentPage": {
+            "title": "Payment",
+            "breadcrumbDashboard": "Dashboard",
+            "breadcrumbQuotes": "Moving Company Offers",
+            "breadcrumbPayment": "Payment",
+            "sectionTitle": "Payment",
+            "transportPrice": "Transport price",
+            "vat15": "VAT 15%",
+            "total": "Total",
+            "depositLabel": "20% deposit from transport fare",
+            "depositNote": "The deposit will be deducted from the total amount and the remaining amount will be collected after the shipment is delivered",
+            "paymentMethod": "Payment method",
+            "payFullNow": "Pay full now",
+            "payDepositOnly": "Pay deposit only",
+            "back": "Back"
         },
         "login": {
             "title": "Login",
@@ -287,7 +308,28 @@ const translations = {
             "mada": "مدى",
             "visa": "فيزا كارد",
             "applepay": "أبل باي",
-            "tamara": "تمارا"
+            "tamara": "تمارا",
+            "successTitle": "تم الدفع بنجاح",
+            "successBody": "من فضلك تابع رحلة النقل مع شركة النقل في التاريخ والساعة المحددة",
+            "failureTitle": "فشل الدفع",
+            "failureBody": "حدث خطأ عند محاولة الدفع، يرجى التأكد من معلومات الدفع أو المحاولة مرة أخرى لاحقاً",
+            "ok": "حسناً"
+        },
+        "paymentPage": {
+            "title": "الدفع",
+            "breadcrumbDashboard": "لوحة التحكم",
+            "breadcrumbQuotes": "عروض شركات النقل",
+            "breadcrumbPayment": "الدفع",
+            "sectionTitle": "الدفع",
+            "transportPrice": "سعر النقل",
+            "vat15": "%15 ضريبة القيمة المضافة",
+            "total": "الإجمالي",
+            "depositLabel": "%20 عربون من أجرة النقل",
+            "depositNote": "سيتم خصم العربون من المبلغ الإجمالي وتحصيل المبلغ المتبقي بعد تسليم الشحنة",
+            "paymentMethod": "طريقة الدفع",
+            "payFullNow": "دفع كاملًا الآن",
+            "payDepositOnly": "دفع عربون فقط",
+            "back": "تراجع"
         },
         "login": {
             "title": "تسجيل الدخول",

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الدفع - Naqlah</title>
+    <title data-i18n="paymentPage.title">الدفع</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -116,7 +116,7 @@
       <!-- Mobile Navbar -->
       <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
-          <h1 class="text-lg font-semibold">الدفع</h1>
+          <h1 class="text-lg font-semibold" data-i18n="paymentPage.title">الدفع</h1>
           <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
             <a
               href="profile.html"
@@ -187,17 +187,32 @@
       <main class="flex-1 container mx-auto px-4 py-6 max-w-3xl">
         <!-- Breadcrumb -->
         <div class="mb-4 text-sm text-[#7E7E7E]">
-          <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <a
+            href="dashboard.html"
+            class="hover:text-[#00B8A9]"
+            data-i18n="paymentPage.breadcrumbDashboard"
+            >لوحة التحكم</a
+          >
           <span class="mx-2">—</span>
-          <a href="quotes.html" class="hover:text-[#00B8A9]">عروض شركات النقل</a>
+          <a
+            href="quotes.html"
+            class="hover:text-[#00B8A9]"
+            data-i18n="paymentPage.breadcrumbQuotes"
+            >عروض شركات النقل</a
+          >
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium">الدفع</span>
+          <span class="text-[#312E37] font-medium" data-i18n="paymentPage.breadcrumbPayment"
+            >الدفع</span
+          >
         </div>
 
         <!-- Payment Card -->
         <div class="bg-white rounded-2xl shadow-sm p-4">
           <div class="flex items-center justify-between mb-3">
-            <h2 class="text-[18px] font-bold text-[#353535] flex items-center gap-2">
+            <h2
+              class="text-[18px] font-bold text-[#353535] flex items-center gap-2"
+              data-i18n="paymentPage.sectionTitle"
+            >
               <i class="fas fa-wallet"></i>
               الدفع
             </h2>
@@ -235,19 +250,21 @@
             <!-- Financial breakdown -->
             <div class="rounded-xl overflow-hidden mb-4">
               <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-                <div class="text-[#9D9D9D]">سعر النقل</div>
+                <div class="text-[#9D9D9D]" data-i18n="paymentPage.transportPrice">سعر النقل</div>
                 <div class="text-left font-semibold flex items-center gap-1 justify-end">
                   780 <span class="icon-riyal w-5 h-5"></span>
                 </div>
               </div>
               <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-                <div class="text-[#9D9D9D]">ضريبة القيمة المضافة %15</div>
+                <div class="text-[#9D9D9D]" data-i18n="paymentPage.vat15">
+                  %15 ضريبة القيمة المضافة
+                </div>
                 <div class="text-left font-semibold flex items-center gap-1 justify-end">
                   117 <span class="icon-riyal w-5 h-5"></span>
                 </div>
               </div>
               <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-                <div class="text-[#9D9D9D]">الإجمالي</div>
+                <div class="text-[#9D9D9D]" data-i18n="paymentPage.total">الإجمالي</div>
                 <div class="text-left font-semibold flex items-center gap-1 justify-end">
                   897 <span class="icon-riyal w-5 h-5"></span>
                 </div>
@@ -255,12 +272,14 @@
               <div class="h-px bg-[#E5E7EB]"></div>
               <div class="px-4 py-3 bg-[#F7FFFD]">
                 <div class="flex items-center justify-between">
-                  <div class="text-[#00B8A9] font-semibold">%20 عربون من أجرة النقل</div>
+                  <div class="text-[#00B8A9] font-semibold" data-i18n="paymentPage.depositLabel">
+                    %20 عربون من أجرة النقل
+                  </div>
                   <div class="text-[#00B8A9] font-bold flex items-center gap-1">
                     179.4 <span class="icon-riyal w-5 h-5"></span>
                   </div>
                 </div>
-                <p class="text-[#7B7B7B] text-[12px] mt-1">
+                <p class="text-[#7B7B7B] text-[12px] mt-1" data-i18n="paymentPage.depositNote">
                   سيتم خصم العربون من المبلغ الإجمالي وتحصيل المبلغ المتبقي بعد تسليم الشحنة
                 </p>
               </div>
@@ -269,7 +288,9 @@
           <!-- Selected Offer Summary -->
 
           <!-- Payment Method -->
-          <h4 class="text-[#353535] font-semibold mb-2">طريقة الدفع</h4>
+          <h4 class="text-[#353535] font-semibold mb-2" data-i18n="paymentPage.paymentMethod">
+            طريقة الدفع
+          </h4>
           <div class="space-y-3 mb-4">
             <label
               class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-4 bg-white cursor-pointer"
@@ -277,7 +298,9 @@
               <div class="flex items-center gap-3">
                 <img src="assets/payments/mastercard.svg" alt="mastercard" class="w-10 h-10" />
 
-                 <span class="text-[14px] text-[#353535]" data-i18n="payments.mastercard">ماستركارد</span>
+                <span class="text-[14px] text-[#353535]" data-i18n="payments.mastercard"
+                  >ماستركارد</span
+                >
               </div>
               <input
                 id="pay-mastercard"
@@ -297,7 +320,7 @@
             >
               <div class="flex items-center gap-3">
                 <img src="assets/payments/mada.svg" alt="mada" class="w-10 h-10" />
-                 <span class="text-[14px] text-[#353535]" data-i18n="payments.mada">مدى</span>
+                <span class="text-[14px] text-[#353535]" data-i18n="payments.mada">مدى</span>
               </div>
               <input
                 id="pay-mada"
@@ -316,7 +339,7 @@
             >
               <div class="flex items-center gap-4">
                 <img src="assets/payments/visa.svg" alt="visa" class="w-10 h-10" />
-                 <span class="text-[14px] text-[#353535]" data-i18n="payments.visa">فيزا كارد</span>
+                <span class="text-[14px] text-[#353535]" data-i18n="payments.visa">فيزا كارد</span>
               </div>
               <input
                 id="pay-visa"
@@ -335,7 +358,9 @@
             >
               <div class="flex items-center gap-3">
                 <img src="assets/payments/applepay.svg" alt="applepay" class="w-10 h-10" />
-                 <span class="text-[14px] text-[#353535]" data-i18n="payments.applepay">أبل باي</span>
+                <span class="text-[14px] text-[#353535]" data-i18n="payments.applepay"
+                  >أبل باي</span
+                >
               </div>
               <input
                 id="pay-apple"
@@ -354,7 +379,7 @@
             >
               <div class="flex items-center gap-3">
                 <img src="assets/payments/tamara.svg" alt="tamara" class="w-10 h-10" />
-                 <span class="text-[14px] text-[#353535]" data-i18n="payments.tamara">تمارا</span>
+                <span class="text-[14px] text-[#353535]" data-i18n="payments.tamara">تمارا</span>
               </div>
               <input
                 id="pay-tamara"
@@ -372,21 +397,27 @@
           <!-- Actions -->
           <div class="space-y-3">
             <button
+              onclick="showModal('payment-success-modal')"
               class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
             >
-              <span>دفع كاملًا الآن</span>
-              <span class="flex items-center gap-1"><span>897</span><span class="icon-riyal w-5 h-5"></span></span>
+              <span data-i18n="paymentPage.payFullNow">دفع كاملًا الآن</span>
+              <span class="flex items-center gap-1"
+                ><span>897</span><span class="icon-riyal w-5 h-5"></span
+              ></span>
             </button>
             <button
+              onclick="showModal('payment-success-modal')"
               class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
             >
-              <span>دفع عربون فقط</span>
-              <span class="flex items-center gap-1"><span>179.4</span><span class="icon-riyal w-5 h-5"></span></span>
+              <span data-i18n="paymentPage.payDepositOnly">دفع عربون فقط</span>
+              <span class="flex items-center gap-1"
+                ><span>179.4</span><span class="icon-riyal w-5 h-5"></span
+              ></span>
             </button>
             <a
               href="quotes.html"
               class="block w-full bg-white border border-gray-300 text-[#353535] font-semibold text-center py-4 rounded-xl"
-              >تراجع</a
+              ><span data-i18n="paymentPage.back">تراجع</span></a
             >
           </div>
         </div>
@@ -397,18 +428,18 @@
         id="language-modal"
         class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
       >
-        <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-4 relative">
+      <div class="bg-white rounded-md max-w-sm w-[90%] mx-4 relative">
           <div class="relative pt-6 pb-2">
             <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
             <button
               onclick="hideModal('language-modal')"
-              class="absolute top-3 left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+              class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
             >
               <i class="fas fa-times text-sm"></i>
             </button>
           </div>
           <div class="px-4 pb-4">
-            <div class="border border-[#E5E7EB] rounded-xl overflow-hidden">
+            <div class="border border-[#E5E7EB] rounded-md overflow-hidden">
               <button
                 type="button"
                 onclick="selectLocale('ar')"
@@ -429,12 +460,74 @@
             </div>
             <button
               onclick="saveSelectedLocale()"
-              class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
+              class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-md transition-colors"
             >
               حفظ
             </button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div
+      id="payment-success-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
+      <div class="bg-white rounded-2xl p-5 max-w-sm w-[90%] mx-4 relative text-center">
+        <button
+          onclick="hideModal('payment-success-modal')"
+          class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+        >
+          <i class="fas fa-times text-sm"></i>
+        </button>
+
+        <div class="w-36 h-36 rounded-full mx-auto flex items-center justify-center mb-3">
+          <img src="assets/payments/check.svg" alt="success" class="w-full h-full" />
+        </div>
+        <h3 class="text-xl font-medium text-[#151515] mb-2" data-i18n="payments.successTitle">
+          تم الدفع بنجاح
+        </h3>
+        <p class="text-[#737373] text-[14px] leading-6 mb-4" data-i18n="payments.successBody">
+          من فضلك تابع رحلة النقل مع شركة <span class="font-bold">فاست موف لنقل الأثاث</span> في
+          التاريخ والساعة المحددة
+        </p>
+        <button
+          onclick="hideModal('payment-success-modal')"
+          class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl"
+        >
+          <span data-i18n="payments.ok">حسناً</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Payment Failure Modal -->
+    <div
+      id="payment-failure-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
+      <div class="bg-white rounded-2xl p-5 max-w-sm w-[90%] mx-4 relative text-center">
+        <button
+          onclick="hideModal('payment-failure-modal')"
+          class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+        >
+          <i class="fas fa-times text-sm"></i>
+        </button>
+        <div class="w-36 h-36 rounded-full mx-auto flex items-center justify-center mb-3">
+          <img src="assets/payments/fail.svg" alt="success" class="w-full h-full" />
+        </div>
+        <h3 class="text-xl font-medium text-[#151515] mb-2" data-i18n="payments.failureTitle">
+          فشل الدفع
+        </h3>
+        <p class="text-[#737373] text-[14px] leading-6 mb-4" data-i18n="payments.failureBody">
+          حدث خطأ عند محاولة الدفع، يرجى التأكد من معلومات الدفع أو المحاولة مرة أخرى لاحقاً
+        </p>
+        <button
+          onclick="hideModal('payment-failure-modal')"
+          class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl"
+        >
+          <span data-i18n="payments.ok">حسناً</span>
+        </button>
       </div>
     </div>
 

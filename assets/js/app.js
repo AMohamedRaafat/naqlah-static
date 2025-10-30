@@ -13,6 +13,9 @@ $(document).ready(function () {
 
   // Update UI based on auth state
   updateAuthUI();
+
+  // Align modal close buttons based on language
+  updateModalCloseAlignment(window.currentLocale);
 });
 
 // Language switching
@@ -278,5 +281,18 @@ $(document).on('click', function (e) {
       $('#mobile-menu').addClass('hidden');
     }
   }
+});
+
+// Align modal close button direction (X) for RTL/LTR
+function updateModalCloseAlignment(locale) {
+  const isArabic = locale === 'ar';
+  $('.modal-close-dir')
+    .removeClass('left-3 right-3')
+    .addClass(isArabic ? 'right-3' : 'left-3');
+}
+
+// React to language change
+$(document).on('languageChanged', function (_e, locale) {
+  updateModalCloseAlignment(locale);
 });
 
