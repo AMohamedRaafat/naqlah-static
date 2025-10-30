@@ -48,7 +48,7 @@
         <a href="/" class="flex items-center justify-center">
           <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
         </a>
-      </div>
+          </div>
 
       <!-- Navigation Menu -->
       <nav class="flex-1 px-4 py-6">
@@ -76,8 +76,35 @@
               href="profile.html"
               class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
             >
-              <i class="fas fa-user text-lg"></i>
-              <span data-i18n="navigation.profile">الملف الشخصي</span>
+              <i class="fas fa-user-circle text-lg"></i>
+              <span>معلومات الحساب</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="notifications.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-bell text-lg"></i>
+              <span>التنبيهات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="quotes.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-file-invoice-dollar text-lg"></i>
+              <span>عروض الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="orders.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-clipboard-list text-lg"></i>
+              <span>الطلبات الجارية والمنتهية</span>
             </a>
           </li>
           <li>
@@ -87,6 +114,15 @@
             >
               <i class="fas fa-cog text-lg"></i>
               <span data-i18n="navigation.settings">الإعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-phone text-lg"></i>
+              <span>تواصل معنا</span>
             </a>
           </li>
         </ul>
@@ -104,14 +140,14 @@
             </p>
             <p class="text-xs text-gray-500">user@email.com</p>
           </div>
-        </div>
-        <button
-          onclick="showModal('language-modal')"
+          </div>
+            <button
+              onclick="showModal('language-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
-        >
+            >
           <i class="fas fa-language text-lg"></i>
-          <span id="lang-btn">English</span>
-        </button>
+              <span id="lang-btn">English</span>
+            </button>
         <button
           onclick="showModal('logout-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors text-sm"
@@ -158,7 +194,7 @@
             <!-- Menu Button -->
             <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
               <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
-            </button>
+              </button>
           </div>
         </div>
 
@@ -207,27 +243,65 @@
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="profile.html"
+                <a
+                  href="profile.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
-                      <img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
-                      <span class="text-[15px] text-gray-800" data-i18n="navigation.profile"
-                        >الملف الشخصي</span
+                      <i class="fas fa-user-circle w-6 h-6 text-[#a9a9a9] flex items-center justify-center"></i>
+                      <span class="text-[15px] text-gray-800">معلومات الحساب</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="notifications.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i class="fas fa-bell w-6 h-6 text-[#a9a9a9] flex items-center justify-center"></i>
+                      <span class="text-[15px] text-gray-800">التنبيهات</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="quotes.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"></i>
+                      <span class="text-[15px] text-gray-800">عروض الأسعار</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="orders.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"></i>
+                      <span class="text-[15px] text-gray-800">الطلبات الجارية والمنتهية</span>
+                    </a>
+                  </li>
+                  <li>
+                <a
+                  href="settings.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"></i>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
+                        >الإعدادات</span
                       >
                     </a>
                   </li>
                   <li>
                     <a
-                      href="settings.html"
+                      href="contact.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
-                      <img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
-                      <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
-                        >الإعدادات</span
-                      >
+                      <i class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"></i>
+                      <span class="text-[15px] text-gray-800">تواصل معنا</span>
                     </a>
                   </li>
                 </ul>
@@ -241,7 +315,7 @@
                     ></i>
                     <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
                   </button>
-                  <button
+                <button
                     onclick="showModal('logout-modal'); toggleMobileMenu();"
                     class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                   >
@@ -253,8 +327,8 @@
                     <span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
                       >تسجيل الخروج</span
                     >
-                  </button>
-                </div>
+                </button>
+              </div>
               </nav>
             </div>
           </div>
@@ -286,8 +360,8 @@
                 alt="No orders"
                 class="w-full max-w-sm mx-auto"
               />
-            </div>
-          </div>
+        </div>
+      </div>
 
           <!-- Request Move Button -->
           <div class="w-full max-w-md mx-auto px-4">
@@ -320,12 +394,12 @@
                 </h4>
                 <p class="text-[12px] text-[#868686]" id="order-number">#ORD938274</p>
               </div>
-              <button
+          <button
                 class="px-4 py-2 bg-[#E6F7F5] text-[#00B8A9] text-[12px] font-medium rounded-lg"
                 data-i18n="dashboard.waitingForQuote"
-              >
+          >
                 بانتظار اختيار عرض السعر
-              </button>
+          </button>
             </div>
 
             <!-- Order Details Collapsible -->
@@ -352,8 +426,8 @@
                     <p>منصور الفهماوي</p>
                     <p>598839405</p>
                     <p>منزل جديد</p>
-                  </div>
-                </div>
+        </div>
+      </div>
 
                 <!-- Date and Time -->
                 <div class="bg-[#FAFAFA] rounded-lg p-3">
@@ -387,7 +461,7 @@
                     <p>يوجد مصعد</p>
                     <p>مصعد وسط</p>
                   </div>
-                </div>
+              </div>
 
                 <!-- Destination Address -->
                 <div class="bg-[#FAFAFA] rounded-lg p-3">
@@ -407,7 +481,7 @@
                     <p class="text-[12px] leading-relaxed pt-1">
                       يرجى استخدام المصعد الكبير المخصص لنقل الأثاث داخل بيت الدرج
                     </p>
-                  </div>
+              </div>
                 </div>
 
                 <!-- Additional Services -->
@@ -425,8 +499,8 @@
                       <span class="font-medium text-[#4B4B4B]">فك وتركيب:</span>
                     </p>
                     <p>3 مكيف، 3 دواليب، 4 سرير، 1 مكتب</p>
-                  </div>
-                </div>
+            </div>
+          </div>
 
                 <!-- Furniture Details -->
                 <div class="bg-[#FAFAFA] rounded-lg p-3">
@@ -457,9 +531,9 @@
                         alt="Furniture"
                         class="w-full h-20 object-cover rounded-lg"
                       />
-                    </div>
-                  </div>
-                </div>
+              </div>
+            </div>
+          </div>
 
                 <!-- Location Map -->
                 <div class="bg-[#FAFAFA] rounded-lg p-3">
@@ -471,11 +545,11 @@
                   </h5>
                   <div class="h-48 bg-gray-200 rounded-lg overflow-hidden relative">
                     <div id="order-details-map" class="w-full h-full"></div>
-                  </div>
-                </div>
+              </div>
               </div>
             </div>
           </div>
+        </div>
 
           <!-- Company Offers Header -->
           <button
@@ -506,7 +580,7 @@
                       <i class="fas fa-star text-yellow-400 text-xs"></i>
                     </div>
                   </div>
-                </div>
+              </div>
                 <button
                   onclick="toggleCompanyDescription(1)"
                   class="text-[12px] text-[#00B8A9]"
@@ -514,7 +588,7 @@
                 >
                   <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
                 </button>
-              </div>
+            </div>
 
               <div class="flex items-center justify-between mb-3">
                 <div class="text-left">
@@ -558,8 +632,8 @@
                 <span
                   class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
                   >تركيب مكيفات</span
-                >
-              </div>
+              >
+            </div>
 
               <!-- Description -->
               <div id="company-description-1" class="hidden">
@@ -603,7 +677,7 @@
                     <img src="assets/icons/riyal.svg" alt="ريال" class="w-6 h-6" />
                   </p>
                   <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
-                </div>
+              </div>
                 <button
                   onclick="showModal('accept-confirmation-modal')"
                   class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
@@ -619,8 +693,8 @@
                   نقدم خدمات نقل أثاث احترافية مع فريق متخصص وخبرة طويلة في المجال. نضمن لك سلامة
                   ممتلكاتك وسرعة في التنفيذ.
                 </p>
-              </div>
             </div>
+          </div>
 
             <!-- Offer 3 -->
             <div class="bg-white rounded-2xl p-4 shadow-sm">
@@ -654,14 +728,14 @@
                   </p>
                   <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
                 </div>
-                <button
+          <button
                   onclick="showModal('accept-confirmation-modal')"
                   class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
                   data-i18n="dashboard.accept"
-                >
+          >
                   قبول
-                </button>
-              </div>
+          </button>
+        </div>
 
               <!-- Description -->
               <div id="company-description-3" class="hidden">
@@ -719,8 +793,8 @@
                   شركة الأوائل لديها خبرة واسعة في مجال نقل الأثاث والعفش. نوفر أفضل الخدمات بأسعار
                   تنافسية ونلتزم بالمواعيد.
                 </p>
-              </div>
-            </div>
+          </div>
+        </div>
           </div>
 
           <!-- Show More Button -->
@@ -741,8 +815,8 @@
               <span class="mr-2">أظهر المزيد</span>
             </span>
           </button>
-        </div>
-      </main>
+      </div>
+    </main>
     </div>
     <!-- End Main Content Area -->
 
