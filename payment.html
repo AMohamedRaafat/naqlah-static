@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدفع - Naqlah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <script src="assets/js/tailwind-config.js"></script>
+  </head>
+  <body class="min-h-screen bg-[#fafafa] font-expo-arabic">
+    <!-- Mobile Topbar -->
+    <div class="lg:hidden bg-white border-b border-gray-200">
+      <div class="flex items-center justify-between px-4 py-4">
+        <h1 class="text-lg font-semibold">الدفع</h1>
+        <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
+          <a href="profile.html" class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"></a>
+          <a href="dashboard.html" class="text-[#00B8A9]"><i class="fas fa-home text-xl"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-6 max-w-3xl">
+      <!-- Breadcrumb -->
+      <div class="mb-4 text-sm text-[#7E7E7E]">
+        <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+        <span class="mx-2">—</span>
+        <a href="quotes.html" class="hover:text-[#00B8A9]">عروض شركات النقل</a>
+        <span class="mx-2">—</span>
+        <span class="text-[#312E37] font-medium">الدفع</span>
+      </div>
+
+      <!-- Payment Card -->
+      <div class="bg-white rounded-2xl shadow-sm border border-[#ECECEC] p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-[18px] font-bold text-[#353535] flex items-center gap-2">
+            <i class="fas fa-wallet"></i>
+            الدفع
+          </h2>
+        </div>
+
+        <!-- Selected Offer Summary -->
+        <div class="rounded-xl border border-[#E5E7EB] p-4 mb-4 flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-[#9D9D9D] text-sm mb-1">
+              <span>4.5</span>
+              <i class="fas fa-star text-yellow-400 text-xs"></i>
+            </div>
+            <h3 class="text-[#353535] font-semibold mb-1">فاست موف لنقل الأثاث</h3>
+            <p class="text-[#9D9D9D] text-sm">الأحد · 3.15.2025 · 11:30</p>
+          </div>
+          <div class="text-left">
+            <p class="text-[24px] font-bold text-[#353535] flex items-center gap-1">
+              780
+              <img src="assets/icons/riyal.svg" alt="ريال" class="w-6 h-6" />
+            </p>
+            <div class="px-3 py-2 rounded-lg border border-[#E9E9E9] text-center mt-1">
+              <img src="assets/logo.svg" alt="logo" class="w-16 h-6 object-contain inline-block" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial breakdown -->
+        <div class="rounded-xl border border-[#E5E7EB] overflow-hidden mb-4">
+          <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
+            <div class="text-[#9D9D9D]">سعر النقل</div>
+            <div class="text-left font-semibold">780 ﷼</div>
+          </div>
+          <div class="h-px bg-[#E5E7EB]"></div>
+          <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
+            <div class="text-[#9D9D9D]">ضريبة القيمة المضافة %15</div>
+            <div class="text-left font-semibold">117 ﷼</div>
+          </div>
+          <div class="h-px bg-[#E5E7EB]"></div>
+          <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
+            <div class="text-[#9D9D9D]">الإجمالي</div>
+            <div class="text-left font-semibold">897 ﷼</div>
+          </div>
+          <div class="h-px bg-[#E5E7EB]"></div>
+          <div class="px-4 py-3 bg-[#F7FFFD]">
+            <div class="flex items-center justify-between">
+              <div class="text-[#00B8A9] font-semibold">%20 عربون من أجرة النقل</div>
+              <div class="text-[#00B8A9] font-bold">179.4 ﷼</div>
+            </div>
+            <p class="text-[#7B7B7B] text-[12px] mt-1">سيتم خصم العربون من المبلغ الإجمالي وتحصيل المبلغ المتبقي بعد تسليم الشحنة</p>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <h4 class="text-[#353535] font-semibold mb-2">طريقة الدفع</h4>
+        <div class="space-y-3 mb-4">
+          <label class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 bg-[#00B8A9] rounded-full inline-block"></span>
+              <span>ماستركارد</span>
+            </div>
+            <span class="flex items-center gap-1 text-[#ff6f00]"><i class="fab fa-cc-mastercard text-2xl"></i></span>
+          </label>
+
+          <label class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white">
+            <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full inline-block border"></span><span>مدى</span></div>
+            <img src="assets/steps/marker-shadow.png" alt="mada" class="w-10 h-5 opacity-40" />
+          </label>
+
+          <label class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white">
+            <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full inline-block border"></span><span>فيزا كارد</span></div>
+            <i class="fab fa-cc-visa text-2xl text-blue-700"></i>
+          </label>
+
+          <label class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white">
+            <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full inline-block border"></span><span>أبل باي</span></div>
+            <i class="fab fa-apple-pay text-3xl"></i>
+          </label>
+
+          <label class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white">
+            <div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full inline-block border"></span><span>تمارا</span></div>
+            <img src="assets/steps/process.svg" alt="tamara" class="w-10 h-5 opacity-40" />
+          </label>
+        </div>
+
+        <!-- Actions -->
+        <div class="space-y-3">
+          <button class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors">دفع كاملًا الآن 897 ﷼</button>
+          <button class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors">دفع عربون فقط 179.4 ﷼</button>
+          <a href="quotes.html" class="block w-full bg-white border border-gray-300 text-[#353535] font-semibold text-center py-4 rounded-xl">تراجع</a>
+        </div>
+      </div>
+    </main>
+
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
+
+

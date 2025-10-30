@@ -128,6 +128,11 @@ $(document).ready(function () {
     $('#offers-icon').toggleClass('fa-chevron-up fa-chevron-down');
   };
 
+  // After accepting a company offer, navigate to payment page
+  window.confirmAccept = function () {
+    window.location.href = 'payment.html';
+  };
+
   // Ongoing details collapsible and map init
   window.toggleOngoingDetails = function (id) {
     const panel = $(`#ongoing-details-${id}`);
