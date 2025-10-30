@@ -140,12 +140,13 @@
         </div>
 
         <!-- Section Header -->
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center gap-2">
+        <button id="company-offers-toggle" onclick="toggleQuotesOffers()" class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3">
+          <i id="offers-icon" class="fas fa-chevron-up"></i>
+          <h3 class="text-[14px] font-semibold text-[#3C3D41] flex items-center gap-2">
             <i class="fas fa-tag text-[#3C3D41] text-lg"></i>
-            <h3 class="text-[14px] font-semibold text-[#3C3D41]">طلبات عروض الأسعار</h3>
-          </div>
-        </div>
+            طلبات عروض الأسعار
+          </h3>
+        </button>
 
         <!-- Offers list (same design as dashboard) -->
         <div id="company-offers" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
@@ -328,16 +329,31 @@
     </div>
 
     <!-- Accept Company Confirmation Modal -->
-    <div id="accept-confirmation-modal" class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop">
+    <div
+      id="accept-confirmation-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
       <div class="bg-white rounded-2xl p-4 max-w-sm w-full mx-4 relative text-center">
         <div class="relative mx-auto mb-2 w-32 h-32 flex items-center justify-center">
           <img src="assets/dashboard/question.svg" alt="Question" class="w-full h-auto" />
         </div>
         <h2 class="text-2xl font-bold text-[#151515] mb-2">قبول الشركة؟</h2>
-        <p class="text-[#737373] text-[14px] text-center mb-4">بمجرد اعتماد العرض، سيتم إلغاء العروض الأخرى والانتقال لإتمام الدفع. هل أنت متأكد؟</p>
+        <p class="text-[#737373] text-[14px] text-center mb-4">
+          بمجرد اعتماد العرض، سيتم إلغاء العروض الأخرى والانتقال لإتمام الدفع. هل أنت متأكد؟
+        </p>
         <div class="flex gap-3">
-          <button onclick="confirmAccept()" class="flex-1 px-6 py-4 bg-[#00B8A9] text-white text-base font-semibold rounded-lg hover:bg-[#009688] transition-colors">نعم</button>
-          <button onclick="hideModal('accept-confirmation-modal')" class="flex-1 px-6 py-4 bg-white border border-gray-300 text-gray-700 text-base font-semibold rounded-lg hover:bg-gray-50 transition-colors">تراجع</button>
+          <button
+            onclick="confirmAccept()"
+            class="flex-1 px-6 py-4 bg-[#00B8A9] text-white text-base font-semibold rounded-lg hover:bg-[#009688] transition-colors"
+          >
+            نعم
+          </button>
+          <button
+            onclick="hideModal('accept-confirmation-modal')"
+            class="flex-1 px-6 py-4 bg-white border border-gray-300 text-gray-700 text-base font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            تراجع
+          </button>
         </div>
       </div>
     </div>
@@ -345,6 +361,19 @@
     <script src="assets/js/translations.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
+      function toggleQuotesOffers() {
+        const list = document.getElementById('company-offers');
+        const icon = document.getElementById('offers-icon');
+        if (list.classList.contains('hidden')) {
+          list.classList.remove('hidden');
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          list.classList.add('hidden');
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      }
       window.confirmAccept = function () {
         if (typeof showNotification === 'function') {
           showNotification('تم قبول العرض بنجاح', 'success');
