@@ -117,3 +117,95 @@ body {
 .flex {
   display: flex;
 }
+
+/* Navbar Desktop/Mobile Media Queries */
+/* Desktop - show desktop navbar, hide mobile */
+@media (min-width: 1024px) {
+  /* Hide mobile navbar */
+  .lg\:hidden {
+    display: none !important;
+  }
+
+  /* Show desktop navbar with flex and full width */
+  nav#desktop-navbar {
+    display: flex !important;
+    width: 100% !important;
+  }
+
+  /* Ensure container and inner elements use flex */
+  #desktop-navbar .container {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  /* Ensure flex elements inside navbar work */
+  #desktop-navbar .flex {
+    display: flex !important;
+  }
+
+  /* Ensure navbar inner flex container works properly */
+  #desktop-navbar .flex.items-center.justify-between {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 5rem !important;
+  }
+}
+
+/* Mobile - hide desktop navbar, show mobile */
+@media (max-width: 1023px) {
+  /* Hide desktop navbar */
+  #desktop-navbar {
+    display: none !important;
+  }
+
+  /* Show mobile navbar */
+  .lg\:hidden {
+    display: block !important;
+  }
+}
+
+/* Desktop navbar base styles */
+#desktop-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+}
+
+/* Dashboard Sidebar Layout */
+@media (min-width: 1024px) {
+  /* Sidebar stays fixed on the right (RTL) */
+  #desktop-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 30;
+  }
+
+  /* Adjust main content to account for sidebar */
+  body:has(#desktop-sidebar) {
+    padding-right: 16rem; /* 256px = w-64 */
+  }
+}
+
+/* Smooth scrollbar for sidebar */
+#desktop-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+#desktop-sidebar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+#desktop-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}

@@ -26,19 +26,22 @@
     </script>
   </head>
   <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fafafa]">
-    <!-- Navbar -->
+    <!-- Logged-in Navbar -->
     <nav
-      class="hidden lg:block font-expo-arabic shadow-md bg-white text-gray-900 border-b border-gray-200"
+      id="desktop-navbar"
+      class="hidden lg:flex w-full font-expo-arabic shadow-md bg-white text-gray-900 border-b border-gray-200"
     >
       <div class="container mx-auto px-6">
-        <div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-20 w-full">
+          <!-- Page Title -->
           <div class="flex items-center order-3">
             <h1 class="text-2xl font-semibold" data-i18n="navigation.settings">الإعدادات</h1>
           </div>
 
+          <!-- Navigation Links -->
           <div class="flex items-center gap-8 order-2">
             <a
-              href="/"
+              href="index.html"
               class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
             >
               <span data-i18n="navigation.home">الرئيسية</span>
@@ -51,6 +54,15 @@
               class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
             >
               <span data-i18n="navigation.dashboard">لوحة التحكم</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-[#00B8A9]"
+              ></span>
+            </a>
+            <a
+              href="profile.html"
+              class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
+            >
+              <span data-i18n="navigation.profile">الملف الشخصي</span>
               <span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-[#00B8A9]"
               ></span>
@@ -69,8 +81,9 @@
               onclick="showModal('language-modal')"
               class="px-4 py-2 rounded-lg transition-colors text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-900"
             >
-              English
+              <span id="lang-btn">English</span>
             </button>
+
             <div class="relative">
               <button
                 id="user-menu-button"
