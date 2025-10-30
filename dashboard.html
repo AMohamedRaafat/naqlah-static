@@ -48,7 +48,7 @@
         <a href="/" class="flex items-center justify-center">
           <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
         </a>
-      </div>
+          </div>
 
       <!-- Navigation Menu -->
       <nav class="flex-1 px-4 py-6">
@@ -141,8 +141,8 @@
             <p class="text-xs text-gray-500">user@email.com</p>
           </div>
         </div>
-        <button
-          onclick="showModal('language-modal')"
+            <button
+              onclick="showModal('language-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
           <i class="fas fa-language text-lg"></i>
@@ -210,7 +210,7 @@
               <div class="flex justify-end p-4">
                 <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
                   <i class="fas fa-times text-xl"></i>
-                </button>
+              </button>
               </div>
 
               <!-- Menu Items -->
@@ -243,8 +243,8 @@
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="profile.html"
+                <a
+                  href="profile.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
@@ -291,8 +291,8 @@
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="settings.html"
+                <a
+                  href="settings.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
@@ -327,7 +327,7 @@
                     ></i>
                     <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
                   </button>
-                  <button
+                <button
                     onclick="showModal('logout-modal'); toggleMobileMenu();"
                     class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                   >
@@ -339,8 +339,8 @@
                     <span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
                       >تسجيل الخروج</span
                     >
-                  </button>
-                </div>
+                </button>
+              </div>
               </nav>
             </div>
           </div>
@@ -372,8 +372,8 @@
                 alt="No orders"
                 class="w-full max-w-sm mx-auto"
               />
-            </div>
-          </div>
+        </div>
+      </div>
 
           <!-- Request Move Button -->
           <div class="w-full max-w-md mx-auto px-4">
@@ -391,11 +391,11 @@
         <div id="orders-state" class="hidden flex-1 px-4 py-6 bg-[#fafafa]">
           <!-- Price Quotes Section Header -->
           <div class="flex items-center gap-2 mb-4">
-            <i class="fas fa-tag text-[#4B4B4B] text-lg"></i>
-            <h3 class="text-[16px] font-semibold text-[#4B4B4B]" data-i18n="dashboard.priceQuotes">
+            <i class="fas fa-tag text-[#3C3D41] text-lg"></i>
+            <h3 class="text-[14px] font-semibold text-[##C3D41]" data-i18n="dashboard.priceQuotes">
               طلبات عروض الأسعار
             </h3>
-          </div>
+      </div>
 
           <!-- Current Order Card -->
           <div class="bg-white rounded-2xl p-4 shadow-sm mb-4">
@@ -415,21 +415,21 @@
             </div>
 
             <!-- Order Details Collapsible -->
-            <div class="border-t border-gray-100 pt-3">
+            <div class="border-t border-gray-100 bg-gray-100 p-3">
               <button
                 onclick="toggleOrderDetails()"
                 id="order-details-toggle"
                 class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B] mb-3"
               >
-                <i class="fas fa-chevron-down" id="details-icon"></i>
                 <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
+                <i class="fas fa-chevron-down" id="details-icon"></i>
               </button>
 
-              <div id="order-details" class="hidden space-y-4 text-sm">
+              <div id="order-details" class="hidden px-2">
                 <!-- Personal Data -->
-                <div class="bg-[#FAFAFA] rounded-lg p-3">
+                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                   <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right"
+                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
                     data-i18n="dashboard.personalData"
                   >
                     البيانات الشخصية
@@ -442,14 +442,16 @@
                 </div>
 
                 <!-- Date and Time -->
-                <div class="bg-[#FAFAFA] rounded-lg p-3">
+                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                   <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right"
+                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
                     data-i18n="dashboard.dateAndTime"
                   >
                     الموعد والمرونة
                   </h5>
-                  <div class="flex items-center justify-end gap-3 text-[13px] text-[#868686]">
+                  <div
+                    class="flex items-center justify-start text-start gap-3 text-[13px] text-[#868686]"
+                  >
                     <span>11:30 ص</span>
                     <i class="fas fa-clock text-gray-400"></i>
                     <span>19.10.2025</span>
@@ -458,9 +460,9 @@
                 </div>
 
                 <!-- Current Address -->
-                <div class="bg-[#FAFAFA] rounded-lg p-3">
+                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                   <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right"
+                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
                     data-i18n="dashboard.currentAddress"
                   >
                     عنوان النقل الحالي
@@ -476,9 +478,9 @@
                 </div>
 
                 <!-- Destination Address -->
-                <div class="bg-[#FAFAFA] rounded-lg p-3">
+                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                   <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right"
+                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
                     data-i18n="dashboard.destinationAddress"
                   >
                     العنوان المراد النقل إليه
@@ -497,9 +499,9 @@
                 </div>
 
                 <!-- Additional Services -->
-                <div class="bg-[#FAFAFA] rounded-lg p-3">
+                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                   <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right"
+                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
                     data-i18n="dashboard.additionalServices"
                   >
                     الخدمات الإضافية
@@ -515,9 +517,9 @@
                 </div>
 
                 <!-- Furniture Details -->
-                <div class="bg-[#FAFAFA] rounded-lg p-3">
+                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                   <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right"
+                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
                     data-i18n="dashboard.furnitureDetails"
                   >
                     تفاصيل الأثاث
@@ -544,13 +546,13 @@
                         class="w-full h-20 object-cover rounded-lg"
                       />
                     </div>
-                  </div>
-                </div>
+            </div>
+          </div>
 
                 <!-- Location Map -->
-                <div class="bg-[#FAFAFA] rounded-lg p-3">
+                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                   <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right"
+                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
                     data-i18n="dashboard.location"
                   >
                     الموقع
@@ -558,7 +560,7 @@
                   <div class="h-48 bg-gray-200 rounded-lg overflow-hidden relative">
                     <div id="order-details-map" class="w-full h-full"></div>
                   </div>
-                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -569,11 +571,11 @@
             id="company-offers-toggle"
             class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
           >
-            <i class="fas fa-chevron-up" id="offers-icon"></i>
             <h4 class="text-[14px] font-medium text-[#4B4B4B]">
               <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
               <span class="text-[#868686]">(4)</span>
             </h4>
+            <i class="fas fa-chevron-up" id="offers-icon"></i>
           </button>
 
           <!-- Company Offers List -->
@@ -615,7 +617,7 @@
                             <img src="assets/icons/riyal.svg" alt="ريال" class="w-6 h-6" />
                           </p>
                           <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
-                        </div>
+              </div>
                         <button
                           onclick="showModal('accept-confirmation-modal')"
                           class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
@@ -623,10 +625,10 @@
                         >
                           قبول
                         </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
                 <!-- Services Tags -->
                 <div class="flex flex-wrap gap-2 mb-3">
@@ -745,13 +747,31 @@
                 </div>
               </div>
             </div>
+            <!-- Show More Button -->
+            <button
+              class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
+              data-i18n="dashboard.showMore"
+            >
+              <span class="inline-flex items-center gap-1">
+                <span class="mx-2 font-regular">أظهر المزيد</span>
+                <span class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"></span>
+                <span
+                  class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
+                  style="animation-delay: 0.2s"
+                ></span>
+                <span
+                  class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
+                  style="animation-delay: 0.4s"
+                ></span>
+              </span>
+            </button>
           </div>
 
           <!-- Ongoing Orders Section -->
           <div class="mt-6">
             <div class="flex items-center gap-2 mb-3">
-              <i class="fas fa-clipboard-list text-[#4B4B4B]"></i>
-              <h3 class="text-[16px] font-semibold text-[#4B4B4B]">الطلبات الجارية</h3>
+              <i class="fas fa-clipboard-list text-[##3C3D41]"></i>
+              <h3 class="text-[14px] font-semibold text-[##3C3D41]">الطلبات الجارية</h3>
             </div>
 
             <div class="bg-white rounded-2xl p-4 shadow-sm border border-[#E9E9E9]">
@@ -776,66 +796,99 @@
                 <div class="flex items-center gap-2">
                   <i class="far fa-clock"></i>
                   <span>11:30 ص</span>
-                </div>
-              </div>
+            </div>
+          </div>
 
               <div class="rounded-xl overflow-hidden border border-[#E5E7EB] mb-3">
                 <div id="ongoing-map-1" class="w-full h-48 z-0"></div>
               </div>
 
-              <div>
-                <button
+              <div class="bg-[#F7F7F7]">
+          <button
                   onclick="toggleOngoingDetails(1)"
                   class="w-full flex items-center justify-between bg-[#F7F7F7] rounded-xl px-4 py-3 text-[#353535] font-medium"
-                >
+          >
                   <span>مراجعة تفاصيل الطلب</span>
                   <i id="ongoing-details-icon-1" class="fas fa-chevron-down"></i>
-                </button>
-                <div id="ongoing-details-1" class="hidden">
-                  <div class="p-4 text-[13px] text-[#6B7280] leading-6 space-y-3 border border-[#F0F0F0] border-t-0 rounded-b-xl bg-white">
+          </button>
+                <div id="ongoing-details-1" class="hidden px-2">
+                  <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
                     <!-- Row: Personal + Date/Time -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div class="bg-[#FAFAFA] rounded-lg p-3">
-                        <h5 class="text-[13px] font-medium text-[#4B4B4B] mb-2">البيانات الشخصية</h5>
+                      <div class="bg-white rounded-lg p-3">
+                        <h5
+                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        >
+                          البيانات الشخصية
+                        </h5>
                         <div class="space-y-1">
                           <p>منصور الفهماوي</p>
                           <p>598839405</p>
                         </div>
                       </div>
-                      <div class="bg-[#FAFAFA] rounded-lg p-3">
-                        <h5 class="text-[13px] font-medium text-[#4B4B4B] mb-2">الموعد والمرونة</h5>
-                        <div class="flex items-center justify-end gap-4">
-                          <span class="flex items-center gap-1"><i class="far fa-calendar"></i> 19.10.2025</span>
-                          <span class="flex items-center gap-1"><i class="far fa-clock"></i> 11:30 ص</span>
+                      <div class="bg-white rounded-lg p-3">
+                        <h5
+                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        >
+                          الموعد والمرونة
+                        </h5>
+                        <div class="flex items-center justify-start gap-4">
+                          <span class="flex items-center gap-1"
+                            ><i class="far fa-calendar"></i> 19.10.2025</span
+                          >
+                          <span class="flex items-center gap-1"
+                            ><i class="far fa-clock"></i> 11:30 ص</span
+                          >
                         </div>
                       </div>
-                    </div>
+        </div>
 
                     <!-- Row: Pickup/Destination -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div class="bg-[#FAFAFA] rounded-lg p-3">
-                        <h5 class="text-[13px] font-medium text-[#4B4B4B] mb-2">عنوان النقل الحالي</h5>
+                      <div class="bg-white rounded-lg p-3">
+                        <h5
+                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        >
+                          عنوان النقل الحالي
+                        </h5>
                         <div class="space-y-1">
                           <p>الرياض، حي الملقا شارع أنس بن مالك 3679</p>
                           <p>بناء النور - طابق 4 - مصعد وسط</p>
                         </div>
                       </div>
-                      <div class="bg-[#FAFAFA] rounded-lg p-3">
-                        <h5 class="text-[13px] font-medium text-[#4B4B4B] mb-2">العنوان المراد النقل إليه</h5>
+                      <div class="bg-white rounded-lg p-3">
+                        <h5
+                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        >
+                          العنوان المراد النقل إليه
+                        </h5>
                         <div class="space-y-1">
                           <p>الرياض، حي العلا شارع فلسطين 5843</p>
                           <p>بناء النور - طابق 7 - مصعد كبير</p>
                         </div>
                       </div>
-                    </div>
+              </div>
 
                     <!-- Services -->
-                    <div class="bg-[#FAFAFA] rounded-lg p-3">
-                      <h5 class="text-[13px] font-medium text-[#4B4B4B] mb-2">الخدمات الإضافية</h5>
+                    <div class="bg-white rounded-lg p-3">
+                      <h5
+                        class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                      >
+                        الخدمات الإضافية
+                      </h5>
                       <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200">تغليف محكم</span>
-                        <span class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200">تأمين ضد الفقد والكسر</span>
-                        <span class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200">فك وتركيب: 3 مكيف - 3 دواليب - 1 مكتب</span>
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تغليف محكم</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تأمين ضد الفقد والكسر</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >فك وتركيب: 3 مكيف - 3 دواليب - 1 مكتب</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -843,28 +896,9 @@
               </div>
             </div>
           </div>
-
-          <!-- Show More Button -->
-          <button
-            class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
-            data-i18n="dashboard.showMore"
-          >
-            <span class="inline-flex items-center gap-1">
-              <span class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"></span>
-              <span
-                class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
-                style="animation-delay: 0.2s"
-              ></span>
-              <span
-                class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
-                style="animation-delay: 0.4s"
-              ></span>
-              <span class="mr-2">أظهر المزيد</span>
-            </span>
-          </button>
         </div>
       </main>
-    </div>
+      </div>
     <!-- End Main Content Area -->
 
     <!-- Modals -->
