@@ -182,18 +182,35 @@ body {
 @media (min-width: 1024px) {
   /* Sidebar stays fixed on the right (RTL) */
   #desktop-sidebar {
+    display: flex !important; /* ensure visible on lg */
     position: fixed;
     right: 0;
     top: 0;
     height: 100vh;
     overflow-y: auto;
     z-index: 30;
+    background: #ffffff;
+    border-left: 1px solid #e5e7eb; /* gray-200 */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
 
   /* Adjust main content to account for sidebar */
   body:has(#desktop-sidebar) {
     padding-right: 16rem; /* 256px = w-64 */
   }
+}
+
+/* Desktop sidebar item styling to mirror mobile list */
+#desktop-sidebar nav ul li a {
+  border-radius: 12px;
+}
+
+#desktop-sidebar nav ul li a i {
+  color: #a9a9a9;
+}
+
+#desktop-sidebar nav ul li a:hover i {
+  color: #ffffff;
 }
 
 /* Smooth scrollbar for sidebar */
