@@ -28,6 +28,15 @@
         <ul class="space-y-2">
           <li>
             <a
+              href="index.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-home text-lg"></i>
+              <span>الرئيسية</span>
+            </a>
+          </li>
+          <li>
+            <a
               href="dashboard.html"
               class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
             >
@@ -37,11 +46,56 @@
           </li>
           <li>
             <a
+              href="profile.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-user-circle text-lg"></i>
+              <span>معلومات الحساب</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="notifications.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-bell text-lg"></i>
+              <span>التنبيهات</span>
+            </a>
+          </li>
+          <li>
+            <a
               href="quotes.html"
               class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
             >
-              <i class="fas fa-tags text-lg"></i>
+              <i class="fas fa-file-invoice-dollar text-lg"></i>
               <span>عروض الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="orders.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-clipboard-list text-lg"></i>
+              <span>الطلبات الجارية والمنتهية</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="settings.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-cog text-lg"></i>
+              <span>الإعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-phone text-lg"></i>
+              <span>تواصل معنا</span>
             </a>
           </li>
         </ul>
@@ -131,150 +185,212 @@
       </div>
 
       <main class="flex-1 container mx-auto px-4 py-6 max-w-3xl">
-      <!-- Breadcrumb -->
-      <div class="mb-4 text-sm text-[#7E7E7E]">
-        <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
-        <span class="mx-2">—</span>
-        <a href="quotes.html" class="hover:text-[#00B8A9]">عروض شركات النقل</a>
-        <span class="mx-2">—</span>
-        <span class="text-[#312E37] font-medium">الدفع</span>
-      </div>
-
-      <!-- Payment Card -->
-      <div class="bg-white rounded-2xl shadow-sm p-4">
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="text-[18px] font-bold text-[#353535] flex items-center gap-2">
-            <i class="fas fa-wallet"></i>
-            الدفع
-          </h2>
+        <!-- Breadcrumb -->
+        <div class="mb-4 text-sm text-[#7E7E7E]">
+          <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <a href="quotes.html" class="hover:text-[#00B8A9]">عروض شركات النقل</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">الدفع</span>
         </div>
-        <div class="border border-[#ECECEC] rounded-xl p-4 mb-4">
-          <div
-            class="rounded-xl border border-[#E5E7EB] p-4 mb-4 flex items-center justify-between"
-          >
-            <div>
-              <div class="flex items-center gap-1 text-[#9D9D9D] text-sm mb-1">
-                <span>4.5</span>
-                <i class="fas fa-star text-yellow-400 text-xs"></i>
+
+        <!-- Payment Card -->
+        <div class="bg-white rounded-2xl shadow-sm p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-[18px] font-bold text-[#353535] flex items-center gap-2">
+              <i class="fas fa-wallet"></i>
+              الدفع
+            </h2>
+          </div>
+          <div class="border border-[#ECECEC] rounded-xl p-4 mb-4">
+            <div class="flex gap-3 p-3 rounded-xl border border-[#ECECEC]">
+              <div
+                style="width: 85px; height: 85px"
+                class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
+              >
+                <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
               </div>
-              <h3 class="text-[#353535] font-semibold mb-1">فاست موف لنقل الأثاث</h3>
-              <p class="text-[#9D9D9D] text-sm">الأحد · 3.15.2025 · 11:30</p>
+              <div class="text-right flex-1">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <h5 class="text-[14px] font-medium text-[#4B4B4B]">فاست موف لنقل الأثاث</h5>
+                    <div class="flex items-center gap-1">
+                      <span class="text-[12px] text-[#868686]">4.5</span>
+                      <i class="fas fa-star text-yellow-400 text-xs"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between mt-3 mb-3">
+                  <div class="text-left">
+                    <p class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1">
+                      780
+                      <span class="icon-riyal w-6 h-6"></span>
+                    </p>
+                    <p class="text-[12px] text-[#868686]">الأحد · 3.15.2025 · 11:30</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="text-left">
-              <p class="text-[24px] font-bold text-[#353535] flex items-center gap-1">
-                780
-                <img src="assets/icons/riyal.svg" alt="ريال" class="w-6 h-6" />
-              </p>
-              <div class="px-3 py-2 rounded-lg border border-[#E9E9E9] text-center mt-1">
-                <img
-                  src="assets/logo.svg"
-                  alt="logo"
-                  class="w-16 h-6 object-contain inline-block"
-                />
+
+            <!-- Financial breakdown -->
+            <div class="rounded-xl overflow-hidden mb-4">
+              <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
+                <div class="text-[#9D9D9D]">سعر النقل</div>
+                <div class="text-left font-semibold flex items-center gap-1 justify-end">
+                  780 <span class="icon-riyal w-5 h-5"></span>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
+                <div class="text-[#9D9D9D]">ضريبة القيمة المضافة %15</div>
+                <div class="text-left font-semibold flex items-center gap-1 justify-end">
+                  117 <span class="icon-riyal w-5 h-5"></span>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
+                <div class="text-[#9D9D9D]">الإجمالي</div>
+                <div class="text-left font-semibold flex items-center gap-1 justify-end">
+                  897 <span class="icon-riyal w-5 h-5"></span>
+                </div>
+              </div>
+              <div class="h-px bg-[#E5E7EB]"></div>
+              <div class="px-4 py-3 bg-[#F7FFFD]">
+                <div class="flex items-center justify-between">
+                  <div class="text-[#00B8A9] font-semibold">%20 عربون من أجرة النقل</div>
+                  <div class="text-[#00B8A9] font-bold flex items-center gap-1">
+                    179.4 <span class="icon-riyal w-5 h-5"></span>
+                  </div>
+                </div>
+                <p class="text-[#7B7B7B] text-[12px] mt-1">
+                  سيتم خصم العربون من المبلغ الإجمالي وتحصيل المبلغ المتبقي بعد تسليم الشحنة
+                </p>
               </div>
             </div>
           </div>
+          <!-- Selected Offer Summary -->
 
-          <!-- Financial breakdown -->
-          <div class="rounded-xl overflow-hidden mb-4">
-            <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-              <div class="text-[#9D9D9D]">سعر النقل</div>
-              <div class="text-left font-semibold">780 ﷼</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-              <div class="text-[#9D9D9D]">ضريبة القيمة المضافة %15</div>
-              <div class="text-left font-semibold">117 ﷼</div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-              <div class="text-[#9D9D9D]">الإجمالي</div>
-              <div class="text-left font-semibold">897 ﷼</div>
-            </div>
-            <div class="h-px bg-[#E5E7EB]"></div>
-            <div class="px-4 py-3 bg-[#F7FFFD]">
-              <div class="flex items-center justify-between">
-                <div class="text-[#00B8A9] font-semibold">%20 عربون من أجرة النقل</div>
-                <div class="text-[#00B8A9] font-bold">179.4 ﷼</div>
+          <!-- Payment Method -->
+          <h4 class="text-[#353535] font-semibold mb-2">طريقة الدفع</h4>
+          <div class="space-y-3 mb-4">
+            <label
+              class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-4 bg-white cursor-pointer"
+            >
+              <div class="flex items-center gap-3">
+                <img src="assets/payments/mastercard.svg" alt="mastercard" class="w-10 h-10" />
+
+                 <span class="text-[14px] text-[#353535]" data-i18n="payments.mastercard">ماستركارد</span>
               </div>
-              <p class="text-[#7B7B7B] text-[12px] mt-1">
-                سيتم خصم العربون من المبلغ الإجمالي وتحصيل المبلغ المتبقي بعد تسليم الشحنة
-              </p>
-            </div>
+              <input
+                id="pay-mastercard"
+                type="radio"
+                name="payment-method"
+                value="mastercard"
+                class="sr-only peer"
+                checked
+              />
+              <span
+                class="w-4 h-4 rounded-full border border-gray-400 peer-checked:bg-[#00B8A9] peer-checked:border-[#00B8A9]"
+              ></span>
+            </label>
+
+            <label
+              class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
+            >
+              <div class="flex items-center gap-3">
+                <img src="assets/payments/mada.svg" alt="mada" class="w-10 h-10" />
+                 <span class="text-[14px] text-[#353535]" data-i18n="payments.mada">مدى</span>
+              </div>
+              <input
+                id="pay-mada"
+                type="radio"
+                name="payment-method"
+                value="mada"
+                class="sr-only peer"
+              />
+              <span
+                class="w-4 h-4 rounded-full border border-gray-400 peer-checked:bg-[#00B8A9] peer-checked:border-[#00B8A9]"
+              ></span>
+            </label>
+
+            <label
+              class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
+            >
+              <div class="flex items-center gap-4">
+                <img src="assets/payments/visa.svg" alt="visa" class="w-10 h-10" />
+                 <span class="text-[14px] text-[#353535]" data-i18n="payments.visa">فيزا كارد</span>
+              </div>
+              <input
+                id="pay-visa"
+                type="radio"
+                name="payment-method"
+                value="visa"
+                class="sr-only peer"
+              />
+              <span
+                class="w-4 h-4 rounded-full border border-gray-400 peer-checked:bg-[#00B8A9] peer-checked:border-[#00B8A9]"
+              ></span>
+            </label>
+
+            <label
+              class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
+            >
+              <div class="flex items-center gap-3">
+                <img src="assets/payments/applepay.svg" alt="applepay" class="w-10 h-10" />
+                 <span class="text-[14px] text-[#353535]" data-i18n="payments.applepay">أبل باي</span>
+              </div>
+              <input
+                id="pay-apple"
+                type="radio"
+                name="payment-method"
+                value="applepay"
+                class="sr-only peer"
+              />
+              <span
+                class="w-4 h-4 rounded-full border border-gray-400 peer-checked:bg-[#00B8A9] peer-checked:border-[#00B8A9]"
+              ></span>
+            </label>
+
+            <label
+              class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
+            >
+              <div class="flex items-center gap-3">
+                <img src="assets/payments/tamara.svg" alt="tamara" class="w-10 h-10" />
+                 <span class="text-[14px] text-[#353535]" data-i18n="payments.tamara">تمارا</span>
+              </div>
+              <input
+                id="pay-tamara"
+                type="radio"
+                name="payment-method"
+                value="tamara"
+                class="sr-only peer"
+              />
+              <span
+                class="w-4 h-4 rounded-full border border-gray-400 peer-checked:bg-[#00B8A9] peer-checked:border-[#00B8A9]"
+              ></span>
+            </label>
+          </div>
+
+          <!-- Actions -->
+          <div class="space-y-3">
+            <button
+              class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
+            >
+              <span>دفع كاملًا الآن</span>
+              <span class="flex items-center gap-1"><span>897</span><span class="icon-riyal w-5 h-5"></span></span>
+            </button>
+            <button
+              class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-2"
+            >
+              <span>دفع عربون فقط</span>
+              <span class="flex items-center gap-1"><span>179.4</span><span class="icon-riyal w-5 h-5"></span></span>
+            </button>
+            <a
+              href="quotes.html"
+              class="block w-full bg-white border border-gray-300 text-[#353535] font-semibold text-center py-4 rounded-xl"
+              >تراجع</a
+            >
           </div>
         </div>
-        <!-- Selected Offer Summary -->
-
-        <!-- Payment Method -->
-        <h4 class="text-[#353535] font-semibold mb-2">طريقة الدفع</h4>
-        <div class="space-y-3 mb-4">
-          <label
-            class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white"
-          >
-            <div class="flex items-center gap-3">
-              <span class="w-3 h-3 bg-[#00B8A9] rounded-full inline-block"></span>
-              <span>ماستركارد</span>
-            </div>
-            <span class="flex items-center gap-1 text-[#ff6f00]"
-              ><i class="fab fa-cc-mastercard text-2xl"></i
-            ></span>
-          </label>
-
-          <label
-            class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white"
-          >
-            <div class="flex items-center gap-3">
-              <span class="w-3 h-3 rounded-full inline-block border"></span><span>مدى</span>
-            </div>
-            <img src="assets/steps/marker-shadow.png" alt="mada" class="w-10 h-5 opacity-40" />
-          </label>
-
-          <label
-            class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white"
-          >
-            <div class="flex items-center gap-3">
-              <span class="w-3 h-3 rounded-full inline-block border"></span><span>فيزا كارد</span>
-            </div>
-            <i class="fab fa-cc-visa text-2xl text-blue-700"></i>
-          </label>
-
-          <label
-            class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white"
-          >
-            <div class="flex items-center gap-3">
-              <span class="w-3 h-3 rounded-full inline-block border"></span><span>أبل باي</span>
-            </div>
-            <i class="fab fa-apple-pay text-3xl"></i>
-          </label>
-
-          <label
-            class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white"
-          >
-            <div class="flex items-center gap-3">
-              <span class="w-3 h-3 rounded-full inline-block border"></span><span>تمارا</span>
-            </div>
-            <img src="assets/steps/process.svg" alt="tamara" class="w-10 h-5 opacity-40" />
-          </label>
-        </div>
-
-        <!-- Actions -->
-        <div class="space-y-3">
-          <button
-            class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors"
-          >
-            دفع كاملًا الآن 897 ﷼
-          </button>
-          <button
-            class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-xl transition-colors"
-          >
-            دفع عربون فقط 179.4 ﷼
-          </button>
-          <a
-            href="quotes.html"
-            class="block w-full bg-white border border-gray-300 text-[#353535] font-semibold text-center py-4 rounded-xl"
-            >تراجع</a
-          >
-        </div>
-      </div>
-    </main>
+      </main>
 
       <!-- Language Modal (reuse) -->
       <div
@@ -293,15 +409,30 @@
           </div>
           <div class="px-4 pb-4">
             <div class="border border-[#E5E7EB] rounded-xl overflow-hidden">
-              <button type="button" onclick="selectLocale('ar')" class="w-full flex items-center justify-between px-4 py-3">
-                <span class="text-[#00B8A9]">العربية</span><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
+              <button
+                type="button"
+                onclick="selectLocale('ar')"
+                class="w-full flex items-center justify-between px-4 py-3"
+              >
+                <span class="text-[#00B8A9]">العربية</span
+                ><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
               </button>
               <div class="h-px bg-[#E5E7EB]"></div>
-              <button type="button" onclick="selectLocale('en')" class="w-full flex items-center justify-between px-4 py-3">
-                <span class="text-[#353535]">English</span><i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
+              <button
+                type="button"
+                onclick="selectLocale('en')"
+                class="w-full flex items-center justify-between px-4 py-3"
+              >
+                <span class="text-[#353535]">English</span
+                ><i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
               </button>
             </div>
-            <button onclick="saveSelectedLocale()" class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors">حفظ</button>
+            <button
+              onclick="saveSelectedLocale()"
+              class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
+            >
+              حفظ
+            </button>
           </div>
         </div>
       </div>

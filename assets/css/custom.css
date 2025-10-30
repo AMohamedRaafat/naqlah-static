@@ -191,7 +191,7 @@ body {
     z-index: 30;
     background: #ffffff;
     border-left: 1px solid #e5e7eb; /* gray-200 */
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   }
 
   /* Adjust main content to account for sidebar */
@@ -225,4 +225,12 @@ body {
 
 #desktop-sidebar::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+/* Riyal icon that adopts current text color */
+.icon-riyal {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: url('assets/icons/riyal.svg') no-repeat center / contain;
+  mask: url('assets/icons/riyal.svg') no-repeat center / contain;
 }

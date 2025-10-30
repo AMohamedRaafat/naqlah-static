@@ -103,6 +103,13 @@ const translations = {
             "faq": "FAQ",
             "copyright": "All rights reserved to Naqlah Company"
         },
+        "payments": {
+            "mastercard": "Mastercard",
+            "mada": "Mada",
+            "visa": "Visa Card",
+            "applepay": "Apple Pay",
+            "tamara": "Tamara"
+        },
         "login": {
             "title": "Login",
             "subtitle": "Please enter your phone number",
@@ -274,6 +281,13 @@ const translations = {
             "termsConditions": "الشروط والأحكام",
             "faq": "الأسئلة والإستفسارات",
             "copyright": "جميع الحقوق محفوظة لدى شركة نقلة"
+        },
+        "payments": {
+            "mastercard": "ماستركارد",
+            "mada": "مدى",
+            "visa": "فيزا كارد",
+            "applepay": "أبل باي",
+            "tamara": "تمارا"
         },
         "login": {
             "title": "تسجيل الدخول",
