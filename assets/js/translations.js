@@ -131,6 +131,16 @@ const translations = {
             "payDepositOnly": "Pay deposit only",
             "back": "Back"
         },
+        "orderDetails": {
+            "title": "Order Details",
+            "financialStatus": "Financial status",
+            "depositPaid": "deposit paid of",
+            "payRemaining": "Pay remaining amount",
+            "company": "Moving company",
+            "contactNumber": "Contact Number",
+            "currentAddress": "Current address",
+            "destinationAddress": "Destination address"
+        },
         "login": {
             "title": "Login",
             "subtitle": "Please enter your phone number",
@@ -330,6 +340,16 @@ const translations = {
             "payFullNow": "دفع كاملًا الآن",
             "payDepositOnly": "دفع عربون فقط",
             "back": "تراجع"
+        },
+        "orderDetails": {
+            "title": "تفاصيل الطلب",
+            "financialStatus": "الحالة المالية",
+            "depositPaid": "عربون دُفع من أصل",
+            "payRemaining": "أكمل دفع المبلغ المتبقي",
+            "company": "شركة النقل",
+            "contactNumber": "رقم التواصل",
+            "currentAddress": "عنوان النقل الحالي",
+            "destinationAddress": "العنوان المراد النقل إليه"
         },
         "login": {
             "title": "تسجيل الدخول",

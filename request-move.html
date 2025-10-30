@@ -1352,27 +1352,46 @@
     </div>
 
     <!-- Language Modal -->
-    <div id="language-modal" class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop">
+    <div
+      id="language-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
       <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-4 relative">
         <div class="relative pt-6 pb-2">
           <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
-          <button onclick="hideModal('language-modal')" class="absolute top-3 left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700">
+          <button
+            onclick="hideModal('language-modal')"
+            class="absolute top-3 left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+          >
             <i class="fas fa-times text-sm"></i>
           </button>
         </div>
         <div class="px-4 pb-4">
           <div class="border border-[#E5E7EB] rounded-xl overflow-hidden">
-            <button type="button" onclick="selectLocale('ar')" class="w-full flex items-center justify-between px-4 py-3">
+            <button
+              type="button"
+              onclick="selectLocale('ar')"
+              class="w-full flex items-center justify-between px-4 py-3"
+            >
               <span class="text-[#00B8A9]">العربية</span>
               <i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
             </button>
             <div class="h-px bg-[#E5E7EB]"></div>
-            <button type="button" onclick="selectLocale('en')" class="w-full flex items-center justify-between px-4 py-3">
+            <button
+              type="button"
+              onclick="selectLocale('en')"
+              class="w-full flex items-center justify-between px-4 py-3"
+            >
               <span class="text-[#353535]">English</span>
               <i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
             </button>
           </div>
-          <button onclick="saveSelectedLocale()" class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors">حفظ</button>
+          <button
+            onclick="saveSelectedLocale()"
+            class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
+          >
+            حفظ
+          </button>
         </div>
       </div>
     </div>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="orderDetails.title">تفاصيل الطلب - Naqlah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+  </head>
+  <body class="flex min-h-screen bg-[#fafafa] font-expo-arabic">
+    <!-- Desktop Sidebar -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="index.html" class="flex items-center justify-center"
+          ><img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="index.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              ><i class="fas fa-home text-lg"></i><span>الرئيسية</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="dashboard.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              ><i class="fas fa-th-large text-lg"></i><span>لوحة التحكم</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="orders.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#00B8A9] text-white transition-colors"
+              ><i class="fas fa-clipboard-list text-lg"></i
+              ><span>الطلبات الجارية والمنتهية</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="p-4 border-t border-gray-200">
+        <button
+          onclick="showModal('language-modal')"
+          class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
+        >
+          <i class="fas fa-language text-lg"></i><span id="lang-btn">English</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex flex-col flex-1">
+      <!-- Mobile Navbar -->
+      <div class="lg:hidden bg-white border-b border-gray-200">
+        <div class="flex items-center justify-between px-4 py-4">
+          <h1 class="text-lg font-semibold" data-i18n="orderDetails.title">تفاصيل الطلب</h1>
+          <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
+            <a
+              href="profile.html"
+              class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
+            ></a>
+            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
+              <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+            </button>
+          </div>
+        </div>
+        <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+          <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+          <div
+            class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+            style="animation: slideInRight 0.3s ease-out"
+          >
+            <div class="flex flex-col h-full">
+              <div class="flex justify-end p-4">
+                <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                  <i class="fas fa-times text-xl"></i>
+                </button>
+              </div>
+              <nav class="flex-1 px-4 text-black">
+                <ul class="space-y-0">
+                  <li>
+                    <a
+                      href="dashboard.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      ><i class="fas fa-th-large w-6 h-6 text-[#a9a9a9]"></i
+                      ><span class="text-[15px] text-gray-800">لوحة التحكم</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="orders.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      ><i class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9]"></i
+                      ><span class="text-[15px] text-[#00B8A9] font-semibold"
+                        >الطلبات الجارية والمنتهية</span
+                      ></a
+                    >
+                  </li>
+                </ul>
+                <div class="border-t border-gray-200 mt-4 py-3">
+                  <button
+                    onclick="showModal('language-modal'); toggleMobileMenu();"
+                    class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
+                  >
+                    <i class="fas fa-language w-6 h-6 text-[#a9a9a9]"></i
+                    ><span class="text-gray-800 text-[15px]">اللغة</span>
+                  </button>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="flex-1 container mx-auto px-4 py-6">
+        <!-- Breadcrumb -->
+        <div class="mb-4 text-sm text-[#7E7E7E]">
+          <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <a href="orders.html" class="hover:text-[#00B8A9]">الطلبات الجارية والمنتهية</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium" data-i18n="orderDetails.title"
+            >تفاصيل الطلب</span
+          >
+        </div>
+        <div class="bg-white rounded-2xl border border-[#ECECEC] p-4 mb-4">
+          <!-- Header card -->
+          <div class="bg-white p-4 mb-4">
+            <div class="flex items-start justify-between">
+              <div class="text-right">
+                <h4 class="text-[#353535] text-[14px] font-medium">منزل جديد</h4>
+                <p class="text-[#868686] text-[12px]">#ORD938274</p>
+              </div>
+              <span
+                class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
+                >بانتظار البدء</span
+              >
+            </div>
+            <div class="flex items-center gap-4 text-[13px] text-[#6B7280] my-3">
+              <div class="flex items-center gap-2">
+                <i class="far fa-clock"></i><span>11:30 ص</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="far fa-calendar"></i><span>19.10.2025</span>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-[#E5E7EB]">
+              <div id="order-details-map" class="w-full h-56 z-0"></div>
+            </div>
+          </div>
+
+          <!-- Financial status -->
+          <div class="bg-white p-4 mb-4">
+            <h3
+              class="text-[#353535] text-[16px] font-semibold mb-3"
+              data-i18n="orderDetails.financialStatus"
+            >
+              الحالة المالية
+            </h3>
+            <p class="text-[#353535] text-[14px] mb-3">
+              <span class="text-[#00B8A9] font-bold">179.4</span>
+              <span class="icon-riyal w-4 h-4 inline-block align-[-2px]"></span>
+              <span data-i18n="orderDetails.depositPaid">عربون دُفع من أصل</span>
+              <span class="font-bold">897</span>
+              <span class="icon-riyal w-4 h-4 inline-block align-[-2px]"></span>
+            </p>
+            <button
+              class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl"
+              data-i18n="orderDetails.payRemaining"
+            >
+              أكمل دفع المبلغ المتبقي
+            </button>
+          </div>
+
+          <!-- Company info -->
+          <div class="bg-white p-4 mb-4">
+            <h3
+              class="text-[#353535] text-[16px] font-semibold mb-3"
+              data-i18n="orderDetails.company"
+            >
+              شركة النقل
+            </h3>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-16 h-10 bg-gray-100 rounded-lg border border-[#E5E7EB] flex items-center justify-center"
+                >
+                  <i class="fas fa-truck text-[#00B8A9]"></i>
+                </div>
+                <div class="text-[#353535]">فاست موف لنقل الأثاث</div>
+              </div>
+              <div class="text-left text-[#00B8A9]" dir="ltr">+966958364789</div>
+            </div>
+          </div>
+
+          <!-- Addresses -->
+          <div class="bg-white p-4 mb-4">
+            <h3
+              class="text-[#353535] text-[16px] font-semibold mb-3"
+              data-i18n="orderDetails.currentAddress"
+            >
+              عنوان النقل الحالي
+            </h3>
+            <div class="text-[#6B7280] leading-7 text-[14px]">
+              <p>الرياض</p>
+              <p>حي الملقا شارع أنس بن مالك، 3679</p>
+              <p>بناء النور</p>
+              <p>طابق 4</p>
+            </div>
+          </div>
+          <div class="bg-white p-4 mb-4">
+            <h3
+              class="text-[#353535] text-[16px] font-semibold mb-3"
+              data-i18n="orderDetails.destinationAddress"
+            >
+              العنوان المراد النقل إليه
+            </h3>
+            <div class="text-[#6B7280] leading-7 text-[14px]">
+              <p>الرياض</p>
+              <p>حي العلا، شارع فلسطين 5843</p>
+              <p>بناء النور</p>
+              <p>طابق 7</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Language Modal -->
+      <div
+        id="language-modal"
+        class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+      >
+        <div class="bg-white rounded-md max-w-sm w-[90%] mx-4 relative">
+          <div class="relative pt-6 pb-2">
+            <h2
+              class="text-center text-lg font-semibold text-[#353535]"
+              data-i18n="common.language"
+            >
+              اللغة
+            </h2>
+            <button
+              onclick="hideModal('language-modal')"
+              class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+            >
+              <i class="fas fa-times text-sm"></i>
+            </button>
+          </div>
+          <div class="px-4 pb-4">
+            <div class="border border-[#E5E7EB] rounded-md overflow-hidden">
+              <button
+                type="button"
+                onclick="selectLocale('ar')"
+                class="w-full flex items-center justify-between px-4 py-3"
+              >
+                <span class="text-[#00B8A9]">العربية</span
+                ><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
+              </button>
+              <div class="h-px bg-[#E5E7EB]"></div>
+              <button
+                type="button"
+                onclick="selectLocale('en')"
+                class="w-full flex items-center justify-between px-4 py-3"
+              >
+                <span class="text-[#353535]">English</span
+                ><i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
+              </button>
+            </div>
+            <button
+              onclick="saveSelectedLocale()"
+              class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-md transition-colors"
+              data-i18n="common.save"
+            >
+              حفظ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof L === 'undefined') return;
+        const start = [24.7136, 46.6753];
+        const end = [24.746, 46.711];
+        const map = L.map('order-details-map', {
+          zoomControl: true,
+          attributionControl: false,
+        }).setView(start, 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(
+          map
+        );
+        if (L.Routing && L.Routing.control) {
+          L.Routing.control({
+            waypoints: [L.latLng(start[0], start[1]), L.latLng(end[0], end[1])],
+            addWaypoints: false,
+            draggableWaypoints: false,
+            routeWhileDragging: false,
+            fitSelectedRoutes: true,
+            show: false,
+            router: L.Routing.osrmv1({ serviceUrl: 'https://router.project-osrm.org/route/v1' }),
+            lineOptions: { styles: [{ color: '#00B8A9', weight: 4, opacity: 0.9 }] },
+            createMarker: () => null,
+          }).addTo(map);
+        }
+      });
+    </script>
+  </body>
+</html>

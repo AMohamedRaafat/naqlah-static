@@ -230,7 +230,13 @@ body {
 /* Riyal icon that adopts current text color */
 .icon-riyal {
   display: inline-block;
-  background-color: currentColor;
-  -webkit-mask: url('assets/icons/riyal.svg') no-repeat center / contain;
-  mask: url('assets/icons/riyal.svg') no-repeat center / contain;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../icons/riyal.svg');
+  mask-image: url('../icons/riyal.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }

@@ -6,19 +6,390 @@
     <title>الطلبات - Naqlah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="assets/css/custom.css" />
     <script src="assets/js/tailwind-config.js"></script>
   </head>
-  <body class="min-h-screen bg-[#fafafa] font-expo-arabic">
-    <div class="container mx-auto px-4 py-12 text-center">
-      <h1 class="text-2xl font-semibold text-[#353535] mb-2">الطلبات الجارية والمنتهية</h1>
-      <p class="text-[#868686]">سيتم إضافة صفحة الطلبات هنا قريبًا.</p>
-      <a href="dashboard.html" class="inline-block mt-6 text-[#00B8A9]">العودة إلى لوحة التحكم</a>
+  <body class="flex min-h-screen bg-[#fafafa] font-expo-arabic">
+    <!-- Desktop Sidebar -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="index.html" class="flex items-center justify-center">
+          <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
+        </a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="index.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-home text-lg"></i>
+              <span>الرئيسية</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="dashboard.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-th-large text-lg"></i>
+              <span>لوحة التحكم</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="profile.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-user-circle text-lg"></i>
+              <span>معلومات الحساب</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="notifications.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-bell text-lg"></i>
+              <span>التنبيهات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="quotes.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-file-invoice-dollar text-lg"></i>
+              <span>عروض الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="orders.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#00B8A9] text-white transition-colors"
+            >
+              <i class="fas fa-clipboard-list text-lg"></i>
+              <span>الطلبات الجارية والمنتهية</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="settings.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-cog text-lg"></i>
+              <span>الإعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+            >
+              <i class="fas fa-phone text-lg"></i>
+              <span>تواصل معنا</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="p-4 border-t border-gray-200">
+        <button
+          onclick="showModal('language-modal')"
+          class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
+        >
+          <i class="fas fa-language text-lg"></i>
+          <span id="lang-btn">English</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex flex-col flex-1">
+      <!-- Mobile Navbar -->
+      <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
+        <div class="flex items-center justify-between px-4 py-4">
+          <h1 class="text-lg font-semibold">الطلبات الجارية والمنتهية</h1>
+          <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
+            <a
+              href="profile.html"
+              class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
+            ></a>
+            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
+              <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Sidebar -->
+        <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+          <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+          <div
+            class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+            style="animation: slideInRight 0.3s ease-out"
+          >
+            <div class="flex flex-col h-full">
+              <div class="flex justify-end p-4">
+                <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                  <i class="fas fa-times text-xl"></i>
+                </button>
+              </div>
+              <nav class="flex-1 px-4 text-black">
+                <ul class="space-y-0">
+                  <li>
+                    <a
+                      href="dashboard.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i
+                        class="fas fa-th-large w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-gray-800">لوحة التحكم</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="quotes.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i
+                        class="fas fa-tags w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-gray-800">عروض الأسعار</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="orders.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i
+                        class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-[#00B8A9] font-semibold"
+                        >الطلبات الجارية والمنتهية</span
+                      >
+                    </a>
+                  </li>
+                </ul>
+                <div class="border-t border-gray-200 mt-4 py-3">
+                  <button
+                    onclick="showModal('language-modal'); toggleMobileMenu();"
+                    class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
+                  >
+                    <i
+                      class="fas fa-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-gray-800 text-[15px]">اللغة</span>
+                  </button>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <main class="flex-1 container mx-auto px-4 py-6">
+        <!-- Breadcrumb -->
+        <div class="mb-4 text-sm text-[#7E7E7E]">
+          <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">الطلبات الجارية والمنتهية</span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex items-center gap-3 mb-4">
+          <button
+            id="active-tab"
+            class="px-4 py-2 rounded-md text-[#353535] border-none border-[#CFFAF3] flex-1"
+          >
+            الطلبات الجارية
+          </button>
+          <button
+            id="completed-tab"
+            class="px-4 py-2 rounded-md border border-[#01B4AA] text-[#01B4AA] bg-white flex-1"
+          >
+            الطلبات المنتهية
+          </button>
+        </div>
+
+        <!-- Active Orders -->
+        <div id="active-orders" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Order Card 1 -->
+          <a
+            href="order-details.html"
+            class="block bg-white rounded-2xl border border-[#ECECEC] p-4"
+          >
+            <div class="flex items-start justify-between">
+              <div class="text-right">
+                <h4 class="text-[#353535] text-[14px] font-medium">منزل جديد</h4>
+                <p class="text-[#868686] text-[12px]">#ORD938274</p>
+              </div>
+              <span
+                class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
+                data-i18n="dashboard.waitingForQuote"
+              >
+                <span data-i18n="orders.waitingForStart"> بإنتظار البدء </span>
+              </span>
+            </div>
+            <div class="flex items-center gap-4 text-[13px] text-[#6B7280] my-3">
+              <div class="flex items-center gap-2">
+                <i class="far fa-clock"></i>
+                <span>11:30 ص</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="far fa-calendar"></i>
+                <span>19.10.2025</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+              <div class="rounded-xl overflow-hidden border border-[#E5E7EB]">
+                <div id="order1-map" class="w-full h-40 z-0"></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Order Card 2 -->
+          <a
+            href="order-details.html"
+            class="block bg-white rounded-2xl border border-[#ECECEC] p-4"
+          >
+            <div class="flex items-start justify-between">
+              <div class="text-right">
+                <h4 class="text-[#353535] text-[14px] font-medium">نقل لحي الزهرة</h4>
+                <p class="text-[#868686] text-[12px]">#ORD938274</p>
+              </div>
+              <span
+                class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
+              >
+                <span data-i18n="orders.waitingForDelivery"> التوجة الى موقع التسليم </span>
+              </span>
+            </div>
+            <div class="flex items-center gap-4 text-[13px] text-[#6B7280] my-3">
+              <div class="flex items-center gap-2">
+                <i class="far fa-clock"></i>
+                <span>11:30 ص</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="far fa-calendar"></i>
+                <span>19.10.2025</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+              <div class="rounded-xl overflow-hidden border border-[#E5E7EB]">
+                <div id="order2-map" class="w-full h-40 z-0"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Completed Orders -->
+        <div id="completed-orders" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <a
+            href="order-details.html"
+            class="block bg-white rounded-2xl border border-[#ECECEC] p-4"
+          >
+            <div class="flex items-start justify-between">
+              <div class="text-right">
+                <h4 class="text-[#353535] text-[14px] font-medium">منزل قديم</h4>
+                <p class="text-[#868686] text-[12px]">#ORD825610</p>
+              </div>
+              <span
+                class="px-4 py-2 rounded-lg text-[#16A34A] bg-[#ECFDF5] border border-[#A7F3D0] text-[12px]"
+                >تم التسليم</span
+              >
+            </div>
+            <div class="flex items-center gap-4 text-[13px] text-[#6B7280] my-3">
+              <div class="flex items-center gap-2">
+                <i class="far fa-clock"></i><span>09:10 ص</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="far fa-calendar"></i><span>12.08.2025</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+              <div class="rounded-xl overflow-hidden border border-[#E5E7EB]">
+                <div id="order3-map" class="w-full h-40 z-0"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </main>
+
+      <!-- Language Modal -->
+      <div
+        id="language-modal"
+        class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+      >
+        <div class="bg-white rounded-md max-w-sm w-[90%] mx-4 relative">
+          <div class="relative pt-6 pb-2">
+            <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
+            <button
+              onclick="hideModal('language-modal')"
+              class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+            >
+              <i class="fas fa-times text-sm"></i>
+            </button>
+          </div>
+          <div class="px-4 pb-4">
+            <div class="border border-[#E5E7EB] rounded-md overflow-hidden">
+              <button
+                type="button"
+                onclick="selectLocale('ar')"
+                class="w-full flex items-center justify-between px-4 py-3"
+              >
+                <span class="text-[#00B8A9]">العربية</span
+                ><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
+              </button>
+              <div class="h-px bg-[#E5E7EB]"></div>
+              <button
+                type="button"
+                onclick="selectLocale('en')"
+                class="w-full flex items-center justify-between px-4 py-3"
+              >
+                <span class="text-[#353535]">English</span
+                ><i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
+              </button>
+            </div>
+            <button
+              onclick="saveSelectedLocale()"
+              class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-md transition-colors"
+            >
+              حفظ
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/orders.js"></script>
   </body>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/app.js"></script>
 </html>
-
-
