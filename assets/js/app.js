@@ -113,12 +113,36 @@ function showModal(modalId) {
   // Open the requested modal
   $(`#${modalId}`).removeClass('hidden').addClass('flex');
   $('body').css('overflow', 'hidden');
+
+  // Initialize language modal state
+  if (modalId === 'language-modal') {
+    const locale = localStorage.getItem('locale') || 'ar';
+    window.selectedLocale = locale;
+    updateLanguageChecks(locale);
+  }
 }
 
 function hideModal(modalId) {
   $(`#${modalId}`).removeClass('flex').addClass('hidden');
   $('body').css('overflow', 'auto');
 }
+
+// Language modal helpers
+function updateLanguageChecks(locale) {
+  $('#lang-check-ar').toggleClass('hidden', locale !== 'ar');
+  $('#lang-check-en').toggleClass('hidden', locale !== 'en');
+}
+
+window.selectLocale = function (locale) {
+  window.selectedLocale = locale;
+  updateLanguageChecks(locale);
+};
+
+window.saveSelectedLocale = function () {
+  const locale = window.selectedLocale || 'ar';
+  setLanguage(locale);
+  hideModal('language-modal');
+};
 
 // Toggle password visibility
 function togglePasswordVisibility(inputId) {
