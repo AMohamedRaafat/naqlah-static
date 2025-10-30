@@ -48,7 +48,7 @@
         <a href="/" class="flex items-center justify-center">
           <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
         </a>
-      </div>
+          </div>
 
       <!-- Navigation Menu -->
       <nav class="flex-1 px-4 py-6">
@@ -141,8 +141,8 @@
             <p class="text-xs text-gray-500">user@email.com</p>
           </div>
         </div>
-        <button
-          onclick="showModal('language-modal')"
+            <button
+              onclick="showModal('language-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
           <i class="fas fa-language text-lg"></i>
@@ -210,7 +210,7 @@
               <div class="flex justify-end p-4">
                 <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
                   <i class="fas fa-times text-xl"></i>
-                </button>
+              </button>
               </div>
 
               <!-- Menu Items -->
@@ -243,8 +243,8 @@
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="profile.html"
+                <a
+                  href="profile.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
@@ -291,8 +291,8 @@
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="settings.html"
+                <a
+                  href="settings.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
@@ -327,7 +327,7 @@
                     ></i>
                     <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
                   </button>
-                  <button
+                <button
                     onclick="showModal('logout-modal'); toggleMobileMenu();"
                     class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                   >
@@ -339,8 +339,8 @@
                     <span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
                       >تسجيل الخروج</span
                     >
-                  </button>
-                </div>
+                </button>
+              </div>
               </nav>
             </div>
           </div>
@@ -372,8 +372,8 @@
                 alt="No orders"
                 class="w-full max-w-sm mx-auto"
               />
-            </div>
-          </div>
+        </div>
+      </div>
 
           <!-- Request Move Button -->
           <div class="w-full max-w-md mx-auto px-4">
@@ -395,7 +395,7 @@
             <h3 class="text-[16px] font-semibold text-[#4B4B4B]" data-i18n="dashboard.priceQuotes">
               طلبات عروض الأسعار
             </h3>
-          </div>
+      </div>
 
           <!-- Current Order Card -->
           <div class="bg-white rounded-2xl p-4 shadow-sm mb-4">
@@ -581,44 +581,36 @@
             <!-- Offer 1 - Full Details (redesigned) -->
             <div class="bg-white rounded-2xl p-4 shadow-sm border border-[#E9E9E9]">
               <!-- Header: Read more | title+rating | logo -->
-              <div class="flex items-center justify-between mb-3">
-                <button onclick="toggleCompanyDescription(1)" id="read-more-btn-1" class="text-[12px] text-[#00B8A9]">
+              <div class="flex items-center justify-between mb-4">
+                <button onclick="toggleCompanyDescription(1)" id="read-more-btn-1" class="text-[12px] text-[#00B8A9] underline underline-offset-2">
                   <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
                 </button>
                 <div class="text-center">
-                  <h5 class="text-[13px] font-semibold text-[#353535]">ثابت موثق لنقل الأثاث</h5>
+                  <h5 class="text-[15px] font-semibold text-[#353535]">فاست موف لنقل الأثاث</h5>
                   <div class="flex items-center justify-center gap-1">
-                    <span class="text-[12px] text-[#868686]">4.5</span>
+                    <span class="text-[13px] text-[#868686]">4.5</span>
                     <i class="fas fa-star text-yellow-400 text-xs"></i>
                   </div>
                 </div>
-                <div class="px-3 py-2 rounded-lg border border-[#E9E9E9]">
-                  <img src="assets/logo.svg" alt="logo" class="w-12 h-6 object-contain" />
+                <div class="rounded-2xl border border-[#E0E0E0] w-[88px] h-[88px] flex items-center justify-center">
+                  <img src="assets/logo.svg" alt="logo" class="w-14 h-7 object-contain" />
                 </div>
               </div>
 
-              <!-- Price and CTA -->
-              <div class="flex items-center justify-between mb-3">
-                <button class="px-5 py-2 bg-[#00B8A9] text-white text-[14px] font-semibold rounded-lg hover:bg-[#009688] transition-colors">
+              <!-- Price row and CTA/date row -->
+            <div class="flex items-center justify-between">
+                <button class="px-6 py-2.5 bg-[#00B8A9] text-white text-[16px] font-semibold rounded-xl hover:bg-[#009688] transition-colors">
                   قبول
                 </button>
-                <div class="text-center">
-                  <p class="text-[22px] font-bold text-[#353535] flex items-center justify-center gap-1">
-                    <img src="assets/icons/riyal.svg" alt="ريال" class="w-5 h-5" />
+                <div class="text-right">
+                  <p class="text-[28px] font-bold text-[#353535] flex items-center gap-2">
+                    <img src="assets/icons/riyal.svg" alt="ريال" class="w-6 h-6" />
                     780
                   </p>
-                  <p class="text-[12px] text-[#868686]">الأحد · 3.15.2025 · 11:30</p>
                 </div>
               </div>
-
-              <!-- Services Tags -->
-              <div class="flex flex-wrap gap-2 mb-3 justify-center">
-                <span class="px-3 py-1 border border-[#E6E6E6] text-[#00B8A9] text-[12px] rounded-full">تركيب دواليب</span>
-                <span class="px-3 py-1 border border-[#E6E6E6] text-[#00B8A9] text-[12px] rounded-full">نقل أثاث</span>
-                <span class="px-3 py-1 border border-[#E6E6E6] text-[#00B8A9] text-[12px] rounded-full">تركيب مطبخ</span>
-                <span class="px-3 py-1 border border-[#E6E6E6] text-[#00B8A9] text-[12px] rounded-full">تأمين ضد الفقد والكسر</span>
-                <span class="px-3 py-1 border border-[#E6E6E6] text-[#00B8A9] text-[12px] rounded-full">تغليف محكم</span>
-                <span class="px-3 py-1 border border-[#E6E6E6] text-[#00B8A9] text-[12px] rounded-full">تركيب مكيفات</span>
+              <div class="mt-2 text-center">
+                <p class="text-[13px] text-[#868686]">الأحد • 3.15.2025 • 11:30</p>
               </div>
 
               <!-- Description -->
@@ -651,7 +643,7 @@
                 >
                   <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
                 </button>
-              </div>
+          </div>
 
               <div class="flex items-center justify-between mb-3">
                 <div class="text-left">
@@ -691,9 +683,9 @@
                     <div class="flex items-center gap-1">
                       <span class="text-[12px] text-[#868686]">4.4</span>
                       <i class="fas fa-star text-yellow-400 text-xs"></i>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </div>
+        </div>
                 <button
                   onclick="toggleCompanyDescription(3)"
                   class="text-[12px] text-[#00B8A9]"
@@ -768,7 +760,7 @@
                 >
                   قبول
                 </button>
-              </div>
+            </div>
 
               <!-- Description -->
               <div id="company-description-4" class="hidden">
@@ -813,7 +805,7 @@
         <!-- Icon with embedded decorative elements from SVG -->
         <div class="relative mx-auto mb-2 w-32 h-32 flex items-center justify-center">
           <img src="assets/dashboard/question.svg" alt="Question" class="w-full h-auto" />
-        </div>
+              </div>
 
         <!-- Title -->
         <h2 class="text-2xl font-bold text-[#151515] mb-2">قبول الشركة؟</h2>
