@@ -128,6 +128,15 @@ $(document).ready(function () {
     $('#offers-icon').toggleClass('fa-chevron-up fa-chevron-down');
   };
 
+  // Ongoing details collapsible and map init
+  window.toggleOngoingDetails = function (id) {
+    const panel = $(`#ongoing-details-${id}`);
+    const icon = $(`#ongoing-details-icon-${id}`);
+    const isHidden = panel.hasClass('hidden');
+    panel.toggleClass('hidden');
+    icon.toggleClass('fa-chevron-down fa-chevron-up');
+  };
+
   // Toggle company description
   window.toggleCompanyDescription = function (companyId) {
     const description = $(`#company-description-${companyId}`);
@@ -151,6 +160,40 @@ $(document).ready(function () {
   // Initialize with empty state by default
   const hasOrders = true; // Change to false to test empty state
   toggleDashboardState(hasOrders);
+
+  // Initialize ongoing map if element exists
+  if ($('#ongoing-map-1').length) {
+    try {
+      if (typeof L !== 'undefined') {
+        const location1 = [24.7136, 46.6753];
+        const location2 = [24.6877, 46.7219];
+        const map = L.map('ongoing-map-1', { center: [24.7, 46.7], zoom: 12, zoomControl: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '' }).addTo(map);
+        const customIcon = L.icon({ iconUrl: 'assets/steps/map-marker.svg', iconSize: [36, 36], iconAnchor: [18, 36] });
+        L.marker(location1, { icon: customIcon }).addTo(map);
+        L.marker(location2, { icon: customIcon }).addTo(map);
+        const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${location1[1]},${location1[0]};${location2[1]},${location2[0]}?overview=full&geometries=geojson`;
+        fetch(osrmUrl)
+          .then((r) => r.json())
+          .then((data) => {
+            if (data.code === 'Ok' && data.routes && data.routes.length) {
+              const latlngs = data.routes[0].geometry.coordinates.map((c) => [c[1], c[0]]);
+              L.polyline(latlngs, { color: '#00B8A9', weight: 4, opacity: 0.8 }).addTo(map);
+              map.fitBounds(latlngs, { padding: [20, 20] });
+            } else {
+              L.polyline([location1, location2], { color: '#00B8A9', weight: 4, opacity: 0.8 }).addTo(map);
+              map.fitBounds([location1, location2], { padding: [20, 20] });
+            }
+          })
+          .catch(() => {
+            L.polyline([location1, location2], { color: '#00B8A9', weight: 4, opacity: 0.8 }).addTo(map);
+            map.fitBounds([location1, location2], { padding: [20, 20] });
+          });
+      }
+    } catch (e) {
+      console.log('Ongoing map init error', e);
+    }
+  }
 
   // Load user name from localStorage or API
   const userName = localStorage.getItem('userName') || 'منصور الفهماوي';
