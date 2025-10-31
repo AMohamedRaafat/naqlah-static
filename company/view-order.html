@@ -18,6 +18,17 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+    <style>
+      /* Unify furniture inputs size and remove number spinners */
+      .furn-input::-webkit-outer-spin-button,
+      .furn-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .furn-input[type='number'] {
+        -moz-appearance: textfield;
+      }
+    </style>
   </head>
   <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
     <!-- Desktop Sidebar (Company) -->
@@ -276,49 +287,269 @@
               </button>
               <div id="updates-panel" class="hidden mt-5 border-t border-[#DFDFDF] py-4">
                 <div class="space-y-2">
-                  <button
-                    type="button"
-                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#01B4AA17] text-[#6B7280] step-toggle"
-                    data-target="panel-go-first"
-                  >
-                    <span>التوجه إلى الموقع الأول</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
-                  <div id="panel-go-first" class="hidden rounded-xl overflow-hidden">
-                    <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
-                      <div
-                        class="text-[13px] leading-6 font-medium flex items-center gap-2 justify-start"
-                      >
-                        <img src="../assets/steps/map-marker.svg" alt="location" class="w-4 h-4" />
-                        الرياض، حي العلا، شارع فلسطين 5843
+                  <div class="rounded-xl overflow-hidden">
+                    <button
+                      type="button"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#01B4AA17] text-[#6B7280] step-toggle"
+                      data-target="panel-go-first"
+                    >
+                      <span>التوجه إلى الموقع الأول</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="panel-go-first" class="hidden rounded-xl overflow-hidden">
+                      <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
+                        <div
+                          class="text-[13px] leading-6 font-medium flex items-center gap-2 justify-start"
+                        >
+                          <img
+                            src="../assets/steps/map-marker.svg"
+                            alt="location"
+                            class="w-4 h-4"
+                          />
+                          الرياض، حي العلا، شارع فلسطين 5843
+                        </div>
+                        <div class="my-3 h-px bg-[#DFDFDF]"></div>
+                        <div class="text-[13px] leading-6">
+                          لقد وصلت إلى الموقع الاول وسأقوم الآن بالفك والتركيب
+                        </div>
+                        <button
+                          data-confirm="update-step"
+                          class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
+                        >
+                          تأكيد
+                        </button>
                       </div>
-                      <div class="my-3 h-px bg-[#DFDFDF]"></div>
-                      <div class="text-[13px] leading-6">
-                        لقد وصلت إلى الموقع الاول وسأقوم الآن بالفك والتركيب
-                      </div>
-                      <button
-                        data-confirm="update-step"
-                        class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
-                      >
-                        تأكيد
-                      </button>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                  >
-                    <span>التحقق من الأثاث</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                  >
-                    <span>الفك والتركيب</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
-                  <div class="bg-[#01B4AA17]">
+                  <div class="rounded-xl overflow-hidden">
+                    <button
+                      type="button"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      data-target="panel-check-furniture"
+                    >
+                      <span>التحقق من الأثاث</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="panel-check-furniture" class="hidden rounded-xl overflow-hidden">
+                      <div class="bg-[#E3F3F2] p-4 text-[#353535]">
+                        <div class="text-[13px] font-medium mb-5 text-start">
+                          لقد تحققت من تفاصيل الأثاث والغرف
+                        </div>
+                        <div class="space-y-2">
+                          <div class="furn-row grid grid-cols-12 items-center gap-3 rounded-md">
+                            <div class="col-span-3 text-sm text-right">غرف</div>
+                            <div class="col-span-6 flex items-center justify-center gap-2">
+                              <span class="opacity-80">X</span>
+                              <input
+                                type="number"
+                                value="5"
+                                disabled
+                                class="furn-input w-16 h-9 rounded-md text-center text-[#3C3D41] bg-white/90"
+                              />
+                            </div>
+                            <div class="col-span-3 flex items-center justify-start gap-1">
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
+                              </button>
+                              <button
+                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-check"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="furn-row grid grid-cols-12 items-center gap-3 rounded-md">
+                            <div class="col-span-3 text-sm text-right">مرايا</div>
+                            <div class="col-span-6 flex items-center justify-center gap-2">
+                              <span class="opacity-80">X</span>
+                              <input
+                                type="number"
+                                value="2"
+                                disabled
+                                class="furn-input w-16 h-9 rounded-md text-center text-[#3C3D41] bg-white/90"
+                              />
+                            </div>
+                            <div class="col-span-3 flex items-center justify-start gap-1">
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
+                              </button>
+                              <button
+                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-check"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="furn-row grid grid-cols-12 items-center gap-3 rounded-md">
+                            <div class="col-span-3 text-sm text-right">مكتب</div>
+                            <div class="col-span-6 flex items-center justify-center gap-2">
+                              <span class="opacity-80">X</span>
+                              <input
+                                type="number"
+                                value="1"
+                                disabled
+                                class="furn-input w-16 h-9 rounded-md text-center text-[#3C3D41] bg-white/90"
+                              />
+                            </div>
+                            <div class="col-span-3 flex items-center justify-start gap-1">
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
+                              </button>
+                              <button
+                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-check"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="furn-row grid grid-cols-12 items-center gap-3 rounded-md">
+                            <div class="col-span-3 text-sm text-right">دواليب</div>
+                            <div class="col-span-6 flex items-center justify-center gap-2">
+                              <span class="opacity-80">X</span>
+                              <input
+                                type="number"
+                                value="1"
+                                disabled
+                                class="furn-input w-16 h-9 rounded-md text-center text-[#3C3D41] bg-white/90"
+                              />
+                            </div>
+                            <div class="col-span-3 flex items-center justify-start gap-1">
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
+                              </button>
+                              <button
+                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-check"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="furn-row grid grid-cols-12 items-center gap-3 rounded-md">
+                            <div class="col-span-3 text-sm text-right">سرير</div>
+                            <div class="col-span-6 flex items-center justify-center gap-2">
+                              <span class="opacity-80">X</span>
+                              <input
+                                type="number"
+                                value="4"
+                                disabled
+                                class="furn-input w-16 h-9 rounded-md text-center text-[#3C3D41] bg-white/90"
+                              />
+                            </div>
+                            <div class="col-span-3 flex items-center justify-start gap-1">
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
+                              </button>
+                              <button
+                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-check"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Proof of modification (hidden until an item is edited) -->
+                        <div id="furn-proof" class="hidden mt-4 rounded-xl p-2 text-white">
+                          <div class="text-[14px] font-semibold mb-2 text-[#353535]">
+                            توثيق التعديل
+                          </div>
+                          <div
+                            class="rounded-xl border border-dashed border-[#DEDEDE] bg-white p-4 text-center mb-3"
+                          >
+                            <input
+                              id="furn-proof-input"
+                              type="file"
+                              accept="image/png,image/jpeg,video/mp4"
+                              multiple
+                              class="hidden"
+                            />
+                            <button
+                              id="furn-proof-trigger"
+                              type="button"
+                              class="px-3 py-2 rounded-lg text-white text-sm"
+                            >
+                              <img
+                                src="../assets/icons/upload.svg"
+                                alt="upload"
+                                class="w-10 h-10"
+                              />
+                            </button>
+                            <div class="text-[12px] mt-2 text-[#353535]">
+                              أرفق بصيغ PNG, JPG, MP4 لتوثيق التعديل
+                            </div>
+                          </div>
+                          <div id="furn-previews" class="grid grid-cols-2 gap-3 mb-3"></div>
+                          <div class="mb-2 text-[14px] text-[#353535]">السعر الإضافي</div>
+                          <div class="relative">
+                            <input
+                              id="furn-extra-price"
+                              type="number"
+                              min="0"
+                              step="1"
+                              class="w-full h-10 rounded-lg pl-10 pr-3 text-[#353535]"
+                              placeholder="0"
+                            />
+                            <img
+                              id="furn-riyal-icon"
+                              src="../assets/icons/riyal.svg"
+                              alt="ريال"
+                              class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 opacity-90"
+                            />
+                          </div>
+                        </div>
+
+                        <button
+                          id="furn-final-confirm"
+                          data-confirm
+                          disabled
+                          class="mt-4 w-full py-2.5 rounded-xl bg-[#01B4AA] text-white font-bold opacity-50 cursor-not-allowed pointer-events-none"
+                        >
+                          تأكيد
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rounded-xl overflow-hidden">
+                    <button
+                      type="button"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      data-target="panel-unpack-install"
+                    >
+                      <span>الفك والتركيب</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="panel-unpack-install" class="hidden rounded-xl overflow-hidden">
+                      <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
+                        <div class="text-[13px] leading-6">
+                          قمت بفك الأثاث وتحميله إلى المركبة بلا أي ضرر
+                        </div>
+                        <a
+                          href="#"
+                          onclick="return false;"
+                          class="block mt-2 text-[13px] text-red-600 font-semibold"
+                        >
+                          ابلاغ عن ضرر
+                        </a>
+                        <button
+                          data-confirm="update-step"
+                          class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
+                        >
+                          تأكيد
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rounded-xl overflow-hidden bg-[#01B4AA17]">
                     <button
                       type="button"
                       class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[#6B7280] step-toggle"
@@ -352,20 +583,59 @@
                       </div>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                  >
-                    <span>التنزيل والتركيب</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                  >
-                    <span>تم إكمال الطلب</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
+                  <div class="rounded-xl overflow-hidden">
+                    <button
+                      type="button"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      data-target="panel-download-install"
+                    >
+                      <span>التنزيل والتركيب</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="panel-download-install" class="hidden rounded-xl overflow-hidden">
+                      <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
+                        <div class="text-[13px] leading-6">
+                          قمت بإنزال الأثاث والتركيب بلا أي ضرر
+                        </div>
+                        <a
+                          href="#"
+                          onclick="return false;"
+                          class="block mt-2 text-[13px] text-red-600 font-semibold"
+                        >
+                          ابلاغ عن ضرر
+                        </a>
+                        <button
+                          data-confirm="update-step"
+                          class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
+                        >
+                          تأكيد
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rounded-xl overflow-hidden">
+                    <button
+                      type="button"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      data-target="panel-finished"
+                    >
+                      <span>تم إكمال الطلب</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="panel-finished" class="hidden rounded-xl overflow-hidden">
+                      <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
+                        <div class="text-[13px] leading-6">
+                          لقد قام العميل بدفع كامل المستحقات وسأقوم بإغلاق الطلب.
+                        </div>
+                        <button
+                          data-confirm="update-step"
+                          class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
+                        >
+                          تأكيد
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -412,24 +682,22 @@
         });
       })();
 
-      // Confirm modal for بدء رحلة النقل
+      // Global confirm modal (reusable across the page)
       (function () {
         var btn = document.getElementById('start-journey-btn');
-        if (!btn) return;
         var modal = document.createElement('div');
         modal.id = 'confirm-start-modal';
         modal.className =
           'hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60 px-4';
         modal.innerHTML =
           '\
-          <div class="relative z-[10000] w-full max-w-md bg-white rounded-2xl p-5 text-center">\
-            <h4 class="text-[16px] font-semibold text-[#312E37] mb-2">تأكيد</h4>\
-            <p id="confirm-desc" class="text-[13px] text-[#6B7280] mb-5">هل أنت متأكد أنك تريد بدء رحلة النقل الآن؟</p>\
+          <div class="relative z-[10000] w-full max-w-md bg-white rounded-2xl p-6 text-center">\
+            <h4 id="confirm-title" class="text-[16px] font-semibold text-[#312E37] mb-2">هل أنت متأكد؟</h4>\
+            <p id="confirm-desc" class="text-[13px] text-[#6B7280] mb-5">هل أنت متأكد من تفعيل الحالة والانتقال للمرحلة التالية</p>\
             <div class="flex gap-3">\
-              <button id="confirm-cancel" class="flex-1 py-2 rounded-lg border border-gray-200 text-[#4B4B4B] bg-white">إلغاء</button>\
-              <button id="confirm-accept" class="flex-1 py-2 rounded-lg bg-[#00B8A9] text-white">تأكيد</button>\
+              <button id="confirm-accept" class="flex-1 py-2.5 rounded-lg bg-[#00B8A9] text-white">تأكيد</button>\
+              <button id="confirm-cancel" class="flex-1 py-2.5 rounded-lg bg-[#EDEDED] text-[#7E7E7E]">تراجع</button>\
             </div>\
-            <button id="confirm-close" class="absolute -top-3 -left-3 bg-white w-10 h-10 rounded-full grid place-items-center shadow z-[10001]"><i class="fas fa-times"></i></button>\
           </div>';
         document.body.appendChild(modal);
         // place close button on the right for Arabic
@@ -458,20 +726,59 @@
           if (p && typeof desc === 'string') p.textContent = desc;
           open();
         }
+        // New global API: window.openConfirm({ onAccept })
+        // Uses the same title and description everywhere
+        window.openConfirm = function (opts) {
+          var options = opts || {};
+          var onAccept = typeof options.onAccept === 'function' ? options.onAccept : null;
+          var t = document.getElementById('confirm-title');
+          var d = document.getElementById('confirm-desc');
+          if (t) t.textContent = 'هل أنت متأكد؟';
+          if (d) d.textContent = 'هل أنت متأكد من تفعيل الحالة والانتقال للمرحلة التالية';
+          var acceptBtn = document.getElementById('confirm-accept');
+          if (acceptBtn) {
+            // reset previous click handlers
+            acceptBtn.onclick = null;
+            acceptBtn.addEventListener(
+              'click',
+              function handleAccept() {
+                close();
+                if (onAccept) onAccept();
+              },
+              { once: true }
+            );
+          }
+          open();
+        };
+        // Backward compatibility
         window.openConfirmWith = openWith;
-        btn.addEventListener('click', function () {
-          openWith('هل أنت متأكد أنك تريد بدء رحلة النقل الآن؟');
-        });
+
+        // If a specific start button exists, let it open the modal with its own message
+        if (btn) {
+          btn.addEventListener('click', function () {
+            window.openConfirm();
+          });
+        }
         modal.addEventListener('click', function (e) {
           if (e.target === modal) close();
         });
-        document.getElementById('confirm-close').addEventListener('click', close);
+        var closeBtn = document.getElementById('confirm-close');
+        if (closeBtn) closeBtn.addEventListener('click', close);
         document.getElementById('confirm-cancel').addEventListener('click', close);
-        document.getElementById('confirm-accept').addEventListener('click', function () {
-          close();
-          // Optional: disable the button / change text to indicate started
-          btn.classList.add('opacity-80');
-          btn.textContent = 'تم بدء رحلة النقل';
+
+        // Delegated handler: any element with [data-confirm] opens the modal
+        document.addEventListener('click', function (e) {
+          var el = e.target.closest('[data-confirm]');
+          if (!el) return;
+          window.openConfirm({
+            onAccept: function () {
+              try {
+                el.dispatchEvent(new CustomEvent('confirm:accepted', { bubbles: true }));
+              } catch (_) {}
+            },
+          });
+          // prevent default actions like link navigation, if any
+          e.preventDefault();
         });
       })();
 
@@ -492,15 +799,214 @@
             }
           });
         });
-        // Hook confirm buttons inside panels to open confirmation modal
-        var confirmBtns = document.querySelectorAll('[data-confirm="update-step"]');
-        confirmBtns.forEach(function (cbtn) {
-          cbtn.addEventListener('click', function () {
-            if (window.openConfirmWith) {
-              window.openConfirmWith('هل تريد تأكيد هذا التحديث؟');
-            }
-          });
+        // Confirmation now handled globally via delegated listener above
+      })();
+
+      // Furniture edit/commit behavior
+      (function () {
+        var panel = document.getElementById('panel-check-furniture');
+        if (!panel) return;
+        var proof = document.getElementById('furn-proof');
+        var fileInput = document.getElementById('furn-proof-input');
+        var fileTrigger = document.getElementById('furn-proof-trigger');
+        var previews = document.getElementById('furn-previews');
+        var priceInput = document.getElementById('furn-extra-price');
+        var riyalIcon = document.getElementById('furn-riyal-icon');
+
+        // Track original values per row
+        panel.querySelectorAll('.furn-row').forEach(function (row) {
+          var input = row.querySelector('.furn-input');
+          if (input) row.dataset.original = String(input.value);
         });
+
+        // Move riyal icon based on language
+        (function () {
+          var isAr = (document.documentElement.getAttribute('lang') || '')
+            .toLowerCase()
+            .startsWith('ar');
+          if (!riyalIcon || !priceInput) return;
+          if (isAr) {
+            riyalIcon.classList.remove('right-3');
+            riyalIcon.classList.add('left-3');
+            priceInput.classList.remove('pr-10');
+            priceInput.classList.add('pl-10');
+          } else {
+            riyalIcon.classList.remove('left-3');
+            riyalIcon.classList.add('right-3');
+            priceInput.classList.remove('pl-10');
+            priceInput.classList.add('pr-10');
+          }
+        })();
+
+        function updateProofVisibility() {
+          var anyEdited = false;
+          panel.querySelectorAll('.furn-row').forEach(function (row) {
+            if (row.dataset.edited === 'true') anyEdited = true;
+          });
+          if (proof) {
+            proof.classList.toggle('hidden', !anyEdited);
+          }
+        }
+
+        var finalConfirmBtn = document.getElementById('furn-final-confirm');
+
+        function setConfirmBtnEnabled(enabled) {
+          if (!finalConfirmBtn) return;
+          if (enabled) {
+            finalConfirmBtn.disabled = false;
+            finalConfirmBtn.classList.remove(
+              'opacity-50',
+              'cursor-not-allowed',
+              'pointer-events-none'
+            );
+          } else {
+            finalConfirmBtn.disabled = true;
+            finalConfirmBtn.classList.add(
+              'opacity-50',
+              'cursor-not-allowed',
+              'pointer-events-none'
+            );
+          }
+        }
+
+        function updateConfirmButton() {
+          var rows = panel.querySelectorAll('.furn-row');
+          var allConfirmed = true;
+          rows.forEach(function (row) {
+            if (row.dataset.confirmed !== 'true') allConfirmed = false;
+          });
+          setConfirmBtnEnabled(allConfirmed);
+        }
+
+        function clearEditing() {
+          var rows = panel.querySelectorAll('.furn-row');
+          rows.forEach(function (row) {
+            var input = row.querySelector('.furn-input');
+            var commit = row.querySelector('.furn-commit');
+            if (input && !input.disabled) {
+              // Only reset inputs that are currently in edit mode
+              input.disabled = true;
+              input.classList.remove('border', 'border-[#EF4351]', 'bg-[#EC404E2E]');
+              if (!input.classList.contains('bg-white/90')) input.classList.add('bg-white/90');
+            }
+            // leave commit buttons enabled by default
+          });
+          // re-enable all edit buttons
+          panel.querySelectorAll('.furn-edit').forEach(function (b) {
+            b.classList.remove('opacity-50', 'pointer-events-none');
+          });
+          updateConfirmButton();
+        }
+
+        panel.addEventListener('click', function (e) {
+          var editBtn = e.target.closest('.furn-edit');
+          if (editBtn && panel.contains(editBtn)) {
+            e.preventDefault();
+            var row = editBtn.closest('.furn-row');
+            if (!row) return;
+            clearEditing();
+            // disable all other edit buttons
+            panel.querySelectorAll('.furn-edit').forEach(function (b) {
+              if (b !== editBtn) b.classList.add('opacity-50', 'pointer-events-none');
+            });
+            var input = row.querySelector('.furn-input');
+            var commit = row.querySelector('.furn-commit');
+            // mark this row as not confirmed until committed
+            row.dataset.confirmed = 'false';
+            if (input) {
+              input.disabled = false;
+              input.classList.remove('bg-white/90');
+              input.classList.add('border', 'border-[#EF4351]', 'bg-[#EC404E2E]');
+              input.focus();
+              input.select();
+            }
+            if (commit) {
+              commit.classList.remove('opacity-50', 'pointer-events-none');
+            }
+            updateConfirmButton();
+            return;
+          }
+
+          var commitBtn = e.target.closest('.furn-commit');
+          if (commitBtn && panel.contains(commitBtn)) {
+            e.preventDefault();
+            // accept current edit, then clear editing state
+            var row = commitBtn.closest('.furn-row');
+            if (row) {
+              row.dataset.confirmed = 'true';
+              // visually mark commit as done
+              commitBtn.classList.add('bg-[#00B8A9]');
+              // mark edited only if value changed from original and style input accordingly
+              var input = row.querySelector('.furn-input');
+              if (input) {
+                var original = row.dataset.original || '';
+                var isEdited = String(input.value) !== String(original);
+                row.dataset.edited = isEdited ? 'true' : 'false';
+                input.disabled = true;
+                // clear any previous edit styles
+                input.classList.remove(
+                  'bg-white/90',
+                  'border-[#EF4351]',
+                  'bg-[#EC404E2E]',
+                  'border-[#01B4AA]',
+                  'bg-[#01B4AA30]'
+                );
+                input.classList.add('border');
+                if (isEdited) {
+                  input.classList.add('border-[#EF4351]', 'bg-[#EC404E2E]');
+                } else {
+                  input.classList.add('border-[#01B4AA]', 'bg-[#01B4AA30]');
+                }
+              }
+            }
+            clearEditing();
+            // show proof only if any row edited
+            updateProofVisibility();
+            updateConfirmButton();
+            return;
+          }
+        });
+
+        // Initialize default state
+        panel.querySelectorAll('.furn-row').forEach(function (row) {
+          row.dataset.confirmed = 'false';
+          row.dataset.edited = 'false';
+        });
+        clearEditing();
+        updateConfirmButton();
+        updateProofVisibility();
+
+        // File upload handling
+        if (fileTrigger && fileInput) {
+          fileTrigger.addEventListener('click', function () {
+            fileInput.click();
+          });
+          fileInput.addEventListener('change', function () {
+            if (!fileInput.files || !fileInput.files.length) return;
+            Array.from(fileInput.files).forEach(function (file) {
+              var url = URL.createObjectURL(file);
+              var isVideo = file.type === 'video/mp4';
+              var card = document.createElement('div');
+              card.className = 'relative rounded-xl overflow-hidden bg-white text-[#3C3D41]';
+              card.innerHTML = isVideo
+                ? '<video src="' + url + '" class="w-full h-28 object-cover" controls></video>'
+                : '<img src="' + url + '" class="w-full h-28 object-cover" />';
+              var del = document.createElement('button');
+              del.type = 'button';
+              del.className =
+                'absolute top-2 left-2 w-7 h-7 rounded-full bg-[#00B8A9] text-white grid place-items-center';
+              del.innerHTML = '<i class="fas fa-times"></i>';
+              del.addEventListener('click', function () {
+                URL.revokeObjectURL(url);
+                card.remove();
+              });
+              card.appendChild(del);
+              previews.appendChild(card);
+            });
+            // reset input to allow re-adding same files
+            fileInput.value = '';
+          });
+        }
       })();
 
       // Image preview modal
