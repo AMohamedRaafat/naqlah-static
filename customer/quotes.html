@@ -10,8 +10,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
   </head>
   <body class="flex min-h-screen bg-[#fafafa] font-expo-arabic">
     <!-- Desktop Sidebar -->
@@ -20,8 +20,8 @@
       class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
     >
       <div class="p-6 border-b border-gray-200">
-        <a href="index.html" class="flex items-center justify-center">
-          <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
+        <a href="../index.html" class="flex items-center justify-center">
+          <img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
         </a>
       </div>
       <nav class="flex-1 px-4 py-6">
@@ -46,11 +46,12 @@
           </li>
           <li>
             <a
-              href="profile.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-user-circle text-lg"></i>
-              <span>معلومات الحساب</span>
+              <i class="fas fa-user-circle text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
             </a>
           </li>
           <li>
@@ -65,7 +66,7 @@
           <li>
             <a
               href="quotes.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#00B8A9] text-white transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
             >
               <i class="fas fa-file-invoice-dollar text-lg"></i>
               <span>عروض الأسعار</span>
@@ -117,12 +118,17 @@
       <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
           <h1 class="text-lg font-semibold">عروض الأسعار</h1>
-          <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
+          <div class="flex items-center gap-3">
             <a
-              href="profile.html"
+              href="#"
+              onclick="toggleMobileMenu(); return false;"
               class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
             ></a>
-            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
+            <button
+              id="mobile-menu-button"
+              onclick="toggleMobileMenu()"
+              class="p-0 border border-[#00B8A9] rounded-xl px-2 py-1"
+            >
               <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
             </button>
           </div>
@@ -144,7 +150,7 @@
                 <ul class="space-y-0">
                   <li>
                     <a
-                      href="index.html"
+                      href="../index.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
@@ -168,14 +174,16 @@
                   </li>
                   <li>
                     <a
-                      href="profile.html"
-                      onclick="toggleMobileMenu()"
+                      href="#"
+                      onclick="toggleMobileMenu(); return false;"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
                       <i
                         class="fas fa-user-circle w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
-                      <span class="text-[15px] text-gray-800">معلومات الحساب</span>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
+                        >معلومات الحساب</span
+                      >
                     </a>
                   </li>
                   <li>
@@ -194,7 +202,7 @@
                     <a
                       href="quotes.html"
                       onclick="toggleMobileMenu()"
-                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                     >
                       <i
                         class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
@@ -314,7 +322,7 @@
                       <div class="text-left">
                         <p class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1">
                           780
-                          <img src="assets/icons/riyal.svg" alt="ريال" class="w-6 h-6" />
+                          <span class="icon-riyal w-6 h-6"></span>
                         </p>
                         <p class="text-[12px] text-[#868686]">الأحد · 3.15.2025 · 11:30</p>
                       </div>
@@ -389,7 +397,7 @@
             <div class="flex items-center justify-between">
               <div class="text-left">
                 <p class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1">
-                  780 <img src="assets/icons/riyal.svg" alt="ريال" class="w-6 h-6" />
+                  780 <span class="icon-riyal w-6 h-6"></span>
                 </p>
                 <p class="text-[12px] text-[#868686]">الأحد · 3.15.2025 · 11:30</p>
               </div>
@@ -496,8 +504,8 @@
       </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
     <script>
       function toggleQuotesOffers() {
         const list = document.getElementById('company-offers');

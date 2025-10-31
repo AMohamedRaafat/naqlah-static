@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="companyDashboard.title">إدارة الطلبات - الشركة</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
+  </head>
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
+    <!-- Desktop Sidebar (Company) -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="./dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+              <span data-i18n="navigation.dashboard">لوحة التحكم</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+              <span data-i18n="navigation.accountInfo">معلوما ت الحساب</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="./manage-quotes.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="companyNavigation.manageQuotes">طلبات الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./manage-orders.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors sidebar-active"
+            >
+              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="companyNavigation.manageOrders">إدارة طلبات النقل</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../settings.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.settings">الإعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../contact.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.contact">تواصل معنا</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Mobile Navbar -->
+    <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
+      <div class="flex items-center justify-between px-4 py-4">
+        <h1 class="text-lg font-semibold" data-i18n="companyNavigation.manageOrders">
+          إدارة طلبات النقل
+        </h1>
+        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-2">
+          <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+        </button>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4 text-black">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="./dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.dashboard"
+                      >لوحة التحكم</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="toggleMobileMenu(); return false;"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
+                      >معلومات الحساب</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="./manage-quotes.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
+                      >عروض الأسعار</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="./manage-orders.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                  >
+                    <i
+                      class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span
+                      class="text-[15px] text-gray-800"
+                      data-i18n="companyNavigation.manageOrders"
+                      >إدارة طلبات النقل</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../settings.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
+                      >الإعدادات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.contact"
+                      >تواصل معنا</span
+                    >
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 bg-white">
+      <div class="container mx-auto max-w-4xl space-y-6">
+        <!-- Breadcrumb (match customer style) -->
+        <div class="mb-4 text-sm text-[#7E7E7E]">
+          <a href="./dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard"
+            >لوحة التحكم</a
+          >
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium" data-i18n="companyNavigation.manageOrders"
+            >إدارة طلبات النقل</span
+          >
+        </div>
+        <!-- Transport Orders Card -->
+        <section class="bg-white rounded-2xl p-4 lg:p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2
+              class="text-[16px] lg:text-[18px] font-semibold text-[#353535]"
+              data-i18n="companyDashboard.transportOrders"
+            >
+              إدارة طلبات النقل
+            </h2>
+            <div class="flex items-center gap-3 text-[#00B8A9]">
+              <a href="./filter-orders.html" class="text-[#00B8A9]" title="فلترة"
+                ><i class="fas fa-sliders-h text-[#a9a9a9]"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Tabs -->
+          <div class="grid grid-cols-3 gap-2 text-sm mb-4" data-tabs-group="orders">
+            <button
+              class="tab-btn px-4 py-2 bg-[#D2F2F0] text-[#00B8A9] border border-[#00B8A9] rounded-lg flex items-center justify-center"
+              data-filter="all"
+            >
+              <span
+                class="mx-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#00B8A9] text-xs"
+                >7</span
+              >
+              <span data-i18n="companyDashboard.tabs.all">الكل</span>
+            </button>
+            <button
+              class="tab-btn px-3 py-2 text-[#6B7280] rounded-lg flex items-center justify-center"
+              data-filter="running"
+            >
+              <span
+                class="mx-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-[#6B7280] text-xs"
+                >6</span
+              >
+              <span data-i18n="companyDashboard.tabs.running">الجارية</span>
+            </button>
+            <button
+              class="tab-btn px-3 py-2 text-[#6B7280] rounded-lg flex items-center justify-center"
+              data-filter="completed"
+            >
+              <span
+                class="mx-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-[#6B7280] text-xs"
+                >1</span
+              >
+              <span data-i18n="companyDashboard.tabs.completed">المنتهية</span>
+            </button>
+          </div>
+          <!-- Table-like rows -->
+          <div class="grid grid-cols-3 text-[#9CA3AF] text-sm px-2 py-2 border-b border-[#ECECEC]">
+            <div data-i18n="companyDashboard.columns.customer">العميل</div>
+            <div data-i18n="companyDashboard.columns.status" class="text-center">الحالة</div>
+            <div data-i18n="companyDashboard.columns.details" class="text-center">التفاصيل</div>
+          </div>
+          <div id="orders-list">
+            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
+              <div class="text-[#4B5563] relative">
+                <div class="flex gap-2">
+                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
+                  <div class="flex flex-col">
+                    <span class="text-[14px] text-nowrap"> منصور الفهماني</span>
+                    <span class="text-xs text-[#9CA3AF]">ORD938274</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-[#353535] text-sm text-center"
+                data-i18n="companyDashboard.badges.journeyStarted"
+              >
+                بدء رحلة النقل
+              </div>
+              <div class="text-[#353535] text-xs text-center">
+                <a href="./view-order.html" title="عرض التفاصيل">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+              </div>
+            </div>
+            <!-- Completed example -->
+            <div class="grid grid-cols-3 py-3 px-2" data-status="completed">
+              <div class="text-[#4B5563] relative">
+                <div class="flex gap-2">
+                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
+                  <div class="flex flex-col">
+                    <span class="text-[14px] text-nowrap"> يحيى الدوسري</span>
+                    <span class="text-xs text-[#9CA3AF]">ORD938839</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-[#16A34A] text-sm text-center"
+                data-i18n="companyDashboard.badges.completed"
+              >
+                تم إكتمال الطلب
+              </div>
+              <div class="text-[#353535] text-xs text-center">
+                <a href="./view-order.html" title="عرض التفاصيل">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+              </div>
+            </div>
+            <!-- Ongoing loading -->
+            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
+              <div class="text-[#4B5563] relative">
+                <div class="flex gap-2">
+                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
+                  <div class="flex flex-col">
+                    <span class="text-[14px] text-nowrap"> فهد عبدالله</span>
+                    <span class="text-xs text-[#9CA3AF]">ORD938738</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-[#4B5563] text-sm text-center"
+                data-i18n="companyDashboard.badges.loading"
+              >
+                تم التحميل
+              </div>
+              <div class="text-[#353535] text-xs text-center">
+                <a href="./view-order.html" title="عرض التفاصيل">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+              </div>
+            </div>
+            <!-- Ongoing furniture check -->
+            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
+              <div class="text-[#4B5563] relative">
+                <div class="flex gap-2">
+                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
+                  <div class="flex flex-col">
+                    <span class="text-[14px] text-nowrap"> ري ال ألحمدي</span>
+                    <span class="text-xs text-[#9CA3AF]">ORD938293</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-[#4B5563] text-sm text-center"
+                data-i18n="companyDashboard.badges.furnitureCheck"
+              >
+                التحقق من الأثاث
+              </div>
+              <div class="text-[#353535] text-xs text-center">
+                <i class="fas fa-chevron-left"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/company-dashboard.js"></script>
+  </body>
+</html>

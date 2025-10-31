@@ -11,47 +11,91 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/custom.css" />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
 
-    <script src="assets/js/tailwind-config.js"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fafafa]">
-    <!-- Navbar -->
-    <nav
-      id="desktop-navbar"
-      class="hidden lg:flex w-full font-expo-arabic shadow-md bg-white text-gray-900 border-b border-gray-200"
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
+    <!-- Desktop Sidebar (Company) -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
     >
-      <div class="container mx-auto px-6">
-        <div class="flex items-center justify-between h-20 w-full">
-          <div class="flex items-center order-3">
-            <h1 class="text-2xl font-semibold" data-i18n="registerCompany.pageTitle">
-              الإنضمام كشركة نقل
-            </h1>
-          </div>
-
-          <div class="flex items-center gap-8 order-2">
-            <a
-              href="index.html"
-              class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
-            >
-              <span data-i18n="navigation.home">الرئيسية</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-[#00B8A9]"
-              ></span>
-            </a>
-          </div>
-
-          <div class="flex items-center gap-4 order-3">
-            <button
-              onclick="showModal('language-modal')"
-              class="px-4 py-2 rounded-lg transition-colors text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-900"
-            >
-              English
-            </button>
-          </div>
-        </div>
+      <div class="p-6 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
       </div>
-    </nav>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="../index.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-home text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.home">الرئيسية</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+              <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../notifications.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-bell text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.notifications">التنبيهات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./manage-quotes.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.quotes">عروض الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./manage-orders.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="companyNavigation.manageOrders">إدارة طلبات النقل</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../settings.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.settings">الإعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../contact.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.contact">تواصل معنا</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Navbar -->
 
     <!-- Mobile Navbar -->
     <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
@@ -87,39 +131,85 @@
               <ul class="space-y-0">
                 <li>
                   <a
-                    href="index.html"
+                    href="../index.html"
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
-                    <img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+                    <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
                     <span class="text-[15px] text-gray-800" data-i18n="navigation.home"
                       >الرئيسية</span
                     >
                   </a>
                 </li>
                 <li>
-                  <button
-                    onclick="showModal('login-modal'); toggleMobileMenu();"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors w-full text-right"
+                  <a
+                    href="#"
+                    onclick="toggleMobileMenu(); return false;"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
-                    <img src="assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="navigation.logIn"
-                      >تسجيل الدخول</span
+                    <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
+                      >معلومات الحساب</span
                     >
-                  </button>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../customer/quotes.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
+                      >عروض الأسعار</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../customer/orders.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.orders"
+                      >الطلبات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../settings.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
+                      >الإعدادات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.contact"
+                      >تواصل معنا</span
+                    >
+                  </a>
                 </li>
               </ul>
-              <div class="border-t border-gray-200 mt-4 py-3">
-                <button
-                  onclick="showModal('language-modal'); toggleMobileMenu();"
-                  class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
-                >
-                  <i
-                    class="fas fa-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
-                  ></i>
-                  <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
-                </button>
-              </div>
             </nav>
           </div>
         </div>
@@ -128,7 +218,10 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-4">
-      <div class="container bg-white mx-auto px-4 max-w-2xl py-6 rounded-xl">
+      <div
+        class="container bg-white mx-auto px-4 max-w-2xl py-6 rounded-xl"
+        id="register-company-container"
+      >
         <form id="register-company-form" class="space-y-6 pt-6">
           <!-- Company Logo Upload -->
           <div class="flex flex-row items-center justify-between">
@@ -211,23 +304,28 @@
               <span data-i18n="registerCompany.city">المدينة</span>
               <span class="text-red-500">*</span>
             </label>
-            <select
-              id="city"
-              required
-              class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
-            >
-              <option value="" data-i18n="registerCompany.selectCity">اختر المدينة</option>
-              <option value="jeddah" data-i18n="registerCompany.cities.jeddah">جدة</option>
-              <option value="riyadh" data-i18n="registerCompany.cities.riyadh">الرياض</option>
-              <option value="dammam" data-i18n="registerCompany.cities.dammam">الدمام</option>
-              <option value="mecca" data-i18n="registerCompany.cities.mecca">مكة المكرمة</option>
-              <option value="medina" data-i18n="registerCompany.cities.medina">
-                المدينة المنورة
-              </option>
-              <option value="khobar" data-i18n="registerCompany.cities.khobar">الخبر</option>
-              <option value="tabuk" data-i18n="registerCompany.cities.tabuk">تبوك</option>
-              <option value="abha" data-i18n="registerCompany.cities.abha">أبها</option>
-            </select>
+            <div class="relative">
+              <select
+                id="city"
+                required
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
+              >
+                <option value="" data-i18n="registerCompany.selectCity">اختر المدينة</option>
+                <option value="jeddah" data-i18n="registerCompany.cities.jeddah">جدة</option>
+                <option value="riyadh" data-i18n="registerCompany.cities.riyadh">الرياض</option>
+                <option value="dammam" data-i18n="registerCompany.cities.dammam">الدمام</option>
+                <option value="mecca" data-i18n="registerCompany.cities.mecca">مكة المكرمة</option>
+                <option value="medina" data-i18n="registerCompany.cities.medina">
+                  المدينة المنورة
+                </option>
+                <option value="khobar" data-i18n="registerCompany.cities.khobar">الخبر</option>
+                <option value="tabuk" data-i18n="registerCompany.cities.tabuk">تبوك</option>
+                <option value="abha" data-i18n="registerCompany.cities.abha">أبها</option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+              ></i>
+            </div>
             <p id="city-error" class="text-red-500 text-sm hidden"></p>
           </div>
 
@@ -411,11 +509,45 @@
           <!-- Submit Button -->
           <button
             type="submit"
-            class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-6 text-base rounded-lg transition-colors"
+            class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 text-base rounded-lg transition-colors"
           >
             <span data-i18n="registerCompany.submitButton">إرسال طلب إنشاء الحساب</span>
           </button>
         </form>
+      </div>
+      <!-- Verification Pending State -->
+      <div
+        id="verification-pending"
+        class="container mx-auto px-4 max-w-sm py-8 text-center hidden"
+      >
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="w-36 h-36 mx-auto mb-6 flex items-center justify-center">
+            <img
+              src="../assets/icons/settings.svg"
+              alt="logo"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <h2
+            class="text-[#353535] text-[18px] font-medium mb-6"
+            data-i18n="registerCompany.verificationPendingTitle"
+          >
+            جارٍ التحقق من حسابك 🎯
+          </h2>
+          <p
+            class="text-[#000] text-[14px] leading-5 mb-24"
+            data-i18n="registerCompany.verificationPendingDescription"
+          >
+            تم إرسال طلب إنشاء الحساب بنجاح. يتم المراجعة والتحقق من البيانات التي قدمتها عن شركتك.
+            سيتم إشعارك عبر البريد الإلكتروني ورقم الهاتف في حال توثيق حساب الشركة.
+          </p>
+          <a
+            href="../index.html"
+            class="block w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl"
+          >
+            <span data-i18n="registerCompany.goToHome">التوجّه إلى الرئيسية</span>
+          </a>
+        </div>
       </div>
     </main>
 
@@ -466,8 +598,22 @@
       </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/register-company.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+      (function () {
+        var form = document.getElementById('register-company-form');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var container = document.getElementById('register-company-container');
+          var pending = document.getElementById('verification-pending');
+          if (container) container.classList.add('hidden');
+          if (pending) pending.classList.remove('hidden');
+          // Here we would normally submit via fetch to backend, then switch state on success
+        });
+      })();
+    </script>
+    <script src="../assets/js/register-company.js"></script>
   </body>
 </html>

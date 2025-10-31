@@ -10,8 +10,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link
@@ -27,8 +27,8 @@
       class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
     >
       <div class="p-6 border-b border-gray-200">
-        <a href="index.html" class="flex items-center justify-center"
-          ><img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
         /></a>
       </div>
       <nav class="flex-1 px-4 py-6">
@@ -36,23 +36,74 @@
           <li>
             <a
               href="index.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
-              ><i class="fas fa-home text-lg"></i><span>الرئيسية</span></a
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-home text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.home">الرئيسية</span></a
             >
           </li>
           <li>
             <a
               href="dashboard.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
-              ><i class="fas fa-th-large text-lg"></i><span>لوحة التحكم</span></a
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-th-large text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.dashboard">لوحة التحكم</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-user-circle text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.accountInfo">معلومات الحساب</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="notifications.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-bell text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.notifications">التنبيهات</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="quotes.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.quotes">عروض الأسعار</span></a
             >
           </li>
           <li>
             <a
               href="orders.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#00B8A9] text-white transition-colors"
-              ><i class="fas fa-clipboard-list text-lg"></i
-              ><span>الطلبات الجارية والمنتهية</span></a
+              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
+              ><i class="fas fa-clipboard-list text-lg text-[#01B4AA]"></i
+              ><span data-i18n="navigation.orders">الطلبات</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="request-move.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-truck-moving text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.requestMove">اطلب نقلة</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="settings.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-cog text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.settings">الإعدادات</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-phone text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="navigation.contact">تواصل معنا</span></a
             >
           </li>
         </ul>
@@ -73,12 +124,17 @@
       <div class="lg:hidden bg-white border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
           <h1 class="text-lg font-semibold" data-i18n="orderDetails.title">تفاصيل الطلب</h1>
-          <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
+          <div class="flex items-center gap-3">
             <a
-              href="profile.html"
+              href="#"
+              onclick="toggleMobileMenu(); return false;"
               class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
             ></a>
-            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
+            <button
+              id="mobile-menu-button"
+              onclick="toggleMobileMenu()"
+              class="p-0 border border-[#00B8A9] rounded-xl px-2 py-1"
+            >
               <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
             </button>
           </div>
@@ -103,17 +159,61 @@
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                       ><i class="fas fa-th-large w-6 h-6 text-[#a9a9a9]"></i
-                      ><span class="text-[15px] text-gray-800">لوحة التحكم</span></a
+                      ><span class="text-[15px] text-gray-800" data-i18n="navigation.dashboard"
+                        >لوحة التحكم</span
+                      ></a
                     >
                   </li>
                   <li>
                     <a
                       href="orders.html"
                       onclick="toggleMobileMenu()"
-                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                       ><i class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9]"></i
-                      ><span class="text-[15px] text-[#00B8A9] font-semibold"
-                        >الطلبات الجارية والمنتهية</span
+                      ><span class="text-[15px]" data-i18n="navigation.orders">الطلبات</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="profile.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      ><i class="fas fa-user-circle w-6 h-6 text-[#a9a9a9]"></i
+                      ><span class="text-[15px] text-gray-800" data-i18n="navigation.profile"
+                        >الملف الشخصي</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="notifications.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      ><i class="fas fa-bell w-6 h-6 text-[#a9a9a9]"></i
+                      ><span class="text-[15px] text-gray-800" data-i18n="navigation.notifications"
+                        >التنبيهات</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="quotes.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      ><i class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9]"></i
+                      ><span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
+                        >عروض الأسعار</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="request-move.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      ><i class="fas fa-truck-moving w-6 h-6 text-[#a9a9a9]"></i
+                      ><span class="text-[15px] text-gray-800" data-i18n="navigation.requestMove"
+                        >اطلب نقلة</span
                       ></a
                     >
                   </li>
@@ -124,7 +224,9 @@
                     class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                   >
                     <i class="fas fa-language w-6 h-6 text-[#a9a9a9]"></i
-                    ><span class="text-gray-800 text-[15px]">اللغة</span>
+                    ><span class="text-gray-800 text-[15px]" data-i18n="common.language"
+                      >اللغة</span
+                    >
                   </button>
                 </div>
               </nav>
@@ -166,7 +268,7 @@
               </div>
             </div>
             <div class="rounded-xl overflow-hidden border border-[#E5E7EB]">
-              <div id="order-details-map" class="w-full h-56 z-0"></div>
+              <div id="order-details-map" class="w-full h-56 z-0 cursor-pointer"></div>
             </div>
           </div>
 
@@ -179,11 +281,12 @@
               الحالة المالية
             </h3>
             <p class="text-[#353535] text-[14px] mb-3">
-              <span class="text-[#00B8A9] font-bold">179.4</span>
-              <span class="icon-riyal w-4 h-4 inline-block align-[-2px]"></span>
-              <span data-i18n="orderDetails.depositPaid">عربون دُفع من أصل</span>
-              <span class="font-bold">897</span>
-              <span class="icon-riyal w-4 h-4 inline-block align-[-2px]"></span>
+              <span>دُفع عربون</span>
+              <span class="text-[#00B8A9] font-bold">179</span>
+              <span class="icon-riyal w-4 h-4 inline-block align-[-2px] text-[#00B8A9]"></span>
+              <span>من أصل</span>
+              <span class="text-[#00B8A9] font-bold">897</span>
+              <span class="icon-riyal w-4 h-4 inline-block align-[-2px] text-[#00B8A9]"></span>
             </p>
             <button
               onclick="window.location.href='payment.html'"
@@ -202,16 +305,28 @@
             >
               شركة النقل
             </h3>
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-3">
+                <a
+                  href="company-profile.html"
+                  class="text-[#353535] hover:text-[#00B8A9] transition-colors"
+                  >فاست موف لنقل الأثاث</a
+                >
                 <div
                   class="w-16 h-10 bg-gray-100 rounded-lg border border-[#E5E7EB] flex items-center justify-center"
                 >
                   <i class="fas fa-truck text-[#00B8A9]"></i>
                 </div>
-                <div class="text-[#353535]">فاست موف لنقل الأثاث</div>
               </div>
-              <div class="text-left text-[#00B8A9]" dir="ltr">+966958364789</div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[#7E7E7E]">رقم التواصل</span>
+                <a
+                  href="tel:+966958364789"
+                  class="text-left text-[#00B8A9] text-[12px] hover:underline"
+                  dir="ltr"
+                  >+966958364789</a
+                >
+              </div>
             </div>
           </div>
 
@@ -246,6 +361,25 @@
           </div>
         </div>
       </main>
+
+      <!-- Map Modal -->
+      <div
+        id="order-map-modal"
+        class="hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60 px-4"
+      >
+        <div class="relative w-full max-w-4xl">
+          <div
+            id="order-details-map-modal"
+            class="w-full h-[70vh] rounded-2xl overflow-hidden bg-[#F4F4F4]"
+          ></div>
+          <button
+            id="order-map-modal-close"
+            class="absolute -top-3 -left-3 bg-white w-10 h-10 rounded-full grid place-items-center shadow z-[10001]"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
 
       <!-- Language Modal -->
       <div
@@ -299,13 +433,14 @@
       </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         if (typeof L === 'undefined') return;
         const start = [24.7136, 46.6753];
         const end = [24.746, 46.711];
+        // Small inline map
         const map = L.map('order-details-map', {
           zoomControl: true,
           attributionControl: false,
@@ -313,6 +448,18 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(
           map
         );
+        // custom markers
+        var customIcon = L.icon({
+          iconUrl: '../assets/steps/map-marker.svg',
+          iconSize: [36, 36],
+          iconAnchor: [18, 36],
+        });
+        L.marker(start, { icon: customIcon })
+          .addTo(map)
+          .bindTooltip('الموقع 1', { permanent: true, direction: 'right' });
+        L.marker(end, { icon: customIcon })
+          .addTo(map)
+          .bindTooltip('الموقع 2', { permanent: true, direction: 'left' });
         if (L.Routing && L.Routing.control) {
           L.Routing.control({
             waypoints: [L.latLng(start[0], start[1]), L.latLng(end[0], end[1])],
@@ -326,6 +473,68 @@
             createMarker: () => null,
           }).addTo(map);
         }
+
+        // Modal map
+        var modalMap;
+        var modal = document.getElementById('order-map-modal');
+        document.getElementById('order-details-map').addEventListener('click', function () {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          setTimeout(function () {
+            if (!modalMap) {
+              modalMap = L.map('order-details-map-modal', {
+                zoomControl: true,
+                attributionControl: false,
+              }).setView(start, 12);
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+              }).addTo(modalMap);
+              var customIcon = L.icon({
+                iconUrl: '../assets/steps/map-marker.svg',
+                iconSize: [36, 36],
+                iconAnchor: [18, 36],
+              });
+              L.marker(start, { icon: customIcon })
+                .addTo(modalMap)
+                .bindTooltip('الموقع 1', { permanent: true, direction: 'right' });
+              L.marker(end, { icon: customIcon })
+                .addTo(modalMap)
+                .bindTooltip('الموقع 2', { permanent: true, direction: 'left' });
+              if (L.Routing && L.Routing.control) {
+                L.Routing.control({
+                  waypoints: [L.latLng(start[0], start[1]), L.latLng(end[0], end[1])],
+                  addWaypoints: false,
+                  draggableWaypoints: false,
+                  routeWhileDragging: false,
+                  fitSelectedRoutes: true,
+                  show: false,
+                  router: L.Routing.osrmv1({
+                    serviceUrl: 'https://router.project-osrm.org/route/v1',
+                  }),
+                  lineOptions: { styles: [{ color: '#00B8A9', weight: 5, opacity: 0.95 }] },
+                  createMarker: () => null,
+                }).addTo(modalMap);
+              }
+            } else {
+              modalMap.invalidateSize();
+            }
+          }, 60);
+        });
+        document.getElementById('order-map-modal-close').addEventListener('click', function () {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          if (modalMap)
+            setTimeout(function () {
+              modalMap.invalidateSize();
+            }, 50);
+        });
+        // Close on backdrop click
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+          }
+        });
       });
     </script>
   </body>

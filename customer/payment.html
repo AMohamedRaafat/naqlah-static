@@ -10,8 +10,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
   </head>
   <body class="flex min-h-screen bg-[#fafafa] font-expo-arabic">
     <!-- Desktop Sidebar -->
@@ -20,52 +20,53 @@
       class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
     >
       <div class="p-6 border-b border-gray-200">
-        <a href="index.html" class="flex items-center justify-center">
-          <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
+        <a href="../index.html" class="flex items-center justify-center">
+          <img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
         </a>
       </div>
       <nav class="flex-1 px-4 py-6">
         <ul class="space-y-2">
           <li>
             <a
-              href="index.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              href="../index.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-home text-lg"></i>
+              <i class="fas fa-home text-lg text-[#A9A9A9]"></i>
               <span>الرئيسية</span>
             </a>
           </li>
           <li>
             <a
               href="dashboard.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-th-large text-lg"></i>
+              <i class="fas fa-th-large text-lg text-[#A9A9A9]"></i>
               <span>لوحة التحكم</span>
             </a>
           </li>
           <li>
             <a
-              href="profile.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-user-circle text-lg"></i>
-              <span>معلومات الحساب</span>
+              <i class="fas fa-user-circle text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
             </a>
           </li>
           <li>
             <a
               href="notifications.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-bell text-lg"></i>
+              <i class="fas fa-bell text-lg text-[#A9A9A9]"></i>
               <span>التنبيهات</span>
             </a>
           </li>
           <li>
             <a
               href="quotes.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
             >
               <i class="fas fa-file-invoice-dollar text-lg"></i>
               <span>عروض الأسعار</span>
@@ -74,27 +75,27 @@
           <li>
             <a
               href="orders.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-clipboard-list text-lg"></i>
+              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
               <span>الطلبات الجارية والمنتهية</span>
             </a>
           </li>
           <li>
             <a
               href="settings.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-cog text-lg"></i>
+              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
               <span>الإعدادات</span>
             </a>
           </li>
           <li>
             <a
               href="contact.html"
-              class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-[#00B8A9] hover:text-white transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-phone text-lg"></i>
+              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
               <span>تواصل معنا</span>
             </a>
           </li>
@@ -117,12 +118,17 @@
       <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
           <h1 class="text-lg font-semibold" data-i18n="paymentPage.title">الدفع</h1>
-          <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
+          <div class="flex items-center gap-3">
             <a
-              href="profile.html"
+              href="#"
+              onclick="toggleMobileMenu(); return false;"
               class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
             ></a>
-            <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
+            <button
+              id="mobile-menu-button"
+              onclick="toggleMobileMenu()"
+              class="p-0 border border-[#00B8A9] rounded-xl px-2 py-1"
+            >
               <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
             </button>
           </div>
@@ -158,7 +164,7 @@
                     <a
                       href="quotes.html"
                       onclick="toggleMobileMenu()"
-                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                     >
                       <i
                         class="fas fa-tags w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
@@ -296,7 +302,7 @@
               class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-4 bg-white cursor-pointer"
             >
               <div class="flex items-center gap-3">
-                <img src="assets/payments/mastercard.svg" alt="mastercard" class="w-10 h-10" />
+                <img src="../assets/payments/mastercard.svg" alt="mastercard" class="w-10 h-10" />
 
                 <span class="text-[14px] text-[#353535]" data-i18n="payments.mastercard"
                   >ماستركارد</span
@@ -319,7 +325,7 @@
               class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
             >
               <div class="flex items-center gap-3">
-                <img src="assets/payments/mada.svg" alt="mada" class="w-10 h-10" />
+                <img src="../assets/payments/mada.svg" alt="mada" class="w-10 h-10" />
                 <span class="text-[14px] text-[#353535]" data-i18n="payments.mada">مدى</span>
               </div>
               <input
@@ -338,7 +344,7 @@
               class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
             >
               <div class="flex items-center gap-4">
-                <img src="assets/payments/visa.svg" alt="visa" class="w-10 h-10" />
+                <img src="../assets/payments/visa.svg" alt="visa" class="w-10 h-10" />
                 <span class="text-[14px] text-[#353535]" data-i18n="payments.visa">فيزا كارد</span>
               </div>
               <input
@@ -357,7 +363,7 @@
               class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
             >
               <div class="flex items-center gap-3">
-                <img src="assets/payments/applepay.svg" alt="applepay" class="w-10 h-10" />
+                <img src="../assets/payments/applepay.svg" alt="applepay" class="w-10 h-10" />
                 <span class="text-[14px] text-[#353535]" data-i18n="payments.applepay"
                   >أبل باي</span
                 >
@@ -378,7 +384,7 @@
               class="flex items-center justify-between rounded-xl border border-[#E5E7EB] px-4 py-3 bg-white cursor-pointer"
             >
               <div class="flex items-center gap-3">
-                <img src="assets/payments/tamara.svg" alt="tamara" class="w-10 h-10" />
+                <img src="../assets/payments/tamara.svg" alt="tamara" class="w-10 h-10" />
                 <span class="text-[14px] text-[#353535]" data-i18n="payments.tamara">تمارا</span>
               </div>
               <input
@@ -483,7 +489,7 @@
         </button>
 
         <div class="w-36 h-36 rounded-full mx-auto flex items-center justify-center mb-3">
-          <img src="assets/payments/check.svg" alt="success" class="w-full h-full" />
+          <img src="../assets/payments/check.svg" alt="success" class="w-full h-full" />
         </div>
         <h3 class="text-xl font-medium text-[#151515] mb-2" data-i18n="payments.successTitle">
           تم الدفع بنجاح
@@ -514,7 +520,7 @@
           <i class="fas fa-times text-sm"></i>
         </button>
         <div class="w-36 h-36 rounded-full mx-auto flex items-center justify-center mb-3">
-          <img src="assets/payments/fail.svg" alt="success" class="w-full h-full" />
+          <img src="../assets/payments/fail.svg" alt="success" class="w-full h-full" />
         </div>
         <h3 class="text-xl font-medium text-[#151515] mb-2" data-i18n="payments.failureTitle">
           فشل الدفع
@@ -531,8 +537,8 @@
       </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
     <script>
       function toggleMobileMenu() {
         const el = document.getElementById('mobile-menu-sidebar');

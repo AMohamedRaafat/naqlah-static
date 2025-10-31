@@ -61,15 +61,14 @@ $(document).ready(function () {
 
       // Custom marker icon using the SVG
       const customIcon = L.icon({
-        iconUrl: 'assets/steps/map-marker.svg',
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-        popupAnchor: [0, -40]
+        iconUrl: '../assets/steps/map-marker.svg',
+        iconSize: [36, 36],
+        iconAnchor: [18, 36]
       });
 
       // Add markers
-      L.marker(location1, { icon: customIcon }).addTo(map);
-      L.marker(location2, { icon: customIcon }).addTo(map);
+      L.marker(location1, { icon: customIcon }).addTo(map).bindTooltip('الموقع 1', { permanent: true, direction: 'right' });
+      L.marker(location2, { icon: customIcon }).addTo(map).bindTooltip('الموقع 2', { permanent: true, direction: 'left' });
 
       // Get route from OSRM
       const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${location1[1]},${location1[0]};${location2[1]},${location2[0]}?overview=full&geometries=geojson`;
@@ -174,9 +173,9 @@ $(document).ready(function () {
         const location2 = [24.6877, 46.7219];
         const map = L.map('ongoing-map-1', { center: [24.7, 46.7], zoom: 12, zoomControl: false });
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '' }).addTo(map);
-        const customIcon = L.icon({ iconUrl: 'assets/steps/map-marker.svg', iconSize: [36, 36], iconAnchor: [18, 36] });
-        L.marker(location1, { icon: customIcon }).addTo(map);
-        L.marker(location2, { icon: customIcon }).addTo(map);
+        const customIcon = L.icon({ iconUrl: '../assets/steps/map-marker.svg', iconSize: [36, 36], iconAnchor: [18, 36] });
+        L.marker(location1, { icon: customIcon }).addTo(map).bindTooltip('الموقع 1', { permanent: true, direction: 'right' });
+        L.marker(location2, { icon: customIcon }).addTo(map).bindTooltip('الموقع 2', { permanent: true, direction: 'left' });
         const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${location1[1]},${location1[0]};${location2[1]},${location2[0]}?overview=full&geometries=geojson`;
         fetch(osrmUrl)
           .then((r) => r.json())

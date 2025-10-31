@@ -35,6 +35,19 @@
       maxZoom: 19,
     }).addTo(map);
 
+    // Add custom markers with labels for both endpoints
+    const customIcon = L.icon({
+      iconUrl: '../assets/steps/map-marker.svg',
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+    });
+    L.marker(start, { icon: customIcon })
+      .addTo(map)
+      .bindTooltip('الموقع 1', { permanent: true, direction: 'right' });
+    L.marker(end, { icon: customIcon })
+      .addTo(map)
+      .bindTooltip('الموقع 2', { permanent: true, direction: 'left' });
+
     // Try Leaflet Routing Machine for accurate roads
     if (L.Routing && L.Routing.control) {
       L.Routing.control({

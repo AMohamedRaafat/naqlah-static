@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عرض سعر الطلب - الشركة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script src="../assets/js/tailwind-config.js"></script>
+  </head>
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
+    <!-- Desktop Sidebar (Company) -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="./dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+              <span>لوحة التحكم</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+              <span>معلومات الحساب</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./manage-quotes.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
+            >
+              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
+              <span>طلبات الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./manage-orders.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
+              <span>إدارة طلبات النقل</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../settings.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
+              <span>الإعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../contact.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
+              <span>تواصل معنا</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Mobile Navbar -->
+    <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
+      <div class="flex items-center justify-between px-4 py-4">
+        <h1 class="text-lg font-semibold">عرض سعر الطلب</h1>
+        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-2">
+          <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+        </button>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4 text-black">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="./dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800">لوحة التحكم</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="toggleMobileMenu(); return false;"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800">معلومات الحساب</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="./manage-quotes.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                  >
+                    <i
+                      class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800">طلبات الأسعار</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="./manage-orders.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800">إدارة طلبات النقل</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../settings.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800">الإعدادات</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800">تواصل معنا</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 bg-white">
+      <div class="container mx-auto max-w-4xl space-y-6">
+        <!-- Breadcrumb -->
+        <div class="mb-4 text-sm text-[#7E7E7E]">
+          <a href="./dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <a href="./manage-quotes.html" class="hover:text-[#00B8A9]">طلبات الأسعار</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">عرض سعر الطلب</span>
+        </div>
+
+        <section class="bg-white rounded-2xl p-4 lg:p-6">
+          <!-- موعد و المرونة -->
+          <div class="mb-6">
+            <h3 class="text-[#161616] font-semibold pb-3 border-b border-[#EDEDED]">
+              الموعد والمرونة
+            </h3>
+            <div class="grid grid-cols-2 gap-4 mt-4 text-sm text-[#4B5563]">
+              <div class="flex items-center gap-2">
+                <i class="far fa-clock text-[#7E7E7E]"></i><span>ص 11:30</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="far fa-calendar text-[#7E7E7E]"></i><span>19.10.2025</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- عنوان النقل الحالي -->
+          <div class="mb-6">
+            <h3 class="text-[#161616] font-semibold pb-3 border-b border-[#EDEDED]">
+              عنوان النقل الحالي
+            </h3>
+            <div class="text-[#4B4B4B] text-sm leading-7 mt-3">
+              الرياض<br />
+              حي الملقا شارع أنس بن مالك، 3679<br />
+              بناء النور<br />
+              4 طابق<br />
+              يوجد مصعد<br />
+              مصعد وسط<br />
+              -
+            </div>
+          </div>
+
+          <!-- العنوان المراد النقل إليه -->
+          <div class="mb-6">
+            <h3 class="text-[#161616] font-semibold pb-3 border-b border-[#EDEDED]">
+              العنوان المراد النقل إليه
+            </h3>
+            <div class="text-[#4B4B4B] text-sm leading-7 mt-3">
+              الرياض<br />
+              حي العدام شارع فلسطين، 5843<br />
+              7 طابق<br />
+              يوجد مصعد<br />
+              مصعد كبير<br />
+              يرجى استخدام المصعد الكبير المخصص لنقل الأثاث داخل بيت الدرج
+            </div>
+          </div>
+
+          <!-- الخدمات الإضافية -->
+          <div class="mb-6">
+            <h3 class="text-[#161616] font-semibold pb-3 border-b border-[#EDEDED]">
+              الخدمات الإضافية
+            </h3>
+            <div class="flex flex-wrap gap-2 mt-3 text-sm">
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">تغليف محكم</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]"
+                >تأمين ضد الفقد والكسر</span
+              >
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">فك وتركيب</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">3 مكيف</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">3 دولاب</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">4 سرير</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">مكتب 1</span>
+            </div>
+          </div>
+
+          <!-- تفاصيل الأثاث -->
+          <div class="mb-6">
+            <h3 class="text-[#161616] font-semibold pb-3 border-b border-[#EDEDED]">
+              تفاصيل الأثاث
+            </h3>
+            <div class="flex flex-wrap gap-2 mt-3 text-sm">
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">غرف 5</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">سجاد 2</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">مكتب 1</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">مرايا 2</span>
+              <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">مطبخ</span>
+            </div>
+            <div class="relative mt-4">
+              <div class="overflow-hidden rounded-xl">
+                <div
+                  id="images-track"
+                  class="flex gap-3 transition-transform duration-300 ease-in-out"
+                >
+                  <img
+                    src="../assets/landing/truck.png"
+                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
+                    alt="photo"
+                  />
+                  <img
+                    src="../assets/landing/truck.png"
+                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
+                    alt="photo"
+                  />
+                  <img
+                    src="../assets/landing/truck.png"
+                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
+                    alt="photo"
+                  />
+                </div>
+              </div>
+              <button
+                id="img-prev"
+                class="absolute top-1/2 -translate-y-1/2 right-2 bg-white/90 hover:bg-white w-8 h-8 rounded-full grid place-items-center shadow"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button
+                id="img-next"
+                class="absolute top-1/2 -translate-y-1/2 left-2 bg-white/90 hover:bg-white w-8 h-8 rounded-full grid place-items-center shadow"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- الخريطة -->
+          <div class="mb-6">
+            <h3 class="text-[#161616] font-semibold pb-3 border-b border-[#EDEDED]">الموقع</h3>
+            <div class="rounded-2xl overflow-hidden mt-3">
+              <div id="offer-map" class="w-full h-56 bg-[#F4F4F4] relative cursor-pointer"></div>
+            </div>
+            <p class="text-xs text-[#7E7E7E] mt-2">اضغط على الخريطة لتكبيرها</p>
+          </div>
+
+          <div class="pt-2">
+            <button
+              onclick="window.location.href='send-offer.html'"
+              class="w-full bg-gradient-to-l from-[#00B8A9] to-[#00B8A9] text-white py-3 rounded-xl font-semibold"
+            >
+              قدم عرض سعر
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+      // Images carousel showing exactly 3 items per view
+      (function () {
+        var track = document.getElementById('images-track');
+        if (!track) return;
+        var index = 0; // start at first item
+        var items = Array.from(track.children);
+        var itemWidth = 0;
+        var gapPx = 12; // gap-3 is 0.75rem = 12px
+        function update() {
+          var containerWidth = track.parentElement.clientWidth;
+          // show exactly 3 images fully
+          itemWidth = Math.floor((containerWidth - gapPx * 2) / 3);
+          items.forEach(function (img) {
+            img.style.width = itemWidth + 'px';
+            img.style.pointerEvents = 'auto';
+          });
+          // clamp index so last view is aligned to last 3
+          var maxIndex = Math.max(0, items.length - 3);
+          if (index > maxIndex) index = maxIndex;
+          if (index < 0) index = 0;
+          track.style.transform = 'translateX(' + -(index * itemWidth) + 'px)';
+        }
+        window.addEventListener('resize', update);
+        update();
+        document.getElementById('img-prev').addEventListener('click', function () {
+          index = Math.max(0, index - 1);
+          update();
+        });
+        document.getElementById('img-next').addEventListener('click', function () {
+          var maxIndex = Math.max(0, items.length - 3);
+          index = Math.min(maxIndex, index + 1);
+          update();
+        });
+      })();
+
+      // Image modal (robust init even if modal markup comes after script)
+      (function () {
+        var track = document.getElementById('images-track');
+        if (!track) return;
+        function openImageModal(src) {
+          var modal = document.getElementById('image-modal');
+          var modalImg = document.getElementById('image-modal-img');
+          if (!modal || !modalImg) return;
+          modalImg.src = src;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }
+        track.addEventListener('click', function (e) {
+          var target = e.target;
+          if (target && target.tagName === 'IMG') {
+            openImageModal(target.src);
+          }
+        });
+        // Close button (delegate on document to avoid timing issues)
+        document.addEventListener('click', function (e) {
+          if (e.target && e.target.id === 'image-modal-close') {
+            var modal = document.getElementById('image-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+          }
+        });
+        // Backdrop click
+        document.addEventListener('click', function (e) {
+          var modal = document.getElementById('image-modal');
+          if (modal && e.target === modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+          }
+        });
+      })();
+
+      // Leaflet map small + modal with route using OSRM
+      var map, mapModal;
+      var loc1 = [24.774265, 46.738586]; // موقع 1 مثال
+      var loc2 = [24.713552, 46.675297]; // موقع 2 مثال
+      function initMap(containerId) {
+        var m = L.map(containerId, { zoomControl: true }).setView(loc1, 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap',
+        }).addTo(m);
+        var customIcon = L.icon({
+          iconUrl: '../assets/steps/map-marker.svg',
+          iconSize: [36, 36],
+          iconAnchor: [18, 36],
+        });
+        L.marker(loc1, { icon: customIcon })
+          .addTo(m)
+          .bindTooltip('الموقع 1', { permanent: true, direction: 'right' });
+        L.marker(loc2, { icon: customIcon })
+          .addTo(m)
+          .bindTooltip('الموقع 2', { permanent: true, direction: 'left' });
+        fetch(
+          'https://router.project-osrm.org/route/v1/driving/' +
+            loc1[1] +
+            ',' +
+            loc1[0] +
+            ';' +
+            loc2[1] +
+            ',' +
+            loc2[0] +
+            '?overview=full&geometries=geojson'
+        )
+          .then(function (r) {
+            return r.json();
+          })
+          .then(function (data) {
+            var coords =
+              (data.routes &&
+                data.routes[0] &&
+                data.routes[0].geometry &&
+                data.routes[0].geometry.coordinates) ||
+              [];
+            if (coords.length) {
+              var latlngs = coords.map(function (c) {
+                return [c[1], c[0]];
+              });
+              var poly = L.polyline(latlngs, { color: '#6B7280', weight: 5 }).addTo(m);
+              m.fitBounds(poly.getBounds(), { padding: [20, 20] });
+            } else {
+              m.fitBounds(L.latLngBounds([loc1, loc2]), { padding: [20, 20] });
+            }
+          })
+          .catch(function () {
+            m.fitBounds(L.latLngBounds([loc1, loc2]), { padding: [20, 20] });
+          });
+        return m;
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        if (document.getElementById('offer-map')) {
+          map = initMap('offer-map');
+          document.getElementById('offer-map').addEventListener('click', function () {
+            var modal = document.getElementById('map-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(function () {
+              if (!mapModal) {
+                mapModal = initMap('offer-map-modal');
+              } else {
+                mapModal.invalidateSize();
+              }
+            }, 60);
+          });
+        }
+        document.getElementById('map-modal-close').addEventListener('click', function () {
+          var modal = document.getElementById('map-modal');
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          if (mapModal) {
+            setTimeout(function () {
+              mapModal.invalidateSize();
+            }, 50);
+          }
+        });
+        // Close map on backdrop click
+        document.getElementById('map-modal').addEventListener('click', function (e) {
+          var m = document.getElementById('map-modal');
+          if (e.target === m) {
+            m.classList.add('hidden');
+            m.classList.remove('flex');
+          }
+        });
+      });
+    </script>
+
+    <!-- Image Preview Modal -->
+    <div
+      id="image-modal"
+      class="hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60 px-4"
+    >
+      <div class="relative max-w-4xl w-full bg-white rounded-2xl p-3">
+        <img
+          id="image-modal-img"
+          src=""
+          alt="preview"
+          class="w-full h-[70vh] object-contain rounded-xl bg-white"
+        />
+        <button
+          id="image-modal-close"
+          class="absolute -top-3 -left-3 bg-white w-10 h-10 rounded-full grid place-items-center shadow"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div
+      id="map-modal"
+      class="hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60 px-4"
+    >
+      <div class="relative w-full max-w-4xl">
+        <div
+          id="offer-map-modal"
+          class="w-full h-[70vh] rounded-2xl overflow-hidden bg-[#F4F4F4]"
+        ></div>
+        <button
+          id="map-modal-close"
+          class="absolute -top-3 -left-3 bg-white w-10 h-10 rounded-full grid place-items-center shadow z-[10001]"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
