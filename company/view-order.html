@@ -263,72 +263,28 @@
               </div>
             </div>
           </div>
-        </section>
 
-        <!-- Updates (collapsible like order details) -->
-        <section class="bg-white rounded-2xl p-4">
-          <div class="bg-gray-50 rounded-xl">
-            <button
-              id="updates-toggle"
-              class="w-full flex items-center justify-between text-[14px] font-semibold text-[#3C3D41]"
-            >
-              <span>التحديثات</span>
-              <i id="updates-icon" class="fas fa-chevron-down"></i>
-            </button>
-            <div id="updates-panel" class="hidden mt-5 border-t border-[#DFDFDF] py-4">
-              <div class="space-y-2">
-                <button
-                  type="button"
-                  class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#01B4AA17] text-[#6B7280] step-toggle"
-                  data-target="panel-go-first"
-                >
-                  <span>التوجه إلى الموقع الأول</span>
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <div id="panel-go-first" class="hidden rounded-xl overflow-hidden">
-                  <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
-                    <div
-                      class="text-[13px] leading-6 font-medium flex items-center gap-2 justify-start"
-                    >
-                      <img src="../assets/steps/map-marker.svg" alt="location" class="w-4 h-4" />
-                      الرياض، حي العلا، شارع فلسطين 5843
-                    </div>
-                    <div class="my-3 h-px bg-[#DFDFDF]"></div>
-                    <div class="text-[13px] leading-6">
-                      لقد وصلت إلى الموقع الاول وسأقوم الآن بالفك والتركيب
-                    </div>
-                    <button
-                      data-confirm="update-step"
-                      class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
-                    >
-                      تأكيد
-                    </button>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                >
-                  <span>التحقق من الأثاث</span>
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <button
-                  type="button"
-                  class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                >
-                  <span>الفك والتركيب</span>
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="bg-[#01B4AA17]">
+          <!-- Updates (collapsible like order details) -->
+          <section class="bg-gray-50 mt-4 rounded-2xl p-4">
+            <div class="rounded-xl">
+              <button
+                id="updates-toggle"
+                class="w-full flex items-center justify-between text-[14px] font-semibold text-[#3C3D41]"
+              >
+                <span>التحديثات</span>
+                <i id="updates-icon" class="fas fa-chevron-down"></i>
+              </button>
+              <div id="updates-panel" class="hidden mt-5 border-t border-[#DFDFDF] py-4">
+                <div class="space-y-2">
                   <button
                     type="button"
-                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[#6B7280] step-toggle"
-                    data-target="panel-go-delivery"
+                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#01B4AA17] text-[#6B7280] step-toggle"
+                    data-target="panel-go-first"
                   >
-                    <span>التوجه إلى موقع التسليم</span>
+                    <span>التوجه إلى الموقع الأول</span>
                     <i class="fas fa-chevron-down"></i>
                   </button>
-                  <div id="panel-go-delivery" class="hidden rounded-xl overflow-hidden">
+                  <div id="panel-go-first" class="hidden rounded-xl overflow-hidden">
                     <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
                       <div
                         class="text-[13px] leading-6 font-medium flex items-center gap-2 justify-start"
@@ -338,7 +294,7 @@
                       </div>
                       <div class="my-3 h-px bg-[#DFDFDF]"></div>
                       <div class="text-[13px] leading-6">
-                        لقد وصلت إلى موقع التسليم وسأقوم الآن بالتنزيل والتركيب
+                        لقد وصلت إلى الموقع الاول وسأقوم الآن بالفك والتركيب
                       </div>
                       <button
                         data-confirm="update-step"
@@ -348,24 +304,72 @@
                       </button>
                     </div>
                   </div>
+                  <button
+                    type="button"
+                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
+                  >
+                    <span>التحقق من الأثاث</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
+                  >
+                    <span>الفك والتركيب</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <div class="bg-[#01B4AA17]">
+                    <button
+                      type="button"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[#6B7280] step-toggle"
+                      data-target="panel-go-delivery"
+                    >
+                      <span>التوجه إلى موقع التسليم</span>
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="panel-go-delivery" class="hidden rounded-xl overflow-hidden">
+                      <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
+                        <div
+                          class="text-[13px] leading-6 font-medium flex items-center gap-2 justify-start"
+                        >
+                          <img
+                            src="../assets/steps/map-marker.svg"
+                            alt="location"
+                            class="w-4 h-4"
+                          />
+                          الرياض، حي العلا، شارع فلسطين 5843
+                        </div>
+                        <div class="my-3 h-px bg-[#DFDFDF]"></div>
+                        <div class="text-[13px] leading-6">
+                          لقد وصلت إلى موقع التسليم وسأقوم الآن بالتنزيل والتركيب
+                        </div>
+                        <button
+                          data-confirm="update-step"
+                          class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
+                        >
+                          تأكيد
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
+                  >
+                    <span>التنزيل والتركيب</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
+                  >
+                    <span>تم إكمال الطلب</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                >
-                  <span>التنزيل والتركيب</span>
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <button
-                  type="button"
-                  class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280]"
-                >
-                  <span>تم إكمال الطلب</span>
-                  <i class="fas fa-chevron-down"></i>
-                </button>
               </div>
             </div>
-          </div>
+          </section>
         </section>
       </div>
     </main>
