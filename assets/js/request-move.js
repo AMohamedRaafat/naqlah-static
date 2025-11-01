@@ -78,8 +78,14 @@ function validateCurrentStep() {
       // Validate pickup details
       const buildingName = $('#pickup-building-name').val();
       const floor = $('#pickup-floor').val();
+      const pickupElevatorVal = $('#pickup-elevator').val();
+      const pickupElevatorSize = $('#pickup-elevator-size').val();
       if (!buildingName || !floor) {
         errorMessage = 'يرجى إكمال جميع الحقول المطلوبة';
+        isValid = false;
+      }
+      if (isValid && pickupElevatorVal === 'yes' && !pickupElevatorSize) {
+        errorMessage = 'يرجى إدخال حجم المصعد التقريبي';
         isValid = false;
       }
       break;
@@ -94,8 +100,14 @@ function validateCurrentStep() {
       // Validate destination details
       const destBuilding = $('#destination-building-name').val();
       const destFloor = $('#destination-floor').val();
+      const destElevatorVal = $('#destination-elevator').val();
+      const destElevatorSize = $('#destination-elevator-size').val();
       if (!destBuilding || !destFloor) {
         errorMessage = 'يرجى إكمال جميع الحقول المطلوبة';
+        isValid = false;
+      }
+      if (isValid && destElevatorVal === 'yes' && !destElevatorSize) {
+        errorMessage = 'يرجى إدخال حجم المصعد التقريبي';
         isValid = false;
       }
       break;
@@ -143,7 +155,7 @@ function initMaps() {
   try {
     // Custom marker icon with fallback
     const customIcon = L.icon({
-      iconUrl: 'assets/steps/map-marker.svg',
+      iconUrl: '../assets/steps/map-marker.svg',
       iconSize: [32, 32],
       iconAnchor: [16, 32],
       popupAnchor: [0, -32],
@@ -177,7 +189,7 @@ function initDestinationMap() {
     if (destinationMap) return; // Already initialized
 
     const customIcon = L.icon({
-      iconUrl: 'assets/steps/map-marker.svg',
+      iconUrl: '../assets/steps/map-marker.svg',
       iconSize: [32, 32],
       iconAnchor: [16, 32],
       popupAnchor: [0, -32],
@@ -660,6 +672,16 @@ function toggleAMPM(period) {
   }
 }
 
+// Elevator size toggle
+function toggleElevatorSize(which, value) {
+  const wrapperId = which === 'pickup' ? '#pickup-elevator-size-wrapper' : '#destination-elevator-size-wrapper';
+  if (value === 'yes') {
+    $(wrapperId).removeClass('hidden');
+  } else {
+    $(wrapperId).addClass('hidden');
+  }
+}
+
 // Preview/Summary Functions
 let routeMap = null;
 
@@ -681,7 +703,9 @@ function updatePreview() {
   $('#preview-pickup-address').text(pickupLocation.address || '-');
   $('#preview-pickup-floor').text(`طابق ${$('#pickup-floor').val() || '-'}`);
   $('#preview-pickup-elevator').text(
-    $('#pickup-elevator').val() === 'yes' ? 'يوجد مصعد' : 'لا يوجد مصعد'
+    $('#pickup-elevator').val() === 'yes'
+      ? `يوجد مصعد • الحجم: ${$('#pickup-elevator-size').val() || '-'}`
+      : 'لا يوجد مصعد'
   );
   $('#preview-pickup-building').text($('#pickup-building-name').val() || '-');
   $('#preview-pickup-notes').text($('#pickup-notes').val() || '-');
@@ -691,7 +715,9 @@ function updatePreview() {
   $('#preview-dest-address').text(destinationLocation.address || '-');
   $('#preview-dest-floor').text(`طابق ${$('#destination-floor').val() || '-'}`);
   $('#preview-dest-elevator').text(
-    $('#destination-elevator').val() === 'yes' ? 'يوجد مصعد' : 'لا يوجد مصعد'
+    $('#destination-elevator').val() === 'yes'
+      ? `يوجد مصعد • الحجم: ${$('#destination-elevator-size').val() || '-'}`
+      : 'لا يوجد مصعد'
   );
   $('#preview-dest-building').text($('#destination-building-name').val() || '-');
 
@@ -938,5 +964,13 @@ $(document).ready(function () {
     }
     originalNextStep();
   };
+
+  // Bind elevator size visibility handlers (in case inline onchange not present)
+  $('#pickup-elevator').on('change', function () { toggleElevatorSize('pickup', this.value); });
+  $('#destination-elevator').on('change', function () { toggleElevatorSize('destination', this.value); });
+
+  // Initialize visibility on load
+  toggleElevatorSize('pickup', $('#pickup-elevator').val());
+  toggleElevatorSize('destination', $('#destination-elevator').val());
 });
 
