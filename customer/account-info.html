@@ -4,104 +4,271 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>معلومات الحساب - العميل</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/css/custom.css" />
-    <script src="../assets/js/tailwind-config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
   </head>
   <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
-    <div class="lg:hidden bg-white border-b border-gray-200 w-full">
+    <!-- Desktop Sidebar (Customer) -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="./dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                >لوحة التحكم</span
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors sidebar-active"
+              ><img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" /><span
+                >معلومات الحساب</span
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="../settings.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-cog text-lg text-[#A9A9A9]"></i><span>الإعدادات</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="../contact.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><i class="fas fa-phone text-lg text-[#A9A9A9]"></i><span>تواصل معنا</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Mobile Navbar -->
+    <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
       <div class="flex items-center justify-between px-4 py-4">
         <h1 class="text-lg font-semibold">معلومات الحساب</h1>
+        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-2">
+          <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+        </button>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4 text-black">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="./dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                      class="text-[15px] text-gray-800"
+                      >لوحة التحكم</span
+                    ></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
-    <main class="flex-1 p-4 w-full">
-      <div class="container mx-auto max-w-3xl space-y-6">
-        <section class="bg-white rounded-2xl p-6 shadow-sm">
-          <div class="flex items-center justify-between">
-            <div class="text-[#353535] font-medium">صورة العرض</div>
-            <button class="text-[#00B8A9]">تغيير الصورة</button>
-          </div>
-          <div class="grid place-items-center my-4">
-            <div class="w-24 h-24 rounded-full bg-[#F1F5F9]"></div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="text-sm text-[#6B7280]">الإسم الأول</label>
-              <input
-                class="w-full rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
-              />
-            </div>
-            <div>
-              <label class="text-sm text-[#6B7280]">الإسم الأخير</label>
-              <input
-                class="w-full rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
-              />
-            </div>
-            <div class="md:col-span-2">
-              <label class="text-sm text-[#6B7280]">المدينة / المنطقة</label>
-              <select
-                class="w-full rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4">
+      <div class="container mx-auto max-w-3xl space-y-3 mb-3">
+        <div class="text-sm text-[#7E7E7E]">
+          <a href="./dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">معلومات الحساب</span>
+        </div>
+      </div>
+      <div
+        class="container bg-white mx-auto px-4 max-w-2xl py-6 rounded-xl"
+        id="register-company-container"
+      >
+        <form id="register-company-form" class="space-y-6 pt-6">
+          <!-- Profile Image -->
+          <div class="flex flex-row items-center justify-between">
+            <div class="relative flex items-center gap-4">
+              <label
+                for="logo-upload"
+                class="w-20 h-20 rounded-full border border-gray-200 bg-white flex items-center justify-center overflow-hidden cursor-pointer"
               >
-                <option>الرياض</option>
-                <option>جدة</option>
-              </select>
+                <img
+                  id="logo-preview"
+                  class="hidden object-cover rounded-full w-full h-full"
+                  alt="Logo"
+                />
+                <i id="logo-icon" class="fas fa-camera text-4xl text-gray-400"></i>
+              </label>
+              <input type="file" id="logo-upload" accept="image/*" class="hidden" />
+              <p class="text-[#353535] text-md mt-2">صورة العرض</p>
             </div>
-            <div class="md:col-span-2">
-              <label class="text-sm text-[#6B7280]">البريد الإلكتروني</label>
+            <p class="text-[#00B8A9] text-sm mt-2">تغيير الصورة</p>
+          </div>
+
+          <!-- Name -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="block text-[#353535] font-medium">الإسم الأول</label>
               <input
-                type="email"
-                class="w-full rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
               />
             </div>
-            <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div>
-                <label class="text-sm text-[#6B7280]">الرمز السري</label>
-                <input
-                  type="password"
-                  class="w-full rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
-                />
-              </div>
-              <div>
-                <label class="text-sm text-[#6B7280]">رقم الهاتف</label>
-                <div class="grid grid-cols-[100px,1fr] gap-2">
-                  <select
-                    class="rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
-                  >
-                    <option>+966</option>
-                  </select>
-                  <input
-                    type="tel"
-                    class="rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="md:col-span-2">
-              <label class="text-sm text-[#6B7280]">الخدمات المتوقعة</label>
-              <div class="flex flex-wrap gap-2 mt-2">
-                <span class="px-3 py-2 bg-white border rounded-xl">تفكيك وتركيب</span>
-                <span class="px-3 py-2 bg-white border rounded-xl">تغليف مكتبي أو تجاري</span>
-                <span class="px-3 py-2 bg-white border rounded-xl">نقل بين مدن</span>
-              </div>
-            </div>
-            <div class="md:col-span-2">
-              <label class="text-sm text-[#6B7280]">نبذة قصيرة</label>
-              <textarea
-                rows="4"
-                class="w-full rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-3 outline-none focus:border-[#00B8A9]"
-                placeholder="أكتب نبذة عنك"
-              ></textarea>
+            <div class="space-y-2">
+              <label class="block text-[#353535] font-medium">الإسم الأخير</label>
+              <input
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+              />
             </div>
           </div>
-          <button class="mt-6 w-full py-3 rounded-2xl bg-[#00B8A9] text-white font-bold">
-            تحديث المعلومات الشخصية
+
+          <!-- City -->
+          <div class="space-y-2">
+            <label class="block text-[#353535] font-medium">المدينة</label>
+            <div class="relative">
+              <select
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
+              >
+                <option value="">اختر المدينة</option>
+                <option value="riyadh">الرياض</option>
+                <option value="jeddah">جدة</option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+              ></i>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="space-y-2">
+            <label class="block text-[#353535] font-medium">البريد الإلكتروني</label>
+            <input
+              type="email"
+              class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="space-y-2">
+            <label class="block text-[#353535] font-medium">الرمز السري</label>
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+              />
+              <button
+                type="button"
+                onclick="togglePasswordVisibility('password')"
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 password-toggle"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="space-y-2">
+            <label class="block text-[#353535] font-medium">رقم الهاتف</label>
+            <div class="flex" dir="ltr">
+              <span
+                class="inline-flex items-center px-3 border border-l-0 border-[#EDEDED] bg-gray-50 text-gray-500 rounded-l-lg"
+                >+966</span
+              >
+              <input
+                type="tel"
+                id="phoneNumber"
+                maxlength="9"
+                class="flex-1 px-4 py-3 border border-[#EDEDED] rounded-r-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right"
+              />
+            </div>
+          </div>
+
+          <!-- Expected Services -->
+          <div class="space-y-3">
+            <label class="block text-[#353535] font-medium">الخدمات المتوقعة</label>
+            <div class="relative">
+              <select
+                id="services-select"
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg_white"
+              >
+                <option value="">حدد الخدمات</option>
+                <option value="disassembly">تفكيك وتركيب</option>
+                <option value="packing">تغليف محكم</option>
+                <option value="moving">نقل بين مدن</option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+              ></i>
+            </div>
+            <div id="selected-services" class="flex flex-wrap gap-2 mt-3"></div>
+          </div>
+
+          <!-- About -->
+          <div class="space-y-2">
+            <label class="block text-[#353535] font-medium">نبذة قصيرة</label>
+            <textarea
+              rows="4"
+              class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+              placeholder="أكتب نبذة عنك"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 text-base rounded-lg transition-colors"
+          >
+            حفظ
           </button>
-        </section>
+        </form>
       </div>
     </main>
+
+    <script src="../assets/js/register-company.js"></script>
+    <script>
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+      function togglePasswordVisibility(id) {
+        var i = document.getElementById(id);
+        if (!i) return;
+        i.type = i.type === 'password' ? 'text' : 'password';
+      }
+    </script>
   </body>
 </html>
