@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تم إكمال وإنهاء النقل - الشركة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
+    <!-- Desktop Sidebar (Company) -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="./dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                >لوحة التحكم</span
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="./manage-orders.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
+              ><i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i
+              ><span>إدارة طلبات النقل</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Mobile Navbar -->
+    <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200 w-full">
+      <div class="flex items-center justify-between px-4 py-4">
+        <h1 class="text-lg font-semibold">تم إكمال الطلب</h1>
+        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-2">
+          <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+        </button>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4 text-black">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="./dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                      class="text-[15px] text-gray-800"
+                      >لوحة التحكم</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="./manage-orders.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                    ><i class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9]"></i
+                    ><span class="text-[15px] text-gray-800">إدارة طلبات النقل</span></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="flex-1 p-4 w-full">
+      <div class="container mx-auto max-w-3xl space-y-6">
+        <!-- Breadcrumb -->
+        <div class="mb-2 text-sm text-[#7E7E7E]">
+          <a href="./dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">›</span>
+          <a href="./manage-orders.html" class="hover:text-[#00B8A9]">إدارة طلبات النقل</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">إدارة الطلب</span>
+        </div>
+
+        <!-- Success Card -->
+        <section class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="flex flex-col items-center text-center">
+            <div>
+              <div class="mb-6">
+                <img src="../assets/icons/settings.svg" alt="done" class="w-36 h-36" />
+              </div>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-semibold text-[#353535] mb-3">
+              تم إكمال وإنهاء النقل بنجاح
+            </h1>
+            <p class="text-[#353535] text-base md:text-lg mb-12">
+              يمكنك متابعة الطلبات الأخرى والجديدة
+            </p>
+            <div class="w-full max-w-xl space-y-4 mt-12">
+              <a
+                href="./manage-orders.html"
+                class="block w-full text-center py-4 rounded-2xl bg-[#00B8A9] text-white font-bold text-lg"
+              >
+                إدارة الطلبات
+              </a>
+              <a
+                href="./dashboard.html"
+                class="block w-full text-center py-4 rounded-2xl bg-[#00B8A9] text-white font-bold text-lg"
+              >
+                لوحة التحكم
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+    </script>
+  </body>
+</html>

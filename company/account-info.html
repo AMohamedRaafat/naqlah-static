@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الإنضمام كشركة نقل - Naqlah</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+
+    <script src="../assets/js/tailwind-config.js"></script>
+  </head>
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
+    <!-- Desktop Sidebar (Company) -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="../index.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-home text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.home">الرئيسية</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+              <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../notifications.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-bell text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.notifications">التنبيهات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./manage-quotes.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.quotes">عروض الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./manage-orders.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="companyNavigation.manageOrders">إدارة طلبات النقل</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../settings.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.settings">الإعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../contact.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.contact">تواصل معنا</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Navbar -->
+
+    <!-- Mobile Navbar -->
+    <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
+      <div class="flex items-center justify-between px-4 py-4">
+        <!-- Page Title -->
+        <h1 class="text-lg font-semibold" data-i18n="registerCompany.pageTitle">
+          الإنضمام كشركة نقل
+        </h1>
+
+        <!-- Hamburger Menu -->
+        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-2">
+          <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Sidebar -->
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <!-- Close Button -->
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="flex-1 px-4 text-black">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="../index.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.home"
+                      >الرئيسية</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="toggleMobileMenu(); return false;"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
+                      >معلومات الحساب</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../customer/quotes.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
+                      >عروض الأسعار</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../customer/orders.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.orders"
+                      >الطلبات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../settings.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
+                      >الإعدادات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.contact"
+                      >تواصل معنا</span
+                    >
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4">
+      <div class="container mx-auto max-w-3xl space-y-3 mb-3">
+        <div class="text-sm text-[#7E7E7E]">
+          <a href="./dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">معلومات الحساب</span>
+        </div>
+      </div>
+      <div
+        class="container bg-white mx-auto px-4 max-w-2xl py-6 rounded-xl"
+        id="register-company-container"
+      >
+        <form id="register-company-form" class="space-y-6 pt-6">
+          <!-- Company Logo Upload -->
+          <div class="flex flex-row items-center justify-between">
+            <div class="relative flex items-center gap-4">
+              <label
+                for="logo-upload"
+                class="w-20 h-20 rounded-full border border-gray-200 bg-white flex items-center justify-center overflow-hidden cursor-pointer"
+              >
+                <img
+                  id="logo-preview"
+                  class="hidden object-cover rounded-full w-full h-full"
+                  alt="Logo"
+                />
+                <i id="logo-icon" class="fas fa-camera text-4xl text-gray-400"></i>
+              </label>
+              <input type="file" id="logo-upload" accept="image/*" class="hidden" />
+              <p class="text-[#353535] text-md mt-2" data-i18n="registerCompany.companyLogo">
+                صورة الشركة
+              </p>
+            </div>
+            <p class="text-[#00B8A9] text-sm mt-2" data-i18n="registerCompany.uploadLogo">
+              رفع الصورة
+            </p>
+          </div>
+
+          <!-- Company Name -->
+          <div class="space-y-2">
+            <label for="companyName" class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.companyName">اسم الشركة التجاري</span>
+              <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="companyName"
+              required
+              class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+            />
+            <p id="companyName-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Commercial Registration -->
+          <div class="space-y-2">
+            <label
+              class="block text-[#353535] font-medium"
+              data-i18n="registerCompany.commercialRegistration"
+              >السجل التجاري</label
+            >
+            <div class="relative">
+              <label
+                for="file-upload"
+                class="border border-gray-200 rounded-md p-3 flex items-center gap-2 justify-between cursor-pointer"
+              >
+                <p class="text-[#A3A3A3] text-sm" data-i18n="registerCompany.attachFile">
+                  أرفق السجل التجاري
+                </p>
+                <i class="fas fa-paperclip text-gray-400"></i>
+              </label>
+              <input
+                type="file"
+                id="file-upload"
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                class="hidden"
+              />
+            </div>
+            <div
+              id="file-attached"
+              class="hidden text-[#00B8A9] text-sm flex items-center gap-2 border border-[#EDEDED] rounded-md p-2 w-fit"
+            >
+              <button type="button" id="remove-file" class="text-[#00B8A9]">
+                <i class="fas fa-times"></i>
+              </button>
+              <i class="fas fa-paperclip"></i>
+              <span data-i18n="registerCompany.fileAttached">ملف السجل التجاري</span>
+            </div>
+          </div>
+
+          <!-- City -->
+          <div class="space-y-2">
+            <label for="city" class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.city">المدينة</span>
+              <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <select
+                id="city"
+                required
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
+              >
+                <option value="" data-i18n="registerCompany.selectCity">اختر المدينة</option>
+                <option value="jeddah" data-i18n="registerCompany.cities.jeddah">جدة</option>
+                <option value="riyadh" data-i18n="registerCompany.cities.riyadh">الرياض</option>
+                <option value="dammam" data-i18n="registerCompany.cities.dammam">الدمام</option>
+                <option value="mecca" data-i18n="registerCompany.cities.mecca">مكة المكرمة</option>
+                <option value="medina" data-i18n="registerCompany.cities.medina">
+                  المدينة المنورة
+                </option>
+                <option value="khobar" data-i18n="registerCompany.cities.khobar">الخبر</option>
+                <option value="tabuk" data-i18n="registerCompany.cities.tabuk">تبوك</option>
+                <option value="abha" data-i18n="registerCompany.cities.abha">أبها</option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+              ></i>
+            </div>
+            <p id="city-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Email -->
+          <div class="space-y-2">
+            <label for="email" class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.email">البريد الإلكتروني</span>
+              <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              required
+              class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+            />
+            <p id="email-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Password -->
+          <div class="space-y-2">
+            <label for="password" class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.password">الرمز السري</span>
+              <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                required
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+              />
+              <button
+                type="button"
+                onclick="togglePasswordVisibility('password')"
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 password-toggle"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <p id="password-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="space-y-2">
+            <label for="confirmPassword" class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.confirmPassword">تكرار الرمز السري</span>
+              <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <input
+                type="password"
+                id="confirmPassword"
+                required
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+              />
+              <button
+                type="button"
+                onclick="togglePasswordVisibility('confirmPassword')"
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 password-toggle"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <p id="confirmPassword-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="space-y-2">
+            <label for="phoneNumber" class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.phoneNumber">رقم الهاتف</span>
+              <span class="text-red-500">*</span>
+            </label>
+            <div class="flex" dir="ltr">
+              <span
+                class="inline-flex items-center px-3 border border-l-0 border-[#EDEDED] bg-gray-50 text-gray-500 rounded-l-lg"
+                >+966</span
+              >
+              <input
+                type="tel"
+                id="phoneNumber"
+                required
+                maxlength="9"
+                class="flex-1 px-4 py-3 border border-[#EDEDED] rounded-r-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right"
+              />
+            </div>
+            <p id="phoneNumber-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Featured Services -->
+          <div class="space-y-3">
+            <label class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.featuredServices">الخدمات المقدمة</span>
+              <span class="text-red-500">*</span>
+            </label>
+
+            <!-- Select Dropdown -->
+            <div class="relative">
+              <select
+                id="services-select"
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
+              >
+                <option value="" data-i18n="registerCompany.selectService">
+                  حدد الخدمات المقدمة
+                </option>
+                <option value="disassembly" data-i18n="registerCompany.services.disassembly">
+                  تفكيك وتركيب
+                </option>
+                <option value="packing" data-i18n="registerCompany.services.packing">
+                  تغليف محكم
+                </option>
+                <option value="insurance" data-i18n="registerCompany.services.insurance">
+                  تأمين ضد الفقد والكسر
+                </option>
+                <option value="cleaning" data-i18n="registerCompany.services.cleaning">
+                  تنظيف بعد النقل
+                </option>
+                <option value="moving" data-i18n="registerCompany.services.moving">
+                  نقل من بين مدن
+                </option>
+                <option value="tracking" data-i18n="registerCompany.services.tracking">
+                  تتبع مباشر
+                </option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+              ></i>
+            </div>
+
+            <!-- Selected Services Chips -->
+            <div id="selected-services" class="flex flex-wrap gap-2 mt-3"></div>
+
+            <p id="services-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- About Company -->
+          <div class="space-y-2">
+            <label for="aboutCompany" class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.aboutCompany">نبذة قصيرة عن الشركة</span>
+              <span class="text-red-500">*</span>
+            </label>
+            <textarea
+              id="aboutCompany"
+              required
+              rows="4"
+              class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] resize-none"
+            ></textarea>
+            <p id="aboutCompany-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="space-y-2">
+            <div class="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="agreeTerms"
+                required
+                class="w-5 h-5 text-[#00B8A9] border-[#E7E7E7] rounded focus:ring-[#00B8A9]"
+              />
+              <label for="agreeTerms" class="text-sm text-gray-700 cursor-pointer">
+                <span data-i18n="registerCompany.agreeTerms">من خلال إنشاء حساب، أوافق على</span>
+                <a
+                  href="/terms"
+                  class="text-[#00B8A9] underline"
+                  data-i18n="registerCompany.termsLink"
+                  >شروط الاستخدام</a
+                >
+                <span data-i18n="registerCompany.and">و</span>
+                <a
+                  href="/privacy"
+                  class="text-[#00B8A9] underline"
+                  data-i18n="registerCompany.privacyLink"
+                  >سياسة الخصوصية</a
+                >
+              </label>
+            </div>
+            <p id="agreeTerms-error" class="text-red-500 text-sm hidden"></p>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 text-base rounded-lg transition-colors"
+          >
+            <span data-i18n="registerCompany.submitButton">إرسال طلب إنشاء الحساب</span>
+          </button>
+        </form>
+      </div>
+      <!-- Verification Pending State -->
+      <div
+        id="verification-pending"
+        class="container mx-auto px-4 max-w-sm py-8 text-center hidden"
+      >
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="w-36 h-36 mx-auto mb-6 flex items-center justify-center">
+            <img
+              src="../assets/icons/settings.svg"
+              alt="logo"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <h2
+            class="text-[#353535] text-[18px] font-medium mb-6"
+            data-i18n="registerCompany.verificationPendingTitle"
+          >
+            جارٍ التحقق من حسابك 🎯
+          </h2>
+          <p
+            class="text-[#000] text-[14px] leading-5 mb-24"
+            data-i18n="registerCompany.verificationPendingDescription"
+          >
+            تم إرسال طلب إنشاء الحساب بنجاح. يتم المراجعة والتحقق من البيانات التي قدمتها عن شركتك.
+            سيتم إشعارك عبر البريد الإلكتروني ورقم الهاتف في حال توثيق حساب الشركة.
+          </p>
+          <a
+            href="../index.html"
+            class="block w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl"
+          >
+            <span data-i18n="registerCompany.goToHome">التوجّه إلى الرئيسية</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modals -->
+    <div
+      id="language-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
+      <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-4 relative">
+        <div class="relative pt-6 pb-2">
+          <h2 class="text-center text-lg font-semibold text-[#353535]" data-i18n="common.language">
+            اللغة
+          </h2>
+          <button
+            onclick="hideModal('language-modal')"
+            class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+          >
+            <i class="fas fa-times text-sm"></i>
+          </button>
+        </div>
+        <div class="px-4 pb-4">
+          <div class="border border-[#E5E7EB] rounded-xl overflow-hidden">
+            <button
+              type="button"
+              onclick="selectLocale('ar')"
+              class="w-full flex items-center justify-between px-4 py-3"
+            >
+              <span class="text-[#00B8A9]">العربية</span>
+              <i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
+            </button>
+            <div class="h-px bg-[#E5E7EB]"></div>
+            <button
+              type="button"
+              onclick="selectLocale('en')"
+              class="w-full flex items-center justify-between px-4 py-3"
+            >
+              <span class="text-[#353535]">English</span>
+              <i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
+            </button>
+          </div>
+          <button
+            onclick="saveSelectedLocale()"
+            class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
+          >
+            حفظ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/register-company.js"></script>
+    <script>
+      (function () {
+        var form = document.getElementById('register-company-form');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var container = document.getElementById('register-company-container');
+          var pending = document.getElementById('verification-pending');
+          if (container) container.classList.add('hidden');
+          if (pending) pending.classList.remove('hidden');
+        });
+      })();
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+      function togglePasswordVisibility(id) {
+        var i = document.getElementById(id);
+        if (!i) return;
+        i.type = i.type === 'password' ? 'text' : 'password';
+      }
+    </script>
+  </body>
+</html>

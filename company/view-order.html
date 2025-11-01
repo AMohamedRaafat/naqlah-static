@@ -287,16 +287,16 @@
               </button>
               <div id="updates-panel" class="hidden mt-5 border-t border-[#DFDFDF] py-4">
                 <div class="space-y-2">
-                  <div class="rounded-xl overflow-hidden border border-[#DFDFDF]">
+                  <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#01B4AA17] text-[#6B7280] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
                       data-target="panel-go-first"
                     >
                       <span>التوجه إلى الموقع الأول</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
                     </button>
-                    <div id="panel-go-first" class="hidden rounded-xl overflow-hidden">
+                    <div id="panel-go-first" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
                         <div
                           class="text-[13px] leading-6 font-medium flex items-center gap-2 justify-start"
@@ -314,6 +314,7 @@
                         </div>
                         <button
                           data-confirm="update-step"
+                          data-navigate="order-completed"
                           class="mt-4 w-full py-2.5 rounded-xl bg-[#00B8A9] text-white font-bold"
                         >
                           تأكيد
@@ -321,16 +322,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="rounded-xl overflow-hidden border border-[#DFDFDF]">
+                  <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
                       data-target="panel-check-furniture"
                     >
                       <span>التحقق من الأثاث</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
                     </button>
-                    <div id="panel-check-furniture" class="hidden rounded-xl overflow-hidden">
+                    <div id="panel-check-furniture" class="hidden">
                       <div class="bg-[#E3F3F2] p-4 text-[#353535]">
                         <div class="text-[13px] font-medium mb-5 text-start">
                           لقد تحققت من تفاصيل الأثاث والغرف
@@ -519,16 +520,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="rounded-xl overflow-hidden border border-[#DFDFDF]">
+                  <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
                       data-target="panel-unpack-install"
                     >
-                      <span>الفك والتركيب</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <span>الفك والتحميل</span>
+                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
                     </button>
-                    <div id="panel-unpack-install" class="hidden rounded-xl overflow-hidden">
+                    <div id="panel-unpack-install" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
                         <div class="text-[13px] leading-6">
                           قمت بفك الأثاث وتحميله إلى المركبة بلا أي ضرر
@@ -536,8 +537,16 @@
                         <a
                           href="#"
                           onclick="return false;"
-                          class="block mt-2 text-[13px] text-red-600 font-semibold"
+                          class="flex gap-2 items-center justify-center mt-2 py-2 text-[13px] text-red-600 font-semibold"
+                          data-report="damage"
+                          data-report-type="form"
+                          data-report-variant="unpack"
                         >
+                          <img
+                            src="../assets/icons/flag.svg"
+                            alt="exclamation-triangle"
+                            class="w-4 h-4"
+                          />
                           ابلاغ عن ضرر
                         </a>
                         <button
@@ -549,16 +558,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="rounded-xl overflow-hidden bg-[#01B4AA17] border border-[#DFDFDF]">
+                  <div class="rounded-xl overflow-hidden bg-[#01B4AA17]">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[#6B7280] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none text-[#00B8A9] step-toggle"
                       data-target="panel-go-delivery"
                     >
                       <span>التوجه إلى موقع التسليم</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
                     </button>
-                    <div id="panel-go-delivery" class="hidden rounded-xl overflow-hidden">
+                    <div id="panel-go-delivery" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
                         <div
                           class="text-[13px] leading-6 font-medium flex items-center gap-2 justify-start"
@@ -583,16 +592,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="rounded-xl overflow-hidden border border-[#DFDFDF]">
+                  <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
                       data-target="panel-download-install"
                     >
                       <span>التنزيل والتركيب</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
                     </button>
-                    <div id="panel-download-install" class="hidden rounded-xl overflow-hidden">
+                    <div id="panel-download-install" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
                         <div class="text-[13px] leading-6">
                           قمت بإنزال الأثاث والتركيب بلا أي ضرر
@@ -600,8 +609,16 @@
                         <a
                           href="#"
                           onclick="return false;"
-                          class="block mt-2 text-[13px] text-red-600 font-semibold"
+                          class="flex gap-2 items-center justify-center mt-2 py-2 text-[13px] text-red-600 font-semibold"
+                          data-report="damage"
+                          data-report-type="form"
+                          data-report-variant="download"
                         >
+                          <img
+                            src="../assets/icons/flag.svg"
+                            alt="exclamation-triangle"
+                            class="w-4 h-4"
+                          />
                           ابلاغ عن ضرر
                         </a>
                         <button
@@ -613,16 +630,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="rounded-xl overflow-hidden border border-[#DFDFDF]">
+                  <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F1F5F9] text-[#6B7280] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
                       data-target="panel-finished"
                     >
                       <span>تم إكمال الطلب</span>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
                     </button>
-                    <div id="panel-finished" class="hidden rounded-xl overflow-hidden">
+                    <div id="panel-finished" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
                         <div class="text-[13px] leading-6">
                           لقد قام العميل بدفع كامل المستحقات وسأقوم بإغلاق الطلب.
@@ -775,11 +792,236 @@
               try {
                 el.dispatchEvent(new CustomEvent('confirm:accepted', { bubbles: true }));
               } catch (_) {}
+              // handle post-confirm navigation, if requested
+              try {
+                var dest = el.getAttribute('data-navigate');
+                if (dest === 'order-completed') {
+                  window.location.href = 'order-completed.html';
+                }
+              } catch (_) {}
             },
           });
           // prevent default actions like link navigation, if any
           e.preventDefault();
         });
+      })();
+
+      // Damage report modals (form + success)
+      (function () {
+        // Create report modal
+        var reportModal = document.createElement('div');
+        reportModal.id = 'damage-report-modal';
+        reportModal.className =
+          'hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60 px-4';
+        reportModal.innerHTML =
+          '\
+        <div class="relative z-[10000] w-full max-w-md bg-white rounded-2xl p-5">\
+          <h4 class="text-[16px] font-semibold text-[#312E37] mb-1 text-center">الإبلاغ عن ضرر</h4>\
+          <p id="damage-desc" class="text-[13px] text-[#6B7280] mb-4 text-center">حدد نوع الضرر في حالة الفك والتحميل</p>\
+          <input id="damage-type" type="hidden" value="الفك" />\
+          <div class="space-y-2" id="damage-options">\
+            <div class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2" data-value="الفك">\
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9] bg-[#00B8A9]"></span>\
+              <span class="text-[13px] text-[#353535]">تلف أو خدش أثناء الفك</span>\
+            </div>\
+            <div class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2" data-value="التحميل">\
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9]"></span>\
+              <span class="text-[13px] text-[#353535]">تلف أثناء التحميل في السيارة</span>\
+            </div>\
+            <div class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2" data-value="التغليف">\
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9]"></span>\
+              <span class="text-[13px] text-[#353535]">نقص التغليف أو استخدامها بشكل سيء</span>\
+            </div>\
+            <div class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2" data-value="آخر">\
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9]"></span>\
+              <span class="text-[13px] text-[#353535]">سبب طارئ آخر</span>\
+            </div>\
+          </div>\
+          <div class="mt-4">\
+            <div class="text-[13px] text-[#353535] mb-2">تفاصيل الإبلاغ</div>\
+            <textarea id="damage-report-text" rows="3" placeholder="اكتب تفاصيل المشكلة" class="w-full rounded-xl border border-[#E5E7EB] bg-white px-3 py-2 text-[13px] outline-none focus:border-[#00B8A9]"></textarea>\
+          </div>\
+          <div class="mt-3">\
+            <div class="rounded-xl border border-dashed border-[#DEDEDE] bg-white p-4 text-center mb-3">\
+              <input id="damage-upload-input" type="file" accept="image/png,image/jpeg" multiple class="hidden" />\
+              <button id="damage-upload-trigger" type="button" class="w-10 h-10 mx-auto rounded-md bg-[#FBFBFB] border border-[#EDEDED] grid place-items-center text-[#6B7280]"><img src="../assets/icons/camera.svg" alt="camera" class="w-6 h-6"></button>\
+              <div class="text-[12px] mt-2 text-[#353535]">أرفق بصيغة PNG, JPG لتوثيق التعديل</div>\
+            </div>\
+            <div id="damage-previews" class="grid grid-cols-2 gap-3"></div>\
+          </div>\
+          <div class="flex gap-3 mt-5">\
+            <button id="damage-submit" class="flex-1 py-2.5 rounded-lg bg-[#EF4351] text-white font-bold">إبلاغ</button>\
+            <button id="damage-cancel" class="flex-1 py-2.5 rounded-lg  text-[#9f9f9f] bg-[#EDEDED] font-bold">تراجع</button>\
+          </div>\
+        </div>';
+        document.body.appendChild(reportModal);
+
+        // Success modal
+        var doneModal = document.createElement('div');
+        doneModal.id = 'damage-report-done';
+        doneModal.className =
+          'hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60 px-4';
+        doneModal.innerHTML =
+          '\
+        <div class="relative z-[10000] w-full max-w-md bg-white rounded-2xl p-6 text-center">\
+          <h4 class="text-[16px] font-semibold text-[#312E37] mb-2">تم الإبلاغ بنجاح</h4>\
+          <p class="text-[13px] text-[#6B7280] mb-5 px-14 py-4">تم إرسال الإبلاغ إلى فريق نقلة وسيتم متابعته والتواصل معكم</p>\
+          <button id="damage-done-ok" class="w-full py-2.5 rounded-lg bg-[#00B8A9] text-white">تأكيد</button>\
+        </div>';
+        document.body.appendChild(doneModal);
+
+        function open(el) {
+          el.classList.remove('hidden');
+          el.classList.add('flex');
+        }
+        function close(el) {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        }
+
+        // Delegated opener
+        document.addEventListener('click', function (e) {
+          var link = e.target.closest('[data-report="damage"]');
+          if (!link) return;
+          e.preventDefault();
+          var t = (link.getAttribute('data-report-type') || 'form').toLowerCase();
+          if (t === 'done') {
+            open(doneModal);
+            return;
+          }
+          var variant = (link.getAttribute('data-report-variant') || 'unpack').toLowerCase();
+          setDamagePreset(variant);
+          open(reportModal);
+          // initialize selection visuals each time opened
+          var hidden = document.getElementById('damage-type');
+          var options = reportModal.querySelectorAll('.damage-option');
+          options.forEach(function (opt) {
+            var isSelected = opt.getAttribute('data-value') === (hidden && hidden.value);
+            var dot = opt.querySelector('.selector-dot');
+            if (dot) {
+              if (isSelected) dot.classList.add('bg-[#00B8A9]');
+              else dot.classList.remove('bg-[#00B8A9]');
+            }
+          });
+        });
+
+        // Backdrop close
+        reportModal.addEventListener('click', function (e) {
+          if (e.target === reportModal) close(reportModal);
+        });
+        doneModal.addEventListener('click', function (e) {
+          if (e.target === doneModal) close(doneModal);
+        });
+
+        // Cancel
+        document.getElementById('damage-cancel').addEventListener('click', function () {
+          close(reportModal);
+        });
+        // Submit -> show success
+        document.getElementById('damage-submit').addEventListener('click', function () {
+          close(reportModal);
+          open(doneModal);
+        });
+        document.getElementById('damage-done-ok').addEventListener('click', function () {
+          close(doneModal);
+        });
+
+        // Upload handling
+        var damageInput = document.getElementById('damage-upload-input');
+        var damageTrigger = document.getElementById('damage-upload-trigger');
+        var damagePreviews = document.getElementById('damage-previews');
+        // Option selection handling
+        (function () {
+          var container = reportModal.querySelector('#damage-options');
+          var hidden = document.getElementById('damage-type');
+          if (!container || !hidden) return;
+          container.addEventListener('click', function (e) {
+            var opt = e.target.closest('.damage-option');
+            if (!opt) return;
+            hidden.value = opt.getAttribute('data-value') || '';
+            container.querySelectorAll('.damage-option').forEach(function (o) {
+              var active = o === opt;
+              var dot = o.querySelector('.selector-dot');
+              if (dot) {
+                if (active) dot.classList.add('bg-[#00B8A9]');
+                else dot.classList.remove('bg-[#00B8A9]');
+              }
+            });
+          });
+        })();
+
+        // Preset renderer for different steps
+        function setDamagePreset(name) {
+          var desc = document.getElementById('damage-desc');
+          var optionsWrap = document.getElementById('damage-options');
+          var hidden = document.getElementById('damage-type');
+          if (!desc || !optionsWrap || !hidden) return;
+          var preset = String(name || 'unpack');
+          var items;
+          if (preset === 'download') {
+            desc.textContent = 'حدد نوع الضرر في حالة التنزيل والتركيب';
+            items = [
+              { v: 'تركيب غير سليم', s: false },
+              { v: 'كسر أو تلف أثناء التنزيل', s: true },
+              { v: 'نقص في القطع أو المسامير', s: false },
+              { v: 'رفض الفني إكمال التركيب', s: false },
+              { v: 'سبب طارئ آخر', s: false },
+            ];
+          } else {
+            desc.textContent = 'حدد نوع الضرر في حالة الفك والتحميل';
+            items = [
+              { v: 'تلف أو خدش أثناء الفك', s: true },
+              { v: 'تلف أثناء التحميل في السيارة', s: false },
+              { v: 'نقص التغليف أو استخدامها بشكل سيء', s: false },
+              { v: 'سبب طارئ آخر', s: false },
+            ];
+          }
+          hidden.value = items.find(function (i) {
+            return i.s;
+          }).v;
+          optionsWrap.innerHTML = items
+            .map(function (i) {
+              return (
+                '<div class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2" data-value="' +
+                i.v +
+                '"><span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9] ' +
+                (i.s ? 'bg-[#00B8A9]' : '') +
+                '"></span><span class="text-[13px] text-[#353535]">' +
+                i.v +
+                '</span></div>'
+              );
+            })
+            .join('');
+        }
+        if (damageTrigger && damageInput) {
+          damageTrigger.addEventListener('click', function () {
+            damageInput.click();
+          });
+          damageInput.addEventListener('change', function () {
+            if (!damageInput.files || !damageInput.files.length) return;
+            Array.from(damageInput.files).forEach(function (file) {
+              var url = URL.createObjectURL(file);
+              var card = document.createElement('div');
+              card.className = 'relative rounded-xl  bg-white w-28';
+              card.innerHTML =
+                '<img src="' +
+                url +
+                '" class="w-full h-28 object-cover rounded-xl overflow-hidden" />';
+              var del = document.createElement('button');
+              del.type = 'button';
+              del.className =
+                'absolute -top-2 -right-2  w-7 h-7 rounded-full bg-[#00B8A9] text-white grid place-items-center';
+              del.innerHTML = '<i class="fas fa-times"></i>';
+              del.addEventListener('click', function () {
+                URL.revokeObjectURL(url);
+                card.remove();
+              });
+              card.appendChild(del);
+              damagePreviews.appendChild(card);
+            });
+            damageInput.value = '';
+          });
+        }
       })();
 
       // Inline collapse for step panels

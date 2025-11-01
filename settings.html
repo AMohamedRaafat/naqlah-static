@@ -3,410 +3,241 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الإعدادات - Naqlah</title>
-
+    <title>الإعدادات</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/custom.css" />
+    <script src="./assets/js/tailwind-config.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              'expo-arabic': ['"Expo Arabic"', 'system-ui', 'sans-serif'],
-            },
-          },
-        },
-      };
-    </script>
+    <style>
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 26px;
+      }
+      .toggle-switch .toggle-input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+      .toggle-switch .toggle-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 44px;
+        height: 26px;
+        background: #fff;
+        border: 1px solid #f2f2f2;
+        border-radius: 9999px;
+        cursor: pointer;
+      }
+      .toggle-switch .toggle-label::before {
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        background: #e7e7e7;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+      .toggle-switch .toggle-input:checked + .toggle-label::before {
+        background: #01b4aa;
+        transform: translateX(18px);
+      }
+    </style>
   </head>
-  <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fafafa]">
-    <!-- Logged-in Navbar -->
-    <nav
-      id="desktop-navbar"
-      class="hidden lg:flex w-full font-expo-arabic shadow-md bg-white text-gray-900 border-b border-gray-200"
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
+    <!-- Desktop Sidebar -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
     >
-      <div class="container mx-auto px-6">
-        <div class="flex items-center justify-between h-20 w-full">
-          <!-- Page Title -->
-          <div class="flex items-center order-3">
-            <h1 class="text-2xl font-semibold" data-i18n="navigation.settings">الإعدادات</h1>
-          </div>
-
-          <!-- Navigation Links -->
-          <div class="flex items-center gap-8 order-2">
-            <a
-              href="index.html"
-              class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
-            >
-              <span data-i18n="navigation.home">الرئيسية</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-[#00B8A9]"
-              ></span>
-            </a>
-            <a
-              href="dashboard.html"
-              class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
-            >
-              <span data-i18n="navigation.dashboard">لوحة التحكم</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-[#00B8A9]"
-              ></span>
-            </a>
-            <a
-              href="profile.html"
-              class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
-            >
-              <span data-i18n="navigation.profile">الملف الشخصي</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-[#00B8A9]"
-              ></span>
-            </a>
-            <a
-              href="settings.html"
-              class="font-medium relative group transition-colors text-gray-900 hover:text-[#00B8A9]"
-            >
-              <span data-i18n="navigation.settings">الإعدادات</span>
-              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#00B8A9]"></span>
-            </a>
-          </div>
-
-          <div class="flex items-center gap-4 order-3">
-            <button
-              onclick="showModal('language-modal')"
-              class="px-4 py-2 rounded-lg transition-colors text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-900"
-            >
-              <span id="lang-btn">English</span>
-            </button>
-
-            <div class="relative">
-              <button
-                id="user-menu-button"
-                onclick="toggleUserMenu()"
-                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200"
-              >
-                <i class="fas fa-user"></i>
-                <span data-i18n="userMenu.username">اسم المستخدم</span>
-              </button>
-              <div
-                id="user-menu-dropdown"
-                class="hidden absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
-              >
-                <a
-                  href="profile.html"
-                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                  data-i18n="navigation.profile"
-                  >الملف الشخصي</a
-                >
-                <a
-                  href="settings.html"
-                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                  data-i18n="navigation.settings"
-                  >الإعدادات</a
-                >
-                <button
-                  onclick="showModal('logout-modal')"
-                  class="w-full text-right px-4 py-2 text-red-600 hover:bg-gray-100"
-                  data-i18n="navigation.logout"
-                >
-                  تسجيل الخروج
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="p-6 border-b border-gray-200">
+        <a href="./index.html" class="flex items-center justify-center"
+          ><img src="./assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
       </div>
-    </nav>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="./company/dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md hover:bg-gray-50 transition-colors"
+              ><img src="./assets/menu-icons/home.svg" class="w-6 h-6" /><span>لوحة التحكم</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md sidebar-active"
+              ><i class="fas fa-gear text-lg text-[#A9A9A9]"></i><span>الإعدادات</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
     <!-- Mobile Navbar -->
-    <nav class="lg:hidden bg-white border-b border-gray-200 shadow-sm">
-      <div class="px-4 py-4">
-        <div class="flex items-center justify-between">
-          <button onclick="toggleMobileMenu()" class="text-gray-900">
-            <i class="fas fa-bars text-2xl"></i>
-          </button>
-          <h1 class="text-xl font-semibold" data-i18n="navigation.settings">الإعدادات</h1>
-          <button
-            onclick="showModal('language-modal')"
-            class="px-3 py-1.5 rounded-lg bg-gray-100 text-sm"
-          >
-            EN
-          </button>
+    <div class="lg:hidden bg-white text-gray-900 border-b border-gray-200 w-full">
+      <div class="flex items-center justify-between px-4 py-4">
+        <h1 class="text-lg font-semibold">الإعدادات</h1>
+        <button onclick="toggleMobileMenu()" class="p-2">
+          <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+        </button>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="./company/dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    ><img src="./assets/menu-icons/home.svg" class="w-6 h-6" /><span
+                      class="text-[15px]"
+                      >لوحة التحكم</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="return false;"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                    ><i class="fas fa-gear w-6 h-6 text-[#a9a9a9]"></i
+                    ><span class="text-[15px]">الإعدادات</span></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden bg-white border-t border-gray-200">
-        <div class="px-4 py-4 space-y-3">
-          <a href="/" class="block py-2 text-gray-800" data-i18n="navigation.home">الرئيسية</a>
-          <a href="dashboard.html" class="block py-2 text-gray-800" data-i18n="navigation.dashboard"
-            >لوحة التحكم</a
-          >
-          <a href="profile.html" class="block py-2 text-gray-800" data-i18n="navigation.profile"
-            >الملف الشخصي</a
-          >
-          <a
-            href="settings.html"
-            class="block py-2 text-[#00B8A9] font-semibold"
-            data-i18n="navigation.settings"
-            >الإعدادات</a
-          >
-          <button
-            onclick="showModal('logout-modal')"
-            class="block w-full text-right py-2 text-red-600"
-            data-i18n="navigation.logout"
-          >
-            تسجيل الخروج
-          </button>
-        </div>
-      </div>
-    </nav>
+    </div>
 
     <!-- Main Content -->
-    <main class="flex-1 container mx-auto px-4 py-8">
-      <div class="max-w-3xl mx-auto space-y-6">
-        <!-- Account Settings -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h2 class="text-xl font-bold mb-4">إعدادات الحساب</h2>
-
-          <div class="space-y-4">
-            <div class="flex items-center justify-between py-3 border-b border-gray-200">
-              <div>
-                <h3 class="font-semibold">تغيير كلمة المرور</h3>
-                <p class="text-sm text-gray-600">قم بتحديث كلمة المرور الخاصة بك</p>
-              </div>
-              <button
-                class="px-4 py-2 text-[#00B8A9] border border-[#00B8A9] rounded-lg hover:bg-[#00B8A9] hover:text-white transition-colors"
-              >
-                تغيير
-              </button>
-            </div>
-
-            <div class="flex items-center justify-between py-3 border-b border-gray-200">
-              <div>
-                <h3 class="font-semibold">البريد الإلكتروني</h3>
-                <p class="text-sm text-gray-600">ahmed@example.com</p>
-              </div>
-              <button
-                class="px-4 py-2 text-[#00B8A9] border border-[#00B8A9] rounded-lg hover:bg-[#00B8A9] hover:text-white transition-colors"
-              >
-                تعديل
-              </button>
-            </div>
-
-            <div class="flex items-center justify-between py-3">
-              <div>
-                <h3 class="font-semibold">رقم الهاتف</h3>
-                <p class="text-sm text-gray-600">+966 512 345 678</p>
-              </div>
-              <button
-                class="px-4 py-2 text-[#00B8A9] border border-[#00B8A9] rounded-lg hover:bg-[#00B8A9] hover:text-white transition-colors"
-              >
-                تعديل
-              </button>
-            </div>
-          </div>
+    <main class="flex items-start justify-center p-4 w-full">
+      <div class="container mx-auto max-w-3xl space-y-6">
+        <div class="mb-2 text-sm text-[#7E7E7E]">
+          <a href="./company/dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">الإعدادات</span>
         </div>
-
-        <!-- Notifications -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h2 class="text-xl font-bold mb-4">الإشعارات</h2>
-
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="font-semibold">إشعارات البريد الإلكتروني</h3>
-                <p class="text-sm text-gray-600">تلقي التحديثات عبر البريد الإلكتروني</p>
-              </div>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" checked class="sr-only peer" />
-                <div
-                  class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B8A9]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B8A9]"
-                ></div>
-              </label>
-            </div>
-
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="font-semibold">إشعارات SMS</h3>
-                <p class="text-sm text-gray-600">تلقي رسائل نصية للتحديثات المهمة</p>
-              </div>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" checked class="sr-only peer" />
-                <div
-                  class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B8A9]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B8A9]"
-                ></div>
-              </label>
-            </div>
-
-            <div class="flex items-center justify-between">
-              <div>
-                <h3 class="font-semibold">إشعارات التطبيق</h3>
-                <p class="text-sm text-gray-600">تلقي الإشعارات داخل التطبيق</p>
-              </div>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" checked class="sr-only peer" />
-                <div
-                  class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00B8A9]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#00B8A9]"
-                ></div>
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Language & Region -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h2 class="text-xl font-bold mb-4">اللغة والمنطقة</h2>
-
-          <div class="space-y-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">اللغة</label>
-              <select
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
-              >
-                <option value="ar">العربية</option>
-                <option value="en">English</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">المنطقة الزمنية</label>
-              <select
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
-              >
-                <option>الرياض (GMT+3)</option>
-                <option>جدة (GMT+3)</option>
-                <option>الدمام (GMT+3)</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Privacy & Security -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h2 class="text-xl font-bold mb-4">الخصوصية والأمان</h2>
-
-          <div class="space-y-4">
+        <section class="bg-white rounded-2xl p-4 shadow-sm">
+          <h2 class="text-[#6B7280] text-base mb-3">لغات التطبيق</h2>
+          <div class="border rounded-2xl p-4">
             <button
-              class="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+              id="lang-ar"
+              class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F8FAFC]"
             >
-              <span class="font-semibold">سياسة الخصوصية</span>
-              <i class="fas fa-chevron-left"></i>
+              <span class="text-[#00B8A9] font-semibold">العربية</span>
+              <i class="fas fa-check text-[#00B8A9]"></i>
             </button>
-
+            <div class="my-3 h-px bg-gray-200"></div>
             <button
-              class="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+              id="lang-en"
+              class="w-full flex items-center justify-between px-4 py-3 rounded-xl"
             >
-              <span class="font-semibold">شروط الاستخدام</span>
-              <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <button
-              class="w-full flex items-center justify-between p-4 border border-red-200 rounded-lg hover:bg-red-50 transition-colors text-red-600"
-            >
-              <span class="font-semibold">حذف الحساب</span>
-              <i class="fas fa-trash-alt"></i>
+              <span class="text-gray-700">English</span>
             </button>
           </div>
-        </div>
+        </section>
 
-        <!-- Save Button -->
-        <button
-          class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-lg transition-colors"
-        >
-          حفظ جميع التغييرات
-        </button>
+        <section class="bg-white rounded-2xl p-4 shadow-sm">
+          <h2 class="text-[#6B7280] text-base mb-3">التنبيهات</h2>
+          <div class="space-y-6">
+            <div class="flex items-center justify-between">
+              <span class="text-[#353535]">عند توفر طلبات التسعيرة</span>
+              <div class="toggle-switch">
+                <input id="tg1" type="checkbox" class="toggle-input" checked /><label
+                  for="tg1"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[#353535]">عند تحديث الحالات</span>
+              <div class="toggle-switch">
+                <input id="tg2" type="checkbox" class="toggle-input" /><label
+                  for="tg2"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[#353535]">عند قبول عروض الأسعار</span>
+              <div class="toggle-switch">
+                <input id="tg3" type="checkbox" class="toggle-input" checked /><label
+                  for="tg3"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[#353535]">عند إنهاء النقل</span>
+              <div class="toggle-switch">
+                <input id="tg4" type="checkbox" class="toggle-input" /><label
+                  for="tg4"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <button class="mt-8 w-full py-4 rounded-xl bg-[#00B8A9] text-white font-bold">
+            حفظ الإعدادات
+          </button>
+        </section>
       </div>
     </main>
 
-    <!-- Modals -->
-    <div
-      id="language-modal"
-      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
-    >
-      <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-4 relative">
-        <div class="relative pt-6 pb-2">
-          <h2 class="text-center text-lg font-semibold text-[#353535]" data-i18n="common.language">
-            اللغة
-          </h2>
-          <button
-            onclick="hideModal('language-modal')"
-            class="absolute top-3 left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
-          >
-            <i class="fas fa-times text-sm"></i>
-          </button>
-        </div>
-        <div class="px-4 pb-4">
-          <div class="border border-[#E5E7EB] rounded-xl overflow-hidden">
-            <button
-              type="button"
-              onclick="selectLocale('ar')"
-              class="w-full flex items-center justify-between px-4 py-3"
-            >
-              <span class="text-[#00B8A9]">العربية</span>
-              <i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
-            </button>
-            <div class="h-px bg-[#E5E7EB]"></div>
-            <button
-              type="button"
-              onclick="selectLocale('en')"
-              class="w-full flex items-center justify-between px-4 py-3"
-            >
-              <span class="text-[#353535]">English</span>
-              <i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
-            </button>
-          </div>
-          <button
-            onclick="saveSelectedLocale()"
-            class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
-          >
-            حفظ
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div
-      id="logout-modal"
-      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
-    >
-      <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
-        <h2 class="text-xl font-bold mb-4 text-center" data-i18n="common.logoutTitle">
-          تسجيل الخروج
-        </h2>
-        <p class="text-gray-600 text-center mb-6" data-i18n="common.logoutConfirmation">
-          هل أنت متأكد من أنك تريد تسجيل الخروج من حسابك؟
-        </p>
-        <div class="flex gap-3">
-          <button
-            onclick="hideModal('logout-modal')"
-            class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition-colors"
-            data-i18n="common.noCancel"
-          >
-            لا، إلغاء
-          </button>
-          <button
-            onclick="logout(); hideModal('logout-modal');"
-            class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition-colors"
-            data-i18n="common.confirmLogout"
-          >
-            نعم الخروج
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
     <script>
-      $(document).ready(function () {
-        if (!window.isLoggedIn) {
-          window.location.href = '/';
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+      // simple language switch highlight
+      (function () {
+        var ar = document.getElementById('lang-ar');
+        var en = document.getElementById('lang-en');
+        if (!ar || !en) return;
+        function set(lang) {
+          if (lang === 'ar') {
+            ar.classList.add('bg-[#F8FAFC]');
+            ar.querySelector('span').classList.add('text-[#00B8A9]');
+            en.classList.remove('bg-[#F8FAFC]');
+          } else {
+            en.classList.add('bg-[#F8FAFC]');
+            ar.classList.remove('bg-[#F8FAFC]');
+          }
         }
-      });
+        ar.addEventListener('click', function () {
+          set('ar');
+        });
+        en.addEventListener('click', function () {
+          set('en');
+        });
+      })();
     </script>
   </body>
 </html>
