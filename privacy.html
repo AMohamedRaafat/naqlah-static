@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سياسة الخصوصية - Naqlah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <script src="assets/js/tailwind-config.js"></script>
+  </head>
+  <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fafafa]">
+    <nav id="desktop-navbar" class="hidden lg:flex w-full shadow-md bg-[#00B8A9] text-white">
+      <div class="container mx-auto px-6 w-full">
+        <div class="flex items-center justify-between h-20 w-full">
+          <a href="index.html" class="flex items-center"
+            ><img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+          /></a>
+          <div class="flex items-center gap-6">
+            <a
+              href="index.html"
+              class="font-medium relative group transition-colors text-white hover:text-white/80"
+              ><span>الرئيسية</span
+              ><span
+                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
+              ></span
+            ></a>
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              onclick="showModal('language-modal')"
+              class="px-4 py-2 rounded-lg text-sm font-medium bg:white/10 bg-white/10 hover:bg-white/20"
+            >
+              English
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="lg:hidden bg-[#00B8A9] text-white">
+      <div class="flex items-end justify-between px-4 py-5">
+        <a href="index.html" class="flex items-center"
+          ><img src="assets/logo.svg" alt="نقلة" class="h-full w-auto" style="max-height: 50px"
+        /></a>
+        <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-white">
+          <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4 text-black">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="index.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    ><img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                      class="text-[15px] text-gray-800"
+                      >الرئيسية</span
+                    ></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="flex-1">
+      <div class="bg-white border-b border-gray-200">
+        <div class="container mx-auto max-w-3xl px-4 py-4">
+          <div class="mb-2 text-sm text-[#7E7E7E]">
+            <a href="index.html" class="hover:text-[#00B8A9]">الرئيسية</a><span class="mx-2">—</span
+            ><span class="text-[#312E37] font-medium">سياسة الخصوصية</span>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto max-w-3xl px-4 py-6">
+        <div
+          class="bg-white rounded-2xl p-4 border border-[#ECECEC] leading-8 text-[#4B4B4B] text-[14px]"
+        >
+          <h2 class="text-start font-semibold text-[#3C3D41] mb-4">سياسة الخصوصية</h2>
+          <p class="mb-4">
+            نحن نحرص على خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح هذه السياسة كيف نقوم بجمع
+            واستخدام ومشاركة وحماية معلوماتك.
+          </p>
+          <h3 class="font-semibold mt-4 mb-2">المعلومات التي نجمعها</h3>
+          <ul class="list-disc pr-5 space-y-1">
+            <li>معلومات الحساب: الاسم، رقم الهاتف.</li>
+            <li>معلومات الموقع لتسهيل عمليات النقل.</li>
+            <li>تفاصيل الطلب وعمليات النقل.</li>
+          </ul>
+          <h3 class="font-semibold mt-4 mb-2">كيف نستخدم بياناتك</h3>
+          <ul class="list-disc pr-5 space-y-1">
+            <li>تقديم الخدمة بشكل فعّال.</li>
+            <li>تحسين الجودة وتجربة المستخدم.</li>
+            <li>لأغراض أمنية وقانونية.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-[#00B8A9] text-white mt-auto">
+      <div class="container mx-auto px-6 py-6">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <div class="lg:order-1">
+            <h3 class="text-[16px] font-semibold mb-3">في الموقع</h3>
+            <ul class="space-y-3 text-[12px]">
+              <li><a href="index.html" class="hover:opacity-80">من نحن</a></li>
+            </ul>
+          </div>
+          <div class="lg:order-2">
+            <h3 class="text-[16px] font-semibold mb-3">روابط أخرى</h3>
+            <ul class="space-y-3 text-[12px]">
+              <li><a href="privacy.html" class="hover:opacity-80">سياسة الخصوصية</a></li>
+              <li><a href="terms.html" class="hover:opacity-80">الشروط والأحكام</a></li>
+              <li><a href="faq.html" class="hover:opacity-80">الأسئلة والإستفسارات</a></li>
+            </ul>
+          </div>
+          <div class="show-desktop flex-col items-center mb-6 lg:order-3">
+            <div class="mb-1"><img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
+            <div class="mb-6">
+              <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+            </div>
+            <div class="flex gap-6 flex-row-reverse">
+              <a href="https://facebook.com" target="_blank" class="hover:opacity-80"
+                ><i class="fab fa-facebook-f text-xl"></i></a
+              ><a href="https://instagram.com" target="_blank" class="hover:opacity-80"
+                ><i class="fab fa-instagram text-xl"></i></a
+              ><a href="https://twitter.com" target="_blank" class="hover:opacity-80"
+                ><i class="fab fa-twitter text-xl"></i></a
+              ><a href="https://youtube.com" target="_blank" class="hover:opacity-80"
+                ><i class="fab fa-youtube text-xl"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="flex lg:hidden flex-col items-center mb-6">
+          <div class="mb-1"><img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
+          <div class="mb-6">
+            <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+          </div>
+          <div class="flex gap-6 flex-row-reverse">
+            <a href="https://facebook.com" target="_blank" class="hover:opacity-80"
+              ><i class="fab fa-facebook-f text-xl"></i></a
+            ><a href="https://instagram.com" target="_blank" class="hover:opacity-80"
+              ><i class="fab fa-instagram text-xl"></i></a
+            ><a href="https://twitter.com" target="_blank" class="hover:opacity-80"
+              ><i class="fab fa-twitter text-xl"></i></a
+            ><a href="https://youtube.com" target="_blank" class="hover:opacity-80"
+              ><i class="fab fa-youtube text-xl"></i
+            ></a>
+          </div>
+        </div>
+        <div class="text-center pt-4">
+          <p class="text-base flex items-center justify-center gap-1">
+            <span>جميع الحقوق محفوظة لدى شركة نقلة</span><span id="current-year">2025</span
+            ><i class="far fa-copyright"></i>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="language-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
+      <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-4 relative">
+        <div class="relative pt-6 pb-2">
+          <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
+          <button
+            onclick="hideModal('language-modal')"
+            class="absolute top-3 left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+          >
+            <i class="fas fa-times text-sm"></i>
+          </button>
+        </div>
+        <div class="px-4 pb-4">
+          <div class="border border-[#E5E7EB] rounded-xl overflow-hidden">
+            <button
+              type="button"
+              onclick="selectLocale('ar')"
+              class="w-full flex items-center justify-between px-4 py-3"
+            >
+              <span class="text-[#00B8A9]">العربية</span
+              ><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
+            </button>
+            <div class="h-px bg-[#E5E7EB]"></div>
+            <button
+              type="button"
+              onclick="selectLocale('en')"
+              class="w-full flex items-center justify-between px-4 py-3"
+            >
+              <span class="text-[#353535]">English</span
+              ><i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
+            </button>
+          </div>
+          <button
+            onclick="saveSelectedLocale()"
+            class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
+          >
+            حفظ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+    </script>
+  </body>
+</html>
