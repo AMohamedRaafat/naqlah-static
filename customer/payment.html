@@ -28,15 +28,6 @@
         <ul class="space-y-2">
           <li>
             <a
-              href="../index.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-            >
-              <i class="fas fa-home text-lg text-[#A9A9A9]"></i>
-              <span>الرئيسية</span>
-            </a>
-          </li>
-          <li>
-            <a
               href="dashboard.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
@@ -46,23 +37,14 @@
           </li>
           <li>
             <a
-              href="#"
-              onclick="return false;"
+              href="./account-info.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-user-circle text-lg text-[#A9A9A9]"></i>
+              <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
               <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
             </a>
           </li>
-          <li>
-            <a
-              href="notifications.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-            >
-              <i class="fas fa-bell text-lg text-[#A9A9A9]"></i>
-              <span>التنبيهات</span>
-            </a>
-          </li>
+
           <li>
             <a
               href="quotes.html"
@@ -158,6 +140,16 @@
                         class="fas fa-th-large w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
                       <span class="text-[15px] text-gray-800">لوحة التحكم</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="account-info.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+                      <span class="text-[15px] text-gray-800">معلومات الحساب</span>
                     </a>
                   </li>
                   <li>

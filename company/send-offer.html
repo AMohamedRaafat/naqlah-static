@@ -66,10 +66,9 @@
           </li>
           <li>
             <a
-              href="#"
-              onclick="return false;"
+              href="account-info.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-              ><img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" /><span
+              ><img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" /><span
                 >معلومات الحساب</span
               ></a
             >
@@ -134,10 +133,19 @@
                   <a
                     href="./dashboard.html"
                     onclick="toggleMobileMenu()"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
                     ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
-                      class="text-[15px] text-gray-800"
                       >لوحة التحكم</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="account-info.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+                    ><img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" /><span
+                      >معلومات الحساب</span
                     ></a
                   >
                 </li>
@@ -145,18 +153,34 @@
                   <a
                     href="./manage-quotes.html"
                     onclick="toggleMobileMenu()"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
-                    ><i class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9]"></i
-                    ><span class="text-[15px] text-gray-800">طلبات الأسعار</span></a
+                    class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
+                    ><i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i
+                    ><span>طلبات الأسعار</span></a
                   >
                 </li>
                 <li>
                   <a
                     href="./manage-orders.html"
                     onclick="toggleMobileMenu()"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                    ><i class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9]"></i
-                    ><span class="text-[15px] text-gray-800">إدارة طلبات النقل</span></a
+                    class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+                    ><i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i
+                    ><span>إدارة طلبات النقل</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../settings.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+                    ><i class="fas fa-cog text-lg text-[#A9A9A9]"></i><span>الإعدادات</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+                    ><i class="fas fa-phone text-lg text-[#A9A9A9]"></i><span>تواصل معنا</span></a
                   >
                 </li>
               </ul>

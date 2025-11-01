@@ -29,36 +29,84 @@
         <ul class="space-y-2">
           <li>
             <a
-              href="./dashboard.html"
+              href="../index.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-              ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
-                >لوحة التحكم</span
-              ></a
             >
+              <i class="fas fa-home text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.home">الرئيسية</span>
+            </a>
           </li>
           <li>
             <a
-              href="#"
-              onclick="return false;"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors sidebar-active"
-              ><img src="../assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" /><span
-                >معلومات الحساب</span
-              ></a
+              href="dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
             >
+              <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+              <span data-i18n="navigation.dashboard">لوحة التحكم</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="account-info.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+              <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../notifications.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-bell text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.notifications">التنبيهات</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="quotes.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.quotes">عروض الأسعار</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="orders.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.orders">الطلبات</span>
+            </a>
           </li>
           <li>
             <a
               href="../settings.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-              ><i class="fas fa-cog text-lg text-[#A9A9A9]"></i><span>الإعدادات</span></a
             >
+              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.settings">الإعدادات</span>
+            </a>
           </li>
           <li>
             <a
               href="../contact.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-              ><i class="fas fa-phone text-lg text-[#A9A9A9]"></i><span>تواصل معنا</span></a
             >
+              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.contact">تواصل معنا</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="../request-move.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="fas fa-truck-moving text-lg text-[#A9A9A9]"></i>
+              <span data-i18n="navigation.requestMove">اطلب نقلة</span>
+            </a>
           </li>
         </ul>
       </nav>
@@ -88,14 +136,96 @@
               <ul class="space-y-0">
                 <li>
                   <a
-                    href="./dashboard.html"
+                    href="dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                  >
+                    <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px]" data-i18n="navigation.dashboard">لوحة التحكم</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="account-info.html"
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                    ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
-                      class="text-[15px] text-gray-800"
-                      >لوحة التحكم</span
-                    ></a
                   >
+                    <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
+                      >معلومات الحساب</span
+                    >
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="quotes.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
+                      >عروض الأسعار</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="orders.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.orders"
+                      >الطلبات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../request-move.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-truck-moving w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.requestMove"
+                      >اطلب نقلة</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../settings.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
+                      >الإعدادات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../contact.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.contact"
+                      >تواصل معنا</span
+                    >
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -141,13 +271,13 @@
           <!-- Name -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="space-y-2">
-              <label class="block text-[#353535] font-medium">الإسم الأول</label>
+              <label class="block text-[#353535] font-medium text-[14px]">الإسم الأول</label>
               <input
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
               />
             </div>
             <div class="space-y-2">
-              <label class="block text-[#353535] font-medium">الإسم الأخير</label>
+              <label class="block text-[#353535] font-medium text-[14px]">الإسم الأخير</label>
               <input
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
               />
@@ -156,7 +286,7 @@
 
           <!-- City -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium">المدينة</label>
+            <label class="block text-[#353535] font-medium text-[14px]">المدينة</label>
             <div class="relative">
               <select
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
@@ -173,7 +303,7 @@
 
           <!-- Email -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium">البريد الإلكتروني</label>
+            <label class="block text-[#353535] font-medium text-[14px]">البريد الإلكتروني</label>
             <input
               type="email"
               class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
@@ -182,7 +312,7 @@
 
           <!-- Password -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium">الرمز السري</label>
+            <label class="block text-[#353535] font-medium text-[14px]">الرمز السري</label>
             <div class="relative">
               <input
                 type="password"
@@ -201,7 +331,7 @@
 
           <!-- Phone -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium">رقم الهاتف</label>
+            <label class="block text-[#353535] font-medium text-[14px]">رقم الهاتف</label>
             <div class="flex" dir="ltr">
               <span
                 class="inline-flex items-center px-3 border border-l-0 border-[#EDEDED] bg-gray-50 text-gray-500 rounded-l-lg"
@@ -218,7 +348,7 @@
 
           <!-- Expected Services -->
           <div class="space-y-3">
-            <label class="block text-[#353535] font-medium">الخدمات المتوقعة</label>
+            <label class="block text-[#353535] font-medium text-[14px]">الخدمات المتوقعة</label>
             <div class="relative">
               <select
                 id="services-select"
@@ -238,7 +368,7 @@
 
           <!-- About -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium">نبذة قصيرة</label>
+            <label class="block text-[#353535] font-medium text-[14px]">نبذة قصيرة</label>
             <textarea
               rows="4"
               class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
@@ -250,7 +380,7 @@
             type="submit"
             class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 text-base rounded-lg transition-colors"
           >
-            حفظ
+            تحديث المعلومات الشخصية
           </button>
         </form>
       </div>

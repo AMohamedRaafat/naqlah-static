@@ -35,25 +35,6 @@
           <!-- Navigation Links -->
           <div class="flex items-center gap-6">
             <a
-              href="index.html"
-              class="font-medium relative group transition-colors text-white hover:text-white/80"
-            >
-              <span data-i18n="navigation.home">الرئيسية</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
-            <a
-              href="#"
-              onclick="showModal('login-modal'); return false;"
-              class="font-medium relative group transition-colors text-white hover:text-white/80 auth-hidden"
-            >
-              <span data-i18n="navigation.logIn">تسجيل الدخول</span>
-              <span
-                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
-            <a
               href="dashboard.html"
               class="font-medium relative group transition-colors text-white hover:text-white/80 auth-required hidden"
             >
@@ -95,10 +76,10 @@
                   >لوحة التحكم</a
                 >
                 <a
-                  href="profile.html"
+                  href="./account-info.html"
                   class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                  data-i18n="navigation.profile"
-                  >الملف الشخصي</a
+                  data-i18n="navigation.accountInfo"
+                  >معلومات الحساب</a
                 >
                 <a
                   href="settings.html"
@@ -132,7 +113,7 @@
         <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-white">
           <!-- User Avatar - Navigate to Profile -->
           <a
-            href="profile.html"
+            href="./account-info.html"
             class="w-7 h-7 rounded-full overflow-hidden border-2 border-white bg-white"
           >
             <div class="w-full h-full p-1 bg-[#007973] auth-hidden"></div>
@@ -164,18 +145,6 @@
             <!-- Menu Items -->
             <nav class="flex-1 px-4 text-black">
               <ul class="space-y-0">
-                <li>
-                  <a
-                    href="index.html"
-                    onclick="toggleMobileMenu()"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                  >
-                    <img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="navigation.home"
-                      >الرئيسية</span
-                    >
-                  </a>
-                </li>
                 <li class="auth-required hidden">
                   <a
                     href="dashboard.html"
@@ -187,17 +156,6 @@
                       >لوحة التحكم</span
                     >
                   </a>
-                </li>
-                <li class="auth-hidden">
-                  <button
-                    onclick="showModal('login-modal'); toggleMobileMenu();"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors w-full text-right"
-                  >
-                    <img src="assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="navigation.logIn"
-                      >تسجيل الدخول</span
-                    >
-                  </button>
                 </li>
               </ul>
               <div class="border-t border-gray-200 mt-4 py-3">
@@ -844,7 +802,7 @@
               <!-- Service 5: Disassembly/Assembly -->
               <div class="pb-4">
                 <label class="block text-[16px] font-medium text-[#353535] mb-3 text-right"
-                  >هل هناك حاجة للفك والتركيب؟</label
+                  >هل هناك حاجة للتركيب؟</label
                 >
                 <div class="relative">
                   <select
@@ -1300,6 +1258,114 @@
     <script src="assets/js/translations.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/request-move.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-[#00B8A9] text-white mt-auto font-expo-arabic">
+      <div class="container mx-auto px-6 py-6">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <div class="lg:order-1">
+            <h3 class="text-[16px] font-semibold mb-3">في الموقع</h3>
+            <ul class="space-y-3 text-[12px]">
+              <li><a href="index.html" class="hover:opacity-80 transition-opacity">الرئيسية</a></li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:opacity-80 transition-opacity"
+                  onclick="showModal('login-modal'); return false;"
+                  >تسجيل الدخول</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="lg:order-2">
+            <h3 class="text-[16px] font-semibold mb-3">روابط أخرى</h3>
+            <ul class="space-y-3 text-[12px]">
+              <li>
+                <a href="/privacy" class="hover:opacity-80 transition-opacity">سياسة الخصوصية</a>
+              </li>
+              <li>
+                <a href="/terms" class="hover:opacity-80 transition-opacity">الشروط والأحكام</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Desktop logo + social -->
+          <div class="show-desktop flex-col items-center mb-6 lg:order-3">
+            <div class="mb-1"><img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
+            <div class="mb-6">
+              <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+            </div>
+            <div class="flex gap-6 flex-row-reverse">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                class="hover:opacity-80 transition-opacity"
+                ><i class="fab fa-facebook-f text-xl"></i
+              ></a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                class="hover:opacity-80 transition-opacity"
+                ><i class="fab fa-instagram text-xl"></i
+              ></a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                class="hover:opacity-80 transition-opacity"
+                ><i class="fab fa-twitter text-xl"></i
+              ></a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                class="hover:opacity-80 transition-opacity"
+                ><i class="fab fa-youtube text-xl"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile logo + social -->
+        <div class="flex lg:hidden flex-col items-center mb-6">
+          <div class="mb-1"><img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
+          <div class="mb-6">
+            <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+          </div>
+          <div class="flex gap-6 flex-row-reverse">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              class="hover:opacity-80 transition-opacity"
+              ><i class="fab fa-facebook-f text-xl"></i
+            ></a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="hover:opacity-80 transition-opacity"
+              ><i class="fab fa-instagram text-xl"></i
+            ></a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              class="hover:opacity-80 transition-opacity"
+              ><i class="fab fa-twitter text-xl"></i
+            ></a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              class="hover:opacity-80 transition-opacity"
+              ><i class="fab fa-youtube text-xl"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="text-center pt-4">
+          <p class="text-base flex items-center justify-center gap-1">
+            <span>جميع الحقوق محفوظة لدى شركة نقلة</span>
+            <span id="current-year">2025</span>
+            <i class="far fa-copyright"></i>
+          </p>
+        </div>
+      </div>
+    </footer>
 
     <!-- Modals -->
     <!-- Login Modal -->
