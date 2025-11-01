@@ -4,105 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>الملف الشخصي - Naqlah</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-
+    <link rel="stylesheet" href="../assets/css/custom.css" />
     <script>
       tailwind.config = {
         theme: {
-          extend: {
-            fontFamily: {
-              'expo-arabic': ['"Expo Arabic"', 'system-ui', 'sans-serif'],
-            },
-          },
+          extend: { fontFamily: { 'expo-arabic': ['"Expo Arabic"', 'system-ui', 'sans-serif'] } },
         },
       };
     </script>
   </head>
   <body class="flex flex-col min-h-screen font-expo-arabic">
-    <!-- Desktop Navbar -->
     <nav
       id="desktop-navbar"
       class="hidden lg:flex w-full font-expo-arabic shadow-md bg-[#00B8A9] text-white"
     >
       <div class="container mx-auto px-6">
         <div class="flex items-center justify-between h-20 w-full">
-          <!-- Logo - Right side in RTL -->
-          <a href="/" class="flex items-center">
-            <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
-          </a>
-
-          <!-- Navigation Links -->
+          <a href="../index.html" class="flex items-center"
+            ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+          /></a>
           <div class="flex items-center gap-6">
             <a
-              href="/"
+              href="../index.html"
               class="font-medium relative group transition-colors text-white hover:text-white/80"
-            >
-              <span data-i18n="navigation.home">الرئيسية</span>
-              <span
+              ><span data-i18n="navigation.home">الرئيسية</span
+              ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
-
+              ></span
+            ></a>
             <a
-              href="dashboard.html"
+              href="./dashboard.html"
               class="font-medium relative group transition-colors text-white hover:text-white/80 auth-required hidden"
-            >
-              <span data-i18n="navigation.dashboard">لوحة التحكم</span>
-              <span
+              ><span data-i18n="navigation.dashboard">لوحة التحكم</span
+              ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
+              ></span
+            ></a>
             <a
               href="#partners"
               onclick="scrollToSection('partners'); return false;"
               class="font-medium relative group transition-colors text-white hover:text-white/80"
-            >
-              <span data-i18n="navigation.partners">شركاء النجاح</span>
-              <span
+              ><span data-i18n="navigation.partners">شركاء النجاح</span
+              ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
+              ></span
+            ></a>
             <a
               href="#services"
               onclick="scrollToSection('services'); return false;"
               class="font-medium relative group transition-colors text-white hover:text-white/80"
-            >
-              <span data-i18n="navigation.services">الخدمات</span>
-              <span
+              ><span data-i18n="navigation.services">الخدمات</span
+              ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
+              ></span
+            ></a>
             <a
               href="#about"
               onclick="scrollToSection('hero'); return false;"
               class="font-medium relative group transition-colors text-white hover:text-white/80"
-            >
-              <span data-i18n="common.about">من نحن</span>
-              <span
+              ><span data-i18n="common.about">من نحن</span
+              ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
+              ></span
+            ></a>
             <a
               href="#contact"
               onclick="scrollToSection('contact'); return false;"
               class="font-medium relative group transition-colors text-white hover:text-white/80"
-            >
-              <span data-i18n="common.contact">اتصل بنا</span>
-              <span
+              ><span data-i18n="common.contact">اتصل بنا</span
+              ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span>
-            </a>
+              ></span
+            ></a>
           </div>
-
           <div class="flex items-center gap-4">
-            <!-- Language Switcher -->
             <button
               id="language-switcher-btn"
               onclick="showModal('language-modal')"
@@ -110,35 +91,27 @@
             >
               English
             </button>
-
-            <!-- User Menu - shown when logged in -->
             <div class="relative auth-required hidden">
               <button
                 id="user-menu-button"
                 onclick="toggleUserMenu()"
                 class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20"
               >
-                <i class="fas fa-user"></i>
-                <span data-i18n="userMenu.username">اسم المستخدم</span>
+                <i class="fas fa-user"></i><span data-i18n="userMenu.username">اسم المستخدم</span>
               </button>
               <div
                 id="user-menu-dropdown"
                 class="hidden absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
               >
                 <a
-                  href="dashboard.html"
+                  href="./dashboard.html"
                   class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
                   data-i18n="navigation.dashboard"
                   >لوحة التحكم</a
                 >
+
                 <a
-                  href="profile.html"
-                  class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                  data-i18n="navigation.profile"
-                  >الملف الشخصي</a
-                >
-                <a
-                  href="settings.html"
+                  href="../settings.html"
                   class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
                   data-i18n="navigation.settings"
                   >الإعدادات</a
@@ -157,33 +130,23 @@
       </div>
     </nav>
 
-    <!-- Mobile Navbar -->
     <div class="lg:hidden bg-[#00B8A9] text-white font-expo-arabic">
       <div class="flex items-end justify-between px-4 py-5">
-        <!-- Logo -->
-        <a href="/" class="flex items-center">
-          <img src="assets/logo.svg" alt="نقلة" class="h-full w-auto" style="max-height: 50px" />
-        </a>
-
-        <!-- User Avatar and Hamburger Menu - Same Border -->
+        <a href="../index.html" class="flex items-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-full w-auto" style="max-height: 50px"
+        /></a>
         <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-white">
-          <!-- User Avatar - Navigate to Profile -->
           <a
             href="profile.html"
             class="w-7 h-7 rounded-full overflow-hidden border-2 border-white bg-white"
-          >
-            <div class="w-full h-full p-1 bg-[#007973] auth-hidden"></div>
-            <div class="w-full h-full bg-gray-200 auth-required hidden"></div>
-          </a>
-
-          <!-- Menu Button -->
+            ><div class="w-full h-full p-1 bg-[#007973] auth-hidden"></div>
+            <div class="w-full h-full bg-gray-200 auth-required hidden"></div
+          ></a>
           <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-0">
             <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
       </div>
-
-      <!-- Mobile Menu Sidebar -->
       <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
         <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
         <div
@@ -191,79 +154,46 @@
           style="animation: slideInRight 0.3s ease-out"
         >
           <div class="flex flex-col h-full">
-            <!-- Close Button -->
             <div class="flex justify-end p-4">
               <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
                 <i class="fas fa-times text-xl"></i>
               </button>
             </div>
-
-            <!-- Menu Items -->
             <nav class="flex-1 px-4 text-black">
               <ul class="space-y-0">
                 <li>
                   <a
-                    href="/"
+                    href="../index.html"
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                  >
-                    <img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="navigation.home"
+                    ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                      class="text-[15px] text-gray-800"
+                      data-i18n="navigation.home"
                       >الرئيسية</span
-                    >
-                  </a>
+                    ></a
+                  >
                 </li>
                 <li class="auth-required hidden">
                   <a
-                    href="dashboard.html"
+                    href="./dashboard.html"
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                  >
-                    <img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="navigation.dashboard"
+                    ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                      class="text-[15px] text-gray-800"
+                      data-i18n="navigation.dashboard"
                       >لوحة التحكم</span
-                    >
-                  </a>
+                    ></a
+                  >
                 </li>
                 <li class="auth-hidden">
                   <button
                     onclick="showModal('login-modal'); toggleMobileMenu();"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors w-full text-right"
                   >
-                    <img src="assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="navigation.logIn"
+                    <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" /><span
+                      class="text-[15px] text-gray-800"
+                      data-i18n="navigation.logIn"
                       >تسجيل الدخول</span
-                    >
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onclick="scrollToSection('partners'); toggleMobileMenu();"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors w-full text-right"
-                  >
-                    <img src="assets/menu-icons/partners.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="navigation.partners"
-                      >شركاء النجاح</span
-                    >
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onclick="scrollToSection('hero'); toggleMobileMenu();"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors w-full text-right"
-                  >
-                    <img src="assets/menu-icons/who.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="common.about">من نحن</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onclick="scrollToSection('contact'); toggleMobileMenu();"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors w-full text-right"
-                  >
-                    <img src="assets/menu-icons/phone.svg" alt="icon" class="w-6 h-6" />
-                    <span class="text-[15px] text-gray-800" data-i18n="common.contact"
-                      >اتصل بنا</span
                     >
                   </button>
                 </li>
@@ -275,15 +205,18 @@
                 >
                   <i
                     class="fas fa-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
-                  ></i>
-                  <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
+                  ></i
+                  ><span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
                 </button>
                 <button
                   onclick="showModal('logout-modal'); toggleMobileMenu();"
                   class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right auth-required hidden"
                 >
-                  <img src="assets/menu-icons/out.svg" alt="icon" class="w-6 h-6 text-[#a9a9a9]" />
-                  <span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
+                  <img
+                    src="../assets/menu-icons/out.svg"
+                    alt="icon"
+                    class="w-6 h-6 text-[#a9a9a9]"
+                  /><span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
                     >تسجيل الخروج</span
                   >
                 </button>
@@ -294,10 +227,8 @@
       </div>
     </div>
 
-    <!-- Main Content -->
     <main class="flex-1 bg-white">
       <div class="max-w-md mx-auto px-4 py-8">
-        <!-- Profile Picture Upload -->
         <div class="flex flex-col items-center mb-8">
           <button
             type="button"
@@ -307,62 +238,47 @@
           </button>
           <p class="text-gray-800 font-medium text-lg">أخبرنا عن نفسك</p>
         </div>
-
-        <!-- Profile Form -->
         <form id="profile-form" class="space-y-5">
-          <!-- First Name -->
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">الإسم الأول</label>
-            <input
+            <label class="block text-gray-800 font-medium mb-2 text-right">الإسم الأول</label
+            ><input
               type="text"
               placeholder="ادخل الإسم"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right placeholder:text-gray-400"
             />
           </div>
-
-          <!-- Last Name -->
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">الإسم الأخير</label>
-            <input
+            <label class="block text-gray-800 font-medium mb-2 text-right">الإسم الأخير</label
+            ><input
               type="text"
               placeholder="ادخل الإسم"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right placeholder:text-gray-400"
             />
           </div>
-
-          <!-- Phone Number -->
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">رقم الهاتف</label>
-            <input
+            <label class="block text-gray-800 font-medium mb-2 text-right">رقم الهاتف</label
+            ><input
               type="tel"
               value="3384572266"
               readonly
               class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-right text-gray-600"
             />
           </div>
-
-          <!-- Request Title -->
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">مسمى الطلب</label>
-            <input
+            <label class="block text-gray-800 font-medium mb-2 text-right">مسمى الطلب</label
+            ><input
               type="text"
               placeholder="ادخل مسمى الطلب (مثال جديد عمل جديد إلخ)"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right placeholder:text-gray-400 text-sm"
             />
           </div>
-
-          <!-- Terms and Conditions -->
           <div class="mt-6">
             <p class="text-center text-sm text-gray-700 leading-relaxed mb-4">
               من خلال إنشاء حساب أوافق على
-              <a href="/terms" class="text-[#00B8A9] font-medium">شروط الإستخدام</a>
-              و
-              <a href="/privacy" class="text-[#00B8A9] font-medium">سياسة الخصوصية</a>
-              الخاصة بنا
+              <a href="/terms" class="text-[#00B8A9] font-medium">شروط الإستخدام</a> و
+              <a href="/privacy" class="text-[#00B8A9] font-medium">سياسة الخصوصية</a> الخاصة بنا
             </p>
           </div>
-
-          <!-- Submit Button -->
           <button
             type="submit"
             class="w-full bg-gray-300 text-gray-500 font-semibold py-4 rounded-lg mt-6 cursor-not-allowed"
@@ -374,24 +290,21 @@
       </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-[#00B8A9] text-white mt-auto font-expo-arabic">
       <div class="container mx-auto px-6 py-6">
-        <!-- Top Section - Two Columns -->
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-          <!-- Site Links -->
           <div class="lg:order-1">
             <h3 class="text-[16px] font-semibold mb-3" data-i18n="footer.siteLinks">في الموقع</h3>
             <ul class="space-y-3 text-base text-[12px] font-regular">
               <li>
-                <a href="/" class="hover:opacity-80 transition-opacity" data-i18n="footer.aboutUs">
-                  من نحن
-                </a>
+                <a href="../" class="hover:opacity-80 transition-opacity" data-i18n="footer.aboutUs"
+                  >من نحن</a
+                >
               </li>
               <li>
-                <a href="/" class="hover:opacity-80 transition-opacity" data-i18n="footer.aboutUs">
-                  من نحن
-                </a>
+                <a href="../" class="hover:opacity-80 transition-opacity" data-i18n="footer.aboutUs"
+                  >من نحن</a
+                >
               </li>
               <li>
                 <button
@@ -404,8 +317,6 @@
               </li>
             </ul>
           </div>
-
-          <!-- Other Links -->
           <div class="lg:order-2">
             <h3 class="text-[16px] font-semibold mb-3" data-i18n="footer.otherLinks">روابط أخرى</h3>
             <ul class="space-y-3 text-base text-[12px] font-regular">
@@ -432,100 +343,74 @@
               </li>
             </ul>
           </div>
-
-          <!-- Logo and Social -->
           <div class="show-desktop flex-col items-center mb-6 lg:order-3">
-            <div class="mb-1">
-              <img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" />
-            </div>
+            <div class="mb-1"><img src="../assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
             <div class="mb-6">
-              <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+              <img src="../assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
             </div>
             <div class="flex gap-6 flex-row-reverse">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-              >
-                <i class="fab fa-facebook-f text-xl"></i>
-              </a>
-              <a
+                ><i class="fab fa-facebook-f text-xl"></i></a
+              ><a
                 href="https://instagram.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-              >
-                <i class="fab fa-instagram text-xl"></i>
-              </a>
-              <a
+                ><i class="fab fa-instagram text-xl"></i></a
+              ><a
                 href="https://twitter.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-              >
-                <i class="fab fa-twitter text-xl"></i>
-              </a>
-              <a
+                ><i class="fab fa-twitter text-xl"></i></a
+              ><a
                 href="https://youtube.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-              >
-                <i class="fab fa-youtube text-xl"></i>
-              </a>
+                ><i class="fab fa-youtube text-xl"></i
+              ></a>
             </div>
           </div>
         </div>
-
-        <!-- Mobile Logo and Social -->
         <div class="flex lg:hidden flex-col items-center mb-6">
-          <div class="mb-1">
-            <img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" />
-          </div>
+          <div class="mb-1"><img src="../assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
           <div class="mb-6">
-            <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+            <img src="../assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
           </div>
           <div class="flex gap-6 flex-row-reverse">
             <a
               href="https://facebook.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-            >
-              <i class="fab fa-facebook-f text-xl"></i>
-            </a>
-            <a
+              ><i class="fab fa-facebook-f text-xl"></i></a
+            ><a
               href="https://instagram.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-            >
-              <i class="fab fa-instagram text-xl"></i>
-            </a>
-            <a
+              ><i class="fab fa-instagram text-xl"></i></a
+            ><a
               href="https://twitter.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-            >
-              <i class="fab fa-twitter text-xl"></i>
-            </a>
-            <a
+              ><i class="fab fa-twitter text-xl"></i></a
+            ><a
               href="https://youtube.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-            >
-              <i class="fab fa-youtube text-xl"></i>
-            </a>
+              ><i class="fab fa-youtube text-xl"></i
+            ></a>
           </div>
         </div>
-
-        <!-- Copyright -->
         <div class="text-center pt-4">
           <p class="text-base flex items-center justify-center gap-1">
-            <span data-i18n="footer.copyright">جميع الحقوق محفوظة لدى شركة نقلة</span>
-            <span id="current-year">2025</span>
-            <i class="far fa-copyright"></i>
+            <span data-i18n="footer.copyright">جميع الحقوق محفوظة لدى شركة نقلة</span
+            ><span id="current-year">2025</span><i class="far fa-copyright"></i>
           </p>
         </div>
       </div>
     </footer>
 
-    <!-- Modals -->
     <div
       id="language-modal"
       class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
@@ -549,8 +434,8 @@
               onclick="selectLocale('ar')"
               class="w-full flex items-center justify-between px-4 py-3"
             >
-              <span class="text-[#00B8A9]">العربية</span>
-              <i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
+              <span class="text-[#00B8A9]">العربية</span
+              ><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
             </button>
             <div class="h-px bg-[#E5E7EB]"></div>
             <button
@@ -558,8 +443,8 @@
               onclick="selectLocale('en')"
               class="w-full flex items-center justify-between px-4 py-3"
             >
-              <span class="text-[#353535]">English</span>
-              <i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
+              <span class="text-[#353535]">English</span
+              ><i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
             </button>
           </div>
           <button
@@ -572,8 +457,8 @@
       </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
     <script>
       $(document).ready(function () {
         const form = $('#profile-form');
@@ -581,14 +466,11 @@
         const firstName = form.find('input[placeholder="ادخل الإسم"]').first();
         const lastName = form.find('input[placeholder="ادخل الإسم"]').last();
         const requestTitle = form.find('input[placeholder*="مسمى الطلب"]');
-
-        // Check form validity
         function checkFormValidity() {
           const isValid =
             firstName.val().trim() !== '' &&
             lastName.val().trim() !== '' &&
             requestTitle.val().trim() !== '';
-
           if (isValid) {
             submitBtn.removeClass('bg-gray-300 text-gray-500 cursor-not-allowed');
             submitBtn.addClass('bg-[#00B8A9] text-white hover:bg-[#009688]');
@@ -599,52 +481,12 @@
             submitBtn.prop('disabled', true);
           }
         }
-
-        // Listen to input changes
         firstName.on('input', checkFormValidity);
         lastName.on('input', checkFormValidity);
         requestTitle.on('input', checkFormValidity);
-
-        // Handle form submission
         form.on('submit', function (e) {
           e.preventDefault();
-
-          // Get form data
-          const formData = {
-            firstName: firstName.val().trim(),
-            lastName: lastName.val().trim(),
-            phone: form.find('input[type="tel"]').val(),
-            requestTitle: requestTitle.val().trim(),
-          };
-
-          console.log('Form submitted:', formData);
-
-          // Show success message (you can customize this)
           alert('تم حفظ البيانات بنجاح!');
-
-          // Redirect to dashboard or next page
-          // window.location.href = 'dashboard.html';
-        });
-
-        // Profile picture upload handler
-        $('.w-40.h-40.rounded-full').on('click', function () {
-          // Create file input
-          const fileInput = $('<input type="file" accept="image/*" style="display:none;">');
-
-          fileInput.on('change', function (e) {
-            const file = e.target.files[0];
-            if (file) {
-              const reader = new FileReader();
-              reader.onload = function (e) {
-                // Update the button to show the image
-                const imgHtml = `<img src="${e.target.result}" class="w-full h-full object-cover rounded-full">`;
-                $('.w-40.h-40.rounded-full').html(imgHtml);
-              };
-              reader.readAsDataURL(file);
-            }
-          });
-
-          fileInput.trigger('click');
         });
       });
     </script>

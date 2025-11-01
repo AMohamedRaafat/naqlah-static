@@ -4,32 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ملف الشركة - Naqlah</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
   </head>
   <body class="flex min-h-screen bg-[#fafafa] font-expo-arabic">
-    <!-- Desktop Sidebar -->
     <aside
       id="desktop-sidebar"
       class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
     >
       <div class="p-6 border-b border-gray-200">
-        <a href="index.html" class="flex items-center justify-center">
-          <img src="assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
+        <a href="../index.html" class="flex items-center justify-center">
+          <img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto" />
         </a>
       </div>
       <nav class="flex-1 px-4 py-6">
         <ul class="space-y-2">
           <li>
             <a
-              href="index.html"
+              href="../index.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="fas fa-home text-lg text-[#A9A9A9]"></i>
@@ -38,7 +36,7 @@
           </li>
           <li>
             <a
-              href="dashboard.html"
+              href="./dashboard.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="fas fa-th-large text-lg text-[#A9A9A9]"></i>
@@ -57,7 +55,7 @@
           </li>
           <li>
             <a
-              href="notifications.html"
+              href="../notifications.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="fas fa-bell text-lg text-[#A9A9A9]"></i>
@@ -66,7 +64,7 @@
           </li>
           <li>
             <a
-              href="quotes.html"
+              href="./quotes.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
@@ -75,7 +73,7 @@
           </li>
           <li>
             <a
-              href="orders.html"
+              href="./orders.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
@@ -84,7 +82,7 @@
           </li>
           <li>
             <a
-              href="settings.html"
+              href="../settings.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
@@ -93,7 +91,7 @@
           </li>
           <li>
             <a
-              href="contact.html"
+              href="../contact.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
@@ -113,9 +111,7 @@
       </div>
     </aside>
 
-    <!-- Main Content Area -->
     <div class="flex flex-col flex-1">
-      <!-- Mobile Navbar -->
       <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
           <h1 class="text-lg font-semibold">ملف الشركة</h1>
@@ -130,7 +126,6 @@
             </button>
           </div>
         </div>
-        <!-- Mobile Sidebar -->
         <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
           <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
           <div
@@ -145,10 +140,9 @@
               </div>
               <nav class="flex-1 px-4 text-black">
                 <ul class="space-y-0">
-
                   <li>
                     <a
-                      href="dashboard.html"
+                      href="./dashboard.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
@@ -166,7 +160,7 @@
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
-                        <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+                      <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
                       <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
                         >معلومات الحساب</span
                       >
@@ -174,7 +168,7 @@
                   </li>
                   <li>
                     <a
-                      href="quotes.html"
+                      href="./quotes.html"
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
@@ -206,111 +200,169 @@
         </div>
       </div>
 
-      <!-- Content -->
       <main class="flex-1 container mx-auto px-4 py-6 max-w-md lg:max-w-3xl">
-        <!-- Breadcrumb -->
         <div class="mb-4 text-sm text-[#7E7E7E]">
-          <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="paymentPage.breadcrumbDashboard">لوحة التحكم</a>
+          <a
+            href="./dashboard.html"
+            class="hover:text-[#00B8A9]"
+            data-i18n="paymentPage.breadcrumbDashboard"
+            >لوحة التحكم</a
+          >
           <span class="mx-2">—</span>
-          <a href="quotes.html" class="hover:text-[#00B8A9]" data-i18n="navigation.quotes">عروض الأسعار</a>
+          <a href="./quotes.html" class="hover:text-[#00B8A9]" data-i18n="navigation.quotes"
+            >عروض الأسعار</a
+          >
           <span class="mx-2">—</span>
           <span class="text-[#312E37] font-medium">ملف الشركة</span>
         </div>
 
-        <!-- Single card container -->
         <div class="bg-white rounded-2xl border border-[#ECECEC] p-4 lg:p-6">
-          <!-- Header -->
           <div class="flex items-center gap-3 mb-6">
-            <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full border border-[#DCDCDC] bg-white flex items-center justify-center overflow-hidden">
-              <img src="assets/payments/check.svg" alt="logo" class="w-12 h-12 lg:w-14 lg:h-14" />
+            <div
+              class="w-16 h-16 lg:w-20 lg:h-20 rounded-full border border-[#DCDCDC] bg-white flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src="../assets/payments/check.svg"
+                alt="logo"
+                class="w-12 h-12 lg:w-14 lg:h-14"
+              />
             </div>
             <div>
               <h2 class="text-[#353535] text-[16px] lg:text-[20px] font-semibold">الميثاق</h2>
-              <div class="flex items-center gap-2 text-[#7E7E7E] text-sm ">
-                <span class="flex items-center gap-1 text-[#FFB800]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+              <div class="flex items-center gap-2 text-[#7E7E7E] text-sm">
+                <span class="flex items-center gap-1 text-[#FFB800]"
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i
+                ></span>
                 <span>(340)</span>
               </div>
             </div>
           </div>
 
-          <!-- About -->
           <div class="mb-6">
-            <h3 class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3 mb-3">نبذة عن الشركة</h3>
-            <p class="text-[#606060] text-[13px] leading-6">تتميز شركة المبتاك بخبرة طويلة في نقل الأثاث داخل المملكة حيث توفر خدمة فك وتركيب و تغليف احترافية تضمن وصول مقتنياتك بأمان دون خدوش أو فقدان، سواء كان الانتقال ضمن جدة أو بين المدن، فإن فريقنا المجهّز جاهز لخدمتك.</p>
+            <h3
+              class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3 mb-3"
+            >
+              نبذة عن الشركة
+            </h3>
+            <p class="text-[#606060] text-[13px] leading-6">
+              تتميز شركة المبتاك بخبرة طويلة في نقل الأثاث داخل المملكة حيث توفر خدمة فك وتركيب و
+              تغليف احترافية تضمن وصول مقتنياتك بأمان دون خدوش أو فقدان، سواء كان الانتقال ضمن جدة
+              أو بين المدن، فإن فريقنا المجهّز جاهز لخدمتك.
+            </p>
           </div>
 
-          <!-- Scope -->
           <div class="mb-6">
-            <h3 class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3 mb-3">نطاق الخدمة</h3>
-            <p class="text-[#606060] text-[13px]">جميع مدن المملكة مع سيارات مجهزة وطاقم فني مدرّب</p>
+            <h3
+              class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3 mb-3"
+            >
+              نطاق الخدمة
+            </h3>
+            <p class="text-[#606060] text-[13px]">
+              جميع مدن المملكة مع سيارات مجهزة وطاقم فني مدرّب
+            </p>
           </div>
 
-          <!-- Services -->
           <div class="mb-6">
-            <h3 class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3 mb-3">خدمات شركة النقل</h3>
+            <h3
+              class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3 mb-3"
+            >
+              خدمات شركة النقل
+            </h3>
             <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200">تفكيك وتركيب</span>
-              <span class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200">تأمين ضد الفقد والكسر</span>
-              <span class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200">نقل بين مدن</span>
-              <span class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200">تفكيك مكيف أو تركيب اثاث</span>
-              <span class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200">تنظيف بعد النقل</span>
+              <span
+                class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                >تفكيك وتركيب</span
+              >
+              <span
+                class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                >تأمين ضد الفقد والكسر</span
+              >
+              <span
+                class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                >نقل بين مدن</span
+              >
+              <span
+                class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                >تفكيك مكيف أو تركيب اثاث</span
+              >
+              <span
+                class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                >تنظيف بعد النقل</span
+              >
             </div>
           </div>
 
-          <!-- Reviews -->
           <div class="mb-6">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3">التقييمات</h3>
+              <h3
+                class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3"
+              >
+                التقييمات
+              </h3>
               <a href="#" class="text-[#00B8A9] text-[13px]">اظهر المزيد</a>
             </div>
             <div class="space-y-4">
-            <div class="flex items-start gap-3">
-              <img src="assets/menu-icons/partners.svg" class="w-8 h-8 rounded-full" alt="avatar" />
-              <div class="flex-1">
-                <div class="flex items-center justify-between">
-                  <div class="text-[13px] text-[#3C3D41] font-medium">طلال القحطاني</div>
-                  <div class="text-[12px] text-[#8A8A8A]">يوم 10</div>
+              <div class="flex items-start gap-3">
+                <img
+                  src="../assets/menu-icons/partners.svg"
+                  class="w-8 h-8 rounded-full"
+                  alt="avatar"
+                />
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <div class="text-[13px] text-[#3C3D41] font-medium">طلال القحطاني</div>
+                    <div class="text-[12px] text-[#8A8A8A]">يوم 10</div>
+                  </div>
+                  <div class="text-[#FFB800] text-xs mb-1">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <p class="text-[#6B7280] text-[12px] leading-6">
+                    نقلنا من الرياض لخدمة بكل سلاسة فريق المبتاك كان دقيق، وتم توصيل وهم في نفس
+                    الوقت في أثاث في الأثاث
+                  </p>
                 </div>
-                <div class="text-[#FFB800] text-xs mb-1">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
-                  ><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="text-[#6B7280] text-[12px] leading-6">
-                  نقلنا من الرياض لخدمة بكل سلاسة فريق المبتاك كان دقيق، وتم توصيل وهم في نفس الوقت
-                  في أثاث في الأثاث
-                </p>
               </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <img src="assets/menu-icons/partners.svg" class="w-8 h-8 rounded-full" alt="avatar" />
-              <div class="flex-1">
-                <div class="flex items-center justify-between">
-                  <div class="text-[13px] text-[#3C3D41] font-medium">نبيل عبدالله</div>
-                  <div class="text-[12px] text-[#8A8A8A]">يوم 20</div>
+              <div class="flex items-start gap-3">
+                <img
+                  src="../assets/menu-icons/partners.svg"
+                  class="w-8 h-8 rounded-full"
+                  alt="avatar"
+                />
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <div class="text-[13px] text-[#3C3D41] font-medium">نبيل عبدالله</div>
+                    <div class="text-[12px] text-[#8A8A8A]">يوم 20</div>
+                  </div>
+                  <div class="text-[#FFB800] text-xs mb-1">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="far fa-star"></i>
+                  </div>
+                  <p class="text-[#6B7280] text-[12px] leading-6">
+                    طلبنا خدمة تغليف وفك وتركيب وكانت التجربة ممتازة. السيارة وصلت في الوقت المحدد
+                  </p>
                 </div>
-                <div class="text-[#FFB800] text-xs mb-1">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
-                  ><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-                <p class="text-[#6B7280] text-[12px] leading-6">
-                  طلبنا خدمة تغليف وفك وتركيب وكانت التجربة ممتازة. السيارة وصلت في الوقت المحدد
-                </p>
               </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <img src="assets/menu-icons/partners.svg" class="w-8 h-8 rounded-full" alt="avatar" />
-              <div class="flex-1">
-                <div class="flex items-center justify-between">
-                  <div class="text-[13px] text-[#3C3D41] font-medium">يوسف محمود</div>
-                  <div class="text-[12px] text-[#8A8A8A]">شهر 1</div>
+              <div class="flex items-start gap-3">
+                <img
+                  src="../assets/menu-icons/partners.svg"
+                  class="w-8 h-8 rounded-full"
+                  alt="avatar"
+                />
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <div class="text-[13px] text-[#3C3D41] font-medium">يوسف محمود</div>
+                    <div class="text-[12px] text-[#8A8A8A]">شهر 1</div>
+                  </div>
+                  <div class="text-[#FFB800] text-xs mb-1">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="far fa-star"></i><i class="far fa-star"></i>
+                  </div>
+                  <p class="text-[#6B7280] text-[12px] leading-6">
+                    طلبنا خدمة تنظيف وفك وتركيب وكانت التجربة ممتازة. السيارة وصلت في الوقت المحدد
+                  </p>
                 </div>
-                <div class="text-[#FFB800] text-xs mb-1">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
-                  ><i class="far fa-star"></i><i class="far fa-star"></i>
-                </div>
-                <p class="text-[#6B7280] text-[12px] leading-6">
-                  طلبنا خدمة تنظيف وفك وتركيب وكانت التجربة ممتازة. السيارة وصلت في الوقت المحدد
-                </p>
               </div>
             </div>
           </div>
@@ -318,7 +370,6 @@
       </main>
     </div>
 
-    <!-- Language Modal -->
     <div
       id="language-modal"
       class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
@@ -342,8 +393,8 @@
               onclick="selectLocale('ar')"
               class="w-full flex items-center justify-between px-4 py-3"
             >
-              <span class="text-[#00B8A9]">العربية</span>
-              <i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
+              <span class="text-[#00B8A9]">العربية</span
+              ><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
             </button>
             <div class="h-px bg-[#E5E7EB]"></div>
             <button
@@ -351,8 +402,8 @@
               onclick="selectLocale('en')"
               class="w-full flex items-center justify-between px-4 py-3"
             >
-              <span class="text-[#353535]">English</span>
-              <i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
+              <span class="text-[#353535]">English</span
+              ><i id="lang-check-en" class="fas fa-check text-[#00B8A9] hidden"></i>
             </button>
           </div>
           <button
@@ -365,8 +416,8 @@
       </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
     <script>
       function toggleMobileMenu() {
         const el = document.getElementById('mobile-menu-sidebar');
