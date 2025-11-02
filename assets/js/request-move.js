@@ -1,5 +1,5 @@
 // Request Move - Multi-step Form
-let currentStep = 1;
+let currentStep = 5;
 const totalSteps = 8;
 let disassemblyItems = [];
 let selectedDate = null;
@@ -70,7 +70,7 @@ function validateCurrentStep() {
     case 1:
       // Validate pickup location selected
       if (!pickupLocation.address || pickupLocation.address === '') {
-        errorMessage = 'يرجى اختيار موقع الاستلام من الخريطة';
+        errorMessage = 'يرجى اختيار الموقع المراد النقل منه';
         isValid = false;
       }
       break;
@@ -92,7 +92,7 @@ function validateCurrentStep() {
     case 3:
       // Validate destination location selected
       if (!destinationLocation.address || destinationLocation.address === '') {
-        errorMessage = 'يرجى اختيار موقع الوصول من الخريطة';
+        errorMessage = 'يرجى اختيار الموقع المراد النقل إليه';
         isValid = false;
       }
       break;
@@ -120,6 +120,11 @@ function validateCurrentStep() {
         break;
       }
 
+      // Validate uploaded files
+      if (preciousFiles.length === 0 && $('#precious-files-select').val() === 'yes') {
+        errorMessage = 'يرجى أرفاق صور أو فيديو للقطع الثمينة';
+        isValid = false;
+      }
       // Validate uploaded files
       if (uploadedFiles.length === 0) {
         errorMessage = 'يرجى رفع صور أو فيديو للأثاث';
@@ -314,7 +319,7 @@ const furnitureLabels = {
 
 // File management
 let uploadedFiles = [];
-
+let preciousFiles = [];
 // Add furniture item
 window.addFurnitureItem = function () {
   const select = $('#furniture-select');
@@ -372,8 +377,52 @@ window.removeFurnitureItem = function (itemType) {
   furnitureItems = furnitureItems.filter((item) => item.type !== itemType);
   renderFurnitureItems();
 };
-
+// Disassembly/Assembly Functions
+function togglePreciousFiles(value) {
+  if (value === 'yes') {
+    $('#precious-files-wrapper').removeClass('hidden');
+  } else {
+    $('#precious-files-wrapper').addClass('hidden');
+    preciousFiles = [];
+    renderPreciousFilesPreviews();
+  }
+}
 // Handle file selection
+window.handlePreciousFilesSelect = function (event) {
+  const files = Array.from(event.target.files);
+
+  files.forEach((file) => {
+    // Check file type
+    const isImage = file.type.startsWith('image/');
+    const isVideo = file.type.startsWith('video/');
+
+    if (!isImage && !isVideo) {
+      showNotification('يرجى اختيار ملفات صور أو فيديو فقط', 'warning');
+      return;
+    }
+
+    // Check file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      showNotification('حجم الملف يجب أن يكون أقل من 10 ميجابايت', 'warning');
+      return;
+    }
+
+    // Add to uploaded files
+    const fileObj = {
+      id: Date.now() + Math.random(),
+      file: file,
+      type: isImage ? 'image' : 'video',
+    };
+
+    preciousFiles.push(fileObj);
+  });
+
+  // Render previews
+  renderPreciousFilesPreviews();
+
+  // Reset input
+  event.target.value = '';
+};
 window.handleFileSelect = function (event) {
   const files = Array.from(event.target.files);
 
@@ -411,6 +460,35 @@ window.handleFileSelect = function (event) {
 };
 
 // Render file previews
+function renderPreciousFilesPreviews() {
+  const container = $('#precious-files-previews');
+  container.empty();
+
+  preciousFiles.forEach((fileObj) => {
+    const fileURL = URL.createObjectURL(fileObj.file);
+
+    const preview = $(`
+      <div class="relative aspect-square rounded-lg overflow-hidden border border-gray-200 group">
+        ${fileObj.type === 'image'
+        ? `<img src="${fileURL}" alt="Preview" class="w-full h-full object-cover" />`
+        : `<video src="${fileURL}" class="w-full h-full object-cover"></video>
+               <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
+                 <i class="fas fa-play text-white text-2xl"></i>
+               </div>`
+      }
+        <button
+          type="button"
+          onclick="removePreciousFile('${fileObj.id}')"
+          class="absolute top-2 right-2 w-6 h-6 bg-[#00B8A9] hover:bg-red-500 text-white rounded-full flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100"
+        >
+          <i class="fas fa-times text-xs"></i>
+        </button>
+      </div>
+    `);
+
+    container.append(preview);
+  });
+}
 function renderFilePreviews() {
   const container = $('#file-previews');
   container.empty();
@@ -446,7 +524,10 @@ window.removeFile = function (fileId) {
   uploadedFiles = uploadedFiles.filter((f) => f.id != fileId);
   renderFilePreviews();
 };
-
+window.removePreciousFile = function (fileId) {
+  preciousFiles = preciousFiles.filter((f) => f.id != fileId);
+  renderPreciousFilesPreviews();
+};
 // Services management
 let selectedServices = [];
 const serviceLabels = {
@@ -675,10 +756,12 @@ function toggleAMPM(period) {
 // Elevator size toggle
 function toggleElevatorSize(which, value) {
   const wrapperId = which === 'pickup' ? '#pickup-elevator-size-wrapper' : '#destination-elevator-size-wrapper';
+  const inputId = which === 'pickup' ? '#pickup-elevator-size' : '#destination-elevator-size';
   if (value === 'yes') {
     $(wrapperId).removeClass('hidden');
   } else {
     $(wrapperId).addClass('hidden');
+    $(inputId).val(''); // Clear value when hiding
   }
 }
 
@@ -702,9 +785,13 @@ function updatePreview() {
   $('#preview-pickup-city').text(pickupLocation.city || 'الرياض');
   $('#preview-pickup-address').text(pickupLocation.address || '-');
   $('#preview-pickup-floor').text(`طابق ${$('#pickup-floor').val() || '-'}`);
+  const pickupElevatorSize = $('#pickup-elevator-size').val();
+  const pickupSizeText = pickupElevatorSize === 'small' ? 'صغير' :
+    pickupElevatorSize === 'medium' ? 'متوسط' :
+      pickupElevatorSize === 'large' ? 'كبير' : '-';
   $('#preview-pickup-elevator').text(
     $('#pickup-elevator').val() === 'yes'
-      ? `يوجد مصعد • الحجم: ${$('#pickup-elevator-size').val() || '-'}`
+      ? `يوجد مصعد • الحجم: ${pickupSizeText}`
       : 'لا يوجد مصعد'
   );
   $('#preview-pickup-building').text($('#pickup-building-name').val() || '-');
@@ -714,9 +801,13 @@ function updatePreview() {
   $('#preview-dest-city').text(destinationLocation.city || 'الرياض');
   $('#preview-dest-address').text(destinationLocation.address || '-');
   $('#preview-dest-floor').text(`طابق ${$('#destination-floor').val() || '-'}`);
+  const destElevatorSize = $('#destination-elevator-size').val();
+  const destSizeText = destElevatorSize === 'small' ? 'صغير' :
+    destElevatorSize === 'medium' ? 'متوسط' :
+      destElevatorSize === 'large' ? 'كبير' : '-';
   $('#preview-dest-elevator').text(
     $('#destination-elevator').val() === 'yes'
-      ? `يوجد مصعد • الحجم: ${$('#destination-elevator-size').val() || '-'}`
+      ? `يوجد مصعد • الحجم: ${destSizeText}`
       : 'لا يوجد مصعد'
   );
   $('#preview-dest-building').text($('#destination-building-name').val() || '-');

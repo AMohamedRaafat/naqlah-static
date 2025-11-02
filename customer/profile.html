@@ -240,14 +240,6 @@
         </div>
         <form id="profile-form" class="space-y-5">
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">مسمى الطلب</label
-            ><input
-              type="text"
-              placeholder="ادخل مسمى الطلب (مثال جديد عمل جديد إلخ)"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right placeholder:text-gray-400 text-sm"
-            />
-          </div>
-          <div>
             <label class="block text-gray-800 font-medium mb-2 text-right">الإسم الأول</label
             ><input
               type="text"
@@ -316,7 +308,7 @@
             <ul class="space-y-3 text-base text-[12px] font-regular">
               <li>
                 <button
-                  onclick="scrollToSection('hero')"
+                  onclick="window.location.href='../index.html#about'"
                   class="hover:opacity-80 transition-opacity"
                   data-i18n="footer.aboutUs"
                 >
@@ -325,11 +317,11 @@
               </li>
               <li>
                 <button
-                  onclick="scrollToSection('hero')"
+                  onclick="window.location.href='../index.html#services'"
                   class="hover:opacity-80 transition-opacity"
-                  data-i18n="footer.aboutUs"
+                  data-i18n="footer.services"
                 >
-                  من نحن
+                  الخدمات
                 </button>
               </li>
               <li>
@@ -417,7 +409,7 @@
         </div>
 
         <!-- Mobile Logo and Social -->
-        <div class="flex lg:hidden flex-col items-center mb-6 justify-start">
+        <div class="flex lg:hidden flex-col items-center mb-6 justify-center">
           <div class="mb-1 flex justify-center">
             <img src="../assets/logo.svg" alt="نقلة" class="w-48 h-24" />
           </div>
@@ -522,12 +514,8 @@
         const submitBtn = form.find('button[type="submit"]');
         const firstName = form.find('input[placeholder="ادخل الإسم"]').first();
         const lastName = form.find('input[placeholder="ادخل الإسم"]').last();
-        const requestTitle = form.find('input[placeholder*="مسمى الطلب"]');
         function checkFormValidity() {
-          const isValid =
-            firstName.val().trim() !== '' &&
-            lastName.val().trim() !== '' &&
-            requestTitle.val().trim() !== '';
+          const isValid = firstName.val().trim() !== '' && lastName.val().trim() !== '';
           if (isValid) {
             submitBtn.removeClass('bg-gray-300 text-gray-500 cursor-not-allowed');
             submitBtn.addClass('bg-[#00B8A9] text-white hover:bg-[#009688]');
@@ -540,7 +528,6 @@
         }
         firstName.on('input', checkFormValidity);
         lastName.on('input', checkFormValidity);
-        requestTitle.on('input', checkFormValidity);
         form.on('submit', function (e) {
           e.preventDefault();
           alert('تم حفظ البيانات بنجاح!');
@@ -549,4 +536,3 @@
     </script>
   </body>
 </html>
-
