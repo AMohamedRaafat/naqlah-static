@@ -210,7 +210,9 @@ const translations = {
       "otpInvalid": "The verification code entered is incorrect, try again",
       "didNotReceive": "Didn't receive the code?",
       "resendOtp": "Resend",
-      "verifying": "Verifying..."
+      "verifying": "Verifying...",
+      "loginViaNafath": "Login via Nafath",
+      "remaining": "Remaining"
     },
     "registerCompany": {
       "pageTitle": "Join as Moving Company",
@@ -471,7 +473,9 @@ const translations = {
       "otpInvalid": "رمز التحقق المدخل غير صحيح، حاول مرة أخرى",
       "didNotReceive": "لم يصلك الرمز بعد؟",
       "resendOtp": "إعادة الإرسال",
-      "verifying": "جاري التحقق..."
+      "verifying": "جاري التحقق...",
+      "loginViaNafath": "تسجيل الدخول عبر نفاذ",
+      "remaining": "متبقي"
     },
     "registerCompany": {
       "pageTitle": "الإنضمام كشركة نقل",
