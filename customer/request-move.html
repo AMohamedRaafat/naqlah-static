@@ -1283,111 +1283,165 @@
       </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/request-move.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/request-move.js"></script>
 
     <!-- Footer -->
     <footer class="bg-[#00B8A9] text-white mt-auto font-expo-arabic">
       <div class="container mx-auto px-6 py-6">
+        <!-- Top Section - Two Columns -->
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <!-- Site Links -->
           <div class="lg:order-1">
-            <h3 class="text-[16px] font-semibold mb-3">في الموقع</h3>
-            <ul class="space-y-3 text-[12px]">
-              <li><a href="index.html" class="hover:opacity-80 transition-opacity">الرئيسية</a></li>
+            <h3 class="text-[16px] font-semibold mb-3" data-i18n="footer.siteLinks">في الموقع</h3>
+            <ul class="space-y-3 text-base text-[12px] font-regular">
+              <li>
+                <button
+                  onclick="scrollToSection('hero')"
+                  class="hover:opacity-80 transition-opacity"
+                  data-i18n="footer.aboutUs"
+                >
+                  من نحن
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="scrollToSection('hero')"
+                  class="hover:opacity-80 transition-opacity"
+                  data-i18n="footer.aboutUs"
+                >
+                  من نحن
+                </button>
+              </li>
+              <li>
+                <button
+                  onclick="showModal('login-modal')"
+                  class="hover:opacity-80 transition-opacity"
+                  data-i18n="footer.login"
+                >
+                  تسجيل الدخول
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Other Links -->
+          <div class="lg:order-2">
+            <h3 class="text-[16px] font-semibold mb-3" data-i18n="footer.otherLinks">روابط أخرى</h3>
+            <ul class="space-y-3 text-base text-[12px] font-regular">
               <li>
                 <a
-                  href="#"
+                  href="../privacy.html"
                   class="hover:opacity-80 transition-opacity"
-                  onclick="showModal('login-modal'); return false;"
-                  >تسجيل الدخول</a
+                  data-i18n="footer.privacyPolicy"
+                  >سياسة الخصوصية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../terms.html"
+                  class="hover:opacity-80 transition-opacity"
+                  data-i18n="footer.termsConditions"
+                  >الشروط والأحكام</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../faq.html"
+                  class="hover:opacity-80 transition-opacity"
+                  data-i18n="footer.faq"
+                  >الأسئلة والإستفسارات</a
                 >
               </li>
             </ul>
           </div>
-          <div class="lg:order-2">
-            <h3 class="text-[16px] font-semibold mb-3">روابط أخرى</h3>
-            <ul class="space-y-3 text-[12px]">
-              <li>
-                <a href="/privacy" class="hover:opacity-80 transition-opacity">سياسة الخصوصية</a>
-              </li>
-              <li>
-                <a href="/terms" class="hover:opacity-80 transition-opacity">الشروط والأحكام</a>
-              </li>
-            </ul>
-          </div>
-          <!-- Desktop logo + social -->
+
+          <!-- Logo and Social -->
           <div class="show-desktop flex-col items-center mb-6 lg:order-3">
-            <div class="mb-1"><img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
-            <div class="mb-6">
-              <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+            <div class="mb-1 flex justify-center">
+              <img src="../assets/logo.svg" alt="نقلة" class="w-48 h-24" />
             </div>
-            <div class="flex gap-6 flex-row-reverse">
+            <div class="mb-6 flex justify-center">
+              <img src="../assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+            </div>
+            <div class="flex gap-6 flex-row-reverse justify-center">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-                ><i class="fab fa-facebook-f text-xl"></i
-              ></a>
+              >
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-                ><i class="fab fa-instagram text-xl"></i
-              ></a>
+              >
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-                ><i class="fab fa-twitter text-xl"></i
-              ></a>
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 class="hover:opacity-80 transition-opacity"
-                ><i class="fab fa-youtube text-xl"></i
-              ></a>
+              >
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Mobile logo + social -->
-        <div class="flex lg:hidden flex-col items-center mb-6">
-          <div class="mb-1"><img src="assets/logo.svg" alt="نقلة" class="w-48 h-24" /></div>
-          <div class="mb-6">
-            <img src="assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+        <!-- Mobile Logo and Social -->
+        <div class="flex lg:hidden flex-col items-center mb-6 justify-start">
+          <div class="mb-1 flex justify-center">
+            <img src="../assets/logo.svg" alt="نقلة" class="w-48 h-24" />
           </div>
-          <div class="flex gap-6 flex-row-reverse">
+          <div class="mb-6 flex justify-center">
+            <img src="../assets/powerdBy.svg" alt="Powered By" class="w-48 h-10" />
+          </div>
+          <div class="flex gap-6 flex-row-reverse justify-center">
             <a
               href="https://facebook.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-              ><i class="fab fa-facebook-f text-xl"></i
-            ></a>
+            >
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
             <a
               href="https://instagram.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-              ><i class="fab fa-instagram text-xl"></i
-            ></a>
+            >
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
             <a
               href="https://twitter.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-              ><i class="fab fa-twitter text-xl"></i
-            ></a>
+            >
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
             <a
               href="https://youtube.com"
               target="_blank"
               class="hover:opacity-80 transition-opacity"
-              ><i class="fab fa-youtube text-xl"></i
-            ></a>
+            >
+              <i class="fab fa-youtube text-xl"></i>
+            </a>
           </div>
         </div>
 
+        <!-- Copyright -->
         <div class="text-center pt-4">
           <p class="text-base flex items-center justify-center gap-1">
-            <span>جميع الحقوق محفوظة لدى شركة نقلة</span>
+            <span data-i18n="footer.copyright">جميع الحقوق محفوظة لدى شركة نقلة</span>
             <span id="current-year">2025</span>
             <i class="far fa-copyright"></i>
           </p>

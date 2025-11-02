@@ -1208,8 +1208,15 @@
               <p id="otp-error" class="text-red-500 text-sm text-center mb-3 hidden"></p>
             </div>
 
+            <!-- Estimated Time -->
+            <div class="text-center mb-6" id="estimated-time-container">
+              <p class="text-sm text-gray-600">
+                <span data-i18n="requestMove.estimatedTime">متبقي</span>
+                <span id="estimated-time" class="text-[#00B8A9]">30 ثانية</span>
+              </p>
+            </div>
             <!-- Resend OTP -->
-            <div class="text-center mb-6">
+            <div class="text-center mb-6 hidden" id="resend-otp-container">
               <p class="text-sm text-gray-600">
                 <span data-i18n="requestMove.didNotReceive">لم تستلم الرمز؟</span>
                 <button
@@ -1336,8 +1343,16 @@
               ></p>
             </div>
 
+            <!-- Estimated Time -->
+            <div class="text-center mb-6" id="request-move-estimated-time-container">
+              <p class="text-sm text-gray-600">
+                <span data-i18n="requestMove.estimatedTime">متبقي</span>
+                <span id="request-move-estimated-time" class="text-[#00B8A9]">30 ثانية</span>
+              </p>
+            </div>
+
             <!-- Resend OTP -->
-            <div class="text-center mb-6">
+            <div class="text-center mb-6 hidden" id="request-move-resend-otp-container">
               <p class="text-sm text-gray-600">
                 <span data-i18n="requestMove.didNotReceive">لم تستلم الرمز؟</span>
                 <button

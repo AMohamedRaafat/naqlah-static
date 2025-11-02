@@ -108,6 +108,9 @@ function handleCustomerLogin(e) {
     $('#otp-phone-display').text(' +966' + phone);
     showModal('otp-modal');
 
+    // Start countdown
+    startOTPCountdown();
+
     // Focus first OTP input
     setTimeout(() => {
         $('.otp-input').first().focus();
@@ -219,6 +222,84 @@ $(document).ready(function () {
         });
 });
 
+// OTP Countdown Timer
+let otpCountdownInterval = null;
+let requestMoveOTPCountdownInterval = null;
+let otpCountdownSeconds = 30;
+let requestMoveOTPCountdownSeconds = 30;
+
+function startOTPCountdown() {
+    // Clear any existing countdown
+    if (otpCountdownInterval) {
+        clearInterval(otpCountdownInterval);
+    }
+
+    otpCountdownSeconds = 30;
+    updateOTPCountdown();
+
+    otpCountdownInterval = setInterval(function () {
+        otpCountdownSeconds--;
+        updateOTPCountdown();
+
+        if (otpCountdownSeconds <= 0) {
+            clearInterval(otpCountdownInterval);
+            otpCountdownInterval = null;
+            $('#estimated-time-container').addClass('hidden');
+            $('#resend-otp-container').removeClass('hidden');
+        }
+    }, 1000);
+}
+
+function updateOTPCountdown() {
+    const minutes = Math.floor(otpCountdownSeconds / 60);
+    const seconds = otpCountdownSeconds % 60;
+
+    let timeDisplay = '';
+    if (minutes > 0) {
+        timeDisplay = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+        timeDisplay = `${seconds} ثانية`;
+    }
+
+    $('#estimated-time').text(timeDisplay);
+}
+
+function startRequestMoveOTPCountdown() {
+    // Clear any existing countdown
+    if (requestMoveOTPCountdownInterval) {
+        clearInterval(requestMoveOTPCountdownInterval);
+    }
+
+    requestMoveOTPCountdownSeconds = 30;
+    updateRequestMoveOTPCountdown();
+
+    requestMoveOTPCountdownInterval = setInterval(function () {
+        requestMoveOTPCountdownSeconds--;
+        updateRequestMoveOTPCountdown();
+
+        if (requestMoveOTPCountdownSeconds <= 0) {
+            clearInterval(requestMoveOTPCountdownInterval);
+            requestMoveOTPCountdownInterval = null;
+            $('#request-move-estimated-time-container').addClass('hidden');
+            $('#request-move-resend-otp-container').removeClass('hidden');
+        }
+    }, 1000);
+}
+
+function updateRequestMoveOTPCountdown() {
+    const minutes = Math.floor(requestMoveOTPCountdownSeconds / 60);
+    const seconds = requestMoveOTPCountdownSeconds % 60;
+
+    let timeDisplay = '';
+    if (minutes > 0) {
+        timeDisplay = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+        timeDisplay = `${seconds} ثانية`;
+    }
+
+    $('#request-move-estimated-time').text(timeDisplay);
+}
+
 // Resend OTP
 function resendOTP() {
     console.log('Resending OTP to:', '+966' + currentPhone);
@@ -228,6 +309,11 @@ function resendOTP() {
     $('.otp-input').val('');
     $('.otp-input').first().focus();
     $('#otp-error').addClass('hidden');
+
+    // Reset countdown
+    $('#estimated-time-container').removeClass('hidden');
+    $('#resend-otp-container').addClass('hidden');
+    startOTPCountdown();
 }
 
 // Handle OTP verification
@@ -309,6 +395,9 @@ function handleRequestMove(e) {
     $('#request-move-otp-phone-display').text(' +966' + phone);
     showModal('request-move-otp-modal');
 
+    // Start countdown
+    startRequestMoveOTPCountdown();
+
     // Focus first OTP input
     setTimeout(() => {
         $('#request-move-otp-modal .otp-input').first().focus();
@@ -379,5 +468,10 @@ function resendRequestMoveOTP() {
     $('#request-move-otp-modal .otp-input').val('');
     $('#request-move-otp-modal .otp-input').first().focus();
     $('#request-move-otp-error').addClass('hidden');
+
+    // Reset countdown
+    $('#request-move-estimated-time-container').removeClass('hidden');
+    $('#request-move-resend-otp-container').addClass('hidden');
+    startRequestMoveOTPCountdown();
 }
 
