@@ -451,6 +451,36 @@
 
             <p id="services-error" class="text-red-500 text-sm hidden"></p>
           </div>
+          <!-- Featured Services -->
+          <div class="space-y-3">
+            <label class="block text-[#353535] font-medium">
+              <span data-i18n="registerCompany.opreationalAreas">المناطق التشغيلية</span>
+              <span class="text-red-500">*</span>
+            </label>
+
+            <!-- Select Dropdown -->
+            <div class="relative">
+              <select
+                id="opreational-areas-select"
+                class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
+              >
+                <option value="" data-i18n="registerCompany.opreationalAreasSelect">
+                  حدد المناطق التشغيلية
+                </option>
+                <option value="makkah">مكة</option>
+                <option value="jeddah">جدة</option>
+                <option value="riyadh">الرياض</option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+              ></i>
+            </div>
+
+            <!-- Selected Services Chips -->
+            <div id="selected-areas" class="flex flex-wrap gap-2 mt-3"></div>
+
+            <p id="areas-error" class="text-red-500 text-sm hidden"></p>
+          </div>
 
           <!-- About Company -->
           <div class="space-y-2">

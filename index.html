@@ -362,12 +362,6 @@
               >
                 <span data-i18n="hero.ctaOrderMove">اطلب نقلة</span>
               </button>
-              <a
-                href="company/register-company.html"
-                class="w-full bg-[#18C9BF21] border-2 border-[#00B8A9] text-[#00B8A9] hover:bg-[#00B8A9] hover:text-white font-semibold py-3 text-lg rounded-lg transition-colors text-center"
-              >
-                <span data-i18n="hero.ctaJoinPartner">إنضم كشركة نقل</span>
-              </a>
             </div>
           </div>
 
@@ -792,11 +786,11 @@
             <ul class="space-y-3 text-base text-[12px] font-regular">
               <li>
                 <button
-                  onclick="scrollToSection('hero')"
+                  onclick="scrollToSection('contact')"
                   class="hover:opacity-80 transition-opacity"
-                  data-i18n="footer.aboutUs"
+                  data-i18n="footer.contactUs"
                 >
-                  من نحن
+                  تواصل معنا
                 </button>
               </li>
               <li>
@@ -812,9 +806,9 @@
                 <button
                   onclick="showModal('login-modal')"
                   class="hover:opacity-80 transition-opacity"
-                  data-i18n="footer.login"
+                  data-i18n="footer.joinAsServiceProvider"
                 >
-                  تسجيل الدخول
+                  إنضم كمزود خدمة
                 </button>
               </li>
             </ul>
@@ -962,84 +956,8 @@
           يرجى إدخال رقم الهاتف
         </p>
 
-        <!-- Tabs -->
-        <div class="flex gap-0 mb-6 border-b border-gray-200">
-          <button
-            id="customer-tab"
-            class="flex-1 py-3 font-semibold border-b-2 border-[#00B8A9] text-[#00B8A9] -mb-px transition-all"
-            onclick="switchLoginTab('customer')"
-            data-i18n="login.customerTab"
-          >
-            طالب خدمة
-          </button>
-          <button
-            id="company-tab"
-            class="flex-1 py-3 font-semibold border-b-2 border-transparent text-gray-400 -mb-px transition-all"
-            onclick="switchLoginTab('company')"
-            data-i18n="login.companyTab"
-          >
-            شركة نقل
-          </button>
-        </div>
-
-        <!-- Customer Tab Content -->
-        <div id="customer-tab-content" class="tab-content">
-          <form id="customer-login-form" onsubmit="handleCustomerLogin(event)">
-            <div class="mb-4">
-              <label
-                class="block text-sm font-medium text-gray-700 mb-2"
-                data-i18n="requestMove.phoneLabel"
-                >رقم الهاتف</label
-              >
-              <div class="flex" dir="ltr">
-                <span
-                  class="inline-flex items-center px-3 border border-l-0 border-gray-300 bg-gray-50 text-gray-500 rounded-l-lg"
-                  >+966</span
-                >
-                <input
-                  type="tel"
-                  id="customer-phone"
-                  required
-                  maxlength="9"
-                  pattern="5[0-9]{8}"
-                  class="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right"
-                  data-i18n-placeholder="requestMove.phonePlaceholder"
-                  placeholder="5XXXXXXXX"
-                />
-              </div>
-              <p id="customer-phone-error" class="text-red-500 text-sm mt-1 hidden"></p>
-            </div>
-
-            <div class="mb-4">
-              <label class="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  id="customer-remember"
-                  class="w-4 h-4 text-[#00B8A9] border-gray-300 rounded focus:ring-[#00B8A9]"
-                />
-                <span class="text-sm text-gray-700" data-i18n="requestMove.saveDataLabel"
-                  >احفظ بياناتي للدخول مرة أخرى</span
-                >
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-lg transition-colors"
-            >
-              <span data-i18n="requestMove.submitButton">أكمل</span>
-            </button>
-            <button
-              type="submit"
-              class="w-full mt-2 bg-[#E1F8F7] hover:bg-[#E1F8F7] border-2 border-[#01B4AA] text-[#01B4AA] font-semibold py-3 rounded-lg transition-colors"
-            >
-              <span data-i18n="requestMove.loginViaNafath">تسجيل الدخول عبر نفاذ</span>
-            </button>
-          </form>
-        </div>
-
         <!-- Company Tab Content -->
-        <div id="company-tab-content" class="tab-content hidden">
+        <div id="company-tab-content" class="tab-content">
           <form id="company-login-form" onsubmit="handleCompanyLogin(event)">
             <div class="mb-4">
               <label
@@ -1537,7 +1455,13 @@
               type="submit"
               class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 text-base rounded-lg transition-colors"
             >
-              <span data-i18n="requestMove.submitButton">إرسال</span>
+              <span data-i18n="requestMove.continue">أكمل</span>
+            </button>
+            <button
+              type="type"
+              class="w-full bg-[#18C9BF21] mt-2 border-2 border-[#00b8a9] text-[#00B8A9] font-semibold py-3 text-base rounded-lg transition-colors"
+            >
+              <span data-i18n="requestMove.loginViaNafath">تسجيل الدخول عبر نفاذ</span>
             </button>
           </form>
         </div>

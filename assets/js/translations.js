@@ -103,11 +103,13 @@ const translations = {
       "siteLinks": "On the Site",
       "aboutUs": "About Us",
       "login": "Login",
+      "joinAsServiceProvider": "Join as Service Provider",
       "otherLinks": "Other Links",
       "privacyPolicy": "Privacy Policy",
       "termsConditions": "Terms & Conditions",
       "faq": "FAQ",
-      "copyright": "All rights reserved to Naqlah Company"
+      "copyright": "All rights reserved to Naqlah Company",
+      "contactUs": "Contact Us"
     },
     "payments": {
       "mastercard": "Mastercard",
@@ -204,6 +206,7 @@ const translations = {
       "phoneInvalidStart": "Saudi phone number must start with 5",
       "saveDataLabel": "Save my data to login again",
       "submitButton": "Login",
+      "continue": "Continue",
       "otpSubtitle": "Please enter the verification code sent to",
       "otpLabel": "Verification Code",
       "otpIncomplete": "Please enter the complete verification code",
@@ -241,6 +244,8 @@ const translations = {
       "verificationPendingTitle": "Your account is being reviewed 🎯",
       "verificationPendingDescription": "Your account creation request has been sent successfully. We are reviewing and verifying the information you provided about your company. You will be notified via email and phone number once the company account is verified.",
       "goToHome": "Go to Home",
+      "opreationalAreas": "Operational Areas",
+      "opreationalAreasSelect": "Select Operational Areas",
       "services": {
         "disassembly": "Disassembly & Assembly",
         "packing": "Secure Packing",
@@ -366,11 +371,13 @@ const translations = {
       "siteLinks": "في الموقع",
       "aboutUs": "من نحن",
       "login": "تسجيل الدخول",
+      "joinAsServiceProvider": "إنضم كمزود خدمة",
       "otherLinks": "روابط أخرى",
       "privacyPolicy": "سياسة الخصوصية",
       "termsConditions": "الشروط والأحكام",
       "faq": "الأسئلة والإستفسارات",
-      "copyright": "جميع الحقوق محفوظة لدى شركة نقلة"
+      "copyright": "جميع الحقوق محفوظة لدى شركة نقلة",
+      "contactUs": "تواصل معنا"
     },
     "payments": {
       "mastercard": "ماستركارد",
@@ -467,6 +474,7 @@ const translations = {
       "phoneInvalidStart": "رقم الهاتف السعودي يجب أن يبدأ بـ 5",
       "saveDataLabel": "احفظ بياناتي للدخول مرة أخرى",
       "submitButton": "تسجيل الدخول",
+      "continue": "أكمل",
       "otpSubtitle": "يرجى إدخال رقم التحقق المرسل إلى",
       "otpLabel": "رمز التحقق",
       "otpIncomplete": "يرجى إدخال رمز التحقق كاملاً",
@@ -504,6 +512,8 @@ const translations = {
       "verificationPendingTitle": "جارٍ التحقق من حسابك 🎯",
       "verificationPendingDescription": "تم إرسال طلب إنشاء الحساب بنجاح. يتم المراجعة والتحقق من البيانات التي قدمتها عن شركتك. سيتم إشعارك عبر البريد الإلكتروني ورقم الهاتف في حال توثيق حساب الشركة.",
       "goToHome": "التوجّه إلى الرئيسية",
+      "opreationalAreas": "المناطق التشغيلية",
+      "opreationalAreasSelect": "حدد المناطق التشغيلية",
       "services": {
         "disassembly": "تفكيك وتركيب",
         "packing": "تغليف محكم",

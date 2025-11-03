@@ -4,6 +4,7 @@ $(document).ready(function () {
   let logoFile = null;
   let registrationFile = null;
   let selectedServices = []; // Array to store selected services
+  let selectedAreas = []; // Array to store Operational Areas
 
   // Service labels for translation
   const serviceLabels = {
@@ -13,6 +14,12 @@ $(document).ready(function () {
     cleaning: 'تنظيف بعد النقل',
     moving: 'نقل من بين مدن',
     tracking: 'تتبع مباشر',
+  };
+  // Areas labels for translation
+  const areasLabels = {
+    makkah: 'مكة',
+    jeddah: 'جدة',
+    riyadh: 'الرياض',
   };
 
   // Function to render selected services as chips
@@ -36,6 +43,27 @@ $(document).ready(function () {
       container.append(chip);
     });
   }
+  // Function to render selected Areas as chips
+  function renderAreas() {
+    const container = $('#selected-areas');
+    container.empty(); // Clear existing chips
+
+    selectedAreas.forEach((area) => {
+      const chip = $(`
+        <div class="flex items-center gap-2 px-3 py-2 bg-white border border-[#EDEDED] rounded-lg text-sm">
+        <button
+        type="button"
+        onclick="removeArea('${area}')"
+        class="text-[#00B8A9] hover:text-red-500 transition-colors"
+        >
+        <i class="fas fa-times"></i>
+        </button>
+        <span class="text-[#353535]">${areasLabels[area]}</span>
+        </div>
+      `);
+      container.append(chip);
+    });
+  }
 
   // Function to remove service from array
   window.removeService = function (service) {
@@ -45,6 +73,16 @@ $(document).ready(function () {
     // Clear error if services are now selected
     if (selectedServices.length > 0) {
       $('#services-error').addClass('hidden');
+    }
+  };
+  // Function to remove Area from array
+  window.removeArea = function (area) {
+    selectedAreas = selectedAreas.filter((a) => a !== area);
+    renderAreas();
+
+    // Clear error if services are now selected
+    if (selectedAreas.length > 0) {
+      $('#areas-error').addClass('hidden');
     }
   };
 
@@ -71,6 +109,30 @@ $(document).ready(function () {
 
     // Render chips
     renderServices();
+  })
+  // Handle Areas selection from dropdown
+  $('#opreational-areas-select').on('change', function () {
+    const value = $(this).val();
+
+    // Reset dropdown to placeholder
+    $(this).val('');
+
+    // If no value or already selected, do nothing
+    if (!value || selectedAreas.includes(value)) {
+      if (selectedAreas.includes(value)) {
+        showNotification('هذه الخدمة مضافة بالفعل', 'warning');
+      }
+      return;
+    }
+
+    // Add to array
+    selectedAreas.push(value);
+
+    // Clear error
+    $('#areas-error').addClass('hidden');
+
+    // Render chips
+    renderAreas();
   });
 
   // Logo upload
