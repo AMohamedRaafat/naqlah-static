@@ -1217,15 +1217,19 @@
 
           <!-- Terms Checkbox -->
           <div class="bg-white rounded-2xl p-4 mb-4 shadow-sm">
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                id="terms-checkbox"
-                class="mt-1 w-5 h-5 text-[#00B8A9] border-gray-300 rounded focus:ring-[#00B8A9]"
-              />
-              <span class="text-[14px] text-[#00B8A9]">
-                أوافق على شروط الاستخدام وسياسة الخصوصية المدونة لدينا
-              </span>
+            <input
+              type="checkbox"
+              id="agreeTerms"
+              required
+              class="w-5 h-5 text-[#00B8A9] border-[#E7E7E7] rounded focus:ring-[#00B8A9]"
+            />
+            <label for="agreeTerms" class="text-sm text-gray-700 cursor-pointer">
+              <button type="button" onclick="showModal('privacy-terms-modal')" class="text-start">
+                <span data-i18n="registerCompany.agreeTerms">من خلال إنشاء حساب، أوافق على</span>
+                <span class="text-[#00B8a9]"
+                  >سياسة الاستخدام <span class="text-gray-700">و</span> شروط الخصوصية</span
+                >
+              </button>
             </label>
           </div>
 
@@ -1645,10 +1649,58 @@
         </div>
       </div>
     </div>
+    <div
+      id="privacy-terms-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
+      <div
+        class="bg-white rounded-xl p-6 max-w-md w-full mx-4 relative h-[80vh] flex flex-col relative"
+      >
+        <h2 class="text-lg font-bold mb-1 text-start" data-i18n="privacyTerms.title">
+          شروط الإستخدام وسياسة الخصوصية
+        </h2>
+        <p class="text-[#7c7c7c] text-start mb-6 text-sm" data-i18n="privacyTerms.lastUpdated">
+          آخر تحديث 05.02.2025
+        </p>
 
+        <!-- Company Tab Content -->
+        <div id="privacy_terms" class="p-2 border-2 border-[#ededed] overflow-y-scroll flex-1">
+          <!-- Privacy Terms content will be loaded here dynamically -->
+        </div>
+
+        <div
+          class="actions_button absolute bottom-5 w-full bg-white/50 backdrop-blur-sm py-3 left-20 right-0"
+        >
+          <div id="actions" class="hidden">
+            <button
+              id="accept-terms"
+              onclick="acceptTerms();hideModal('privacy-terms-modal')"
+              class="block w-[80%] mx-auto my-2 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
+            >
+              <span data-i18n="login.closeButton">قبول</span>
+            </button>
+            <button
+              onclick="scrollToTop()"
+              class="block w-[80%] mx-auto my-2 bg-white text-[#353535] font-semibold py-3 rounded-xl transition-colors border border[#ededed]"
+            >
+              <span>العودة للاعلى</span>
+            </button>
+          </div>
+
+          <button
+            onclick="scrollToBottom()"
+            id="scroll-top"
+            class="block w-[80%] mx-auto my-2 bg-white text-[#353535] font-semibold py-3 rounded-xl transition-colors border border[#ededed]"
+          >
+            <span>النزول للاسفل</span>
+          </button>
+        </div>
+      </div>
+    </div>
     <!-- Scripts -->
     <script src="../assets/js/translations.js"></script>
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/request-move.js"></script>
+    <script src="../assets/js/privacy-terms.js"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 // Request Move - Multi-step Form
-let currentStep = 5;
+let currentStep = 1;
 const totalSteps = 8;
 let disassemblyItems = [];
 let selectedDate = null;

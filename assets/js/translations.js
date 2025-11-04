@@ -264,6 +264,10 @@ const translations = {
         "tabuk": "Tabuk",
         "abha": "Abha"
       }
+    },
+    'privacyTerms': {
+      'title': 'Privacy Policy and Terms of Use',
+      'lastUpdated': 'Last updated: 05.02.2025',
     }
   },
   ar: {
@@ -533,6 +537,10 @@ const translations = {
         "tabuk": "تبوك",
         "abha": "أبها"
       }
+    },
+    'privacyTerms': {
+      'title': 'شروط الإستخدام وسياسة الخصوصية',
+      'lastUpdated': 'آخر تحديث 05.02.2025',
     }
   }
 };
