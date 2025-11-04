@@ -213,7 +213,7 @@ body {
 /* Active state helper for sidebar links */
 #desktop-sidebar nav ul li a.sidebar-active {
   background: #d2f2f0;
-  color: #01b4aa;
+  color: #01b4aa !important;
   font-weight: 500;
   position: relative;
   font-size: 15px;
@@ -233,16 +233,10 @@ body {
 }
 
 /* Also apply active styling outside desktop sidebar (e.g., mobile drawer) */
-.sidebar-active {
-  background: #d2f2f0 !important;
-  color: #01b4aa !important;
-  font-weight: 600;
-}
+.sidebar-active,
 .sidebar-active i,
-.sidebar-active svg,
-.sidebar-active img {
+.sidebar-active span {
   color: #01b4aa !important;
-  filter: none;
 }
 
 /* Mobile drawer active right border */
@@ -324,6 +318,138 @@ body {
   height: 100%;
 }
 
+.icon-home {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/home.svg');
+  mask-image: url('../menu-icons/home.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-account-info {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/profile.svg');
+  mask-image: url('../menu-icons/profile.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-quotes {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/quotes.svg');
+  mask-image: url('../menu-icons/quotes.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-orders {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/orders.svg');
+  mask-image: url('../menu-icons/orders.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-rates {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/rates.svg');
+  mask-image: url('../menu-icons/rates.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-notifications {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/notification.svg');
+  mask-image: url('../menu-icons/notification.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-settings {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/settings.svg');
+  mask-image: url('../menu-icons/settings.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-phone {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/phone.svg');
+  mask-image: url('../menu-icons/phone.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-logout {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/logout.svg');
+  mask-image: url('../menu-icons/logout.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-language {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/language.svg');
+  mask-image: url('../menu-icons/language.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.icon-star {
+  display: inline-block;
+  background-color: currentColor; /* icon color follows text color */
+  -webkit-mask-image: url('../menu-icons/star.svg');
+  mask-image: url('../menu-icons/star.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
 /* Force show element only on desktop screens */
 .show-desktop {
   display: none;

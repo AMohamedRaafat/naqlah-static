@@ -3,22 +3,247 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>التنبيهات - Naqlah</title>
+    <title>الإعدادات</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="./assets/css/custom.css" />
+    <script src="./assets/js/tailwind-config.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 26px;
+      }
+      .toggle-switch .toggle-input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+      .toggle-switch .toggle-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 44px;
+        height: 26px;
+        background: #fff;
+        border: 1px solid #f2f2f2;
+        border-radius: 9999px;
+        cursor: pointer;
+      }
+      .toggle-switch .toggle-label::before {
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        background: #e7e7e7;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+      .toggle-switch .toggle-input:checked + .toggle-label::before {
+        background: #01b4aa;
+        transform: translateX(18px);
+      }
+    </style>
   </head>
-  <body class="min-h-screen bg-[#fafafa] font-expo-arabic">
-    <div class="container mx-auto px-4 py-12 text-center">
-      <h1 class="text-2xl font-semibold text-[#353535] mb-2">التنبيهات</h1>
-      <p class="text-[#868686]">سيتم إضافة صفحة التنبيهات هنا قريبًا.</p>
-      <a href="dashboard.html" class="inline-block mt-6 text-[#00B8A9]">العودة إلى لوحة التحكم</a>
+  <body class="flex min-h-screen font-expo-arabic md:flex-row flex-col">
+    <!-- Desktop Sidebar -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="./index.html" class="flex items-center justify-center"
+          ><img src="./assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="./customer/dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md hover:bg-gray-50 transition-colors"
+              ><img src="./assets/menu-icons/home.svg" class="w-6 h-6" /><span>لوحة التحكم</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md sidebar-active"
+              ><i class="fas fa-gear text-lg text-[#A9A9A9]"></i><span>الإعدادات</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Mobile Navbar -->
+    <div class="lg:hidden bg-white text-gray-900 border-b border-gray-200 w-full">
+      <div class="flex items-center justify-between px-4 py-4">
+        <h1 class="text-lg font-semibold">الإعدادات</h1>
+        <div class="flex items-center gap-3">
+          <!-- User Avatar - Navigate to Profile -->
+          <a
+            href="account-info.html"
+            class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
+          >
+            <div class="w-full h-full bg-gray-200"></div>
+          </a>
+
+          <!-- Menu Button -->
+          <button
+            id="mobile-menu-button"
+            onclick="toggleMobileMenu()"
+            class="p-0 border border-[#00B8A9] rounded-xl px-2 py-1"
+          >
+            <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="./customer/dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    ><img src="./assets/menu-icons/home.svg" class="w-6 h-6" /><span
+                      class="text-[15px]"
+                      >لوحة التحكم</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../notifications.html"
+                    onclick="toggleMobileMenu(); return false;"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                  >
+                    <i
+                      class="icon-notifications w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.notifications"
+                      >التنبيهات</span
+                    >
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Main Content -->
+    <main class="flex items-start justify-center p-4 w-full">
+      <div class="container mx-auto max-w-3xl space-y-6">
+        <div class="mb-2 text-sm text-[#7E7E7E]">
+          <a href="./company/dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium">الإشعارات</span>
+        </div>
+
+        <div class="p-4 rounded-lg space-y-4">
+          <div
+            class="notification-card shadow bg-white flex items-center justify-between rounded-lg p-4 border border-[#EAE9E999]"
+          >
+            <div class="flex items-start gap-4">
+              <i class="fas fa-bell text-2xl text-[#00B8A9]"></i>
+              <div class="space-y-1">
+                <div class="flex justify-between items-center">
+                  <h3 class="font-semibold text-[#353535]">تم استلام بلاغك</h3>
+                  <span class="text-sm text-[#A9A9A9]">12 د</span>
+                </div>
+                <p class="text-sm text-[#686868]">
+                  تم استلام بلاغك بشأن المشكلة، وسيتم التواصل معك لحلها في أقرب وقت ممكن
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="notification-card shadow bg-white flex items-center justify-between rounded-lg p-4 border border-[#EAE9E999]"
+          >
+            <div class="flex items-start gap-4">
+              <i class="fas fa-bell text-2xl text-[#00B8A9]"></i>
+              <div class="space-y-1">
+                <div class="flex justify-between items-center">
+                  <h3 class="font-semibold text-[#353535]">تم استلام بلاغك</h3>
+                  <span class="text-sm text-[#A9A9A9]">12 د</span>
+                </div>
+                <p class="text-sm text-[#686868]">
+                  تم استلام بلاغك بشأن المشكلة، وسيتم التواصل معك لحلها في أقرب وقت ممكن
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="notification-card shadow bg-white flex items-center justify-between rounded-lg p-4 border border-[#EAE9E999]"
+          >
+            <div class="flex items-start gap-4">
+              <i class="fas fa-bell text-2xl text-[#00B8A9]"></i>
+              <div class="space-y-1">
+                <div class="flex justify-between items-center">
+                  <h3 class="font-semibold text-[#353535]">تم استلام بلاغك</h3>
+                  <span class="text-sm text-[#A9A9A9]">12 د</span>
+                </div>
+                <p class="text-sm text-[#686868]">
+                  تم استلام بلاغك بشأن المشكلة، وسيتم التواصل معك لحلها في أقرب وقت ممكن
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+      // simple language switch highlight
+      (function () {
+        var ar = document.getElementById('lang-ar');
+        var en = document.getElementById('lang-en');
+        if (!ar || !en) return;
+        function set(lang) {
+          if (lang === 'ar') {
+            ar.classList.add('bg-[#F8FAFC]');
+            ar.querySelector('span').classList.add('text-[#00B8A9]');
+            en.classList.remove('bg-[#F8FAFC]');
+          } else {
+            en.classList.add('bg-[#F8FAFC]');
+            ar.classList.remove('bg-[#F8FAFC]');
+          }
+        }
+        ar.addEventListener('click', function () {
+          set('ar');
+        });
+        en.addEventListener('click', function () {
+          set('en');
+        });
+      })();
+    </script>
   </body>
-  <script src="assets/js/translations.js"></script>
-  <script src="assets/js/app.js"></script>
 </html>
-
-

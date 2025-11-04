@@ -37,7 +37,7 @@
 
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa]">
+  <body class="flex min-h-screen font-expo-arabic">
     <!-- Desktop Sidebar (Right side for RTL) -->
     <aside
       class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
@@ -55,19 +55,10 @@
         <ul class="space-y-2">
           <li>
             <a
-              href="../index.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-            >
-              <i class="fas fa-home text-lg text-[#A9A9A9]"></i>
-              <span data-i18n="navigation.home">الرئيسية</span>
-            </a>
-          </li>
-          <li>
-            <a
               href="dashboard.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
             >
-              <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+              <i class="icon-home w-6 h-6"></i>
               <span data-i18n="navigation.dashboard">لوحة التحكم</span>
             </a>
           </li>
@@ -76,7 +67,7 @@
               href="account-info.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+              <i class="icon-account-info w-6 h-6"></i>
               <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
             </a>
           </li>
@@ -85,7 +76,7 @@
               href="../notifications.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-bell text-lg text-[#A9A9A9]"></i>
+              <i class="icon-notifications w-6 h-6"></i>
               <span data-i18n="navigation.notifications">التنبيهات</span>
             </a>
           </li>
@@ -94,7 +85,7 @@
               href="quotes.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
+              <i class="icon-quotes w-6 h-6"></i>
               <span data-i18n="navigation.quotes">عروض الأسعار</span>
             </a>
           </li>
@@ -103,7 +94,7 @@
               href="orders.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
+              <i class="icon-orders w-6 h-6"></i>
               <span data-i18n="navigation.orders">الطلبات</span>
             </a>
           </li>
@@ -112,7 +103,7 @@
               href="../settings.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
+              <i class="icon-settings w-6 h-6"></i>
               <span data-i18n="navigation.settings">الإعدادات</span>
             </a>
           </li>
@@ -121,17 +112,8 @@
               href="../contact.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
+              <i class="icon-phone w-6 h-6"></i>
               <span data-i18n="navigation.contact">تواصل معنا</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="request-move.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
-            >
-              <i class="fas fa-truck-moving text-lg text-[#A9A9A9]"></i>
-              <span data-i18n="navigation.requestMove">اطلب نقلة</span>
             </a>
           </li>
         </ul>
@@ -154,14 +136,14 @@
           onclick="showModal('language-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
-          <i class="fas fa-language text-lg"></i>
+          <i class="icon-language w-6 h-6"></i>
           <span id="lang-btn">English</span>
         </button>
         <button
           onclick="showModal('logout-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors text-sm"
         >
-          <i class="fas fa-sign-out-alt text-lg"></i>
+          <i class="icon-logout w-6 h-6"></i>
           <span data-i18n="navigation.logout">تسجيل الخروج</span>
         </button>
       </div>
@@ -194,7 +176,7 @@
           <div class="flex items-center gap-3">
             <!-- User Avatar - Navigate to Profile -->
             <a
-              href="profile.html"
+              href="account-info.html"
               class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
             >
               <div class="w-full h-full bg-gray-200"></div>
@@ -227,7 +209,7 @@
               </div>
 
               <!-- Menu Items -->
-              <nav class="flex-1 px-4 text-black">
+              <nav class="flex-1 px-4">
                 <ul class="space-y-0">
                   <li>
                     <a
@@ -235,7 +217,7 @@
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                     >
-                      <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+                      <i class="icon-home w-6 h-6"></i>
                       <span class="text-[15px]" data-i18n="navigation.dashboard">لوحة التحكم</span>
                     </a>
                   </li>
@@ -245,13 +227,28 @@
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
-                      <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+                      <i
+                        class="icon-account-info w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
                       <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
                         >معلومات الحساب</span
                       >
                     </a>
                   </li>
-
+                  <li>
+                    <a
+                      href="../notifications.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i
+                        class="icon-notifications w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.notifications"
+                        >التنبيهات</span
+                      >
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="quotes.html"
@@ -259,7 +256,7 @@
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
                       <i
-                        class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                        class="icon-quotes w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
                       <span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
                         >عروض الأسعار</span
@@ -273,27 +270,14 @@
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
                       <i
-                        class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                        class="icon-orders w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
                       <span class="text-[15px] text-gray-800" data-i18n="navigation.orders"
                         >الطلبات</span
                       >
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="request-move.html"
-                      onclick="toggleMobileMenu()"
-                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                    >
-                      <i
-                        class="fas fa-truck-moving w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
-                      ></i>
-                      <span class="text-[15px] text-gray-800" data-i18n="navigation.requestMove"
-                        >اطلب نقلة</span
-                      >
-                    </a>
-                  </li>
+
                   <li>
                     <a
                       href="../settings.html"
@@ -301,7 +285,7 @@
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
                       <i
-                        class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                        class="icon-settings w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
                       <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
                         >الإعدادات</span
@@ -315,7 +299,7 @@
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
                       <i
-                        class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                        class="icon-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
                       <span class="text-[15px] text-gray-800" data-i18n="navigation.contact"
                         >تواصل معنا</span
@@ -329,7 +313,7 @@
                     class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                   >
                     <i
-                      class="fas fa-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      class="icon-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                     ></i>
                     <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
                   </button>
@@ -337,11 +321,9 @@
                     onclick="showModal('logout-modal'); toggleMobileMenu();"
                     class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                   >
-                    <img
-                      src="../assets/menu-icons/out.svg"
-                      alt="icon"
-                      class="w-6 h-6 text-[#a9a9a9]"
-                    />
+                    <i
+                      class="icon-logout w-6 h-6 font-regular text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
                     <span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
                       >تسجيل الخروج</span
                     >
@@ -393,523 +375,1074 @@
           </div>
         </div>
 
-        <!-- Orders State (Hidden by default) -->
+        <div class="grid grid-cols-2 gap-2 text-sm mb-4 px-4" data-tabs-group="orders">
+          <button
+            class="tab-btn text-[#01B4AA] py-3 rounded-lg border border-[#01B4AA]"
+            data-filter="ongoing"
+          >
+            الطلبات المنفذة
+          </button>
+          <button
+            class="tab-btn text-[#353535] py-3 rounded-lg border border-transparent"
+            data-filter="quotes"
+          >
+            عروض الأسعار
+          </button>
+        </div>
+
         <div id="orders-state" class="hidden flex-1 px-4 py-6 bg-[#fafafa]">
-          <!-- Price Quotes Section Header -->
-          <div class="flex items-center justify-between gap-2 mb-4">
-            <div class="flex items-center gap-2">
-              <i class="fas fa-tag text-[#3C3D41] text-lg"></i>
-              <h3
-                class="text-[14px] font-semibold text-[##C3D41]"
-                data-i18n="dashboard.priceQuotes"
-              >
-                طلبات عروض الأسعار
-              </h3>
-            </div>
-            <div>
-              <span class="text-[#00b8a9] text-[14px]"> متبقي 0ي 4س 40د </span>
-              <span class="text-[#EF4351] text-[14px]"> إنتهى الوقت </span>
-            </div>
-          </div>
-
-          <!-- Current Order Card -->
-          <div class="bg-white rounded-2xl p-4 shadow-sm mb-4">
-            <button
-              onclick="showModal('cancel-order-modal')"
-              class="text-[12px] text-white rounded-lg mb-3 -mt-3 font-medium bg-[#EF4351] w-full py-3 text-center"
-            >
-              إلغاء الطلب
-            </button>
-            <div class="flex items-start justify-between mb-3">
-              <div class="text-right">
-                <h4 class="text-[14px] font-medium text-[#4B4B4B]" id="order-customer-name">
-                  منصور الفهماوي
-                </h4>
-                <p class="text-[12px] text-[#868686]" id="order-number">#ORD938274</p>
-              </div>
-              <span
-                class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
-                data-i18n="dashboard.waitingForQuote"
-              >
-                بانتظار اختيار عرض السعر
-              </span>
-            </div>
-
-            <!-- Order Details Collapsible -->
-            <div class="border-t border-gray-100 bg-gray-100 p-3">
-              <button
-                onclick="toggleOrderDetails()"
-                id="order-details-toggle"
-                class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B] mb-3"
-              >
-                <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
-                <i class="fas fa-chevron-down" id="details-icon"></i>
-              </button>
-
-              <div id="order-details" class="hidden grid grid-cols-1 md:grid-cols-2 gap-3">
-                <!-- Personal Data -->
-                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
-                  <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                    data-i18n="dashboard.personalData"
-                  >
-                    البيانات الشخصية
-                  </h5>
-                  <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                    <p>منصور الفهماوي</p>
-                    <p>598839405</p>
-                    <p>منزل جديد</p>
-                  </div>
-                </div>
-
-                <!-- Date and Time -->
-                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
-                  <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                    data-i18n="dashboard.dateAndTime"
-                  >
-                    الموعد والمرونة
-                  </h5>
-                  <div
-                    class="flex items-center justify-start text-start gap-3 text-[13px] text-[#868686]"
-                  >
-                    <span>11:30 ص</span>
-                    <i class="fas fa-clock text-gray-400"></i>
-                    <span>19.10.2025</span>
-                    <i class="fas fa-calendar text-gray-400"></i>
-                  </div>
-                </div>
-
-                <!-- Current Address -->
-                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
-                  <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                    data-i18n="dashboard.currentAddress"
-                  >
-                    عنوان النقل الحالي
-                  </h5>
-                  <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                    <p>الرياض</p>
-                    <p>حي الملقا شارع أبس بن مالك 3679</p>
-                    <p>بناء النور</p>
-                    <p>طابق 4</p>
-                    <p>يوجد مصعد</p>
-                    <p>مصعد وسط</p>
-                  </div>
-                </div>
-
-                <!-- Destination Address -->
-                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
-                  <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                    data-i18n="dashboard.destinationAddress"
-                  >
-                    العنوان المراد النقل إليه
-                  </h5>
-                  <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                    <p>الرياض</p>
-                    <p>حي العليا شارع فلسطين 5843</p>
-                    <p>بناء النور</p>
-                    <p>طابق 7</p>
-                    <p>يوجد مصعد</p>
-                    <p>مصعد كبير</p>
-                    <p class="text-[12px] leading-relaxed pt-1">
-                      يرجى استخدام المصعد الكبير المخصص لنقل الأثاث داخل بيت الدرج
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Additional Services -->
-                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
-                  <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                    data-i18n="dashboard.additionalServices"
-                  >
-                    الخدمات الإضافية
-                  </h5>
-                  <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                    <p>تغليف محكم</p>
-                    <p>تأمين ضد الفقد والكسر</p>
-                    <p class="pt-1">
-                      <span class="font-medium text-[#4B4B4B]">فك وتركيب:</span>
-                    </p>
-                    <p>3 مكيف، 3 دواليب، 4 سرير، 1 مكتب</p>
-                  </div>
-                </div>
-
-                <!-- Furniture Details -->
-                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
-                  <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                    data-i18n="dashboard.furnitureDetails"
-                  >
-                    تفاصيل الأثاث
-                  </h5>
-                  <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                    <p>5 غرف</p>
-                    <p>2 صالة، 3 مكيف، 3 دواليب، 4 سرير، 1 مكتب، 2 سجاد</p>
-
-                    <!-- Furniture Images -->
-                    <div class="grid grid-cols-3 gap-2 pt-2">
-                      <img
-                        src="assets/furniture/sample1.jpg"
-                        alt="Furniture"
-                        class="w-full h-20 object-cover rounded-lg"
-                      />
-                      <img
-                        src="assets/furniture/sample2.jpg"
-                        alt="Furniture"
-                        class="w-full h-20 object-cover rounded-lg"
-                      />
-                      <img
-                        src="assets/furniture/sample3.jpg"
-                        alt="Furniture"
-                        class="w-full h-20 object-cover rounded-lg"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Location Map -->
-                <div class="bg-white rounded-lg p-3 border border-[#EAE9E999] md:col-span-2">
-                  <h5
-                    class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                    data-i18n="dashboard.location"
-                  >
-                    الموقع
-                  </h5>
-                  <div class="h-48 bg-gray-200 rounded-lg overflow-hidden relative">
-                    <div id="order-details-map" class="w-full h-full"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Company Offers Header -->
-          <button
-            onclick="toggleCompanyOffers()"
-            id="company-offers-toggle"
-            class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
-          >
-            <h4 class="text-[14px] font-medium text-[#4B4B4B]">
-              <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
-              <span class="text-[#868686]">(4)</span>
-            </h4>
-            <i class="fas fa-chevron-up" id="offers-icon"></i>
-          </button>
-
-          <!-- Company Offers List -->
-          <div id="company-offers" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
-            <!-- Offer 1 - Full Details (redesigned) -->
-            <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
-              <div>
-                <div class="flex gap-3">
-                  <div
-                    style="width: 85px; height: 85px"
-                    class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
-                  >
-                    <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
-                  </div>
-                  <div class="text-right flex-1">
-                    <div class>
-                      <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                          <h5 class="text-[14px] font-medium text-[#4B4B4B]">
-                            ثابت موثق لنقل الأثاث
-                          </h5>
-                          <div class="flex items-center gap-1">
-                            <span class="text-[12px] text-[#868686]">4.5</span>
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                          </div>
-                        </div>
-                        <button
-                          onclick="toggleCompanyDescription(1)"
-                          class="text-[12px] text-[#00B8A9]"
-                          id="read-more-btn-1"
-                        >
-                          <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
-                        </button>
-                      </div>
-                      <div class="flex items-center justify-between mt-3 mb-3">
-                        <div class="text-left">
-                          <p class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1">
-                            780
-                            <span class="icon-riyal w-6 h-6"></span>
-                          </p>
-                          <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
-                        </div>
-                        <button
-                          onclick="showModal('accept-confirmation-modal')"
-                          class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
-                          data-i18n="dashboard.accept"
-                        >
-                          قبول
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Services Tags -->
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تركيب دواليب</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >نقل أثاث</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تركيب مطبخ</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تأمين ضد الفقد والكسر</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تغليف محكم</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تركيب مكيفات</span
-                  >
-                </div>
-
-                <!-- Description -->
-                <div id="company-description-1" class="hidden">
-                  <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
-                    مرحبًا نشكرك على اهتمامك بخدماتنا تميز بإحترافية عالية في نقل الأثاث دون خدوش أو
-                    تلف، مع توفير تغليف آمن لحماية ممتلكاتك والتزام بالمواعيد بدقة لضمان راحتك.
-                    أسعارنا شفافة بدون رسوم مخفية. بالإضافة إلى تأمين لحماية الأثاث أثناء النقل. نحن
-                    مستعدون لنقل أثاثك بكل سهولة اضغط على "قبول" للبدء الآن!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Offer 2 -->
-            <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
-              <div>
-                <div class="flex gap-3">
-                  <div
-                    style="width: 85px; height: 85px"
-                    class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
-                  >
-                    <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
-                  </div>
-                  <div class="text-right flex-1">
-                    <div class>
-                      <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                          <h5 class="text-[14px] font-medium text-[#4B4B4B]">عبدك</h5>
-                          <div class="flex items-center gap-1">
-                            <span class="text-[12px] text-[#868686]">4.4</span>
-                            <i class="fas fa-star text-yellow-400 text-xs"></i>
-                          </div>
-                        </div>
-                        <button
-                          onclick="toggleCompanyDescription(2)"
-                          class="text-[12px] text-[#00B8A9]"
-                          id="read-more-btn-2"
-                        >
-                          <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
-                        </button>
-                      </div>
-                      <div class="flex items-center justify-between mt-3 mb-3">
-                        <div class="text-left">
-                          <p class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1">
-                            780
-                            <span class="icon-riyal w-6 h-6"></span>
-                          </p>
-                          <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
-                        </div>
-                        <button
-                          onclick="showModal('accept-confirmation-modal')"
-                          class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
-                          data-i18n="dashboard.accept"
-                        >
-                          قبول
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Services Tags -->
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تركيب دواليب</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >نقل أثاث</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تركيب مطبخ</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                    >تأمين ضد الفقد والكسر</span
-                  >
-                </div>
-
-                <!-- Description -->
-                <div id="company-description-2" class="hidden">
-                  <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
-                    نقدم خدمات نقل أثاث احترافية مع فريق متخصص وخبرة طويلة في المجال. نضمن لك سلامة
-                    ممتلكاتك وسرعة في التنفيذ.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- Show More Button -->
-          </div>
-          <button
-            class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
-            data-i18n="dashboard.showMore"
-          >
-            <span class="inline-flex items-center gap-1">
-              <span class="mx-2 font-regular">أظهر المزيد</span>
-              <span class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"></span>
-              <span
-                class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
-                style="animation-delay: 0.2s"
-              ></span>
-              <span
-                class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
-                style="animation-delay: 0.4s"
-              ></span>
-            </span>
-          </button>
-
-          <!-- Ongoing Orders Section -->
-          <div class="mt-6">
-            <div class="flex items-center gap-2 mb-3">
-              <i class="fas fa-clipboard-list text-[##3C3D41]"></i>
-              <h3 class="text-[14px] font-semibold text-[##3C3D41]">الطلبات الجارية</h3>
-            </div>
-
-            <div class="bg-white rounded-2xl p-4 shadow-sm border border-[#E9E9E9]">
-              <div class="flex items-start justify-between mb-3">
-                <div class="text-right">
-                  <p class="text-[#353535] text-[14px] font-medium">منصور الفهماوي</p>
-                  <p class="text-[#868686] text-[12px]">#ORD64893</p>
-                </div>
-                <span
-                  class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
-                  data-i18n="dashboard.goToDeliveryLocation"
-                >
-                  التوجه إلى موقع التسليم
-                </span>
-              </div>
-
-              <div class="flex items-center gap-4 text-[13px] text-[#6B7280] mb-3">
+          <div id="quotes-list">
+            <!-- Orders State (Hidden by default) -->
+            <div data-state="ongoing">
+              <!-- Price Quotes Section Header -->
+              <div class="flex items-center justify-between gap-2 mb-4">
                 <div class="flex items-center gap-2">
-                  <i class="far fa-calendar"></i>
-                  <span>19.10.2025</span>
+                  <div class="dropdown relative">
+                    <button onclick="toggleOrderMenu()">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                    <div
+                      id="order-drop-menu"
+                      class="hidden absolute bg-white w-[150px] shadow-md border border-[#ededed] rounded-lg z-[9999]"
+                    >
+                      <ul
+                        class="text-sm text-gray-700 dark:text-gray-200 divide-y-2"
+                        aria-labelledby="dropdownDefaultButton"
+                      >
+                        <li class="py-1">
+                          <button
+                            onclick="showModal('cancel-order-modal'),$('#order-drop-menu').addClass('hidden')"
+                            class="block px-4 py-2 text-[#EF4351]"
+                          >
+                            إلغاء الطلب
+                          </button>
+                        </li>
+                        <li class="py-1">
+                          <button
+                            onclick="showModal('postpond-order-modal'),$('#order-drop-menu').addClass('hidden')"
+                            class="block px-4 py-2"
+                          >
+                            تأجيل الطلب
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2">
-                  <i class="far fa-clock"></i>
-                  <span>11:30 ص</span>
+                <div>
+                  <span class="text-[#00b8a9] text-[14px]"> متبقي 0ي 4س 40د </span>
+                  <span class="text-[#EF4351] text-[14px]"> إنتهى الوقت </span>
                 </div>
               </div>
 
-              <div class="rounded-xl overflow-hidden border border-[#E5E7EB] mb-3">
-                <div id="ongoing-map-1" class="w-full h-48 z-0"></div>
-              </div>
+              <!-- Current Order Card -->
+              <div class="bg-white rounded-2xl p-4 shadow-sm mb-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="text-right">
+                    <h4 class="text-[14px] font-medium text-[#4B4B4B]" id="order-customer-name">
+                      منصور الفهماوي
+                    </h4>
+                    <p class="text-[12px] text-[#868686]" id="order-number">#ORD938274</p>
+                  </div>
+                  <span
+                    class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
+                    data-i18n="dashboard.waitingForQuote"
+                  >
+                    بانتظار اختيار عرض السعر
+                  </span>
+                </div>
 
-              <div class="bg-[#F7F7F7]">
-                <button
-                  onclick="toggleOngoingDetails(1)"
-                  class="w-full flex items-center justify-between bg-[#F7F7F7] rounded-xl px-4 py-3 text-[#353535] font-medium"
-                >
-                  <span>مراجعة تفاصيل الطلب</span>
-                  <i id="ongoing-details-icon-1" class="fas fa-chevron-down"></i>
-                </button>
-                <div id="ongoing-details-1" class="hidden px-2">
-                  <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
-                    <!-- Row: Personal + Date/Time -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div class="bg-white rounded-lg p-3">
-                        <h5
-                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                        >
-                          البيانات الشخصية
-                        </h5>
-                        <div class="space-y-1">
-                          <p>منصور الفهماوي</p>
-                          <p>598839405</p>
-                        </div>
-                      </div>
-                      <div class="bg-white rounded-lg p-3">
-                        <h5
-                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                        >
-                          الموعد والمرونة
-                        </h5>
-                        <div class="flex items-center justify-start gap-4">
-                          <span class="flex items-center gap-1"
-                            ><i class="far fa-calendar"></i> 19.10.2025</span
-                          >
-                          <span class="flex items-center gap-1"
-                            ><i class="far fa-clock"></i> 11:30 ص</span
-                          >
-                        </div>
-                      </div>
-                    </div>
+                <!-- Order Details Collapsible -->
+                <div class="border-t border-gray-50 bg-gray-100 p-3 rounded-lg">
+                  <button
+                    onclick="toggleOrderDetails()"
+                    id="order-details-toggle"
+                    class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B] mb-3"
+                  >
+                    <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
+                    <i class="fas fa-chevron-down" id="details-icon"></i>
+                  </button>
 
-                    <!-- Row: Pickup/Destination -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div class="bg-white rounded-lg p-3">
-                        <h5
-                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                        >
-                          عنوان النقل الحالي
-                        </h5>
-                        <div class="space-y-1">
-                          <p>الرياض، حي الملقا شارع أنس بن مالك 3679</p>
-                          <p>بناء النور - طابق 4 - مصعد وسط</p>
-                        </div>
-                      </div>
-                      <div class="bg-white rounded-lg p-3">
-                        <h5
-                          class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
-                        >
-                          العنوان المراد النقل إليه
-                        </h5>
-                        <div class="space-y-1">
-                          <p>الرياض، حي العلا شارع فلسطين 5843</p>
-                          <p>بناء النور - طابق 7 - مصعد كبير</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Services -->
-                    <div class="bg-white rounded-lg p-3">
+                  <div id="order-details" class="hidden grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <!-- Personal Data -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
                       <h5
-                        class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.personalData"
+                      >
+                        البيانات الشخصية
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>منصور الفهماوي</p>
+                        <p>598839405</p>
+                        <p>منزل جديد</p>
+                      </div>
+                    </div>
+
+                    <!-- Date and Time -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.dateAndTime"
+                      >
+                        الموعد والمرونة
+                      </h5>
+                      <div
+                        class="flex items-center justify-start text-start gap-3 text-[13px] text-[#868686]"
+                      >
+                        <span>11:30 ص</span>
+                        <i class="fas fa-clock text-gray-400"></i>
+                        <span>19.10.2025</span>
+                        <i class="fas fa-calendar text-gray-400"></i>
+                      </div>
+                    </div>
+
+                    <!-- Current Address -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.currentAddress"
+                      >
+                        عنوان النقل الحالي
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>الرياض</p>
+                        <p>حي الملقا شارع أبس بن مالك 3679</p>
+                        <p>بناء النور</p>
+                        <p>طابق 4</p>
+                        <p>يوجد مصعد</p>
+                        <p>مصعد وسط</p>
+                      </div>
+                    </div>
+
+                    <!-- Destination Address -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.destinationAddress"
+                      >
+                        العنوان المراد النقل إليه
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>الرياض</p>
+                        <p>حي العليا شارع فلسطين 5843</p>
+                        <p>بناء النور</p>
+                        <p>طابق 7</p>
+                        <p>يوجد مصعد</p>
+                        <p>مصعد كبير</p>
+                        <p class="text-[12px] leading-relaxed pt-1">
+                          يرجى استخدام المصعد الكبير المخصص لنقل الأثاث داخل بيت الدرج
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Additional Services -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.additionalServices"
                       >
                         الخدمات الإضافية
                       </h5>
-                      <div class="flex flex-wrap gap-2">
-                        <span
-                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                          >تغليف محكم</span
-                        >
-                        <span
-                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                          >تأمين ضد الفقد والكسر</span
-                        >
-                        <span
-                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                          >فك وتركيب: 3 مكيف - 3 دواليب - 1 مكتب</span
-                        >
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>تغليف محكم</p>
+                        <p>تأمين ضد الفقد والكسر</p>
+                        <p class="pt-1">
+                          <span class="font-medium text-[#4B4B4B]">فك وتركيب:</span>
+                        </p>
+                        <p>3 مكيف، 3 دواليب، 4 سرير، 1 مكتب</p>
+                      </div>
+                    </div>
+
+                    <!-- Furniture Details -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.furnitureDetails"
+                      >
+                        تفاصيل الأثاث
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>5 غرف</p>
+                        <p>2 صالة، 3 مكيف، 3 دواليب، 4 سرير، 1 مكتب، 2 سجاد</p>
+
+                        <!-- Furniture Images -->
+                        <div class="grid grid-cols-3 gap-2 pt-2">
+                          <img
+                            src="assets/furniture/sample1.jpg"
+                            alt="Furniture"
+                            class="w-full h-20 object-cover rounded-lg"
+                          />
+                          <img
+                            src="assets/furniture/sample2.jpg"
+                            alt="Furniture"
+                            class="w-full h-20 object-cover rounded-lg"
+                          />
+                          <img
+                            src="assets/furniture/sample3.jpg"
+                            alt="Furniture"
+                            class="w-full h-20 object-cover rounded-lg"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Location Map -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999] md:col-span-2">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.location"
+                      >
+                        الموقع
+                      </h5>
+                      <div class="h-48 bg-gray-200 rounded-lg overflow-hidden relative">
+                        <div id="order-details-map" class="w-full h-full"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Company Offers Header -->
+              <button
+                onclick="toggleCompanyOffers()"
+                id="company-offers-toggle"
+                class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
+              >
+                <h4 class="text-[14px] font-medium text-[#4B4B4B]">
+                  <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
+                  <span class="text-[#868686]">(4)</span>
+                </h4>
+                <i class="fas fa-chevron-up" id="offers-icon"></i>
+              </button>
+
+              <!-- Company Offers List -->
+              <div id="company-offers" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
+                <!-- Offer 1 - Full Details (redesigned) -->
+                <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
+                  <div>
+                    <div class="flex gap-3">
+                      <div
+                        style="width: 85px; height: 85px"
+                        class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
+                      >
+                        <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
+                      </div>
+                      <div class="text-right flex-1">
+                        <div class>
+                          <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">
+                                ثابت موثق لنقل الأثاث
+                              </h5>
+                              <div class="flex items-center gap-1">
+                                <span class="text-[12px] text-[#868686]">4.5</span>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                              </div>
+                            </div>
+                            <button
+                              onclick="toggleCompanyDescription(1)"
+                              class="text-[12px] text-[#00B8A9]"
+                              id="read-more-btn-1"
+                            >
+                              <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
+                            </button>
+                          </div>
+                          <div class="flex items-center justify-between mt-3 mb-3">
+                            <div class="text-left">
+                              <p
+                                class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                              >
+                                780
+                                <span class="icon-riyal w-6 h-6"></span>
+                              </p>
+                              <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                            </div>
+                            <button
+                              onclick="showModal('accept-confirmation-modal')"
+                              class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
+                              data-i18n="dashboard.accept"
+                            >
+                              قبول
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Services Tags -->
+                    <div class="flex flex-wrap gap-2 mb-3">
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب دواليب</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >نقل أثاث</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب مطبخ</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تأمين ضد الفقد والكسر</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تغليف محكم</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب مكيفات</span
+                      >
+                    </div>
+
+                    <!-- Description -->
+                    <div id="company-description-1" class="hidden">
+                      <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
+                        مرحبًا نشكرك على اهتمامك بخدماتنا تميز بإحترافية عالية في نقل الأثاث دون
+                        خدوش أو تلف، مع توفير تغليف آمن لحماية ممتلكاتك والتزام بالمواعيد بدقة لضمان
+                        راحتك. أسعارنا شفافة بدون رسوم مخفية. بالإضافة إلى تأمين لحماية الأثاث أثناء
+                        النقل. نحن مستعدون لنقل أثاثك بكل سهولة اضغط على "قبول" للبدء الآن!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
+                  <div>
+                    <div class="flex gap-3">
+                      <div
+                        style="width: 85px; height: 85px"
+                        class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
+                      >
+                        <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
+                      </div>
+                      <div class="text-right flex-1">
+                        <div class>
+                          <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">عبدك</h5>
+                              <div class="flex items-center gap-1">
+                                <span class="text-[12px] text-[#868686]">4.4</span>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                              </div>
+                            </div>
+                            <button
+                              onclick="toggleCompanyDescription(2)"
+                              class="text-[12px] text-[#00B8A9]"
+                              id="read-more-btn-2"
+                            >
+                              <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
+                            </button>
+                          </div>
+                          <div class="flex items-center justify-between mt-3 mb-3">
+                            <div class="text-left">
+                              <p
+                                class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                              >
+                                780
+                                <span class="icon-riyal w-6 h-6"></span>
+                              </p>
+                              <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                            </div>
+                            <button
+                              onclick="showModal('accept-confirmation-modal')"
+                              class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
+                              data-i18n="dashboard.accept"
+                            >
+                              قبول
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Services Tags -->
+                    <div class="flex flex-wrap gap-2 mb-3">
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب دواليب</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >نقل أثاث</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب مطبخ</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تأمين ضد الفقد والكسر</span
+                      >
+                    </div>
+
+                    <!-- Description -->
+                    <div id="company-description-2" class="hidden">
+                      <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
+                        نقدم خدمات نقل أثاث احترافية مع فريق متخصص وخبرة طويلة في المجال. نضمن لك
+                        سلامة ممتلكاتك وسرعة في التنفيذ.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Show More Button -->
+              </div>
+              <button
+                class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
+                data-i18n="dashboard.showMore"
+              >
+                <span class="inline-flex items-center gap-1">
+                  <span class="mx-2 font-regular">أظهر المزيد</span>
+                  <span class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"></span>
+                  <span
+                    class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
+                    style="animation-delay: 0.2s"
+                  ></span>
+                  <span
+                    class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
+                    style="animation-delay: 0.4s"
+                  ></span>
+                </span>
+              </button>
+
+              <!-- Ongoing Orders Section -->
+              <div class="mt-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <i class="fas fa-clipboard-list text-[##3C3D41]"></i>
+                  <h3 class="text-[14px] font-semibold text-[##3C3D41]">الطلبات الجارية</h3>
+                </div>
+
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-[#E9E9E9]">
+                  <div class="flex items-start justify-between mb-3">
+                    <div class="text-right">
+                      <p class="text-[#353535] text-[14px] font-medium">منصور الفهماوي</p>
+                      <p class="text-[#868686] text-[12px]">#ORD64893</p>
+                    </div>
+                    <span
+                      class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
+                      data-i18n="dashboard.goToDeliveryLocation"
+                    >
+                      التوجه إلى موقع التسليم
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-4 text-[13px] text-[#6B7280] mb-3">
+                    <div class="flex items-center gap-2">
+                      <i class="far fa-calendar"></i>
+                      <span>19.10.2025</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <i class="far fa-clock"></i>
+                      <span>11:30 ص</span>
+                    </div>
+                  </div>
+
+                  <div class="rounded-xl overflow-hidden border border-[#E5E7EB] mb-3">
+                    <div id="ongoing-map-1" class="w-full h-48 z-0"></div>
+                  </div>
+
+                  <div class="bg-[#F7F7F7]">
+                    <button
+                      onclick="toggleOngoingDetails(1)"
+                      class="w-full flex items-center justify-between bg-[#F7F7F7] rounded-xl px-4 py-3 text-[#353535] font-medium"
+                    >
+                      <span>مراجعة تفاصيل الطلب</span>
+                      <i id="ongoing-details-icon-1" class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="ongoing-details-1" class="hidden px-2">
+                      <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
+                        <!-- Row: Personal + Date/Time -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              البيانات الشخصية
+                            </h5>
+                            <div class="space-y-1">
+                              <p>منصور الفهماوي</p>
+                              <p>598839405</p>
+                            </div>
+                          </div>
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              الموعد والمرونة
+                            </h5>
+                            <div class="flex items-center justify-start gap-4">
+                              <span class="flex items-center gap-1"
+                                ><i class="far fa-calendar"></i> 19.10.2025</span
+                              >
+                              <span class="flex items-center gap-1"
+                                ><i class="far fa-clock"></i> 11:30 ص</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Row: Pickup/Destination -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              عنوان النقل الحالي
+                            </h5>
+                            <div class="space-y-1">
+                              <p>الرياض، حي الملقا شارع أنس بن مالك 3679</p>
+                              <p>بناء النور - طابق 4 - مصعد وسط</p>
+                            </div>
+                          </div>
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              العنوان المراد النقل إليه
+                            </h5>
+                            <div class="space-y-1">
+                              <p>الرياض، حي العلا شارع فلسطين 5843</p>
+                              <p>بناء النور - طابق 7 - مصعد كبير</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Services -->
+                        <div class="bg-white rounded-lg p-3">
+                          <h5
+                            class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                          >
+                            الخدمات الإضافية
+                          </h5>
+                          <div class="flex flex-wrap gap-2">
+                            <span
+                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                              >تغليف محكم</span
+                            >
+                            <span
+                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                              >تأمين ضد الفقد والكسر</span
+                            >
+                            <span
+                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                              >فك وتركيب: 3 مكيف - 3 دواليب - 1 مكتب</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-state="quotes">
+              <!-- Price Quotes Section Header -->
+              <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="text-[#00b8a9] text-[14px]"> متبقي للبدء 0ي 4س 40د </span>
+              </div>
+
+              <!-- Current Order Card -->
+              <div class="bg-white rounded-2xl p-4 shadow-sm mb-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="text-right">
+                    <h4 class="text-[14px] font-medium text-[#4B4B4B]" id="order-customer-name">
+                      منصور الفهماوي
+                    </h4>
+                    <p class="text-[12px] text-[#868686]" id="order-number">#ORD938274</p>
+                  </div>
+                  <span
+                    class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
+                    data-i18n="dashboard.waitingForQuote"
+                  >
+                    بانتظار اختيار عرض السعر
+                  </span>
+                </div>
+
+                <!-- Order Details Collapsible -->
+                <div class="border-t border-gray-50 bg-gray-100 p-3 rounded-lg">
+                  <button
+                    onclick="toggleOrderDetails()"
+                    id="order-details-toggle"
+                    class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B] mb-3"
+                  >
+                    <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
+                    <i class="fas fa-chevron-down" id="details-icon"></i>
+                  </button>
+
+                  <div id="order-details" class="hidden grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <!-- Personal Data -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.personalData"
+                      >
+                        البيانات الشخصية
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>منصور الفهماوي</p>
+                        <p>598839405</p>
+                        <p>منزل جديد</p>
+                      </div>
+                    </div>
+
+                    <!-- Date and Time -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.dateAndTime"
+                      >
+                        الموعد والمرونة
+                      </h5>
+                      <div
+                        class="flex items-center justify-start text-start gap-3 text-[13px] text-[#868686]"
+                      >
+                        <span>11:30 ص</span>
+                        <i class="fas fa-clock text-gray-400"></i>
+                        <span>19.10.2025</span>
+                        <i class="fas fa-calendar text-gray-400"></i>
+                      </div>
+                    </div>
+
+                    <!-- Current Address -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.currentAddress"
+                      >
+                        عنوان النقل الحالي
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>الرياض</p>
+                        <p>حي الملقا شارع أبس بن مالك 3679</p>
+                        <p>بناء النور</p>
+                        <p>طابق 4</p>
+                        <p>يوجد مصعد</p>
+                        <p>مصعد وسط</p>
+                      </div>
+                    </div>
+
+                    <!-- Destination Address -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.destinationAddress"
+                      >
+                        العنوان المراد النقل إليه
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>الرياض</p>
+                        <p>حي العليا شارع فلسطين 5843</p>
+                        <p>بناء النور</p>
+                        <p>طابق 7</p>
+                        <p>يوجد مصعد</p>
+                        <p>مصعد كبير</p>
+                        <p class="text-[12px] leading-relaxed pt-1">
+                          يرجى استخدام المصعد الكبير المخصص لنقل الأثاث داخل بيت الدرج
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Additional Services -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.additionalServices"
+                      >
+                        الخدمات الإضافية
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>تغليف محكم</p>
+                        <p>تأمين ضد الفقد والكسر</p>
+                        <p class="pt-1">
+                          <span class="font-medium text-[#4B4B4B]">فك وتركيب:</span>
+                        </p>
+                        <p>3 مكيف، 3 دواليب، 4 سرير، 1 مكتب</p>
+                      </div>
+                    </div>
+
+                    <!-- Furniture Details -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999]">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.furnitureDetails"
+                      >
+                        تفاصيل الأثاث
+                      </h5>
+                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                        <p>5 غرف</p>
+                        <p>2 صالة، 3 مكيف، 3 دواليب، 4 سرير، 1 مكتب، 2 سجاد</p>
+
+                        <!-- Furniture Images -->
+                        <div class="grid grid-cols-3 gap-2 pt-2">
+                          <img
+                            src="assets/furniture/sample1.jpg"
+                            alt="Furniture"
+                            class="w-full h-20 object-cover rounded-lg"
+                          />
+                          <img
+                            src="assets/furniture/sample2.jpg"
+                            alt="Furniture"
+                            class="w-full h-20 object-cover rounded-lg"
+                          />
+                          <img
+                            src="assets/furniture/sample3.jpg"
+                            alt="Furniture"
+                            class="w-full h-20 object-cover rounded-lg"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Location Map -->
+                    <div class="bg-white rounded-lg p-3 border border-[#EAE9E999] md:col-span-2">
+                      <h5
+                        class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                        data-i18n="dashboard.location"
+                      >
+                        الموقع
+                      </h5>
+                      <div class="h-48 bg-gray-200 rounded-lg overflow-hidden relative">
+                        <div id="order-details-map" class="w-full h-full"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Company Offers Header -->
+              <button
+                onclick="toggleCompanyOffers()"
+                id="company-offers-toggle"
+                class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
+              >
+                <h4 class="text-[14px] font-medium text-[#4B4B4B]">
+                  <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
+                  <span class="text-[#868686]">(4)</span>
+                </h4>
+                <i class="fas fa-chevron-up" id="offers-icon"></i>
+              </button>
+
+              <!-- Company Offers List -->
+              <div id="company-offers" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
+                <!-- Offer 1 - Full Details (redesigned) -->
+                <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
+                  <div>
+                    <div class="flex gap-3">
+                      <div
+                        style="width: 85px; height: 85px"
+                        class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
+                      >
+                        <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
+                      </div>
+                      <div class="text-right flex-1">
+                        <div class>
+                          <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">
+                                ثابت موثق لنقل الأثاث
+                              </h5>
+                              <div class="flex items-center gap-1">
+                                <span class="text-[12px] text-[#868686]">4.5</span>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                              </div>
+                            </div>
+                            <button
+                              onclick="toggleCompanyDescription(1)"
+                              class="text-[12px] text-[#00B8A9]"
+                              id="read-more-btn-1"
+                            >
+                              <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
+                            </button>
+                          </div>
+                          <div class="flex items-center justify-between mt-3 mb-3">
+                            <div class="text-left">
+                              <p
+                                class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                              >
+                                780
+                                <span class="icon-riyal w-6 h-6"></span>
+                              </p>
+                              <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                            </div>
+                            <button
+                              onclick="showModal('accept-confirmation-modal')"
+                              class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
+                              data-i18n="dashboard.accept"
+                            >
+                              قبول
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Services Tags -->
+                    <div class="flex flex-wrap gap-2 mb-3">
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب دواليب</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >نقل أثاث</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب مطبخ</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تأمين ضد الفقد والكسر</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تغليف محكم</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب مكيفات</span
+                      >
+                    </div>
+
+                    <!-- Description -->
+                    <div id="company-description-1" class="hidden">
+                      <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
+                        مرحبًا نشكرك على اهتمامك بخدماتنا تميز بإحترافية عالية في نقل الأثاث دون
+                        خدوش أو تلف، مع توفير تغليف آمن لحماية ممتلكاتك والتزام بالمواعيد بدقة لضمان
+                        راحتك. أسعارنا شفافة بدون رسوم مخفية. بالإضافة إلى تأمين لحماية الأثاث أثناء
+                        النقل. نحن مستعدون لنقل أثاثك بكل سهولة اضغط على "قبول" للبدء الآن!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
+                  <div>
+                    <div class="flex gap-3">
+                      <div
+                        style="width: 85px; height: 85px"
+                        class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
+                      >
+                        <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
+                      </div>
+                      <div class="text-right flex-1">
+                        <div class>
+                          <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">عبدك</h5>
+                              <div class="flex items-center gap-1">
+                                <span class="text-[12px] text-[#868686]">4.4</span>
+                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                              </div>
+                            </div>
+                            <button
+                              onclick="toggleCompanyDescription(2)"
+                              class="text-[12px] text-[#00B8A9]"
+                              id="read-more-btn-2"
+                            >
+                              <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
+                            </button>
+                          </div>
+                          <div class="flex items-center justify-between mt-3 mb-3">
+                            <div class="text-left">
+                              <p
+                                class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                              >
+                                780
+                                <span class="icon-riyal w-6 h-6"></span>
+                              </p>
+                              <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                            </div>
+                            <button
+                              onclick="showModal('accept-confirmation-modal')"
+                              class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
+                              data-i18n="dashboard.accept"
+                            >
+                              قبول
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Services Tags -->
+                    <div class="flex flex-wrap gap-2 mb-3">
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب دواليب</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >نقل أثاث</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تركيب مطبخ</span
+                      >
+                      <span
+                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                        >تأمين ضد الفقد والكسر</span
+                      >
+                    </div>
+
+                    <!-- Description -->
+                    <div id="company-description-2" class="hidden">
+                      <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
+                        نقدم خدمات نقل أثاث احترافية مع فريق متخصص وخبرة طويلة في المجال. نضمن لك
+                        سلامة ممتلكاتك وسرعة في التنفيذ.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Show More Button -->
+              </div>
+              <button
+                class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
+                data-i18n="dashboard.showMore"
+              >
+                <span class="inline-flex items-center gap-1">
+                  <span class="mx-2 font-regular">أظهر المزيد</span>
+                  <span class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"></span>
+                  <span
+                    class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
+                    style="animation-delay: 0.2s"
+                  ></span>
+                  <span
+                    class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
+                    style="animation-delay: 0.4s"
+                  ></span>
+                </span>
+              </button>
+
+              <!-- Ongoing Orders Section -->
+              <div class="mt-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <i class="fas fa-clipboard-list text-[##3C3D41]"></i>
+                  <h3 class="text-[14px] font-semibold text-[##3C3D41]">الطلبات الجارية</h3>
+                </div>
+
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-[#E9E9E9]">
+                  <div class="flex items-start justify-between mb-3">
+                    <div class="text-right">
+                      <p class="text-[#353535] text-[14px] font-medium">منصور الفهماوي</p>
+                      <p class="text-[#868686] text-[12px]">#ORD64893</p>
+                    </div>
+                    <span
+                      class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
+                      data-i18n="dashboard.goToDeliveryLocation"
+                    >
+                      التوجه إلى موقع التسليم
+                    </span>
+                  </div>
+
+                  <div class="flex items-center gap-4 text-[13px] text-[#6B7280] mb-3">
+                    <div class="flex items-center gap-2">
+                      <i class="far fa-calendar"></i>
+                      <span>19.10.2025</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <i class="far fa-clock"></i>
+                      <span>11:30 ص</span>
+                    </div>
+                  </div>
+
+                  <div class="rounded-xl overflow-hidden border border-[#E5E7EB] mb-3">
+                    <div id="ongoing-map-1" class="w-full h-48 z-0"></div>
+                  </div>
+
+                  <div class="bg-[#F7F7F7]">
+                    <button
+                      onclick="toggleOngoingDetails(1)"
+                      class="w-full flex items-center justify-between bg-[#F7F7F7] rounded-xl px-4 py-3 text-[#353535] font-medium"
+                    >
+                      <span>مراجعة تفاصيل الطلب</span>
+                      <i id="ongoing-details-icon-1" class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="ongoing-details-1" class="hidden px-2">
+                      <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
+                        <!-- Row: Personal + Date/Time -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              البيانات الشخصية
+                            </h5>
+                            <div class="space-y-1">
+                              <p>منصور الفهماوي</p>
+                              <p>598839405</p>
+                            </div>
+                          </div>
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              الموعد والمرونة
+                            </h5>
+                            <div class="flex items-center justify-start gap-4">
+                              <span class="flex items-center gap-1"
+                                ><i class="far fa-calendar"></i> 19.10.2025</span
+                              >
+                              <span class="flex items-center gap-1"
+                                ><i class="far fa-clock"></i> 11:30 ص</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Row: Pickup/Destination -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              عنوان النقل الحالي
+                            </h5>
+                            <div class="space-y-1">
+                              <p>الرياض، حي الملقا شارع أنس بن مالك 3679</p>
+                              <p>بناء النور - طابق 4 - مصعد وسط</p>
+                            </div>
+                          </div>
+                          <div class="bg-white rounded-lg p-3">
+                            <h5
+                              class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            >
+                              العنوان المراد النقل إليه
+                            </h5>
+                            <div class="space-y-1">
+                              <p>الرياض، حي العلا شارع فلسطين 5843</p>
+                              <p>بناء النور - طابق 7 - مصعد كبير</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Services -->
+                        <div class="bg-white rounded-lg p-3">
+                          <h5
+                            class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                          >
+                            الخدمات الإضافية
+                          </h5>
+                          <div class="flex flex-wrap gap-2">
+                            <span
+                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                              >تغليف محكم</span
+                            >
+                            <span
+                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                              >تأمين ضد الفقد والكسر</span
+                            >
+                            <span
+                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                              >فك وتركيب: 3 مكيف - 3 دواليب - 1 مكتب</span
+                            >
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1098,6 +1631,42 @@
         </div>
       </div>
     </div>
+    <div
+      id="postpond-order-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center modal-backdrop"
+    >
+      <div class="bg-white rounded-2xl p-4 max-w-sm w-full mx-4 relative text-center">
+        <!--Close Icon-->
+        <button
+          onclick="hideModal('postpond-order-modal')"
+          class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
+        >
+          <i class="fas fa-times text-sm"></i>
+        </button>
+        <div class="img flex justify-center mb-6">
+          <img src="../assets/icons/postpone.svg" alt="postpone" class="w-32 h-32" />
+        </div>
+        <h2 class="text-xl font-semibold mb-4 text-center">تأجيل الطلب؟</h2>
+        <p class="text-gray-600 text-center mb-6 text-[14px]">
+          يمكنك تأجيل الطلب قبل 48 ساعة من موعد النقل المحدد، وسيتم توجيهك لتعديل تاريخ النقل الجديد
+        </p>
+        <div class="flex gap-3">
+          <a
+            href="./postpone.html"
+            class="flex-1 bg-[#00b8a9] text-white font-semibold py-3 rounded-lg transition-colors"
+          >
+            تأجيل الطلب
+          </a>
+          <button
+            onclick="hideModal('postpond-order-modal')"
+            class="flex-1 bg-white text-[#353535] font-semibold py-3 rounded-lg transition-colors border border-[#ddd]"
+          >
+            تراجع
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="../assets/js/translations.js"></script>
     <script src="../assets/js/app.js"></script>
@@ -1130,6 +1699,41 @@
         alert('تم قبول العرض! سيتم توجيهك إلى صفحة الدفع...');
         // window.location.href = 'payment.html'; // Uncomment when payment page is ready
       }
+      function toggleOrderMenu() {
+        $('#order-drop-menu').toggleClass('hidden');
+      }
+      (function () {
+        function setActive(btn, groupEl) {
+          groupEl.querySelectorAll('.tab-btn').forEach(function (b) {
+            b.classList.remove('text-[#01B4AA]', 'text-[#DC4632]', 'border', 'border-[#01B4AA]');
+            b.classList.add('text-[#353535]', 'border-transparent');
+          });
+          btn.classList.remove('text-[#353535]', 'text-[#01B4AA]', 'border-transparent');
+          btn.classList.add('text-[#01B4AA]', 'border', 'border-[#01B4AA]');
+        }
+
+        function filterList(groupName, filter) {
+          if (groupName === 'orders') {
+            var ql = document.getElementById('quotes-list');
+            if (!ql) return;
+            ql.querySelectorAll('[data-state]').forEach(function (card) {
+              var st = card.getAttribute('data-state');
+              card.classList.toggle('hidden', filter !== 'all' && st !== filter);
+            });
+          }
+        }
+
+        document.querySelectorAll('[data-tabs-group]').forEach(function (groupEl) {
+          var groupName = groupEl.getAttribute('data-tabs-group');
+          groupEl.querySelectorAll('.tab-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              var filter = btn.getAttribute('data-filter');
+              setActive(btn, groupEl);
+              filterList(groupName, filter);
+            });
+          });
+        });
+      })();
     </script>
   </body>
 </html>

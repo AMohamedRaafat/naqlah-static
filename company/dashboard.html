@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../assets/css/custom.css" />
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa] md:flex-row flex-col">
+  <body class="flex min-h-screen font-expo-arabic md:flex-row flex-col">
     <!-- Desktop Sidebar (Company) -->
     <aside
       id="desktop-sidebar"
@@ -32,7 +32,7 @@
               href="./dashboard.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors sidebar-active"
             >
-              <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+              <i class="icon-home w-6 h-6"></i>
               <span data-i18n="navigation.dashboard">لوحة التحكم</span>
             </a>
           </li>
@@ -41,7 +41,7 @@
               href="account-info.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+              <i class="icon-account-info w-6 h-6"></i>
               <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
             </a>
           </li>
@@ -51,7 +51,7 @@
               href="../company/manage-quotes.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
+              <i class="icon-quotes w-6 h-6"></i>
               <span data-i18n="companyNavigation.manageQuotes">طلبات الأسعار</span>
             </a>
           </li>
@@ -60,16 +60,26 @@
               href="./manage-orders.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-clipboard-list text-lg text-[#A9A9A9]"></i>
+              <i class="icon-orders w-6 h-6"></i>
               <span data-i18n="companyNavigation.manageOrders">إدارة طلبات النقل</span>
             </a>
           </li>
           <li>
             <a
+              href="rates.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="icon-star w-6 h-6"></i>
+              <span data-i18n="navigation.ratings">التقييمات</span>
+            </a>
+          </li>
+
+          <li>
+            <a
               href="../settings.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
+              <i class="icon-settings w-6 h-6"></i>
               <span data-i18n="navigation.settings">الإعدادات</span>
             </a>
           </li>
@@ -78,7 +88,7 @@
               href="../contact.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
+              <i class="icon-phone w-6 h-6"></i>
               <span data-i18n="navigation.contact">تواصل معنا</span>
             </a>
           </li>
@@ -90,9 +100,24 @@
     <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
       <div class="flex items-center justify-between px-4 py-4">
         <h1 class="text-lg font-semibold" data-i18n="companyDashboard.title">لوحة التحكم</h1>
-        <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="p-2">
-          <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
-        </button>
+        <div class="flex items-center gap-3">
+          <!-- User Avatar - Navigate to Profile -->
+          <a
+            href="account-info.html"
+            class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
+          >
+            <div class="w-full h-full bg-gray-200"></div>
+          </a>
+
+          <!-- Menu Button -->
+          <button
+            id="mobile-menu-button"
+            onclick="toggleMobileMenu()"
+            class="p-0 border border-[#00B8A9] rounded-xl px-2 py-1"
+          >
+            <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+          </button>
+        </div>
       </div>
       <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
         <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
@@ -106,7 +131,7 @@
                 <i class="fas fa-times text-xl"></i>
               </button>
             </div>
-            <nav class="flex-1 px-4 text-black">
+            <nav class="flex-1 px-4">
               <ul class="space-y-0">
                 <li>
                   <a
@@ -114,7 +139,7 @@
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                   >
-                    <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
+                    <i class="icon-home h-6 w-6"></i>
                     <span class="text-[15px] text-gray-800" data-i18n="navigation.dashboard"
                       >لوحة التحكم</span
                     >
@@ -123,10 +148,12 @@
                 <li>
                   <a
                     href="account-info.html"
-                    onclick="toggleMobileMenu(); return false;"
+                    onclick="toggleMobileMenu();"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
-                    <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+                    <i
+                      class="icon-account-info h-6 w-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
                     <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
                       >معلومات الحساب</span
                     >
@@ -134,12 +161,12 @@
                 </li>
                 <li>
                   <a
-                    href="../customer/quotes.html"
+                    href="manage-quotes.html"
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
                     <i
-                      class="fas fa-file-invoice-dollar w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      class="icon-quotes h-6 w-6 text-[#a9a9a9] flex items-center justify-center"
                     ></i>
                     <span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
                       >عروض الأسعار</span
@@ -153,7 +180,7 @@
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
                     <i
-                      class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      class="icon-orders h-6 w-6 text-[#a9a9a9] flex items-center justify-center"
                     ></i>
                     <span
                       class="text-[15px] text-gray-800"
@@ -164,12 +191,26 @@
                 </li>
                 <li>
                   <a
+                    href="rates.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <i
+                      class="icon-star w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.ratings"
+                      >التقييمات</span
+                    >
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="../settings.html"
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
                     <i
-                      class="fas fa-cog w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      class="icon-settings w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                     ></i>
                     <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
                       >الإعدادات</span
@@ -183,7 +224,7 @@
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
                     <i
-                      class="fas fa-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      class="icon-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                     ></i>
                     <span class="text-[15px] text-gray-800" data-i18n="navigation.contact"
                       >تواصل معنا</span
@@ -199,8 +240,23 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-4 bg-white">
+      <!-- Welcome Message -->
+      <div class="bg-white px-4 py-6 text-start">
+        <h2 class="text-[14px] font-semibold text-[#353535]">
+          <span data-i18n="dashboard.welcome">مرحبًا</span>
+          <span id="user-name">الميثاق</span>
+          👋
+        </h2>
+        <div class="text-[#FFB800] text-sm my-1 flex gap-1 items-center">
+          <div class="stars flex">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
+            ><i class="far fa-star"></i><i class="far fa-star"></i>
+          </div>
+          <span class="text-[#353535]">(340)</span>
+        </div>
+      </div>
       <div
-        class="container mx-auto max-w-7xl space-y-6 lg:space-y-0 grid grid-cols-1 lg:grid-cols-2 gap-4 mb-10 lg:mb-0"
+        class="container mx-auto max-w-7xl space-y-6 lg:space-y-0 grid grid-cols-1 gap-4 mb-10 lg:mb-0"
       >
         <!-- Transport Orders Card -->
         <section class="bg-white rounded-2xl p-4 lg:p-6">

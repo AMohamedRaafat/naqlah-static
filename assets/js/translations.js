@@ -71,9 +71,10 @@ const translations = {
       "requestMove": "Request a Move",
       "notifications": "Notifications",
       "quotes": "Price Quotes",
-      "orders": "Orders",
+      "orders": "Current and completed orders",
       "contact": "Contact",
-      "accountInfo": "Account Info"
+      "accountInfo": "Account Info",
+      "ratings": "Ratings"
     },
     "dashboard": {
       "welcome": "Welcome",
@@ -339,9 +340,10 @@ const translations = {
       "requestMove": "اطلب نقلة",
       "notifications": "التنبيهات",
       "quotes": "عروض الأسعار",
-      "orders": "الطلبات",
+      "orders": "الطلبات الجارية والمنتهية",
       "contact": "تواصل معنا",
-      "accountInfo": "معلومات الحساب"
+      "accountInfo": "معلومات الحساب",
+      "ratings": "التقييمات"
     },
     "dashboard": {
       "welcome": "مرحبًا",

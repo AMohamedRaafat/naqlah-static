@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../assets/css/custom.css" />
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex min-h-screen bg-[#fafafa] font-expo-arabic">
+  <body class="flex min-h-screen font-expo-arabic">
     <!-- Desktop Sidebar -->
     <aside
       id="desktop-sidebar"
@@ -45,56 +45,64 @@
           <li>
             <a
               href="dashboard.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors"
             >
-              <img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" />
-              <span>لوحة التحكم</span>
+              <i class="icon-home w-6 h-6"></i>
+              <span data-i18n="navigation.dashboard">لوحة التحكم</span>
             </a>
           </li>
           <li>
             <a
-              href="./account-info.html"
+              href="account-info.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
+              <i class="icon-account-info w-6 h-6"></i>
               <span data-i18n="navigation.accountInfo">معلومات الحساب</span>
             </a>
           </li>
-
+          <li>
+            <a
+              href="../notifications.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+            >
+              <i class="icon-notifications w-6 h-6"></i>
+              <span data-i18n="navigation.notifications">التنبيهات</span>
+            </a>
+          </li>
           <li>
             <a
               href="quotes.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-file-invoice-dollar text-lg text-[#A9A9A9]"></i>
-              <span>عروض الأسعار</span>
+              <i class="icon-quotes w-6 h-6"></i>
+              <span data-i18n="navigation.quotes">عروض الأسعار</span>
             </a>
           </li>
           <li>
             <a
               href="orders.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md transition-colors sidebar-active"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors sidebar-active"
             >
-              <i class="fas fa-clipboard-list text-lg text-[#01B4AA]"></i>
-              <span>الطلبات الجارية والمنتهية</span>
+              <i class="icon-orders w-6 h-6"></i>
+              <span data-i18n="navigation.orders">الطلبات</span>
             </a>
           </li>
           <li>
             <a
-              href="settings.html"
+              href="../settings.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-cog text-lg text-[#A9A9A9]"></i>
-              <span>الإعدادات</span>
+              <i class="icon-settings w-6 h-6"></i>
+              <span data-i18n="navigation.settings">الإعدادات</span>
             </a>
           </li>
           <li>
             <a
-              href="contact.html"
+              href="../contact.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="fas fa-phone text-lg text-[#A9A9A9]"></i>
-              <span>تواصل معنا</span>
+              <i class="icon-phone w-6 h-6"></i>
+              <span data-i18n="navigation.contact">تواصل معنا</span>
             </a>
           </li>
         </ul>
@@ -104,8 +112,8 @@
           onclick="showModal('language-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
-          <i class="fas fa-language text-lg"></i>
-          <span id="lang-btn">English</span>
+          <i class="icon-language w-6 h-6"></i>
+          <span id="lang-btn">اللغة</span>
         </button>
       </div>
     </aside>
@@ -144,7 +152,7 @@
                   <i class="fas fa-times text-xl"></i>
                 </button>
               </div>
-              <nav class="flex-1 px-4 text-black">
+              <nav class="flex-1 px-4">
                 <ul class="space-y-0">
                   <li>
                     <a
@@ -152,10 +160,10 @@
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
-                      <i
-                        class="fas fa-th-large w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
-                      ></i>
-                      <span class="text-[15px] text-gray-800">لوحة التحكم</span>
+                      <i class="icon-home w-6 h-6 text-[#a9a9a9]"></i>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.dashboard"
+                        >لوحة التحكم</span
+                      >
                     </a>
                   </li>
                   <li>
@@ -164,11 +172,28 @@
                       onclick="toggleMobileMenu()"
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
-                      <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" />
-                      <span class="text-[15px] text-gray-800">معلومات الحساب</span>
+                      <i
+                        class="icon-account-info w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.accountInfo"
+                        >معلومات الحساب</span
+                      >
                     </a>
                   </li>
-
+                  <li>
+                    <a
+                      href="../notifications.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i
+                        class="icon-notifications w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.notifications"
+                        >التنبيهات</span
+                      >
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="quotes.html"
@@ -176,9 +201,11 @@
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
                       <i
-                        class="fas fa-tags w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                        class="icon-quotes w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
-                      <span class="text-[15px] text-gray-800">عروض الأسعار</span>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.quotes"
+                        >عروض الأسعار</span
+                      >
                     </a>
                   </li>
                   <li>
@@ -188,9 +215,40 @@
                       class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                     >
                       <i
-                        class="fas fa-clipboard-list w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                        class="icon-orders w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                       ></i>
-                      <span class="text-[15px]">الطلبات الجارية والمنتهية</span>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.orders"
+                        >الطلبات</span
+                      >
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="../settings.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i
+                        class="icon-settings w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.settings"
+                        >الإعدادات</span
+                      >
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="../contact.html"
+                      onclick="toggleMobileMenu()"
+                      class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <i
+                        class="icon-phone w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      ></i>
+                      <span class="text-[15px] text-gray-800" data-i18n="navigation.contact"
+                        >تواصل معنا</span
+                      >
                     </a>
                   </li>
                 </ul>
@@ -200,9 +258,20 @@
                     class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                   >
                     <i
-                      class="fas fa-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
+                      class="icon-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
                     ></i>
-                    <span class="text-gray-800 text-[15px]">اللغة</span>
+                    <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
+                  </button>
+                  <button
+                    onclick="showModal('logout-modal'); toggleMobileMenu();"
+                    class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
+                  >
+                    <i
+                      class="icon-logout w-6 h-6 font-regular text-[#a9a9a9] flex items-center justify-center"
+                    ></i>
+                    <span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
+                      >تسجيل الخروج</span
+                    >
                   </button>
                 </div>
               </nav>

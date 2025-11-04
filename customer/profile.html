@@ -31,18 +31,11 @@
           /></a>
           <div class="flex items-center gap-6">
             <a
-              href="../index.html"
-              class="font-medium relative group transition-colors text-white hover:text-white/80"
-              ><span data-i18n="navigation.home">الرئيسية</span
-              ><span
-                class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
-              ></span
-            ></a>
-            <a
               href="./dashboard.html"
               class="font-medium relative group transition-colors text-white hover:text-white/80 auth-required hidden"
-              ><span data-i18n="navigation.dashboard">لوحة التحكم</span
-              ><span
+            >
+              <span data-i18n="navigation.dashboard">لوحة التحكم</span>
+              <span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
               ></span
             ></a>
@@ -159,43 +152,19 @@
                 <i class="fas fa-times text-xl"></i>
               </button>
             </div>
-            <nav class="flex-1 px-4 text-black">
+            <nav class="flex-1 px-4">
               <ul class="space-y-0">
-                <li>
-                  <a
-                    href="../index.html"
-                    onclick="toggleMobileMenu()"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                    ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
-                      class="text-[15px] text-gray-800"
-                      data-i18n="navigation.home"
-                      >الرئيسية</span
-                    ></a
-                  >
-                </li>
                 <li class="auth-required hidden">
                   <a
-                    href="./dashboard.html"
+                    href="dashboard.html"
                     onclick="toggleMobileMenu()"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
-                    ><img src="../assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
-                      class="text-[15px] text-gray-800"
-                      data-i18n="navigation.dashboard"
+                  >
+                    <i class="w-6 h-6 icon-home"></i>
+                    <span class="text-[15px] text-gray-800" data-i18n="navigation.dashboard"
                       >لوحة التحكم</span
-                    ></a
-                  >
-                </li>
-                <li class="auth-hidden">
-                  <button
-                    onclick="showModal('login-modal'); toggleMobileMenu();"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors w-full text-right"
-                  >
-                    <img src="../assets/menu-icons/login.svg" alt="icon" class="w-6 h-6" /><span
-                      class="text-[15px] text-gray-800"
-                      data-i18n="navigation.logIn"
-                      >تسجيل الدخول</span
                     >
-                  </button>
+                  </a>
                 </li>
               </ul>
               <div class="border-t border-gray-200 mt-4 py-3">
@@ -203,20 +172,15 @@
                   onclick="showModal('language-modal'); toggleMobileMenu();"
                   class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right"
                 >
-                  <i
-                    class="fas fa-language w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
-                  ></i
-                  ><span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
+                  <i class="icon-language w-6 h-6"></i>>
+                  <span class="text-gray-800 text-[15px]" data-i18n="common.language">اللغة</span>
                 </button>
                 <button
                   onclick="showModal('logout-modal'); toggleMobileMenu();"
                   class="flex items-center gap-4 px-4 py-4 w-full hover:bg-gray-50 transition-colors text-right auth-required hidden"
                 >
-                  <img
-                    src="../assets/menu-icons/out.svg"
-                    alt="icon"
-                    class="w-6 h-6 text-[#a9a9a9]"
-                  /><span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
+                  <i class="icon-logout w-6 h-6"></i>
+                  <span class="text-gray-800 text-[15px]" data-i18n="navigation.logout"
                     >تسجيل الخروج</span
                   >
                 </button>
