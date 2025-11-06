@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الشروط والأحكام - Naqlah</title>
+    <title><span data-i18n="footer.termsConditions">الشروط والأحكام</span> - <span data-i18n="footer.companyName">Naqlah</span></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -24,7 +24,7 @@
             <a
               href="index.html"
               class="font-medium relative group transition-colors text-white hover:text-white/80"
-              ><span>الرئيسية</span
+              ><span data-i18n="navigation.home">الرئيسية</span
               ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
               ></span
@@ -74,7 +74,7 @@
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                     ><img src="assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
                       class="text-[15px] text-gray-800"
-                      >الرئيسية</span
+                      data-i18n="navigation.home">الرئيسية</span
                     ></a
                   >
                 </li>
@@ -89,8 +89,8 @@
       <div class="bg-white border-b border-gray-200">
         <div class="container mx-auto max-w-3xl px-4 py-4">
           <div class="mb-2 text-sm text-[#7E7E7E]">
-            <a href="index.html" class="hover:text-[#00B8A9]">الرئيسية</a><span class="mx-2">—</span
-            ><span class="text-[#312E37] font-medium">الشروط والأحكام</span>
+            <a href="index.html" class="hover:text-[#00B8A9]" data-i18n="navigation.home">الرئيسية</a><span class="mx-2">—</span
+            ><span class="text-[#312E37] font-medium" data-i18n="footer.termsConditions">الشروط والأحكام</span>
           </div>
         </div>
       </div>
@@ -98,15 +98,15 @@
         <div
           class="bg-white rounded-2xl p-4 border border-[#ECECEC] leading-8 text-[#4B4B4B] text-[14px]"
         >
-          <h2 class="text-start font-semibold text-[#3C3D41] mb-4">الشروط والأحكام</h2>
-          <p class="mb-4">باستخدامك لخدماتنا فأنت توافق على الإلتزام بهذه الشروط.</p>
-          <h3 class="font-semibold mt-4 mb-2">الطلبات والدفع</h3>
+          <h2 class="text-start font-semibold text-[#3C3D41] mb-4" data-i18n="termsPage.title">الشروط والأحكام</h2>
+          <p class="mb-4" data-i18n="termsPage.intro">باستخدامك لخدماتنا فأنت توافق على الإلتزام بهذه الشروط.</p>
+          <h3 class="font-semibold mt-4 mb-2" data-i18n="termsPage.ordersPaymentTitle">الطلبات والدفع</h3>
           <ul class="list-disc pr-5 space-y-1">
-            <li>يتم دفع العربون إلكترونياً.</li>
-            <li>لا يسمح بالدفع النقدي إلا إذا تم الاتفاق.</li>
+            <li data-i18n="termsPage.ordersPaymentItems.0">يتم دفع العربون إلكترونياً.</li>
+            <li data-i18n="termsPage.ordersPaymentItems.1">لا يسمح بالدفع النقدي إلا إذا تم الاتفاق.</li>
           </ul>
-          <h3 class="font-semibold mt-4 mb-2">إلغاء الطلبات</h3>
-          <p>يمكن إلغاء الطلب قبل تأكيد الشركة بدون رسوم، وقد تُخصم رسوم بعد التأكيد.</p>
+          <h3 class="font-semibold mt-4 mb-2" data-i18n="termsPage.cancellationTitle">إلغاء الطلبات</h3>
+          <p data-i18n="termsPage.cancellationText">يمكن إلغاء الطلب قبل تأكيد الشركة بدون رسوم، وقد تُخصم رسوم بعد التأكيد.</p>
         </div>
       </div>
     </main>
@@ -376,7 +376,7 @@
     >
       <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-4 relative">
         <div class="relative pt-6 pb-2">
-          <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
+          <h2 class="text-center text-lg font-semibold text-[#353535]" data-i18n="common.language">اللغة</h2>
           <button
             onclick="hideModal('language-modal')"
             class="absolute top-3 left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
@@ -408,7 +408,7 @@
             onclick="saveSelectedLocale()"
             class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
           >
-            حفظ
+            <span data-i18n="common.save">حفظ</span>
           </button>
         </div>
       </div>

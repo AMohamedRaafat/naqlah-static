@@ -251,11 +251,11 @@
     <!-- Main Content -->
     <main class="flex-1 p-4">
       <div class="container mx-auto max-w-3xl space-y-3 mb-3">
-        <div class="text-sm text-[#7E7E7E]">
-          <a href="./dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <div class="text-sm text-[#7E7E7E]">
+          <a href="./dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard">لوحة التحكم</a>
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium">معلومات الحساب</span>
-        </div>
+          <span class="text-[#312E37] font-medium" data-i18n="navigation.accountInfo">معلومات الحساب</span>
+          </div>
       </div>
       <div
         class="container bg-white mx-auto px-4 max-w-2xl py-6 rounded-xl"
@@ -277,21 +277,21 @@
                 <i id="logo-icon" class="fas fa-camera text-4xl text-gray-400"></i>
               </label>
               <input type="file" id="logo-upload" accept="image/*" class="hidden" />
-              <p class="text-[#353535] text-md mt-2">صورة العرض</p>
+              <p class="text-[#353535] text-md mt-2" data-i18n="account.profileImage">صورة العرض</p>
             </div>
-            <p class="text-[#00B8A9] text-sm mt-2">تغيير الصورة</p>
+            <p class="text-[#00B8A9] text-sm mt-2" data-i18n="account.changeImage">تغيير الصورة</p>
           </div>
 
           <!-- Name -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="space-y-2">
-              <label class="block text-[#353535] font-medium text-[14px]">الإسم الأول</label>
+              <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.firstName">الإسم الأول</label>
               <input
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
               />
             </div>
             <div class="space-y-2">
-              <label class="block text-[#353535] font-medium text-[14px]">الإسم الأخير</label>
+              <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.lastName">الإسم الأخير</label>
               <input
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
               />
@@ -300,14 +300,14 @@
 
           <!-- City -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium text-[14px]">المدينة</label>
+            <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.city">المدينة</label>
             <div class="relative">
               <select
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
               >
-                <option value="">اختر المدينة</option>
-                <option value="riyadh">الرياض</option>
-                <option value="jeddah">جدة</option>
+                <option value="" data-i18n="registerCompany.selectCity">اختر المدينة</option>
+                <option value="riyadh" data-i18n="registerCompany.cities.riyadh">الرياض</option>
+                <option value="jeddah" data-i18n="registerCompany.cities.jeddah">جدة</option>
               </select>
               <i
                 class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
@@ -317,7 +317,7 @@
 
           <!-- Email -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium text-[14px]">البريد الإلكتروني</label>
+            <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.email">البريد الإلكتروني</label>
             <input
               type="email"
               class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
@@ -326,7 +326,7 @@
 
           <!-- Password -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium text-[14px]">الرمز السري</label>
+            <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.password">الرمز السري</label>
             <div class="relative">
               <input
                 type="password"
@@ -345,7 +345,7 @@
 
           <!-- Phone -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium text-[14px]">رقم الهاتف</label>
+            <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.phoneNumber">رقم الهاتف</label>
             <div class="flex" dir="ltr">
               <span
                 class="inline-flex items-center px-3 border border-l-0 border-[#EDEDED] bg-gray-50 text-gray-500 rounded-l-lg"
@@ -362,16 +362,16 @@
 
           <!-- Expected Services -->
           <div class="space-y-3">
-            <label class="block text-[#353535] font-medium text-[14px]">الخدمات المتوقعة</label>
+            <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.expectedServices">الخدمات المتوقعة</label>
             <div class="relative">
               <select
                 id="services-select"
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg_white"
               >
-                <option value="">حدد الخدمات</option>
-                <option value="disassembly">تفكيك وتركيب</option>
-                <option value="packing">تغليف محكم</option>
-                <option value="moving">نقل بين مدن</option>
+                <option value="" data-i18n="registerCompany.selectServices">حدد الخدمات</option>
+                <option value="disassembly" data-i18n="registerCompany.services.disassembly">تفكيك وتركيب</option>
+                <option value="packing" data-i18n="registerCompany.services.packing">تغليف محكم</option>
+                <option value="moving" data-i18n="registerCompany.services.moving">نقل بين مدن</option>
               </select>
               <i
                 class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
@@ -382,10 +382,11 @@
 
           <!-- About -->
           <div class="space-y-2">
-            <label class="block text-[#353535] font-medium text-[14px]">نبذة قصيرة</label>
+            <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.about">نبذة قصيرة</label>
             <textarea
               rows="4"
               class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
+              data-i18n-placeholder="account.aboutPlaceholder" 
               placeholder="أكتب نبذة عنك"
             ></textarea>
           </div>
@@ -393,6 +394,7 @@
           <button
             type="submit"
             class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 text-base rounded-lg transition-colors"
+            data-i18n="account.updateInfo"
           >
             تحديث المعلومات الشخصية
           </button>

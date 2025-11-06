@@ -290,8 +290,8 @@
           <!-- Header row -->
           <div class="flex items-center justify-between mb-4">
             <div class="text-right">
-              <h2 class="text-[#353535] text-[15px] font-semibold">منزل العائلة</h2>
-              <p class="text-[#7E7E7E] text-sm">#ORD938274</p>
+              <h2 class="text-[#353535] text-[15px] font-semibold" data-i18n="dashboard.familyHome">منزل العائلة</h2>
+              <p class="text-[#7E7E7E] text-sm"><span>#</span>ORD938274</p>
             </div>
             <span
               class="px-4 py-2 bg-[#C8F4F1] text-[#01B4AA] border border-[#01B4AA] text-[12px] font-medium rounded-lg"
@@ -367,7 +367,7 @@
               onclick="showModal('rate-modal')"
               class="w-full my-3 px-6 py-3 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
             >
-              تقييم
+              data-i18n="rate.title">تقييم
             </button>
           </div>
 
@@ -452,8 +452,8 @@
           <img src="assets/rate.svg" alt="rate" class="w-full h-full" />
         </div>
 
-        <h3 class="text-[20px] font-semibold text-[#151515] mb-1">قيّم تجربتك مع شركة النقل</h3>
-        <p class="text-[#737373] text-[14px] mb-4">
+        <h3 class="text-[20px] font-semibold text-[#151515] mb-1" data-i18n="rate.rateTitle">قيّم تجربتك مع شركة النقل</h3>
+        <p class="text-[#737373] text-[14px] mb-4" data-i18n="rate.rateDescription">
           ملاحظاتك تهمنا كثيراً وتساعدنا على تحسين خدماتنا
         </p>
 
@@ -526,7 +526,7 @@
             id="rate-notes"
             rows="4"
             class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] resize-none text-[14px]"
-            placeholder="كيف كانت تجربتك؟"
+            placeholder="" data-i18n="[placeholder]rate.experiencePlaceholder"
           ></textarea>
         </div>
 
@@ -534,7 +534,7 @@
           id="rate-submit"
           class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl"
         >
-          إرسال التقييم
+          data-i18n="rate.submitRating">إرسال التقييم
         </button>
       </div>
     </div>

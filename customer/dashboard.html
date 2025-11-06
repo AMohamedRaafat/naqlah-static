@@ -427,7 +427,12 @@
                   </div>
                 </div>
                 <div>
-                  <span class="text-[#00b8a9] text-[14px]"> متبقي للانتهاء 0ي 2س 15د </span>
+                  <span class="text-[#00b8a9] text-[14px]">
+                    <span data-i18n="dashboard.timeRemaining">متبقي للانتهاء</span>
+                    0<span data-i18n="dashboard.days">ي</span>
+                    2<span data-i18n="dashboard.hours">س</span>
+                    15<span data-i18n="dashboard.minutes">د</span>
+                  </span>
                 </div>
               </div>
               <!-- Ongoing Orders Section -->
@@ -954,10 +959,10 @@
         </div>
 
         <!-- Title -->
-        <h2 class="text-2xl font-bold text-[#151515] mb-2">قبول الشركة؟</h2>
+        <h2 class="text-2xl font-bold text-[#151515] mb-2" data-i18n="dashboard.acceptCompany">قبول الشركة؟</h2>
 
         <!-- Description -->
-        <p class="text-[#737373] text-[14px] text-center mb-4">
+        <p class="text-[#737373] text-[14px] text-center mb-4" data-i18n="dashboard.acceptCompanyMessage">
           بمجرد اعتماد العرض، سيتم إلغاء العروض الأخرى وتثبيت إلى شاشة دفع العربون لتثبيت طلبك، هل
           أنت متأكد؟
         </p>
@@ -967,12 +972,14 @@
           <button
             onclick="confirmAccept()"
             class="flex-1 px-6 py-4 bg-[#00B8A9] text-white text-base font-semibold rounded-lg hover:bg-[#009688] transition-colors"
+            data-i18n="dashboard.yes"
           >
             نعم
           </button>
           <button
             onclick="hideModal('accept-confirmation-modal')"
             class="flex-1 px-6 py-4 bg-white border border-gray-300 text-gray-700 text-base font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+            data-i18n="dashboard.cancel"
           >
             تراجع
           </button>
@@ -1074,14 +1081,15 @@
         <div class="img flex justify-center mb-6">
           <img src="../assets/icons/cancel.svg" alt="cancel" class="w-32 h-32" />
         </div>
-        <h2 class="text-xl font-semibold mb-4 text-center">إلغاء الطلب</h2>
-        <p class="text-gray-600 text-center mb-6 text-[14px]">
+        <h2 class="text-xl font-semibold mb-4 text-center" data-i18n="dashboard.cancelOrder">إلغاء الطلب</h2>
+        <p class="text-gray-600 text-center mb-6 text-[14px]" data-i18n="dashboard.cancelOrderConfirmation">
           لقد انتهى الوقت اللازم لاخذ قرار لذلك سيتم الغاء طلب
         </p>
         <div class="flex gap-3">
           <button
             onclick="showModal('canceled-success-modal')"
             class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition-colors"
+            data-i18n="common.cancel"
           >
             إلغاء
           </button>
@@ -1103,14 +1111,15 @@
         <div class="img flex justify-center mb-6">
           <img src="../assets/payments/check.svg" alt="postpone" class="w-32 h-32" />
         </div>
-        <h2 class="text-xl font-semibold mb-4 text-center">تم إلفاء طلبك بنجاح</h2>
-        <p class="text-gray-600 text-center mb-6 text-[14px]">
+        <h2 class="text-xl font-semibold mb-4 text-center" data-i18n="dashboard.orderCancelledSuccessfully">تم إلفاء طلبك بنجاح</h2>
+        <p class="text-gray-600 text-center mb-6 text-[14px]" data-i18n="dashboard.orderCancelledMessage">
           نأمل أن نخدمك في وقتٍ لاحق, سيتم إسترجاع رسوم النقل حسب سياسة الشركة.
         </p>
         <div class="flex gap-3">
           <button
-            onclick="()=> false"
+            onclick="hideModal('canceled-success-modal')"
             class="flex-1 bg-[#00b8a9] text-white font-semibold py-3 rounded-lg transition-colors"
+            data-i18n="dashboard.ok"
           >
             حسناً
           </button>
@@ -1132,20 +1141,22 @@
         <div class="img flex justify-center mb-6">
           <img src="../assets/icons/postpone.svg" alt="postpone" class="w-32 h-32" />
         </div>
-        <h2 class="text-xl font-semibold mb-4 text-center">تأجيل الطلب؟</h2>
-        <p class="text-gray-600 text-center mb-6 text-[14px]">
+        <h2 class="text-xl font-semibold mb-4 text-center" data-i18n="dashboard.postponeOrder">تأجيل الطلب؟</h2>
+        <p class="text-gray-600 text-center mb-6 text-[14px]" data-i18n="dashboard.postponeOrderMessage">
           يمكنك تأجيل الطلب قبل 48 ساعة من موعد النقل المحدد، وسيتم توجيهك لتعديل تاريخ النقل الجديد
         </p>
         <div class="flex gap-3">
           <a
             href="./postpone.html"
             class="flex-1 bg-[#00b8a9] text-white font-semibold py-3 rounded-lg transition-colors"
+            data-i18n="dashboard.postponeOrderButton"
           >
             تأجيل الطلب
           </a>
           <button
             onclick="hideModal('postpond-order-modal')"
             class="flex-1 bg-white text-[#353535] font-semibold py-3 rounded-lg transition-colors border border-[#ddd]"
+            data-i18n="dashboard.cancel"
           >
             تراجع
           </button>

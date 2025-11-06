@@ -454,6 +454,20 @@ body {
 .show-desktop {
   display: none;
 }
+
+footer {
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../footer/bg.png'); /* gray-200 */
+}
+footer > div {
+  position: relative;
+  z-index: 10;
+}
 @media (min-width: 1024px) {
   .show-desktop {
     display: flex !important;

@@ -293,11 +293,11 @@
                 <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
               </div>
               <div class="text-right flex-1">
-                <div class="flex items-center justify-between">
+                  <div class="flex items-center justify-between">
                   <div class="flex items-center gap-2">
-                    <h5 class="text-[14px] font-medium text-[#4B4B4B]">فاست موف لنقل الأثاث</h5>
+                    <h5 class="text-[14px] font-medium text-[#4B4B4B]" id="company-name">فاست موف لنقل الأثاث</h5>
                     <div class="flex items-center gap-1">
-                      <span class="text-[12px] text-[#868686]">4.5</span>
+                      <span class="text-[12px] text-[#868686]" id="company-rating">4.5</span>
                       <i class="fas fa-star text-yellow-400 text-xs"></i>
                     </div>
                   </div>
@@ -305,10 +305,10 @@
                 <div class="flex items-center justify-between mt-3 mb-3">
                   <div class="text-left">
                     <p class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1">
-                      780
+                      <span id="service-price">780</span>
                       <span class="icon-riyal w-6 h-6"></span>
                     </p>
-                    <p class="text-[12px] text-[#868686]">الأحد · 3.15.2025 · 11:30</p>
+                    <p class="text-[12px] text-[#868686]" id="service-date" data-i18n="[html]payments.serviceDate">الأحد · 3.15.2025 · 11:30</p>
                   </div>
                 </div>
               </div>
@@ -497,7 +497,7 @@
       >
         <div class="bg-white rounded-md max-w-sm w-[90%] mx-4 relative">
           <div class="relative pt-6 pb-2">
-            <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
+            <h2 class="text-center text-lg font-semibold text-[#353535]" data-i18n="common.language">اللغة</h2>
             <button
               onclick="hideModal('language-modal')"
               class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
@@ -528,6 +528,7 @@
             <button
               onclick="saveSelectedLocale()"
               class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-md transition-colors"
+              data-i18n="common.save"
             >
               حفظ
             </button>
