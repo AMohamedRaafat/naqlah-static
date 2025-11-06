@@ -232,7 +232,7 @@ const translations = {
       "searchResults": "Results",
       "mapInstructions": "Please enter location details on the map",
       "destinationTitle": "What is the destination location",
-      "destinationSubtitle": "Please enter the location details on the map", 
+      "destinationSubtitle": "Please enter the location details on the map",
       "pickupDetails": {
         "title": "Please complete the details of the current address to be moved from",
         "city": "City",
@@ -248,7 +248,7 @@ const translations = {
         "elevatorSize": "Approximate elevator size",
         "selectSize": "Select size",
         "small": "Small",
-        "medium": "Medium", 
+        "medium": "Medium",
         "large": "Large",
         "additionalNotes": "Additional notes (optional)",
         "notesPlaceholder": "Leave any notes about the address"
@@ -272,7 +272,7 @@ const translations = {
           "placeholder": "Select items and furniture",
           "options": {
             "bed": "Bed",
-            "wardrobe": "Wardrobe", 
+            "wardrobe": "Wardrobe",
             "ac": "AC",
             "sofa": "Sofa",
             "carpet": "Carpet",
@@ -957,7 +957,7 @@ const translations = {
         "address": "العنوان",
         "buildingName": "إسم البناء",
         "buildingNamePlaceholder": "أدخل إسم البناء",
-        "floorNumber": "رقم الطابق", 
+        "floorNumber": "رقم الطابق",
         "floorNumberPlaceholder": "أدخل رقم الطابق",
         "hasElevator": "يوجد مصعد؟",
         "selectYesNo": "حدد نعم أو لا",
@@ -967,7 +967,7 @@ const translations = {
         "selectSize": "اختر الحجم",
         "small": "صغير",
         "medium": "متوسط",
-        "large": "كبير", 
+        "large": "كبير",
         "additionalNotes": "معلومات إضافية (اختياري)",
         "notesPlaceholder": "أترك أي ملاحظة خاصة بالعنوان"
       },
@@ -981,7 +981,7 @@ const translations = {
             "1": "1 غرفة",
             "2": "2 غرفة",
             "3": "3 غرف",
-            "4": "4 غرف", 
+            "4": "4 غرف",
             "5": "5+ غرف"
           }
         },

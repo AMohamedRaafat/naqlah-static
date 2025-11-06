@@ -273,20 +273,34 @@
       <main class="flex-1 container mx-auto px-4 py-6">
         <!-- Breadcrumb -->
         <div class="mb-4 text-sm text-[#7E7E7E]">
-          <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard">لوحة التحكم</a>
+          <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard"
+            >لوحة التحكم</a
+          >
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium" data-i18n="postpone.breadcrumb">تأجيل الطلب</span>
+          <span class="text-[#312E37] font-medium" data-i18n="postpone.breadcrumb"
+            >تأجيل الطلب</span
+          >
         </div>
         <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm border border-gray-200">
-          <h2 class="font-medium text-[14px] text-[#353535] text-start mb-2" data-i18n="postpone.title">
+          <h2
+            class="font-medium text-[14px] text-[#353535] text-start mb-2"
+            data-i18n="postpone.title"
+          >
             تأجيل الطلب #ORD321564
           </h2>
-          <p class="text-[14px] text-[#353535] text-start mb-6" data-i18n="postpone.selectNewDateTime">يرجى تحديد الوقت والتاريخ الجديد</p>
+          <p
+            class="text-[14px] text-[#353535] text-start mb-6"
+            data-i18n="postpone.selectNewDateTime"
+          >
+            يرجى تحديد الوقت والتاريخ الجديد
+          </p>
 
           <form id="datetime-form" class="">
             <!-- Time Section -->
             <div>
-              <label class="block text-[16px] font-medium text-[#353535] mb-3 text-right" data-i18n="postpone.time.label"
+              <label
+                class="block text-[16px] font-medium text-[#353535] mb-3 text-right"
+                data-i18n="postpone.time.label"
                 >الساعة</label
               >
 
@@ -323,7 +337,10 @@
               </div>
 
               <!-- Note -->
-              <p class="text-[12px] text-[#868686] text-start leading-relaxed" data-i18n="postpone.time.note">
+              <p
+                class="text-[12px] text-[#868686] text-start leading-relaxed"
+                data-i18n="postpone.time.note"
+              >
                 قد تحدث تغيرات بسيطة في التوقيت بسبب الازدحام أو إعادة<br />
                 تنسيق الجداول التشغيلية
               </p>
@@ -331,7 +348,9 @@
 
             <!-- Date Section -->
             <div>
-              <label class="block text-[16px] font-medium text-[#353535] mb-3 text-right" data-i18n="postpone.date.label"
+              <label
+                class="block text-[16px] font-medium text-[#353535] mb-3 text-right"
+                data-i18n="postpone.date.label"
                 >التاريخ</label
               >
 
@@ -361,13 +380,48 @@
                 <!-- Calendar Grid -->
                 <div class="grid grid-cols-7 gap-2 text-center">
                   <!-- Day Headers -->
-                  <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.sun">SUN</div>
-                  <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.mon">MON</div>
-                  <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.tue">TUE</div>
-                  <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.wed">WED</div>
-                  <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.thu">THU</div>
-                  <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.fri">FRI</div>
-                  <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.sat">SAT</div>
+                  <div
+                    class="text-[12px] text-[#868686] font-medium py-2"
+                    data-i18n="calendar.days.sun"
+                  >
+                    SUN
+                  </div>
+                  <div
+                    class="text-[12px] text-[#868686] font-medium py-2"
+                    data-i18n="calendar.days.mon"
+                  >
+                    MON
+                  </div>
+                  <div
+                    class="text-[12px] text-[#868686] font-medium py-2"
+                    data-i18n="calendar.days.tue"
+                  >
+                    TUE
+                  </div>
+                  <div
+                    class="text-[12px] text-[#868686] font-medium py-2"
+                    data-i18n="calendar.days.wed"
+                  >
+                    WED
+                  </div>
+                  <div
+                    class="text-[12px] text-[#868686] font-medium py-2"
+                    data-i18n="calendar.days.thu"
+                  >
+                    THU
+                  </div>
+                  <div
+                    class="text-[12px] text-[#868686] font-medium py-2"
+                    data-i18n="calendar.days.fri"
+                  >
+                    FRI
+                  </div>
+                  <div
+                    class="text-[12px] text-[#868686] font-medium py-2"
+                    data-i18n="calendar.days.sat"
+                  >
+                    SAT
+                  </div>
 
                   <!-- Calendar Days -->
                   <div id="calendar-days" class="col-span-7 grid grid-cols-7 gap-2">
@@ -469,7 +523,9 @@
         <div class="img flex justify-center mb-6">
           <img src="../assets/payments/check.svg" alt="postpone" class="w-32 h-32" />
         </div>
-        <h2 class="text-xl font-semibold mb-4 text-center" data-i18n="postpone.success.title">تم تأجيل الطلب بنجاح</h2>
+        <h2 class="text-xl font-semibold mb-4 text-center" data-i18n="postpone.success.title">
+          تم تأجيل الطلب بنجاح
+        </h2>
         <p class="text-gray-600 text-center mb-6 text-[14px]">
           <span data-i18n="postpone.success.message">تم تحديث موقع النقل الى</span>
           <span class="font-medium"> الأربعاء 3.18.2025 11:30 </span>
