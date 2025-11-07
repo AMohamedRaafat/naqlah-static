@@ -679,7 +679,27 @@ const translations = {
     "common": {
       "all": "الكل",
       "filter": "الفلتر",
-      "30seconds": "30 ثانية"
+      "30seconds": "30 ثانية",
+      "welcome": "مرحباً بك",
+      "next": "التالي",
+      "back": "تراجع",
+      "home": "الرئيسية",
+      "about": "من نحن",
+      "contact": "اتصل بنا",
+      "language": "اللغة",
+      "loading": "جاري التحميل...",
+      "error": "حدث خطأ",
+      "submit": "إرسال",
+      "cancel": "إلغاء",
+      "noCancel": "لا، إلغاء",
+      "save": "حفظ",
+      "delete": "حذف",
+      "edit": "تعديل",
+      "search": "بحث",
+      "logoutTitle": "تسجيل الخروج",
+      "logoutConfirmation": "هل أنت متأكد من أنك تريد تسجيل الخروج من حسابك؟",
+      "confirmLogout": "نعم الخروج",
+      "confirm": "تأكيد",
     },
     "examples": {
       "customerName1": "منصور الفهماني"
@@ -706,28 +726,7 @@ const translations = {
       'profileImage': 'صورة العرض',
       'changeImage': 'تغيير الصورة'
     },
-    "common": {
-      "welcome": "مرحباً بك",
-      "next": "التالي",
-      "back": "تراجع",
-      "home": "الرئيسية",
-      "about": "من نحن",
-      "contact": "اتصل بنا",
-      "language": "اللغة",
-      "loading": "جاري التحميل...",
-      "error": "حدث خطأ",
-      "submit": "إرسال",
-      "cancel": "إلغاء",
-      "noCancel": "لا، إلغاء",
-      "save": "حفظ",
-      "delete": "حذف",
-      "edit": "تعديل",
-      "search": "بحث",
-      "logoutTitle": "تسجيل الخروج",
-      "logoutConfirmation": "هل أنت متأكد من أنك تريد تسجيل الخروج من حسابك؟",
-      "confirmLogout": "نعم الخروج",
-      "confirm": "تأكيد"
-    },
+
     "userMenu": {
       "username": "اسم المستخدم"
     },
