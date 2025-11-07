@@ -390,7 +390,7 @@
           </button>
         </div>
 
-        <div id="orders-state" class="hidden flex-1 px-4 py-6 bg-[#fafafa]">
+        <div id="orders-state" class="hidden flex-1 px-4 py-6">
           <div id="quotes-list">
             <!-- Orders State (Hidden by default) -->
             <div data-state="ongoing">
@@ -467,13 +467,14 @@
                     <div id="ongoing-map-1" class="w-full h-48 z-0"></div>
                   </div>
 
-                  <div class="bg-[#F7F7F7]">
+                  <div class="rounded-lg bg-[#F7F7F7] p-3 px-2 space-y-3">
                     <button
                       onclick="toggleOngoingDetails(1)"
-                      class="w-full flex items-center justify-between bg-[#F7F7F7] rounded-xl px-4 py-3 text-[#353535] font-medium"
+                      id="order-details-toggle"
+                      class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B]"
                     >
-                      <span>مراجعة تفاصيل الطلب</span>
-                      <i id="ongoing-details-icon-1" class="fas fa-chevron-down"></i>
+                      <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
+                      <i class="fas fa-chevron-down" id="details-icon"></i>
                     </button>
                     <div id="ongoing-details-1" class="hidden px-2">
                       <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
@@ -585,11 +586,11 @@
                 </div>
 
                 <!-- Order Details Collapsible -->
-                <div class="border-t border-gray-50 bg-gray-100 p-3 rounded-lg">
+                <div class="border-t border-gray-50 p-3 bg-gray-100 rounded-lg space-y-3">
                   <button
                     onclick="toggleOrderDetails()"
                     id="order-details-toggle"
-                    class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B] mb-3"
+                    class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B]"
                   >
                     <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
                     <i class="fas fa-chevron-down" id="details-icon"></i>
