@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>تواصل معنا</title>
+    <title><span data-i18n="contact.title">تواصل معنا</span></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/custom.css" />
     <script src="./assets/js/tailwind-config.js"></script>
@@ -30,6 +30,7 @@
               href="./company/dashboard.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md hover:bg-gray-50 transition-colors"
               ><img src="./assets/menu-icons/home.svg" alt="icon" class="w-6 h-6" /><span
+                data-i18n="navigation.dashboard"
                 >لوحة التحكم</span
               ></a
             >
@@ -39,7 +40,8 @@
               href="#"
               onclick="return false;"
               class="flex items-center gap-4 px-4 py-3 rounded-md sidebar-active"
-              ><i class="fas fa-phone text-lg text-[#A9A9A9]"></i><span>تواصل معنا</span></a
+              ><i class="fas fa-phone text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="contact.title">تواصل معنا</span></a
             >
           </li>
         </ul>
@@ -49,7 +51,7 @@
     <!-- Mobile Navbar -->
     <div class="lg:hidden bg-white text-gray-900 border-b border-gray-200 w-full">
       <div class="flex items-center justify-between px-4 py-4">
-        <h1 class="text-lg font-semibold">تواصل معنا</h1>
+        <h1 class="text-lg font-semibold" data-i18n="contact.title">تواصل معنا</h1>
         <div class="flex items-center gap-3">
           <!-- User Avatar - Navigate to Profile -->
           <a
@@ -100,7 +102,9 @@
                     onclick="return false;"
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                     ><i class="fas fa-phone w-6 h-6 text-[#a9a9a9]"></i
-                    ><span class="text-[15px] text-gray-800">تواصل معنا</span></a
+                    ><span class="text-[15px] text-gray-800" data-i18n="contact.title"
+                      >تواصل معنا</span
+                    ></a
                   >
                 </li>
               </ul>
@@ -114,57 +118,71 @@
       <div class="container mx-auto max-w-3xl">
         <!-- Breadcrumb -->
         <div class="mb-2 text-sm text-[#7E7E7E]">
-          <a href="./company/dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <a
+            href="./company/dashboard.html"
+            class="hover:text-[#00B8A9]"
+            data-i18n="navigation.dashboard"
+            >لوحة التحكم</a
+          >
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium">تواصل معنا</span>
+          <span class="text-[#312E37] font-medium" data-i18n="contact.title">تواصل معنا</span>
         </div>
         <section class="bg-white rounded-2xl p-6 shadow-sm">
-          <h2 class="text-lg font-semibold text-[#353535] mb-3">مرحباً بك</h2>
-          <p class="text-[#6B7280] text-[14px] mb-5">
+          <h2 class="text-lg font-semibold text-[#353535] mb-3" data-i18n="contactPage.welcome">
+            مرحباً بك
+          </h2>
+          <p class="text-[#6B7280] text-[14px] mb-5" data-i18n="contactPage.welcomeDesc">
             نسعد بتواصلك معنا، يُرجى ملء النموذج أدناه وسنعاود الاتصال بك في أقرب وقت ممكن.
           </p>
 
           <div class="space-y-4">
             <div class="space-y-2">
-              <label for="fullName">الأسم كاملا</label>
+              <label for="fullName" data-i18n="contact.fullName">الأسم كاملا</label>
               <input
                 type="text"
+                data-i18n-placeholder="contact.fullNamePlaceholder"
                 placeholder="أدخل الاسم كاملاً"
                 class="w-full rounded-xl border border-[#E5E7EB] px-3 py-3 outline-none focus:border-[#00B8A9]"
               />
             </div>
             <div class="space-y-2">
-              <label for="email">البريد الإلكتروني</label>
+              <label for="email" data-i18n="contact.email">البريد الإلكتروني</label>
               <input
                 type="email"
+                data-i18n-placeholder="contact.emailPlaceholder"
                 placeholder="أدخل البريد الإلكتروني"
                 class="w-full rounded-xl border border-[#E5E7EB] px-3 py-3 outline-none focus:border-[#00B8A9]"
               />
             </div>
             <div class="relative space-y-2">
-              <label for="messageTitle">عنوان الرسالة</label>
+              <label for="messageTitle" data-i18n="contact.messageTitle">عنوان الرسالة</label>
               <select
                 class="appearance-none w-full rounded-xl border border-[#E5E7EB] pl-10 pr-3 py-3 outline-none focus:border-[#00B8A9]"
+                data-i18n-placeholder="contactPage.selectMessageType"
               >
-                <option>اختر عنوان الرسالة</option>
-                <option>استفسار</option>
-                <option>شكوى</option>
-                <option>اقتراح</option>
+                <option data-i18n="contactPage.selectMessageType">اختر عنوان الرسالة</option>
+                <option data-i18n="contactPage.messageTypes.inquiry">استفسار</option>
+                <option data-i18n="contactPage.messageTypes.complaint">شكوى</option>
+                <option data-i18n="contactPage.messageTypes.suggestion">اقتراح</option>
               </select>
               <i
                 class="fas fa-chevron-down absolute top-1/2 -translate-y-1/2 left-3 text-[#7E7E7E]"
               ></i>
             </div>
             <div class="space-y-2">
-              <label for="message">الرسالة</label>
+              <label for="message" data-i18n="contact.message">الرسالة</label>
               <textarea
                 rows="5"
+                data-i18n-placeholder="contact.messagePlaceholder"
                 placeholder="أدخل نص رسالتك هنا..."
                 class="w-full rounded-xl border border-[#E5E7EB] px-3 py-3 outline-none focus:border-[#00B8A9]"
               ></textarea>
             </div>
 
-            <button class="w-full py-4 rounded-xl bg-[#00B8A9] text-white font-bold">
+            <button
+              class="w-full py-4 rounded-xl bg-[#00B8A9] text-white font-bold"
+              data-i18n="contact.sendMessage"
+            >
               إرسال الرسالة
             </button>
           </div>
@@ -182,7 +200,9 @@
                   <h3 class="text-md font-medium text-[#00B8A9]" data-i18n="contact.ourAddress">
                     عنواننا
                   </h3>
-                  <p class="text-[11.5px] text-[#7E7E7E]">حي النسيم الغربي</p>
+                  <p class="text-[11.5px] text-[#7E7E7E]" data-i18n="contactPage.address">
+                    حي النسيم الغربي
+                  </p>
                 </div>
               </div>
               <div class="flex items-center justify-center gap-2 mb-4 md:mb-0">

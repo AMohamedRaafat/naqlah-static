@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الأسئلة والإستفسارات - Naqlah</title>
+    <title>
+      <span data-i18n="faqPage.title">الأسئلة والإستفسارات</span> - <span
+      data-i18n="footer.companyName">Naqlah</span>
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -25,7 +28,7 @@
             <a
               href="index.html"
               class="font-medium relative group transition-colors text-white hover:text-white/80"
-              ><span>الرئيسية</span
+              ><span data-i18n="navigation.home">الرئيسية</span
               ><span
                 class="absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full bg-white"
               ></span
@@ -92,38 +95,48 @@
       <div class="bg-white border-b border-gray-200">
         <div class="container mx-auto max-w-3xl px-4 py-4">
           <div class="mb-2 text-sm text-[#7E7E7E]">
-            <a href="index.html" class="hover:text-[#00B8A9]">الرئيسية</a>
+            <a href="index.html" class="hover:text-[#00B8A9]" data-i18n="navigation.home"
+              >الرئيسية</a
+            >
             <span class="mx-2">—</span>
-            <span class="text-[#312E37] font-medium">الأسئلة والإستفسارات</span>
+            <span class="text-[#312E37] font-medium" data-i18n="faqPage.title"
+              >الأسئلة والإستفسارات</span
+            >
           </div>
         </div>
       </div>
       <div class="container mx-auto max-w-3xl p-4 my-4">
         <div class="bg-white border border-gray-200 rounded-xl p-4">
-          <h1 class="text-[18px] font-bold text-[#353535] mb-4">الأسئلة والإستفسارات</h1>
+          <h1 class="text-[18px] font-bold text-[#353535] mb-4" data-i18n="faqPage.title">
+            الأسئلة والإستفسارات
+          </h1>
 
           <div class="grid grid-cols-1 divide-y divide-gray-200 gap-4 rounded-xl p-4">
             <details class="rounded-xl bg-white">
               <summary class="px-4 py-3 cursor-pointer flex items-center justify-between">
-                هل يمكنني اختيار موعد النقل الذي يناسبني؟<i class="fas fa-chevron-down"></i>
+                <span data-i18n="faqPage.questions.0.question"
+                  >هل يمكنني اختيار موعد النقل الذي يناسبني؟</span
+                ><i class="fas fa-chevron-down"></i>
               </summary>
-              <div class="px-4 pb-4 text-sm text-[#6B7280]">
+              <div class="px-4 pb-4 text-sm text-[#6B7280]" data-i18n="faqPage.questions.0.answer">
                 نعم، يمكنك اختيار الموعد من خلال صفحة الموعد والمرونة قبل تأكيد الطلب.
               </div>
             </details>
             <details class="rounded-xl bg-white">
               <summary class="px-4 py-3 cursor-pointer flex items-center justify-between">
-                ما هي طرق الدفع المتاحة؟<i class="fas fa-chevron-down"></i>
+                <span data-i18n="faqPage.questions.1.question">ما هي طرق الدفع المتاحة؟</span
+                ><i class="fas fa-chevron-down"></i>
               </summary>
-              <div class="px-4 pb-4 text-sm text-[#6B7280]">
+              <div class="px-4 pb-4 text-sm text-[#6B7280]" data-i18n="faqPage.questions.1.answer">
                 نوفر الدفع الإلكتروني، والدفع بالعربون مع استكمال باقي المبلغ حسب ما هو موضح.
               </div>
             </details>
             <details class="rounded-xl bg-white">
               <summary class="px-4 py-3 cursor-pointer flex items-center justify-between">
-                كيف يتم حساب تكلفة نقل الأثاث؟<i class="fas fa-chevron-down"></i>
+                <span data-i18n="faqPage.questions.2.question">كيف يتم حساب تكلفة نقل الأثاث؟</span
+                ><i class="fas fa-chevron-down"></i>
               </summary>
-              <div class="px-4 pb-4 text-sm text-[#6B7280]">
+              <div class="px-4 pb-4 text-sm text-[#6B7280]" data-i18n="faqPage.questions.2.answer">
                 تعتمد التكلفة على المسافة، وعدد القطع، والخدمات الإضافية مثل التفكيك والتركيب
                 والتغليف.
               </div>
@@ -399,7 +412,9 @@
     >
       <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-4 relative">
         <div class="relative pt-6 pb-2">
-          <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
+          <h2 class="text-center text-lg font-semibold text-[#353535]" data-i18n="common.language">
+            اللغة
+          </h2>
           <button
             onclick="hideModal('language-modal')"
             class="absolute top-3 left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"
@@ -431,7 +446,7 @@
             onclick="saveSelectedLocale()"
             class="w-full mt-4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-3 rounded-xl transition-colors"
           >
-            حفظ
+            <span data-i18n="common.save">حفظ</span>
           </button>
         </div>
       </div>

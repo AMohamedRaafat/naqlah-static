@@ -220,18 +220,29 @@
         <div id="step-1" class="step-content">
           <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm border border-gray-200">
             <div class="mb-4 py-3">
-              <label class="block text-gray-800 font-medium mb-2 text-right">مسمى الطلب</label
-              ><input
+              <label
+                class="block text-gray-800 font-medium mb-2 text-right"
+                data-i18n="requestMove.orderTitle"
+                >مسمى الطلب</label
+              >
+              <input
                 type="text"
+                data-i18n-placeholder="requestMove.orderTitlePlaceholder"
                 placeholder="مثال : منزل جديد"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right placeholder:text-gray-400 text-sm"
               />
             </div>
 
-            <h2 class="text-xl font-bold text-[#353535] text-start mb-2">
+            <h2
+              class="text-xl font-bold text-[#353535] text-start mb-2"
+              data-i18n="requestMove.pickupTitle"
+            >
               ماهو الموقع المراد النقل منه
             </h2>
-            <p class="text-[12px] text-[#494A4D] text-start mb-4">
+            <p
+              class="text-[12px] text-[#494A4D] text-start mb-4"
+              data-i18n="requestMove.pickupSubtitle"
+            >
               من فضلك أدخل علي الخريطة تفاصيل الموقع
             </p>
 
@@ -243,6 +254,7 @@
               <input
                 type="text"
                 id="pickup-search"
+                data-i18n-placeholder="requestMove.searchPlaceholder"
                 placeholder="إبحث عن العنوان"
                 class="w-full px-4 py-3 pr-10 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm placeholder:text-[#A3A3A3]"
               />
@@ -250,7 +262,9 @@
 
             <!-- Selected Location Display -->
             <div id="pickup-location-display" class="mt-2 p-3 border-b border-gray-200 hidden">
-              <p class="font-semibold text-[#353535] mb-2">النتائج</p>
+              <p class="font-semibold text-[#353535] mb-2" data-i18n="requestMove.searchResults">
+                النتائج
+              </p>
               <div class="flex items-start gap-3">
                 <i
                   class="fas fa-map-marker-alt w-9 h-9 text-[#00B8A9] flex-shrink-0 border border-gray-200 rounded-full p-2 flex items-center justify-center"
@@ -290,15 +304,18 @@
         <!-- Step 2: Pickup Details -->
         <div id="step-2" class="step-content hidden">
           <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-            <h2 class="text-xl font-bold mb-4">
+            <h2 class="text-xl font-bold mb-4" data-i18n="requestMove.pickupDetails.title">
               من فضلك أكمل تفاصيل عنوان النقل الحالي المراد النقل منه
             </h2>
 
             <form id="pickup-details-form" class="space-y-4">
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >المدينة <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.pickupDetails.city"
                 >
+                  المدينة <span class="text-red-500">*</span>
+                </label>
                 <input
                   type="text"
                   id="pickup-details-city"
@@ -310,48 +327,61 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >العنوان <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.pickupDetails.address"
                 >
+                  العنوان <span class="text-red-500">*</span>
+                </label>
                 <input
                   type="text"
                   id="pickup-details-address"
                   required
                   readonly
-                  placeholder="سيتم التعبئة تلقائياً من الخطوة السابقة"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] bg-gray-50"
                 />
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >إسم البناء <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.pickupDetails.buildingName"
                 >
+                  إسم البناء <span class="text-red-500">*</span>
+                </label>
                 <input
                   type="text"
                   id="pickup-building-name"
                   required
+                  data-i18n-placeholder="requestMove.pickupDetails.buildingNamePlaceholder"
                   placeholder="أدخل إسم البناء"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
                 />
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >رقم الطابق <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.pickupDetails.floorNumber"
                 >
+                  رقم الطابق <span class="text-red-500">*</span>
+                </label>
                 <input
                   type="number"
                   id="pickup-floor"
                   required
+                  data-i18n-placeholder="requestMove.pickupDetails.floorNumberPlaceholder"
                   placeholder="أدخل رقم الطابق"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
                 />
               </div>
 
-              <label class="block text-sm font-medium text-gray-700 mb-2"
-                >يوجد مصعد؟ <span class="text-red-500">*</span></label
+              <label
+                class="block text-sm font-medium text-gray-700 mb-2"
+                data-i18n="requestMove.pickupDetails.hasElevator"
               >
+                يوجد مصعد؟ <span class="text-red-500">*</span>
+              </label>
 
               <div class="relative">
                 <select
@@ -360,9 +390,27 @@
                   onchange="this.style.color = this.value ? '#353535' : '#A3A3A3'; toggleElevatorSize('pickup', this.value);"
                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] appearance-none bg-white text-[#A3A3A3] text-sm"
                 >
-                  <option value="" class="text-[#A3A3A3]">حدد نعم أو لا</option>
-                  <option value="yes" class="text-[#353535]">نعم</option>
-                  <option value="no" class="text-[#353535]">لا</option>
+                  <option
+                    value=""
+                    class="text-[#A3A3A3]"
+                    data-i18n="requestMove.pickupDetails.selectYesNo"
+                  >
+                    حدد نعم أو لا
+                  </option>
+                  <option
+                    value="yes"
+                    class="text-[#353535]"
+                    data-i18n="requestMove.pickupDetails.yes"
+                  >
+                    نعم
+                  </option>
+                  <option
+                    value="no"
+                    class="text-[#353535]"
+                    data-i18n="requestMove.pickupDetails.no"
+                  >
+                    لا
+                  </option>
                 </select>
                 <i
                   class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-[#A3A3A3] pointer-events-none"
@@ -370,19 +418,46 @@
               </div>
 
               <div id="pickup-elevator-size-wrapper" class="hidden">
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >حجم المصعد التقريبي <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.pickupDetails.elevatorSize"
                 >
+                  حجم المصعد التقريبي <span class="text-red-500">*</span>
+                </label>
                 <div class="relative">
                   <select
                     id="pickup-elevator-size"
                     onchange="this.style.color = this.value ? '#353535' : '#A3A3A3'"
                     class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] appearance-none bg-white text-[#A3A3A3] text-sm"
                   >
-                    <option value="" class="text-[#A3A3A3]">اختر الحجم</option>
-                    <option value="small" class="text-[#353535]">صغير</option>
-                    <option value="medium" class="text-[#353535]">متوسط</option>
-                    <option value="large" class="text-[#353535]">كبير</option>
+                    <option
+                      value=""
+                      class="text-[#A3A3A3]"
+                      data-i18n="requestMove.pickupDetails.selectSize"
+                    >
+                      اختر الحجم
+                    </option>
+                    <option
+                      value="small"
+                      class="text-[#353535]"
+                      data-i18n="requestMove.pickupDetails.small"
+                    >
+                      صغير
+                    </option>
+                    <option
+                      value="medium"
+                      class="text-[#353535]"
+                      data-i18n="requestMove.pickupDetails.medium"
+                    >
+                      متوسط
+                    </option>
+                    <option
+                      value="large"
+                      class="text-[#353535]"
+                      data-i18n="requestMove.pickupDetails.large"
+                    >
+                      كبير
+                    </option>
                   </select>
                   <i
                     class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-[#A3A3A3] pointer-events-none"
@@ -391,12 +466,16 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >معلومات إضافية (اختياري)</label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.pickupDetails.additionalNotes"
                 >
+                  معلومات إضافية (اختياري)
+                </label>
                 <textarea
                   id="pickup-notes"
                   rows="3"
+                  data-i18n-placeholder="requestMove.pickupDetails.notesPlaceholder"
                   placeholder="أترك أي ملاحظة خاصة بالعنوان"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] resize-none"
                 ></textarea>
@@ -619,28 +698,57 @@
 
         <!-- Step 5: Furniture Details -->
         <div id="step-5" class="step-content hidden">
-          <h2 class="text-2xl font-bold mb-4 text-start">تفاصيل الأثاث</h2>
-          <p class="text-gray-600 mb-6 text-start">يرجي إدخال كافة المعلومات المطلوبة</p>
+          <h2
+            class="text-2xl font-bold mb-4 text-start"
+            data-i18n="requestMove.furnitureDetails.title"
+          >
+            تفاصيل الأثاث
+          </h2>
+          <p
+            class="text-gray-600 mb-6 text-start"
+            data-i18n="requestMove.furnitureDetails.subtitle"
+          >
+            يرجي إدخال كافة المعلومات المطلوبة
+          </p>
 
           <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
             <form id="furniture-form" class="space-y-4">
               <!-- Number of Rooms -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >عدد الغرف <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.furnitureDetails.rooms.label"
                 >
+                  عدد الغرف <span class="text-red-500">*</span>
+                </label>
                 <div class="relative">
                   <select
                     id="rooms-count"
                     required
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] appearance-none bg-white"
                   >
-                    <option value="" class="text-[#A3A3A3]">اختر عدد الغرف</option>
-                    <option value="1">1 غرفة</option>
-                    <option value="2">2 غرفة</option>
-                    <option value="3">3 غرف</option>
-                    <option value="4">4 غرف</option>
-                    <option value="5">5+ غرف</option>
+                    <option
+                      value=""
+                      class="text-[#A3A3A3]"
+                      data-i18n="requestMove.furnitureDetails.rooms.placeholder"
+                    >
+                      اختر عدد الغرف
+                    </option>
+                    <option value="1" data-i18n="requestMove.furnitureDetails.rooms.options.1">
+                      1 غرفة
+                    </option>
+                    <option value="2" data-i18n="requestMove.furnitureDetails.rooms.options.2">
+                      2 غرفة
+                    </option>
+                    <option value="3" data-i18n="requestMove.furnitureDetails.rooms.options.3">
+                      3 غرف
+                    </option>
+                    <option value="4" data-i18n="requestMove.furnitureDetails.rooms.options.4">
+                      4 غرف
+                    </option>
+                    <option value="5" data-i18n="requestMove.furnitureDetails.rooms.options.5">
+                      5+ غرف
+                    </option>
                   </select>
                   <i
                     class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
@@ -650,7 +758,11 @@
 
               <!-- Furniture Items -->
               <div class="space-y-3">
-                <label class="block text-sm font-medium text-gray-700">القطع والأثاث</label>
+                <label
+                  class="block text-sm font-medium text-gray-700"
+                  data-i18n="requestMove.furnitureDetails.items.label"
+                  >القطع والأثاث</label
+                >
 
                 <!-- Furniture Selector -->
                 <div class="flex gap-2 items-center">
@@ -659,18 +771,69 @@
                       id="furniture-select"
                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] appearance-none bg-white"
                     >
-                      <option value="">حدد القطع والأثاث</option>
-                      <option value="bed">سرير</option>
-                      <option value="wardrobe">دولاب</option>
-                      <option value="ac">مكيف</option>
-                      <option value="sofa">صوفا</option>
-                      <option value="carpet">سجاد</option>
-                      <option value="desk">مكتب</option>
-                      <option value="table">طاولة</option>
-                      <option value="chair">كرسي</option>
-                      <option value="tv">تلفزيون</option>
-                      <option value="fridge">ثلاجة</option>
-                      <option value="washing-machine">غسالة</option>
+                      <option value="" data-i18n="requestMove.furnitureDetails.items.placeholder">
+                        حدد القطع والأثاث
+                      </option>
+                      <option
+                        value="bed"
+                        data-i18n="requestMove.furnitureDetails.items.options.bed"
+                      >
+                        سرير
+                      </option>
+                      <option
+                        value="wardrobe"
+                        data-i18n="requestMove.furnitureDetails.items.options.wardrobe"
+                      >
+                        دولاب
+                      </option>
+                      <option value="ac" data-i18n="requestMove.furnitureDetails.items.options.ac">
+                        مكيف
+                      </option>
+                      <option
+                        value="sofa"
+                        data-i18n="requestMove.furnitureDetails.items.options.sofa"
+                      >
+                        صوفا
+                      </option>
+                      <option
+                        value="carpet"
+                        data-i18n="requestMove.furnitureDetails.items.options.carpet"
+                      >
+                        سجاد
+                      </option>
+                      <option
+                        value="desk"
+                        data-i18n="requestMove.furnitureDetails.items.options.desk"
+                      >
+                        مكتب
+                      </option>
+                      <option
+                        value="table"
+                        data-i18n="requestMove.furnitureDetails.items.options.table"
+                      >
+                        طاولة
+                      </option>
+                      <option
+                        value="chair"
+                        data-i18n="requestMove.furnitureDetails.items.options.chair"
+                      >
+                        كرسي
+                      </option>
+                      <option value="tv" data-i18n="requestMove.furnitureDetails.items.options.tv">
+                        تلفزيون
+                      </option>
+                      <option
+                        value="fridge"
+                        data-i18n="requestMove.furnitureDetails.items.options.fridge"
+                      >
+                        ثلاجة
+                      </option>
+                      <option
+                        value="washing-machine"
+                        data-i18n="requestMove.furnitureDetails.items.options.washing-machine"
+                      >
+                        غسالة
+                      </option>
                     </select>
                     <i
                       class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
@@ -683,6 +846,7 @@
                     min="1"
                     value="1"
                     placeholder="العدد"
+                    data-i18n-placeholder="requestMove.furnitureDetails.items.quantity"
                     class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-center"
                   />
 
@@ -690,6 +854,7 @@
                     type="button"
                     onclick="addFurnitureItem()"
                     class="px-6 py-3 bg-[#00B8A9] text-white rounded-lg hover:bg-[#009688] transition-colors whitespace-nowrap"
+                    data-i18n="requestMove.furnitureDetails.items.add"
                   >
                     إضافة
                   </button>
@@ -705,28 +870,42 @@
               <!-- File Upload Section -->
               <div class="space-y-3">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >هل يوجد قطع ثمينة للنقل؟ <span class="text-red-500">*</span></label
+                  <label
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                    data-i18n="requestMove.furnitureDetails.valuables.label"
                   >
+                    هل يوجد قطع ثمينة للنقل؟ <span class="text-red-500">*</span>
+                  </label>
                   <select
                     id="precious-files-select"
                     required
                     onchange="this.style.color = this.value ? '#353535' : '#A3A3A3'; togglePreciousFiles(this.value);"
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] appearance-none bg-white"
                   >
-                    <option value="">أختر نعم او لا</option>
-                    <option value="yes">نعم</option>
-                    <option value="no">لا</option>
+                    <option value="" data-i18n="requestMove.furnitureDetails.valuables.placeholder">
+                      أختر نعم او لا
+                    </option>
+                    <option value="yes" data-i18n="requestMove.furnitureDetails.valuables.yes">
+                      نعم
+                    </option>
+                    <option value="no" data-i18n="requestMove.furnitureDetails.valuables.no">
+                      لا
+                    </option>
                   </select>
                   <i
                     class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
                   ></i>
                 </div>
               </div>
+
+              <!-- Valuables Photos Upload Area -->
               <div class="hidden space-y-3" id="precious-files-wrapper">
-                <label class="block text-sm font-medium text-gray-700"
-                  >أرفق صور القطع الثمينة <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700"
+                  data-i18n="requestMove.furnitureDetails.valuables.attachPhotos"
                 >
+                  أرفق صور القطع الثمينة <span class="text-red-500">*</span>
+                </label>
 
                 <!-- Upload Area -->
                 <div
@@ -739,7 +918,12 @@
                     >
                       <i class="fas fa-cloud-upload-alt text-2xl text-[#00B8A9]"></i>
                     </div>
-                    <p class="text-gray-600 text-sm mb-1">أرفق بصيغة PNG, JPG, MP4</p>
+                    <p
+                      class="text-gray-600 text-sm mb-1"
+                      data-i18n="requestMove.furnitureDetails.valuables.uploadInstructions"
+                    >
+                      أرفق بصيغة PNG, JPG, MP4
+                    </p>
                   </div>
                   <input
                     type="file"
@@ -754,11 +938,15 @@
                 <!-- File Previews -->
                 <div id="precious-files-previews" class="grid grid-cols-3 gap-3 mt-4"></div>
               </div>
-              <!-- Upload Area -->
+
+              <!-- Furniture Photos Upload Area -->
               <div class="space-y-3">
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >أرفق صور الأثاث <span class="text-red-500">*</span></label
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.furnitureDetails.furniture.attachPhotos"
                 >
+                  أرفق صور الأثاث <span class="text-red-500">*</span>
+                </label>
                 <div
                   class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center cursor-pointer hover:border-[#00B8A9] transition-colors"
                   onclick="document.getElementById('furniture-files').click()"
@@ -769,7 +957,12 @@
                     >
                       <i class="fas fa-cloud-upload-alt text-2xl text-[#00B8A9]"></i>
                     </div>
-                    <p class="text-gray-600 text-sm mb-1">أرفق بصيغة PNG, JPG, MP4</p>
+                    <p
+                      class="text-gray-600 text-sm mb-1"
+                      data-i18n="requestMove.furnitureDetails.furniture.uploadInstructions"
+                    >
+                      أرفق بصيغة PNG, JPG, MP4
+                    </p>
                   </div>
                   <input
                     type="file"
@@ -781,6 +974,7 @@
                   />
                 </div>
               </div>
+
               <!-- File Previews -->
               <div id="file-previews" class="grid grid-cols-3 gap-3 mt-4"></div>
 
@@ -789,6 +983,7 @@
                 <button
                   type="submit"
                   class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+                  data-i18n="common.next"
                 >
                   التالي
                 </button>
@@ -796,6 +991,7 @@
                   type="button"
                   onclick="prevStep()"
                   class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
+                  data-i18n="common.back"
                 >
                   تراجع
                 </button>
