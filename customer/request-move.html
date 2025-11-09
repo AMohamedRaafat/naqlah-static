@@ -872,13 +872,13 @@
 
               <!-- File Upload Section -->
               <div class="space-y-3">
-                <div>
-                  <label
-                    class="block text-sm font-medium text-gray-700 mb-2"
-                    data-i18n="requestMove.furnitureDetails.valuables.label"
-                  >
-                    هل يوجد قطع ثمينة للنقل؟ <span class="text-red-500">*</span>
-                  </label>
+                <label
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  data-i18n="requestMove.furnitureDetails.valuables.label"
+                >
+                  هل يوجد قطع ثمينة للنقل؟ <span class="text-red-500">*</span>
+                </label>
+                <div class="relative flex-1">
                   <select
                     id="precious-files-select"
                     required
@@ -1057,6 +1057,9 @@
               <!-- Service 5: Disassembly/Assembly -->
 
               <div class="space-y-3">
+                <label class="block text-[16px] font-medium text-[#353535] mb-3 text-right"
+                  >هل هناك حاجة للتركيب؟</label
+                >
                 <div class="relative">
                   <select
                     id="disassembly-select"
@@ -1077,7 +1080,7 @@
                   <!-- Furniture Type Selection -->
                   <div>
                     <label class="block text-[16px] font-medium text-[#353535] mb-3 text-right"
-                      >حدد نوع الفك والتركيب</label
+                      >حدد قطع التركيب</label
                     >
 
                     <div class="flex gap-2 items-center">
