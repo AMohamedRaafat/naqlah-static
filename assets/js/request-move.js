@@ -823,7 +823,13 @@ function updatePreview() {
     servicesList.push(`فك وتركيب - ${items}`);
   }
   $('#preview-services-list').html(servicesList.join('<br>') || '-');
-
+  // Handle Furniture details preview rendering on load
+  $('#preview-furniture-count').text($('#rooms-count').val() || '-');
+  $('#preview-furniture-items').text(
+    furnitureItems.length > 0
+      ? furnitureItems.map(item => `${item.quantity} ${furnitureLabels[item.type]}`).join(' - ')
+      : '-'
+  );
   // Initialize route map
   setTimeout(() => {
     initRouteMap();
@@ -1066,13 +1072,7 @@ $(document).ready(function () {
   toggleElevatorSize('pickup', $('#pickup-elevator').val());
   toggleElevatorSize('destination', $('#destination-elevator').val());
 
-  // Handle Furniture details preview rendering on load
-  $('#preview-furniture-count').text($('#rooms-count').val() || '-');
-  $('#preview-furniture-items').text(
-    furnitureItems.length > 0
-      ? furnitureItems.map(item => `${item.quantity} ${furnitureLabels[item.type]}`).join(' - ')
-      : '-'
-  );
+
 
 });
 
