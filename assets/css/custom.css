@@ -476,8 +476,8 @@ footer > div {
 
 /* Scale down content for screens smaller than 375px to match 375px appearance */
 /* This makes phones with 360px viewport (like Samsung S20) display content at 375px scale */
-@media (max-width: 374px) {
+@media (max-width: 380px) {
   html {
-    zoom: 0.96; /* 360px / 375px = 0.96, scales down to match 375px appearance */
+    zoom: 0.96 !important; /* 360px / 375px = 0.96, scales down to match 375px appearance */
   }
 }
