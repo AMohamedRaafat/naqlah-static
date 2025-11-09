@@ -772,12 +772,13 @@ function updatePreview() {
   // Update date and time
   const time = $('#move-time').val();
   const dateStr = selectedDate
-    ? selectedDate.toLocaleDateString('ar-SA', {
+    ? selectedDate.toLocaleDateString('ar-EG', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-    })
+    }).replace(/\d+/g, num => Number(num).toString())
     : '-';
+
   $('#preview-time').text(`${time} ${selectedAMPM === 'AM' ? 'ص' : 'م'}`);
   $('#preview-date').text(dateStr);
 
@@ -801,6 +802,7 @@ function updatePreview() {
   $('#preview-dest-city').text(destinationLocation.city || 'الرياض');
   $('#preview-dest-address').text(destinationLocation.address || '-');
   $('#preview-dest-floor').text(`طابق ${$('#destination-floor').val() || '-'}`);
+  $('#preview-dest-notes').text($('#destination-notes').val() || '-');
   const destElevatorSize = $('#destination-elevator-size').val();
   const destSizeText = destElevatorSize === 'small' ? 'صغير' :
     destElevatorSize === 'medium' ? 'متوسط' :
@@ -1063,5 +1065,14 @@ $(document).ready(function () {
   // Initialize visibility on load
   toggleElevatorSize('pickup', $('#pickup-elevator').val());
   toggleElevatorSize('destination', $('#destination-elevator').val());
+
+  // Handle Furniture details preview rendering on load
+  $('#preview-furniture-count').text($('#rooms-count').val() || '-');
+  $('#preview-furniture-items').text(
+    furnitureItems.length > 0
+      ? furnitureItems.map(item => `${item.quantity} ${furnitureLabels[item.type]}`).join(' - ')
+      : '-'
+  );
+
 });
 
