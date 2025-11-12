@@ -97,7 +97,7 @@
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
           <i class="icon-language text-lg"></i>
-          <span id="lang-btn">اللغة</span>
+          <span id="lang-btn" data-i18n="common.language">اللغة</span>
         </button>
       </div>
     </aside>
@@ -324,22 +324,32 @@
 
             <!-- Financial breakdown -->
             <div class="rounded-xl overflow-hidden mb-4">
-              <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-                <div class="text-[#9D9D9D]" data-i18n="paymentPage.transportPrice">سعر النقل</div>
-                <div class="text-left font-semibold flex items-center gap-1 justify-end">
+              <div class="flex justify-between gap-2 px-4 py-3 text-[#353535] text-[14px]">
+                <div class="text-[#353535] text-[14px]" data-i18n="paymentPage.transportPrice">
+                  سعر النقل
+                </div>
+                <div
+                  class="text-left font-semibold flex items-center gap-1 justify-end text-[14px]"
+                >
                   780 <span class="icon-riyal w-5 h-5"></span>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-                <div class="text-[#9D9D9D]" data-i18n="paymentPage.vat15">
-                  %15 ضريبة القيمة المضافة
+              <div class="flex justify-between gap-2 px-4 py-3 text-[#353535] text-[14px]">
+                <div class="text-[#353535] text-[14px] flex justify-start">
+                  <span class="text-left" data-i18n="paymentPage.vat15">
+                    ضريبة القيمة المضافة 15%
+                  </span>
                 </div>
-                <div class="text-left font-semibold flex items-center gap-1 justify-end">
+                <div
+                  class="text-left font-semibold flex items-center gap-1 justify-end text-[14px]"
+                >
                   117 <span class="icon-riyal w-5 h-5"></span>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-2 px-4 py-3 text-[#353535]">
-                <div class="text-[#9D9D9D]" data-i18n="paymentPage.total">الإجمالي</div>
+              <div class="flex justify-between gap-2 px-4 py-3 text-[#353535] text-[14px]">
+                <div class="text-[#353535] font-semibold" data-i18n="paymentPage.total">
+                  الإجمالي
+                </div>
                 <div class="text-left font-semibold flex items-center gap-1 justify-end">
                   897 <span class="icon-riyal w-5 h-5"></span>
                 </div>
@@ -347,8 +357,11 @@
               <div class="h-px bg-[#E5E7EB]"></div>
               <div class="px-4 py-3 bg-[#F7FFFD]">
                 <div class="flex items-center justify-between">
-                  <div class="text-[#00B8A9] font-semibold" data-i18n="paymentPage.depositLabel">
-                    %20 عربون من أجرة النقل
+                  <div
+                    class="text-[#353535] font-semibold text-[14px]"
+                    data-i18n="paymentPage.depositLabel"
+                  >
+                    عربون 20% من اجرة النقل
                   </div>
                   <div class="text-[#00B8A9] font-bold flex items-center gap-1">
                     179.4 <span class="icon-riyal w-5 h-5"></span>
@@ -374,7 +387,7 @@
                 <img src="../assets/payments/mastercard.svg" alt="mastercard" class="w-10 h-10" />
 
                 <span class="text-[14px] text-[#353535]" data-i18n="payments.mastercard"
-                  >ماستركارد</span
+                  >ماستر كارد</span
                 >
               </div>
               <input
@@ -433,8 +446,7 @@
             >
               <div class="flex items-center gap-3">
                 <img src="../assets/payments/applepay.svg" alt="applepay" class="w-10 h-10" />
-                <span class="text-[14px] text-[#353535]" data-i18n="payments.applepay"
-                  >أبل باي</span
+                <span class="text-[14px] text-[#353535]" data-i18n="payments.applepay">أبل باي</span
                 >
               </div>
               <input

@@ -8,8 +8,6 @@ const translations = {
       "welcome": "Welcome",
       "next": "Next",
       "back": "Back",
-      "next": "Next",
-      "back": "Back",
       "home": "Home",
       "about": "About",
       "contact": "Contact",
@@ -26,7 +24,9 @@ const translations = {
       "logoutTitle": "Logout",
       "logoutConfirmation": "Are you sure you want to logout from your account?",
       "confirmLogout": "Yes, Logout",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "and": "and",
+      "showMore": "Show More"
     },
     "hero": {
       "title": "Start your order now and enjoy",
@@ -61,7 +61,8 @@ const translations = {
       "messagePlaceholder": "Enter your message here...",
       "sendMessage": "Send Message",
       "ourAddress": "Our Address",
-      "contactUs": "Contact Us"
+      "contactUs": "Contact Us",
+      "messageSentSuccess": "Message sent successfully"
     },
     "banner": {
       "description": "Now with Naqlah, moving your furniture is easier!",
@@ -106,7 +107,33 @@ const translations = {
       "additionalServices": "Additional Services",
       "furnitureDetails": "Furniture Details",
       "location": "Location",
-      "goToDeliveryLocation": "Go to delivery location"
+      "goToDeliveryLocation": "Go to delivery location",
+      "orderTabs": {
+        "executed": "Executed Orders",
+        "quotes": "Price Quotes"
+      }
+    },
+    "companyProfile": {
+      "title": "Company Profile",
+      "companyName": "Company Name",
+      "companyServices": "Company Services",
+      "serviceAC": "AC Disassembly or Furniture Assembly"
+    },
+    "profilePage": {
+      "title": "Profile",
+      "tellUsAboutYou": "Tell us about yourself"
+    },
+    "sendOffer": {
+      "title": "Submit Price Offer"
+    },
+    "viewOffer": {
+      "title": "View Price Offer"
+    },
+    "viewOrder": {
+      "title": "View Order Details"
+    },
+    "orderCompleted": {
+      "title": "Order Management"
     },
     "footer": {
       "companyName": "Naqlah",
@@ -190,6 +217,7 @@ const translations = {
     },
     "orderDetails": {
       "title": "Order Details",
+      "companyName": "Company Name",
       "financialStatus": "Financial status",
       "depositPaid": "deposit paid of",
       "payRemaining": "Pay remaining amount",
@@ -219,7 +247,7 @@ const translations = {
       "customerTab": "Service Seeker",
       "companyTab": "Moving Company",
       "noAccount": "Don't have an account?",
-      "registerNow": "Register Now"
+      "registerNow": "Create Account"
     },
     "requestMove": {
       "firstStepTitle": "Request a move",
@@ -455,7 +483,8 @@ const translations = {
       'about': 'Brief About',
       'aboutPlaceholder': 'Write a brief about yourself',
       'profileImage': 'Profile Image',
-      'changeImage': 'Change Image'
+      'changeImage': 'Change Image',
+      'updateSuccess': 'Your data has been updated successfully'
     },
     'registerCompany': {
       'title': 'Join as a Moving Company',
@@ -635,7 +664,8 @@ const translations = {
         'priceQuoteAccepted': 'When price quotes are accepted',
         'moveCompleted': 'When move is completed'
       },
-      'saveSettings': 'Save Settings'
+      'saveSettings': 'Save Settings',
+      'settingsSaved': 'Settings saved successfully'
     },
     'notificationsPage': {
       'title': 'Notifications',
@@ -673,6 +703,43 @@ const translations = {
           'answer': 'The cost depends on distance, number of items, and additional services like disassembly, assembly, and packaging.'
         }
       ]
+    },
+    'postpone': {
+      'breadcrumb': 'Postpone Order',
+      'title': 'Postpone Order #ORD321564',
+      'selectNewDateTime': 'Please select the new date and time',
+      'time': {
+        'label': 'Time',
+        'note': 'Minor time changes may occur due to traffic or operational schedule adjustments'
+      },
+      'date': {
+        'label': 'Date'
+      },
+      'buttons': {
+        'save': 'Save',
+        'back': 'Back'
+      },
+      'success': {
+        'title': 'Order Postponed Successfully',
+        'message': 'The moving date has been updated to',
+        'ok': 'OK'
+      }
+    },
+    'calendar': {
+      'days': {
+        'sun': 'SUN',
+        'mon': 'MON',
+        'tue': 'TUE',
+        'wed': 'WED',
+        'thu': 'THU',
+        'fri': 'FRI',
+        'sat': 'SAT'
+      }
+    },
+    'orders': {
+      'waitingForStart': 'Waiting to Start',
+      'waitingForDelivery': 'Heading to Delivery Location',
+      'completed': 'Delivered'
     }
   },
   ar: {
@@ -700,6 +767,8 @@ const translations = {
       "logoutConfirmation": "هل أنت متأكد من أنك تريد تسجيل الخروج من حسابك؟",
       "confirmLogout": "نعم الخروج",
       "confirm": "تأكيد",
+      "and": "و",
+      "showMore": "اظهر المزيد"
     },
     "examples": {
       "customerName1": "منصور الفهماني"
@@ -724,7 +793,8 @@ const translations = {
       'about': 'نبذة قصيرة',
       'aboutPlaceholder': 'أكتب نبذة عنك',
       'profileImage': 'صورة العرض',
-      'changeImage': 'تغيير الصورة'
+      'changeImage': 'تغيير الصورة',
+      'updateSuccess': 'تم تحديث بياناتك بنجاح'
     },
 
     "userMenu": {
@@ -763,7 +833,8 @@ const translations = {
       "messagePlaceholder": "أدخل نص رسالتك هنا...",
       "sendMessage": "إرسال الرسالة",
       "ourAddress": "عنواننا",
-      "contactUs": "اتصل بنا"
+      "contactUs": "اتصل بنا",
+      "messageSentSuccess": "تم ارسال الرسالة بنجاح"
     },
     "banner": {
       "description": "الآن مع نقلة نقل عفشك صار أسهل!",
@@ -810,7 +881,7 @@ const translations = {
       "location": "الموقع",
       "goToDeliveryLocation": "التوجه إلى موقع التسليم",
       "cancelOrder": "إلغاء الطلب",
-      "cancelOrderConfirmation": "لقد انتهى الوقت اللازم لاخذ قرار لذلك سيتم الغاء طلب",
+      "cancelOrderConfirmation": "لقد انتهى الوقت اللازم لاخذ قرار لذلك سيتم الغاء طلبك",
       "orderCancelledSuccessfully": "تم إلفاء طلبك بنجاح",
       "orderCancelledMessage": "نأمل أن نخدمك في وقتٍ لاحق, سيتم إسترجاع رسوم النقل حسب سياسة الشركة.",
       "postponeOrder": "تأجيل الطلب؟",
@@ -819,7 +890,7 @@ const translations = {
       "cancel": "تراجع",
       "ok": "حسناً",
       "acceptCompany": "قبول الشركة؟",
-      "acceptCompanyMessage": "بمجرد اعتماد العرض، سيتم إلغاء العروض الأخرى وتثبيت إلى شاشة دفع العربون لتثبيت طلبك، هل أنت متأكد؟",
+      "acceptCompanyMessage": "بمجرد اعتماد العرض، سيتم الغاء العروض الاخرى ونقلك الى شاشة دفع العربون لتثبيت طلبك، هل انت متأكد؟",
       "yes": "نعم",
       "timeRemaining": "متبقي للانتهاء",
       "hours": "س",
@@ -845,7 +916,7 @@ const translations = {
       "contactUs": "تواصل معنا"
     },
     "payments": {
-      "mastercard": "ماستركارد",
+      "mastercard": "ماستر كارد",
       "mada": "مدى",
       "visa": "فيزا كارد",
       "applepay": "أبل باي",
@@ -936,7 +1007,7 @@ const translations = {
       "customerTab": "طالب خدمة",
       "companyTab": "شركة نقل",
       "noAccount": "ليس لديك حساب؟",
-      "registerNow": "سجل الآن"
+      "registerNow": "أنشئ حساب"
     },
     "requestMove": {
       "firstStepTitle": "أطلب نقلة",
@@ -1206,6 +1277,78 @@ const translations = {
           'answer': 'تعتمد التكلفة على المسافة، وعدد القطع، والخدمات الإضافية مثل التفكيك والتركيب والتغليف.'
         }
       ]
+    },
+    'postpone': {
+      'breadcrumb': 'تأجيل الطلب',
+      'title': 'تأجيل الطلب #ORD321564',
+      'selectNewDateTime': 'يرجى تحديد الوقت والتاريخ الجديد',
+      'time': {
+        'label': 'الساعة',
+        'note': 'قد تحدث تغيرات بسيطة في التوقيت بسبب الازدحام أو إعادة تنسيق الجداول التشغيلية'
+      },
+      'date': {
+        'label': 'التاريخ'
+      },
+      'buttons': {
+        'save': 'حفظ',
+        'back': 'تراجع'
+      },
+      'success': {
+        'title': 'تم تأجيل الطلب بنجاح',
+        'message': 'تم تحديث موقع النقل الى',
+        'ok': 'حسناً'
+      }
+    },
+    'calendar': {
+      'days': {
+        'sun': 'أحد',
+        'mon': 'إثنين',
+        'tue': 'ثلاثاء',
+        'wed': 'أربعاء',
+        'thu': 'خميس',
+        'fri': 'جمعة',
+        'sat': 'سبت'
+      }
+    },
+    'orders': {
+      'waitingForStart': 'بإنتظار البدء',
+      'waitingForDelivery': 'التوجة الى موقع التسليم',
+      'completed': 'تم التسليم'
+    },
+    'settingsPage': {
+      'title': 'الإعدادات',
+      'appLanguages': 'لغات التطبيق',
+      'notifications': 'الإشعارات',
+      'notificationSettings': {
+        'priceQuoteAvailable': 'عند توفر عروض الأسعار',
+        'statusUpdates': 'عند تحديث الحالة',
+        'priceQuoteAccepted': 'عند قبول عرض السعر',
+        'moveCompleted': 'عند إنهاء النقل'
+      },
+      'saveSettings': 'حفظ الإعدادات',
+      'settingsSaved': 'تم حفظ الاعدادات'
+    },
+    'companyProfile': {
+      'title': 'ملف الشركة',
+      'companyName': 'الميثاق',
+      'companyServices': 'خدمات شركة النقل',
+      'serviceAC': 'تفكيك مكيف أو تركيب اثاث'
+    },
+    'profilePage': {
+      'title': 'الملف الشخصي',
+      'tellUsAboutYou': 'أخبرنا عن نفسك'
+    },
+    'sendOffer': {
+      'title': 'تقديم عرض السعر'
+    },
+    'viewOffer': {
+      'title': 'عرض سعر الطلب'
+    },
+    'viewOrder': {
+      'title': 'عرض تفاصيل الطلب'
+    },
+    'orderCompleted': {
+      'title': 'إدارة الطلب'
     }
   }
 };

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لوحة التحكم - Naqlah</title>
+    <title data-i18n="navigation.dashboard">لوحة التحكم - Naqlah</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,6 +15,16 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Owl Carousel CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
     />
 
     <!-- Leaflet CSS -->
@@ -137,7 +147,7 @@
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
           <i class="icon-language w-6 h-6"></i>
-          <span id="lang-btn">English</span>
+          <span id="lang-btn" data-i18n="common.language">English</span>
         </button>
         <button
           onclick="showModal('logout-modal')"
@@ -379,12 +389,14 @@
           <button
             class="tab-btn text-[#01B4AA] py-3 rounded-lg border border-[#01B4AA]"
             data-filter="ongoing"
+            data-i18n="dashboard.orderTabs.executed"
           >
             الطلبات المنفذة
           </button>
           <button
             class="tab-btn text-[#353535] py-3 rounded-lg border border-transparent"
             data-filter="quotes"
+            data-i18n="dashboard.orderTabs.quotes"
           >
             عروض الأسعار
           </button>
@@ -441,7 +453,7 @@
                 <div class="bg-white rounded-2xl p-4 shadow-sm border border-[#E9E9E9]">
                   <div class="flex items-start justify-between mb-3">
                     <div class="text-right">
-                      <p class="text-[#353535] text-[14px] font-medium">منصور الفهماوي</p>
+                      <p class="text-[#353535] text-[14px] font-medium">منزل جديد</p>
                       <p class="text-[#868686] text-[12px]">#ORD64893</p>
                     </div>
                     <span
@@ -469,12 +481,12 @@
 
                   <div class="rounded-lg bg-[#F7F7F7] p-3 px-2 space-y-3">
                     <button
-                      onclick="toggleOngoingDetails(1)"
+                      onclick="toggleOngoingDetails()"
                       id="order-details-toggle"
                       class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B]"
                     >
                       <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
-                      <i class="fas fa-chevron-down" id="details-icon"></i>
+                      <i class="fas fa-chevron-down text-[#C0C0C0]" id="details-icon"></i>
                     </button>
                     <div id="ongoing-details-1" class="hidden px-2">
                       <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
@@ -489,6 +501,7 @@
                             <div class="space-y-1">
                               <p>منصور الفهماوي</p>
                               <p>598839405</p>
+                              <p>منزل جديد</p>
                             </div>
                           </div>
                           <div class="bg-white rounded-lg p-3">
@@ -537,23 +550,18 @@
                         <!-- Services -->
                         <div class="bg-white rounded-lg p-3">
                           <h5
-                            class="text-[14px] font-medium text-[#3C3D41] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            class="text-[14px] font-medium text-[#4B4B4B] mb-2 text-right border-b border-[#DFDFDF] py-3"
+                            data-i18n="dashboard.additionalServices"
                           >
                             الخدمات الإضافية
                           </h5>
-                          <div class="flex flex-wrap gap-2">
-                            <span
-                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                              >تغليف محكم</span
-                            >
-                            <span
-                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                              >تأمين ضد الفقد والكسر</span
-                            >
-                            <span
-                              class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                              >فك وتركيب: 3 مكيف - 3 دواليب - 1 مكتب</span
-                            >
+                          <div class="space-y-1 text-[13px] text-[#868686] text-right">
+                            <p>تغليف محكم</p>
+                            <p>تأمين ضد الفقد والكسر</p>
+                            <p class="pt-1">
+                              <span class="font-medium text-[#4B4B4B]">فك وتركيب:</span>
+                            </p>
+                            <p>3 مكيف، 3 دواليب، 4 سرير، 1 مكتب</p>
                           </div>
                         </div>
                       </div>
@@ -573,7 +581,7 @@
                 <div class="flex items-start justify-between mb-3">
                   <div class="text-right">
                     <h4 class="text-[14px] font-medium text-[#4B4B4B]" id="order-customer-name">
-                      منصور الفهماوي
+                      منزل العائلة
                     </h4>
                     <p class="text-[12px] text-[#868686]" id="order-number">#ORD938274</p>
                   </div>
@@ -593,7 +601,7 @@
                     class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B]"
                   >
                     <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
-                    <i class="fas fa-chevron-down" id="details-icon"></i>
+                    <i class="fas fa-chevron-down text-[#C0C0C0]" id="details-icon"></i>
                   </button>
 
                   <div id="order-details" class="hidden grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -699,23 +707,52 @@
                         <p>5 غرف</p>
                         <p>2 صالة، 3 مكيف، 3 دواليب، 4 سرير، 1 مكتب، 2 سجاد</p>
 
-                        <!-- Furniture Images -->
-                        <div class="grid grid-cols-3 gap-2 pt-2">
-                          <img
-                            src="assets/furniture/sample1.jpg"
-                            alt="Furniture"
-                            class="w-full h-20 object-cover rounded-lg"
-                          />
-                          <img
-                            src="assets/furniture/sample2.jpg"
-                            alt="Furniture"
-                            class="w-full h-20 object-cover rounded-lg"
-                          />
-                          <img
-                            src="assets/furniture/sample3.jpg"
-                            alt="Furniture"
-                            class="w-full h-20 object-cover rounded-lg"
-                          />
+                        <!-- Furniture Images Carousel -->
+                        <div class="pt-2">
+                          <div class="owl-carousel furniture-carousel">
+                            <div class="item">
+                              <img
+                                src="assets/furniture/sample1.jpg"
+                                alt="Furniture"
+                                class="w-full h-20 object-cover rounded-lg"
+                              />
+                            </div>
+                            <div class="item">
+                              <img
+                                src="assets/furniture/sample2.jpg"
+                                alt="Furniture"
+                                class="w-full h-20 object-cover rounded-lg"
+                              />
+                            </div>
+                            <div class="item">
+                              <img
+                                src="assets/furniture/sample3.jpg"
+                                alt="Furniture"
+                                class="w-full h-20 object-cover rounded-lg"
+                              />
+                            </div>
+                            <div class="item">
+                              <img
+                                src="assets/furniture/sample1.jpg"
+                                alt="Furniture"
+                                class="w-full h-20 object-cover rounded-lg"
+                              />
+                            </div>
+                            <div class="item">
+                              <img
+                                src="assets/furniture/sample2.jpg"
+                                alt="Furniture"
+                                class="w-full h-20 object-cover rounded-lg"
+                              />
+                            </div>
+                            <div class="item">
+                              <img
+                                src="assets/furniture/sample3.jpg"
+                                alt="Furniture"
+                                class="w-full h-20 object-cover rounded-lg"
+                              />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -742,11 +779,11 @@
                 id="company-offers-toggle"
                 class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
               >
+                <i class="fas fa-chevron-up text-[#C0C0C0]" id="offers-icon"></i>
                 <h4 class="text-[14px] font-medium text-[#4B4B4B]">
                   <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
                   <span class="text-[#868686]">(4)</span>
                 </h4>
-                <i class="fas fa-chevron-up" id="offers-icon"></i>
               </button>
 
               <!-- Company Offers List -->
@@ -833,7 +870,7 @@
 
                     <!-- Description -->
                     <div id="company-description-1" class="hidden">
-                      <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
+                      <p class="text-[12px] text-[#868686] text-start leading-relaxed mt-3">
                         مرحبًا نشكرك على اهتمامك بخدماتنا تميز بإحترافية عالية في نقل الأثاث دون
                         خدوش أو تلف، مع توفير تغليف آمن لحماية ممتلكاتك والتزام بالمواعيد بدقة لضمان
                         راحتك. أسعارنا شفافة بدون رسوم مخفية. بالإضافة إلى تأمين لحماية الأثاث أثناء
@@ -857,7 +894,7 @@
                         <div class>
                           <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
-                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">عبدك</h5>
+                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">شركة النقل</h5>
                               <div class="flex items-center gap-1">
                                 <span class="text-[12px] text-[#868686]">4.4</span>
                                 <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -915,7 +952,7 @@
 
                     <!-- Description -->
                     <div id="company-description-2" class="hidden">
-                      <p class="text-[12px] text-[#868686] text-center leading-relaxed mt-3">
+                      <p class="text-[12px] text-[#868686] text-start leading-relaxed mt-3">
                         نقدم خدمات نقل أثاث احترافية مع فريق متخصص وخبرة طويلة في المجال. نضمن لك
                         سلامة ممتلكاتك وسرعة في التنفيذ.
                       </p>
@@ -926,20 +963,10 @@
               </div>
               <button
                 class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
+                onclick="window.location.href='./quotes.html'"
                 data-i18n="dashboard.showMore"
               >
-                <span class="inline-flex items-center gap-1">
-                  <span class="mx-2 font-regular">أظهر المزيد</span>
-                  <span class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"></span>
-                  <span
-                    class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
-                    style="animation-delay: 0.2s"
-                  ></span>
-                  <span
-                    class="w-1.5 h-1.5 bg-[#00B8A9] rounded-full animate-pulse"
-                    style="animation-delay: 0.4s"
-                  ></span>
-                </span>
+                <span class="mx-2 font-regular">أظهر المزيد</span>
               </button>
             </div>
           </div>
@@ -970,8 +997,8 @@
           class="text-[#737373] text-[14px] text-center mb-4"
           data-i18n="dashboard.acceptCompanyMessage"
         >
-          بمجرد اعتماد العرض، سيتم إلغاء العروض الأخرى وتثبيت إلى شاشة دفع العربون لتثبيت طلبك، هل
-          أنت متأكد؟
+          بمجرد اعتماد العرض، سيتم الغاء العروض الاخرى ونقلك الى شاشة دفع العربون لتثبيت طلبك، هل
+          انت متأكد؟
         </p>
 
         <!-- Buttons -->
@@ -1095,7 +1122,7 @@
           class="text-gray-600 text-center mb-6 text-[14px]"
           data-i18n="dashboard.cancelOrderConfirmation"
         >
-          لقد انتهى الوقت اللازم لاخذ قرار لذلك سيتم الغاء طلب
+          لقد انتهى الوقت اللازم لاخذ قرار لذلك سيتم الغاء طلبك
         </p>
         <div class="flex gap-3">
           <button
@@ -1191,8 +1218,37 @@
 
     <!-- Scripts -->
     <script src="../assets/js/translations.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/dashboard.js"></script>
+    <script>
+      // Initialize Furniture Carousel
+      $(document).ready(function () {
+        $('.furniture-carousel').owlCarousel({
+          items: 3,
+          margin: 8,
+          loop: true,
+          nav: false,
+          dots: false,
+          autoplay: false,
+          touchDrag: true,
+          mouseDrag: true,
+          pullDrag: true,
+          responsive: {
+            0: {
+              items: 2,
+              margin: 6,
+            },
+            640: {
+              items: 3,
+              margin: 8,
+            },
+          },
+        });
+      });
+    </script>
     <script>
       // Handle accept confirmation
       function confirmAccept() {

@@ -104,7 +104,7 @@
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
           <i class="icon-language w-6 h-6"></i>
-          <span id="lang-btn">اللغة</span>
+          <span id="lang-btn" data-i18n="common.language">اللغة</span>
         </button>
       </div>
     </aside>
@@ -130,6 +130,7 @@
             </button>
           </div>
         </div>
+        <!-- Mobile Sidebar -->
         <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
           <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
           <div
@@ -142,7 +143,7 @@
                   <i class="fas fa-times text-xl"></i>
                 </button>
               </div>
-              <nav class="flex-1 px-4">
+              <nav class="flex-1 px-4 overflow-y-auto">
                 <ul class="space-y-0">
                   <li>
                     <a
@@ -347,7 +348,7 @@
             </div>
 
             <!-- Date Section -->
-            <div>
+            <div class="mt-3">
               <label
                 class="block text-[16px] font-medium text-[#353535] mb-3 text-right"
                 data-i18n="postpone.date.label"
@@ -545,6 +546,15 @@
     <script src="../assets/js/translations.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
+      // Ensure mobile menu is properly hidden on load and handles overflow
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenu = document.getElementById('mobile-menu-sidebar');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+
       let selectedDate = null;
       let selectedAMPM = 'AM';
       let currentCalendarMonth = new Date().getMonth();

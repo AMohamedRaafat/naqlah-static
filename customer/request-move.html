@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>اطلب نقلة - Naqlah</title>
+    <title data-i18n="navigation.requestMove">اطلب نقلة - Naqlah</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -189,13 +189,12 @@
         <div class="container mx-auto max-w-4xl px-4 py-4">
           <!-- Breadcrumb -->
           <div class="mb-4 text-sm text-[#7E7E7E]">
-            <a href="index.html" class="hover:text-[#00B8A9]" data-i18n="navigation.home"
-              >الرئيسية</a
-            >
-            <span class="mx-2">—</span>
-            <span class="text-[#312E37] font-medium" data-i18n="navigation.requestMove"
-              >اطلب نقلة</span
-            >
+            <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard">لوحة التحكم</a
+          >
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium" data-i18n="navigation.requestMove"
+            >اطلب نقلة</span
+          >
           </div>
 
           <!-- Progress Bar -->
@@ -293,7 +292,7 @@
             </button>
             <button
               type="button"
-              onclick="window.location.href='index.html'"
+              onclick="window.location.href='dashboard.html'"
               class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-200"
             >
               تراجع
@@ -525,7 +524,7 @@
 
             <!-- Selected Location Display -->
             <div id="destination-location-display" class="mt-2 p-3 border-b border-gray-200 hidden">
-              <p class="font-semibold text-[#353535] mb-2">النتائج</p>
+              <p class="font-semibold text-[#353535] mb-2" data-i18n="requestMove.searchResults">النتائج</p>
               <div class="flex items-start gap-3">
                 <i
                   class="fas fa-map-marker-alt w-9 h-9 text-[#00B8A9] flex-shrink-0 border border-gray-200 rounded-full p-2 flex items-center justify-center"
@@ -1429,10 +1428,11 @@
             />
             <label for="agreeTerms" class="text-sm text-gray-700 cursor-pointer">
               <button type="button" onclick="showModal('privacy-terms-modal')" class="text-start">
-                <span data-i18n="registerCompany.agreeTerms">من خلال إنشاء حساب، أوافق على</span>
+                <span data-i18n="registerCompany.agreeTerms">أوافق على</span>
                 <span class="text-[#00B8a9]"
-                  >سياسة الاستخدام <span class="text-gray-700">و</span> شروط الخصوصية</span
+                  >شروط الاستخدام <span class="text-gray-700">و</span> سياسة الخصوصية</span
                 >
+                الخاصة بنا
               </button>
             </label>
           </div>
@@ -1472,7 +1472,7 @@
           <div class="bg-white rounded-2xl p-8 shadow-sm">
             <!-- Processing Icon -->
             <div class="flex justify-center mb-6">
-              <img src="assets/steps/process.svg" alt="Processing" class="w-32 h-32" />
+              <img src="../assets/steps/process.svg" alt="Processing" class="w-32 h-32" />
             </div>
 
             <!-- Title -->
@@ -1506,7 +1506,7 @@
                 متابعة الطلب
               </button>
               <button
-                onclick="window.location.href='index.html'"
+                onclick="window.location.href='dashboard.html'"
                 class="w-full bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
               >
                 العودة إلى الرئيسية
@@ -1773,7 +1773,7 @@
                 href="../company/register-company.html"
                 class="text-[#00B8A9] font-semibold hover:underline"
                 data-i18n="login.registerNow"
-                >سجل الآن</a
+                >أنشئ حساب</a
               >
             </p>
           </form>

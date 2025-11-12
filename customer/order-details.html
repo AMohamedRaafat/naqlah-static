@@ -103,7 +103,7 @@
           onclick="showModal('language-modal')"
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
-          <i class="fas fa-language text-lg"></i><span id="lang-btn">English</span>
+          <i class="fas fa-language text-lg"></i><span id="lang-btn" data-i18n="common.language">English</span>
         </button>
       </div>
     </aside>
@@ -388,7 +388,7 @@
                   href="company-profile.html"
                   class="text-[#353535] hover:text-[#00B8A9] transition-colors"
                   id="company-name"
-                  >فاست موف لنقل الأثاث</a
+                  data-i18n="orderDetails.companyName">فاست موف لنقل الأثاث</a
                 >
                 <div
                   class="w-16 h-10 bg-gray-100 rounded-lg border border-[#E5E7EB] flex items-center justify-center"
@@ -397,8 +397,7 @@
                 </div>
               </div>
               <div class="flex items-center justify-between gap-2">
-                <span class="text-[#7E7E7E]" data-i18n="orderDetails.contactNumber"
-                  >رقم التواصل</span
+                <span class="text-[#7E7E7E]" data-i18n="orderDetails.contactNumber">رقم التواصل</span
                 >
                 <a
                   href="tel:+966958364789"
@@ -437,8 +436,7 @@
           <div class="bg-white my-4 flex items-center justify-center">
             <button id="open-report-modal" class="flex items-center gap-2">
               <img src="../assets/icons/flag.svg" alt="icon" class="w-6 h-5" />
-              <span class="text-[#EF4351]" data-i18n="orderDetails.reportProblem"
-                >إبلاغ عن مشكلة</span
+              <span class="text-[#EF4351]" data-i18n="orderDetails.reportProblem">إبلاغ عن مشكلة</span
               >
             </button>
           </div>

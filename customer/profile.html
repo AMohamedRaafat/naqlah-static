@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الملف الشخصي - Naqlah</title>
+    <title data-i18n="profilePage.title">الملف الشخصي - Naqlah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -200,11 +200,11 @@
           >
             <i class="fas fa-camera text-white text-4xl"></i>
           </button>
-          <p class="text-gray-800 font-medium text-lg">أخبرنا عن نفسك</p>
+          <p class="text-gray-800 font-medium text-lg" data-i18n="profilePage.tellUsAboutYou">أخبرنا عن نفسك</p>
         </div>
         <form id="profile-form" class="space-y-5">
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">الإسم الأول</label
+            <label class="block text-gray-800 font-medium mb-2 text-right" data-i18n="account.firstName">الإسم الأول</label
             ><input
               type="text"
               placeholder="ادخل الإسم"
@@ -212,7 +212,7 @@
             />
           </div>
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">الإسم الأخير</label
+            <label class="block text-gray-800 font-medium mb-2 text-right" data-i18n="account.lastName">الإسم الأخير</label
             ><input
               type="text"
               placeholder="ادخل الإسم"
@@ -220,7 +220,7 @@
             />
           </div>
           <div>
-            <label class="block text-gray-800 font-medium mb-2 text-right">رقم الهاتف</label
+            <label class="block text-gray-800 font-medium mb-2 text-right" data-i18n="account.phoneNumber">رقم الهاتف</label
             ><input
               type="tel"
               value="3384572266"
@@ -238,15 +238,15 @@
                 class="w-5 h-5 text-[#00B8A9] border-[#E7E7E7] rounded focus:ring-[#00B8A9] mt-0.5"
               />
               <label for="agreeTerms" class="text-sm text-gray-700 cursor-pointer leading-relaxed">
-                من خلال إنشاء حساب أوافق على
+                <span data-i18n="registerCompany.agreeTerms">من خلال إنشاء حساب، أوافق على</span>
                 <a href="../terms.html" class="text-[#00B8A9] font-medium underline"
-                  >شروط الإستخدام</a
+                  data-i18n="footer.termsConditions">شروط الاستخدام</a
                 >
-                و
+                <span data-i18n="common.and">و</span>
                 <a href="../privacy.html" class="text-[#00B8A9] font-medium underline"
-                  >سياسة الخصوصية</a
+                  data-i18n="footer.privacyPolicy">سياسة الخصوصية</a
                 >
-                الخاصة بنا
+                <span data-i18n="registerCompany.agreeTermsSuffix">الخاصة بنا</span>
               </label>
             </div>
           </div>
@@ -512,7 +512,7 @@
                 href="../company/register-company.html"
                 class="text-[#00B8A9] font-semibold hover:underline"
                 data-i18n="login.registerNow"
-                >سجل الآن</a
+                >أنشئ حساب</a
               >
             </p>
           </form>

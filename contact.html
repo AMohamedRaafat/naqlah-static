@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><span data-i18n="contact.title">تواصل معنا</span></title>
+    <title>تواصل معنا</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/custom.css" />
     <script src="./assets/js/tailwind-config.js"></script>
@@ -146,13 +146,18 @@
               />
             </div>
             <div class="space-y-2">
-              <label for="email" data-i18n="contact.email">البريد الإلكتروني</label>
+              <label for="email" data-i18n="contact.email"
+                >البريد الإلكتروني <span class="text-red-500">*</span></label
+              >
               <input
                 type="email"
+                id="contact-email"
+                required
                 data-i18n-placeholder="contact.emailPlaceholder"
                 placeholder="أدخل البريد الإلكتروني"
                 class="w-full rounded-xl border border-[#E5E7EB] px-3 py-3 outline-none focus:border-[#00B8A9]"
               />
+              <p id="contact-email-error" class="text-red-500 text-sm mt-1 hidden"></p>
             </div>
             <div class="relative space-y-2">
               <label for="messageTitle" data-i18n="contact.messageTitle">عنوان الرسالة</label>
@@ -236,6 +241,9 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/translations.js"></script>
+    <script src="./assets/js/app.js"></script>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -248,6 +256,51 @@
         el.classList.toggle('hidden');
         el.classList.toggle('flex');
       }
+
+      // Email Validation
+      $(document).ready(function () {
+        // Validate Email (real-time)
+        $('#contact-email').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#contact-email-error').text('يرجى إدخال البريد الإلكتروني').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (!validateEmail(value)) {
+            $('#contact-email-error').text('البريد الإلكتروني غير صحيح').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#contact-email-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate and submit on button click
+        $('button[data-i18n="contact.sendMessage"]').on('click', function (e) {
+          e.preventDefault();
+
+          const email = $('#contact-email').val().trim();
+          if (!email) {
+            $('#contact-email-error').text('يرجى إدخال البريد الإلكتروني').removeClass('hidden');
+            $('#contact-email').addClass('border-red-500');
+            return false;
+          } else if (!validateEmail(email)) {
+            $('#contact-email-error').text('البريد الإلكتروني غير صحيح').removeClass('hidden');
+            $('#contact-email').addClass('border-red-500');
+            return false;
+          }
+
+          // If validation passes, show success toast and reset form
+          showNotification(t('contact.messageSentSuccess') || 'تم ارسال الرسالة بنجاح', 'success');
+
+          // Reset form
+          $('input, textarea, select').val('');
+          $('#contact-email-error').addClass('hidden');
+          $('#contact-email').removeClass('border-red-500');
+
+          // Here you would normally submit to server
+          // Example: $.post('/api/contact', formData, function(response) { ... });
+        });
+      });
       (function () {
         if (typeof L === 'undefined') return;
         var center = [24.7136, 46.6753];

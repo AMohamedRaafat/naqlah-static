@@ -174,17 +174,16 @@
           <div class="border rounded-2xl p-4">
             <button
               id="lang-ar"
-              class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-[#F8FAFC]"
+              class="w-full flex items-center justify-between px-4 py-3 rounded-xl"
             >
-              <span class="text-[#00B8A9] font-semibold">العربية</span>
-              <i class="fas fa-check text-[#00B8A9]"></i>
+              <span>العربية</span>
             </button>
             <div class="my-3 h-px bg-gray-200"></div>
             <button
               id="lang-en"
               class="w-full flex items-center justify-between px-4 py-3 rounded-xl"
             >
-              <span class="text-gray-700">English</span>
+              <span>English</span>
             </button>
           </div>
         </section>
@@ -264,28 +263,85 @@
         el.classList.toggle('hidden');
         el.classList.toggle('flex');
       }
-      // simple language switch highlight
-      (function () {
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/translations.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Language switcher functionality
         var ar = document.getElementById('lang-ar');
         var en = document.getElementById('lang-en');
-        if (!ar || !en) return;
-        function set(lang) {
-          if (lang === 'ar') {
-            ar.classList.add('bg-[#F8FAFC]');
-            ar.querySelector('span').classList.add('text-[#00B8A9]');
-            en.classList.remove('bg-[#F8FAFC]');
-          } else {
-            en.classList.add('bg-[#F8FAFC]');
-            ar.classList.remove('bg-[#F8FAFC]');
+
+        if (ar && en) {
+          // Get current language
+          var currentLang = localStorage.getItem('locale') || 'ar';
+
+          // Function to update visual state
+          function updateVisualState(lang) {
+            if (lang === 'ar') {
+              ar.classList.add('bg-[#F8FAFC]');
+              ar.querySelector('span').classList.add('text-[#00B8A9]', 'font-semibold');
+              ar.querySelector('span').classList.remove('text-gray-700');
+              if (!ar.querySelector('i.fa-check')) {
+                var checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check text-[#00B8A9]';
+                ar.appendChild(checkIcon);
+              }
+
+              en.classList.remove('bg-[#F8FAFC]');
+              en.querySelector('span').classList.remove('text-[#00B8A9]', 'font-semibold');
+              en.querySelector('span').classList.add('text-gray-700');
+              var enCheck = en.querySelector('i.fa-check');
+              if (enCheck) enCheck.remove();
+            } else {
+              en.classList.add('bg-[#F8FAFC]');
+              en.querySelector('span').classList.add('text-[#00B8A9]', 'font-semibold');
+              en.querySelector('span').classList.remove('text-gray-700');
+              if (!en.querySelector('i.fa-check')) {
+                var checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check text-[#00B8A9]';
+                en.appendChild(checkIcon);
+              }
+
+              ar.classList.remove('bg-[#F8FAFC]');
+              ar.querySelector('span').classList.remove('text-[#00B8A9]', 'font-semibold');
+              ar.querySelector('span').classList.add('text-gray-700');
+              var arCheck = ar.querySelector('i.fa-check');
+              if (arCheck) arCheck.remove();
+            }
           }
+
+          // Set initial state
+          updateVisualState(currentLang);
+
+          // Add click handlers
+          ar.addEventListener('click', function () {
+            if (currentLang !== 'ar') {
+              setLanguage('ar');
+              updateVisualState('ar');
+              currentLang = 'ar';
+            }
+          });
+
+          en.addEventListener('click', function () {
+            if (currentLang !== 'en') {
+              setLanguage('en');
+              updateVisualState('en');
+              currentLang = 'en';
+            }
+          });
         }
-        ar.addEventListener('click', function () {
-          set('ar');
+
+        // Handle save settings button click
+        $('button[data-i18n="settingsPage.saveSettings"]').on('click', function (e) {
+          e.preventDefault();
+
+          // Here you would normally save the settings
+          // For now, just show success toast
+          showNotification(t('settingsPage.settingsSaved') || 'تم حفظ الاعدادات', 'success');
         });
-        en.addEventListener('click', function () {
-          set('en');
-        });
-      })();
+      });
     </script>
   </body>
 </html>

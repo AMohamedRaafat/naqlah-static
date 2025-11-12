@@ -265,7 +265,7 @@
         class="container bg-white mx-auto px-4 max-w-2xl py-6 rounded-xl"
         id="register-company-container"
       >
-        <form id="register-company-form" class="space-y-3">
+        <form id="customer-account-form" class="space-y-3">
           <!-- Profile Image -->
           <div class="flex flex-row items-center justify-between">
             <div class="relative flex items-center gap-4">
@@ -292,31 +292,39 @@
               <label
                 class="block text-[#353535] font-medium text-[14px]"
                 data-i18n="account.firstName"
-                >الإسم الأول</label
+                >الإسم الأول <span class="text-red-500">*</span></label
               >
               <input
+                id="firstName"
+                required
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
               />
+              <p id="firstName-error" class="text-red-500 text-sm mt-1 hidden"></p>
             </div>
             <div class="space-y-2">
               <label
                 class="block text-[#353535] font-medium text-[14px]"
                 data-i18n="account.lastName"
-                >الإسم الأخير</label
+                >الإسم الأخير <span class="text-red-500">*</span></label
               >
               <input
+                id="lastName"
+                required
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
               />
+              <p id="lastName-error" class="text-red-500 text-sm mt-1 hidden"></p>
             </div>
           </div>
 
           <!-- City -->
           <div class="space-y-2">
             <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.city"
-              >المدينة</label
+              >المدينة <span class="text-red-500">*</span></label
             >
             <div class="relative">
               <select
+                id="city"
+                required
                 class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg-white"
               >
                 <option value="" data-i18n="registerCompany.selectCity">اختر المدينة</option>
@@ -327,38 +335,21 @@
                 class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
               ></i>
             </div>
+            <p id="city-error" class="text-red-500 text-sm mt-1 hidden"></p>
           </div>
 
           <!-- Email -->
           <div class="space-y-2">
             <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.email"
-              >البريد الإلكتروني</label
+              >البريد الإلكتروني <span class="text-red-500">*</span></label
             >
             <input
               type="email"
+              id="email"
+              required
               class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
             />
-          </div>
-
-          <!-- Password -->
-          <div class="space-y-2">
-            <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.password"
-              >الرمز السري</label
-            >
-            <div class="relative">
-              <input
-                type="password"
-                id="password"
-                class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9]"
-              />
-              <button
-                type="button"
-                onclick="togglePasswordVisibility('password')"
-                class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 password-toggle"
-              >
-                <i class="fas fa-eye"></i>
-              </button>
-            </div>
+            <p id="email-error" class="text-red-500 text-sm mt-1 hidden"></p>
           </div>
 
           <!-- Phone -->
@@ -366,7 +357,7 @@
             <label
               class="block text-[#353535] font-medium text-[14px]"
               data-i18n="account.phoneNumber"
-              >رقم الهاتف</label
+              >رقم الهاتف <span class="text-red-500">*</span></label
             >
             <div class="flex" dir="ltr">
               <span
@@ -376,10 +367,12 @@
               <input
                 type="tel"
                 id="phoneNumber"
+                required
                 maxlength="9"
                 class="flex-1 px-4 py-3 border border-[#EDEDED] rounded-r-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right"
               />
             </div>
+            <p id="phoneNumber-error" class="text-red-500 text-sm mt-1 hidden"></p>
           </div>
 
           <!-- Expected Services -->
@@ -436,7 +429,8 @@
       </div>
     </main>
 
-    <script src="../assets/js/register-company.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
     <script>
       function toggleMobileMenu() {
         var el = document.getElementById('mobile-menu-sidebar');
@@ -449,6 +443,206 @@
         if (!i) return;
         i.type = i.type === 'password' ? 'text' : 'password';
       }
+
+      // Form Validation
+      $(document).ready(function () {
+        const form = $('#customer-account-form');
+
+        // Services management (for customer account)
+        let selectedServices = [];
+        const serviceLabels = {
+          disassembly: 'تفكيك وتركيب',
+          packing: 'تغليف محكم',
+          moving: 'نقل بين مدن',
+        };
+
+        // Function to render selected services as chips
+        function renderServices() {
+          const container = $('#selected-services');
+          container.empty();
+          selectedServices.forEach((service) => {
+            const chip = $(`
+              <div class="flex items-center gap-2 px-3 py-2 bg-white border border-[#EDEDED] rounded-lg text-sm">
+                <button
+                  type="button"
+                  onclick="removeService('${service}')"
+                  class="text-[#00B8A9] hover:text-red-500 transition-colors"
+                >
+                  <i class="fas fa-times"></i>
+                </button>
+                <span class="text-[#353535]">${serviceLabels[service]}</span>
+              </div>
+            `);
+            container.append(chip);
+          });
+        }
+
+        // Function to remove service
+        window.removeService = function (service) {
+          selectedServices = selectedServices.filter((s) => s !== service);
+          renderServices();
+        };
+
+        // Handle service selection from dropdown
+        $('#services-select').on('change', function () {
+          const value = $(this).val();
+          $(this).val('');
+          if (!value || selectedServices.includes(value)) {
+            if (selectedServices.includes(value)) {
+              showNotification('هذه الخدمة مضافة بالفعل', 'warning');
+            }
+            return;
+          }
+          selectedServices.push(value);
+          renderServices();
+        });
+
+        // Validate First Name
+        $('#firstName').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#firstName-error').text('يرجى إدخال الإسم الأول').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#firstName-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Last Name
+        $('#lastName').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#lastName-error').text('يرجى إدخال الإسم الأخير').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#lastName-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate City
+        $('#city').on('change', function () {
+          const value = $(this).val();
+          if (!value) {
+            $('#city-error').text('يرجى اختيار المدينة').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#city-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Email
+        $('#email').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#email-error').text('يرجى إدخال البريد الإلكتروني').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (!validateEmail(value)) {
+            $('#email-error').text('البريد الإلكتروني غير صحيح').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#email-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Phone (real-time like email)
+        $('#phoneNumber').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#phoneNumber-error').text('يرجى إدخال رقم الهاتف').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (value.startsWith('1')) {
+            $('#phoneNumber-error').text('رقم الهاتف يجب ان يبدأ ب 5').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (!validatePhone(value)) {
+            $('#phoneNumber-error').text('رقم الهاتف غير صحيح').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#phoneNumber-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        form.on('submit', function (e) {
+          e.preventDefault();
+          let hasError = false;
+
+          // Clear all previous errors
+          $('.text-red-500.text-sm').addClass('hidden');
+          $('input, select, textarea').removeClass('border-red-500');
+
+          // Validate First Name
+          const firstName = $('#firstName').val().trim();
+          if (!firstName) {
+            $('#firstName-error').text('يرجى إدخال الإسم الأول').removeClass('hidden');
+            $('#firstName').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Last Name
+          const lastName = $('#lastName').val().trim();
+          if (!lastName) {
+            $('#lastName-error').text('يرجى إدخال الإسم الأخير').removeClass('hidden');
+            $('#lastName').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate City
+          const city = $('#city').val();
+          if (!city) {
+            $('#city-error').text('يرجى اختيار المدينة').removeClass('hidden');
+            $('#city').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Email
+          const email = $('#email').val().trim();
+          if (!email) {
+            $('#email-error').text('يرجى إدخال البريد الإلكتروني').removeClass('hidden');
+            $('#email').addClass('border-red-500');
+            hasError = true;
+          } else if (!validateEmail(email)) {
+            $('#email-error').text('البريد الإلكتروني غير صحيح').removeClass('hidden');
+            $('#email').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Phone
+          const phone = $('#phoneNumber').val().trim();
+          if (!phone) {
+            $('#phoneNumber-error').text('يرجى إدخال رقم الهاتف').removeClass('hidden');
+            $('#phoneNumber').addClass('border-red-500');
+            hasError = true;
+          } else if (!validatePhone(phone)) {
+            $('#phoneNumber-error').text('رقم الهاتف غير صحيح').removeClass('hidden');
+            $('#phoneNumber').addClass('border-red-500');
+            hasError = true;
+          }
+
+          if (hasError) {
+            // Show general error message
+            const errorMsg = $(
+              '<div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4 text-right">يرجى إدخال الحقول المطلوبة</div>'
+            );
+            form.prepend(errorMsg);
+            setTimeout(function () {
+              errorMsg.fadeOut(function () {
+                $(this).remove();
+              });
+            }, 5000);
+            return false;
+          }
+
+          // If validation passes, show success toast
+          showNotification(t('account.updateSuccess') || 'تم تحديث بياناتك بنجاح', 'success');
+
+          // Here you would normally submit to server
+          // form[0].submit();
+        });
+      });
     </script>
   </body>
 </html>

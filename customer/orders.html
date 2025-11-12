@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الطلبات - Naqlah</title>
+    <title data-i18n="navigation.orders">الطلبات - Naqlah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -113,7 +113,7 @@
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
           <i class="icon-language w-6 h-6"></i>
-          <span id="lang-btn">اللغة</span>
+          <span id="lang-btn" data-i18n="common.language">اللغة</span>
         </button>
       </div>
     </aside>
@@ -123,7 +123,7 @@
       <!-- Mobile Navbar -->
       <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
-          <h1 class="text-lg font-semibold">الطلبات الجارية والمنتهية</h1>
+          <h1 class="text-lg font-semibold" data-i18n="navigation.orders">الطلبات الجارية والمنتهية</h1>
           <div class="flex items-center gap-3">
             <a
               href="#"
@@ -284,9 +284,9 @@
       <main class="flex-1 container mx-auto px-4 py-6">
         <!-- Breadcrumb -->
         <div class="mb-4 text-sm text-[#7E7E7E]">
-          <a href="dashboard.html" class="hover:text-[#00B8A9]">لوحة التحكم</a>
+          <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard">لوحة التحكم</a>
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium">الطلبات الجارية والمنتهية</span>
+          <span class="text-[#312E37] font-medium" data-i18n="navigation.orders">الطلبات الجارية والمنتهية</span>
         </div>
 
         <!-- Tabs -->
@@ -403,7 +403,7 @@
       >
         <div class="bg-white rounded-md max-w-sm w-[90%] mx-4 relative">
           <div class="relative pt-6 pb-2">
-            <h2 class="text-center text-lg font-semibold text-[#353535]">اللغة</h2>
+            <h2 class="text-center text-lg font-semibold text-[#353535]" data-i18n="common.language">اللغة</h2>
             <button
               onclick="hideModal('language-modal')"
               class="absolute top-3 modal-close-dir left-3 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:text-gray-700"

@@ -111,12 +111,12 @@
       <div class="lg:hidden bg-white border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
           <h1 class="text-lg font-semibold" data-i18n="paymentPage.title">الدفع</h1>
-          <a
-            href="#"
-            onclick="return false;"
-            class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
-          ></a>
           <div class="flex items-center gap-3">
+            <a
+              href="#"
+              onclick="return false;"
+              class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
+            ></a>
             <button
               id="mobile-menu-button"
               onclick="toggleMobileMenu()"
@@ -274,8 +274,7 @@
           <a
             href="dashboard.html"
             class="hover:text-[#00B8A9]"
-            data-i18n="paymentPage.breadcrumbDashboard"
-            >لوحة التحكم</a
+            data-i18n="navigation.dashboard">لوحة التحكم</a
           >
           <span class="mx-2">—</span>
           <a href="orders.html" class="hover:text-[#00B8A9]" data-i18n="navigation.orders"
@@ -369,7 +368,7 @@
               onclick="showModal('rate-modal')"
               class="w-full my-3 px-6 py-3 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
             >
-              data-i18n="rate.title">تقييم
+              <span data-i18n="rate.title">تقييم</span>
             </button>
           </div>
 

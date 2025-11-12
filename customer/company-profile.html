@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ملف الشركة - Naqlah</title>
+    <title data-i18n="companyProfile.title">ملف الشركة - Naqlah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -96,7 +96,7 @@
           class="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm mb-2"
         >
           <i class="fas fa-language text-lg"></i>
-          <span id="lang-btn">English</span>
+          <span id="lang-btn" data-i18n="common.language">English</span>
         </button>
       </div>
     </aside>
@@ -104,7 +104,7 @@
     <div class="flex flex-col flex-1">
       <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
         <div class="flex items-center justify-between px-4 py-4">
-          <h1 class="text-lg font-semibold">ملف الشركة</h1>
+          <h1 class="text-lg font-semibold" data-i18n="companyProfile.title">ملف الشركة</h1>
           <div class="flex items-center gap-3 rounded-xl px-2 py-1 border border-[#00B8A9]">
             <a
               href="#"
@@ -267,7 +267,9 @@
             >عروض الأسعار</a
           >
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium">ملف الشركة</span>
+          <span class="text-[#312E37] font-medium" data-i18n="companyProfile.title"
+            >ملف الشركة</span
+          >
         </div>
 
         <div class="bg-white rounded-2xl border border-[#ECECEC] p-4 lg:p-6">
@@ -282,7 +284,12 @@
               />
             </div>
             <div>
-              <h2 class="text-[#353535] text-[16px] lg:text-[20px] font-semibold">الميثاق</h2>
+              <h2
+                class="text-[#353535] text-[16px] lg:text-[20px] font-semibold"
+                data-i18n="companyProfile.companyName"
+              >
+                الميثاق
+              </h2>
               <div class="flex items-center gap-2 text-[#7E7E7E] text-sm">
                 <span class="flex items-center gap-1 text-[#FFB800]"
                   ><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i
@@ -320,28 +327,34 @@
           <div class="mb-6">
             <h3
               class="text-[#3C3D41] text-[14px] lg:text-[15px] font-semibold border-b border-[#DFDFDF] pb-3 mb-3"
+              data-i18n="companyProfile.companyServices"
             >
               خدمات شركة النقل
             </h3>
             <div class="flex flex-wrap gap-2">
               <span
                 class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                data-i18n="registerCompany.services.disassembly"
                 >تفكيك وتركيب</span
               >
               <span
                 class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                data-i18n="services.securityPacking"
                 >تأمين ضد الفقد والكسر</span
               >
               <span
                 class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                data-i18n="registerCompany.services.moving"
                 >نقل بين مدن</span
               >
               <span
                 class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                data-i18n="companyProfile.serviceAC"
                 >تفكيك مكيف أو تركيب اثاث</span
               >
               <span
                 class="px-3 py-1 bg-white text-[#474747] text-[12px] rounded-md border border-gray-200"
+                data-i18n="services.cleaning"
                 >تنظيف بعد النقل</span
               >
             </div>
@@ -354,7 +367,9 @@
               >
                 التقييمات
               </h3>
-              <a href="../rates.html" class="text-[#00B8A9] text-[13px]">اظهر المزيد</a>
+              <a href="../rates.html" class="text-[#00B8A9] text-[13px]" data-i18n="common.showMore"
+                >اظهر المزيد</a
+              >
             </div>
             <div class="space-y-4">
               <div class="flex items-start gap-3">

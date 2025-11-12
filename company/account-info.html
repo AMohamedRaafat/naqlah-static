@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الإنضمام كشركة نقل - Naqlah</title>
+    <title data-i18n="registerCompany.title">الإنضمام كشركة نقل - Naqlah</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -645,17 +645,6 @@
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/register-company.js"></script>
     <script>
-      (function () {
-        var form = document.getElementById('register-company-form');
-        if (!form) return;
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var container = document.getElementById('register-company-container');
-          var pending = document.getElementById('verification-pending');
-          if (container) container.classList.add('hidden');
-          if (pending) pending.classList.remove('hidden');
-        });
-      })();
       function toggleMobileMenu() {
         var el = document.getElementById('mobile-menu-sidebar');
         if (!el) return;
@@ -667,6 +656,243 @@
         if (!i) return;
         i.type = i.type === 'password' ? 'text' : 'password';
       }
+
+      // Form Validation
+      $(document).ready(function () {
+        const form = $('#register-company-form');
+
+        // Validate Company Name
+        $('#companyName').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#companyName-error').text('يرجى إدخال اسم الشركة').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#companyName-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate City
+        $('#city').on('change', function () {
+          const value = $(this).val();
+          if (!value) {
+            $('#city-error').text('يرجى اختيار المدينة').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#city-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Email
+        $('#email').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#email-error').text('يرجى إدخال البريد الإلكتروني').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (!validateEmail(value)) {
+            $('#email-error').text('البريد الإلكتروني غير صحيح').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#email-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Password
+        $('#password').on('input blur', function () {
+          const value = $(this).val();
+          if (!value) {
+            $('#password-error').text('يرجى إدخال الرمز السري').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (!validatePassword(value)) {
+            $('#password-error')
+              .text('الرمز السري يجب أن يكون 8 أحرف على الأقل')
+              .removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#password-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Confirm Password
+        $('#confirmPassword').on('input blur', function () {
+          const value = $(this).val();
+          const password = $('#password').val();
+          if (!value) {
+            $('#confirmPassword-error').text('يرجى تأكيد الرمز السري').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (password && value !== password) {
+            $('#confirmPassword-error').text('الرمز السري غير متطابق').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#confirmPassword-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Phone (real-time like email)
+        $('#phoneNumber').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#phoneNumber-error').text('يرجى إدخال رقم الهاتف').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (value.startsWith('1')) {
+            $('#phoneNumber-error').text('رقم الهاتف يجب ان يبدأ ب 5').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else if (!validatePhone(value)) {
+            $('#phoneNumber-error').text('رقم الهاتف غير صحيح').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#phoneNumber-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate About Company
+        $('#aboutCompany').on('input blur', function () {
+          const value = $(this).val().trim();
+          if (!value) {
+            $('#aboutCompany-error').text('يرجى إدخال نبذة عن الشركة').removeClass('hidden');
+            $(this).addClass('border-red-500');
+          } else {
+            $('#aboutCompany-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        // Validate Services
+        $('#services-select').on('change', function () {
+          const selectedServices = $('#selected-services').children().length;
+          if (selectedServices === 0) {
+            $('#services-error').addClass('hidden');
+            $(this).removeClass('border-red-500');
+          }
+        });
+
+        form.on('submit', function (e) {
+          e.preventDefault();
+          let hasError = false;
+
+          // Clear all previous errors
+          $('.text-red-500.text-sm').addClass('hidden');
+          $('input, select, textarea').removeClass('border-red-500');
+          $('.bg-red-50').remove(); // Remove general error message if exists
+
+          // Validate Company Name
+          const companyName = $('#companyName').val().trim();
+          if (!companyName) {
+            $('#companyName-error').text('يرجى إدخال اسم الشركة').removeClass('hidden');
+            $('#companyName').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate City
+          const city = $('#city').val();
+          if (!city) {
+            $('#city-error').text('يرجى اختيار المدينة').removeClass('hidden');
+            $('#city').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Email
+          const email = $('#email').val().trim();
+          if (!email) {
+            $('#email-error').text('يرجى إدخال البريد الإلكتروني').removeClass('hidden');
+            $('#email').addClass('border-red-500');
+            hasError = true;
+          } else if (!validateEmail(email)) {
+            $('#email-error').text('البريد الإلكتروني غير صحيح').removeClass('hidden');
+            $('#email').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Password
+          const password = $('#password').val();
+          if (!password) {
+            $('#password-error').text('يرجى إدخال الرمز السري').removeClass('hidden');
+            $('#password').addClass('border-red-500');
+            hasError = true;
+          } else if (!validatePassword(password)) {
+            $('#password-error')
+              .text('الرمز السري يجب أن يكون 8 أحرف على الأقل')
+              .removeClass('hidden');
+            $('#password').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Confirm Password
+          const confirmPassword = $('#confirmPassword').val();
+          if (!confirmPassword) {
+            $('#confirmPassword-error').text('يرجى تأكيد الرمز السري').removeClass('hidden');
+            $('#confirmPassword').addClass('border-red-500');
+            hasError = true;
+          } else if (password && confirmPassword !== password) {
+            $('#confirmPassword-error').text('الرمز السري غير متطابق').removeClass('hidden');
+            $('#confirmPassword').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Phone
+          const phone = $('#phoneNumber').val().trim();
+          if (!phone) {
+            $('#phoneNumber-error').text('يرجى إدخال رقم الهاتف').removeClass('hidden');
+            $('#phoneNumber').addClass('border-red-500');
+            hasError = true;
+          } else if (!validatePhone(phone)) {
+            $('#phoneNumber-error').text('رقم الهاتف غير صحيح').removeClass('hidden');
+            $('#phoneNumber').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Services
+          const selectedServices = $('#selected-services').children().length;
+          if (selectedServices === 0) {
+            $('#services-error').text('يرجى اختيار خدمة واحدة على الأقل').removeClass('hidden');
+            $('#services-select').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate About Company
+          const aboutCompany = $('#aboutCompany').val().trim();
+          if (!aboutCompany) {
+            $('#aboutCompany-error').text('يرجى إدخال نبذة عن الشركة').removeClass('hidden');
+            $('#aboutCompany').addClass('border-red-500');
+            hasError = true;
+          }
+
+          // Validate Terms
+          if (!$('#agreeTerms').is(':checked')) {
+            $('#agreeTerms-error').text('يرجى الموافقة على الشروط والأحكام').removeClass('hidden');
+            hasError = true;
+          }
+
+          if (hasError) {
+            // Show general error message
+            const errorMsg = $(
+              '<div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4 text-right">يرجى إدخال الحقول المطلوبة</div>'
+            );
+            form.prepend(errorMsg);
+            setTimeout(function () {
+              errorMsg.fadeOut(function () {
+                $(this).remove();
+              });
+            }, 5000);
+            return false;
+          }
+
+          // If validation passes, show success toast
+          showNotification(t('account.updateSuccess') || 'تم تحديث بياناتك بنجاح', 'success');
+
+          // Show verification pending state
+          var container = document.getElementById('register-company-container');
+          var pending = document.getElementById('verification-pending');
+          if (container) container.classList.add('hidden');
+          if (pending) pending.classList.remove('hidden');
+        });
+      });
     </script>
   </body>
 </html>
