@@ -1046,8 +1046,7 @@ const translations = {
       'attachPhotoInstructions': "أرفق بصيغة PNG, JPG, MP4",
       'submitReport': "إبلاغ",
       'reportSubmitted': "تم إرسال الإبلاغ بنجاح",
-      'reportSubmittedMessage': "تم إرسال الإبلاغ بنجاح",
-      'reportSubmittedMessage': "تم إرسال الإبلاغ بنجاح",
+      'reportSubmittedMessage': "تم إرسال الإبلاغ تم إرسال الإبلاغ إلى فريق نقلة وسيتم متابعته والتواصل معكم",
     },
     "login": {
       "title": "تسجيل الدخول",
