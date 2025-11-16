@@ -189,12 +189,13 @@
         <div class="container mx-auto max-w-4xl px-4 py-4">
           <!-- Breadcrumb -->
           <div class="mb-4 text-sm text-[#7E7E7E]">
-            <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard">لوحة التحكم</a
-          >
-          <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium" data-i18n="navigation.requestMove"
-            >اطلب نقلة</span
-          >
+            <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard"
+              >لوحة التحكم</a
+            >
+            <span class="mx-2">—</span>
+            <span class="text-[#312E37] font-medium" data-i18n="navigation.requestMove"
+              >اطلب نقلة</span
+            >
           </div>
 
           <!-- Progress Bar -->
@@ -285,17 +286,17 @@
           <div class="action-buttons flex gap-4 mt-6">
             <button
               type="button"
-              onclick="nextStep()"
-              class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
-            >
-              التالي
-            </button>
-            <button
-              type="button"
               onclick="window.location.href='dashboard.html'"
               class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-200"
             >
               تراجع
+            </button>
+            <button
+              type="button"
+              onclick="nextStep()"
+              class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+            >
+              التالي
             </button>
           </div>
         </div>
@@ -482,17 +483,17 @@
 
               <div class="action-buttons flex gap-4 pt-4">
                 <button
-                  type="submit"
-                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
-                >
-                  التالي
-                </button>
-                <button
                   type="button"
                   onclick="prevStep()"
                   class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-200"
                 >
                   تراجع
+                </button>
+                <button
+                  type="submit"
+                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+                >
+                  التالي
                 </button>
               </div>
             </form>
@@ -524,7 +525,9 @@
 
             <!-- Selected Location Display -->
             <div id="destination-location-display" class="mt-2 p-3 border-b border-gray-200 hidden">
-              <p class="font-semibold text-[#353535] mb-2" data-i18n="requestMove.searchResults">النتائج</p>
+              <p class="font-semibold text-[#353535] mb-2" data-i18n="requestMove.searchResults">
+                النتائج
+              </p>
               <div class="flex items-start gap-3">
                 <i
                   class="fas fa-map-marker-alt w-9 h-9 text-[#00B8A9] flex-shrink-0 border border-gray-200 rounded-full p-2 flex items-center justify-center"
@@ -546,17 +549,17 @@
           <div class="action-buttons flex gap-4 mt-6">
             <button
               type="button"
-              onclick="nextStep()"
-              class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
-            >
-              التالي
-            </button>
-            <button
-              type="button"
               onclick="prevStep()"
               class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-200"
             >
               تراجع
+            </button>
+            <button
+              type="button"
+              onclick="nextStep()"
+              class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+            >
+              التالي
             </button>
           </div>
         </div>
@@ -681,17 +684,17 @@
 
               <div class="action-buttons flex gap-4 pt-4">
                 <button
-                  type="submit"
-                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
-                >
-                  التالي
-                </button>
-                <button
                   type="button"
                   onclick="prevStep()"
                   class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
                 >
                   تراجع
+                </button>
+                <button
+                  type="submit"
+                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+                >
+                  التالي
                 </button>
               </div>
             </form>
@@ -983,19 +986,19 @@
               <!-- Action Buttons -->
               <div class="action-buttons flex gap-4 pt-4">
                 <button
-                  type="submit"
-                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
-                  data-i18n="common.next"
-                >
-                  التالي
-                </button>
-                <button
                   type="button"
                   onclick="prevStep()"
                   class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
                   data-i18n="common.back"
                 >
                   تراجع
+                </button>
+                <button
+                  type="submit"
+                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+                  data-i18n="common.next"
+                >
+                  التالي
                 </button>
               </div>
             </form>
@@ -1144,17 +1147,17 @@
               <!-- Action Buttons -->
               <div class="action-buttons flex gap-4 pt-4">
                 <button
-                  type="submit"
-                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
-                >
-                  التالي
-                </button>
-                <button
                   type="button"
                   onclick="prevStep()"
                   class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
                 >
                   تراجع
+                </button>
+                <button
+                  type="submit"
+                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+                >
+                  التالي
                 </button>
               </div>
             </form>
@@ -1456,7 +1459,7 @@
           </div>
 
           <!-- Route Map -->
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <!-- <div class="bg-white rounded-2xl p-6 shadow-sm">
             <h3 class="text-[18px] font-bold text-[#353535] mb-4 text-center">خريطة المسار</h3>
             <div class="rounded-xl overflow-hidden border-2 border-gray-200 relative z-0">
               <div id="route-map" class="w-full h-96"></div>
@@ -1464,7 +1467,7 @@
             <p class="text-[12px] text-[#868686] text-center mt-3">
               المسافة التقريبية بين موقع الاستلام والتسليم
             </p>
-          </div>
+          </div> -->
         </div>
 
         <!-- Success/Processing Page -->

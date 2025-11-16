@@ -830,108 +830,108 @@ function updatePreview() {
       ? furnitureItems.map(item => `${item.quantity} ${furnitureLabels[item.type]}`).join(' - ')
       : '-'
   );
-  // Initialize route map
-  setTimeout(() => {
-    initRouteMap();
-  }, 300);
+  // // Initialize route map
+  // setTimeout(() => {
+  //   initRouteMap();
+  // }, 300);
 }
 
-async function initRouteMap() {
-  if (routeMap) {
-    routeMap.remove();
-  }
+// async function initRouteMap() {
+//   if (routeMap) {
+//     routeMap.remove();
+//   }
 
-  const centerLat = (pickupLocation.lat + destinationLocation.lat) / 2;
-  const centerLng = (pickupLocation.lng + destinationLocation.lng) / 2;
+//   const centerLat = (pickupLocation.lat + destinationLocation.lat) / 2;
+//   const centerLng = (pickupLocation.lng + destinationLocation.lng) / 2;
 
-  routeMap = L.map('route-map').setView([centerLat, centerLng], 12);
+//   routeMap = L.map('route-map').setView([centerLat, centerLng], 12);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-  }).addTo(routeMap);
+//   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     attribution: '© OpenStreetMap contributors',
+//   }).addTo(routeMap);
 
-  // Add pickup marker (teal)
-  const pickupIcon = L.divIcon({
-    html: '<div style="background-color: #00B8A9; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">A</div>',
-    className: '',
-    iconSize: [30, 30],
-  });
+//   // Add pickup marker (teal)
+//   const pickupIcon = L.divIcon({
+//     html: '<div style="background-color: #00B8A9; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">A</div>',
+//     className: '',
+//     iconSize: [30, 30],
+//   });
 
-  L.marker([pickupLocation.lat, pickupLocation.lng], { icon: pickupIcon })
-    .addTo(routeMap)
-    .bindPopup('موقع الاستلام');
+//   L.marker([pickupLocation.lat, pickupLocation.lng], { icon: pickupIcon })
+//     .addTo(routeMap)
+//     .bindPopup('موقع الاستلام');
 
-  // Add destination marker (red)
-  const destIcon = L.divIcon({
-    html: '<div style="background-color: #FF6B6B; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">B</div>',
-    className: '',
-    iconSize: [30, 30],
-  });
+//   // Add destination marker (red)
+//   const destIcon = L.divIcon({
+//     html: '<div style="background-color: #FF6B6B; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">B</div>',
+//     className: '',
+//     iconSize: [30, 30],
+//   });
 
-  L.marker([destinationLocation.lat, destinationLocation.lng], { icon: destIcon })
-    .addTo(routeMap)
-    .bindPopup('موقع التسليم');
+//   L.marker([destinationLocation.lat, destinationLocation.lng], { icon: destIcon })
+//     .addTo(routeMap)
+//     .bindPopup('موقع التسليم');
 
-  // Get actual route from OSRM routing API
-  try {
-    const response = await fetch(
-      `https://router.project-osrm.org/route/v1/driving/${pickupLocation.lng},${pickupLocation.lat};${destinationLocation.lng},${destinationLocation.lat}?overview=full&geometries=geojson`
-    );
+//   // Get actual route from OSRM routing API
+//   try {
+//     const response = await fetch(
+//       `https://router.project-osrm.org/route/v1/driving/${pickupLocation.lng},${pickupLocation.lat};${destinationLocation.lng},${destinationLocation.lat}?overview=full&geometries=geojson`
+//     );
 
-    if (response.ok) {
-      const data = await response.json();
+//     if (response.ok) {
+//       const data = await response.json();
 
-      if (data.routes && data.routes.length > 0) {
-        const route = data.routes[0];
-        const coordinates = route.geometry.coordinates;
+//       if (data.routes && data.routes.length > 0) {
+//         const route = data.routes[0];
+//         const coordinates = route.geometry.coordinates;
 
-        // Convert coordinates from [lng, lat] to [lat, lng] for Leaflet
-        const latlngs = coordinates.map((coord) => [coord[1], coord[0]]);
+//         // Convert coordinates from [lng, lat] to [lat, lng] for Leaflet
+//         const latlngs = coordinates.map((coord) => [coord[1], coord[0]]);
 
-        // Draw the route
-        L.polyline(latlngs, {
-          color: '#00B8A9',
-          weight: 4,
-          opacity: 0.7,
-        }).addTo(routeMap);
+//         // Draw the route
+//         L.polyline(latlngs, {
+//           color: '#00B8A9',
+//           weight: 4,
+//           opacity: 0.7,
+//         }).addTo(routeMap);
 
-        // Calculate distance and duration
-        const distanceKm = (route.distance / 1000).toFixed(1);
-        const durationMin = Math.round(route.duration / 60);
+//         // Calculate distance and duration
+//         const distanceKm = (route.distance / 1000).toFixed(1);
+//         const durationMin = Math.round(route.duration / 60);
 
-        // Update distance text
-        $('.text-center.mt-3').text(
-          `المسافة التقريبية: ${distanceKm} كم • الوقت المتوقع: ${durationMin} دقيقة`
-        );
+//         // Update distance text
+//         $('.text-center.mt-3').text(
+//           `المسافة التقريبية: ${distanceKm} كم • الوقت المتوقع: ${durationMin} دقيقة`
+//         );
 
-        // Fit bounds to show the entire route
-        const bounds = L.latLngBounds(latlngs);
-        routeMap.fitBounds(bounds, { padding: [50, 50] });
-      } else {
-        // Fallback to straight line if routing fails
-        drawStraightLine();
-      }
-    } else {
-      // Fallback to straight line if API fails
-      drawStraightLine();
-    }
-  } catch (error) {
-    console.error('Routing error:', error);
-    // Fallback to straight line
-    drawStraightLine();
-  }
+//         // Fit bounds to show the entire route
+//         const bounds = L.latLngBounds(latlngs);
+//         routeMap.fitBounds(bounds, { padding: [50, 50] });
+//       } else {
+//         // Fallback to straight line if routing fails
+//         drawStraightLine();
+//       }
+//     } else {
+//       // Fallback to straight line if API fails
+//       drawStraightLine();
+//     }
+//   } catch (error) {
+//     console.error('Routing error:', error);
+//     // Fallback to straight line
+//     drawStraightLine();
+//   }
 
-  function drawStraightLine() {
-    const latlngs = [
-      [pickupLocation.lat, pickupLocation.lng],
-      [destinationLocation.lat, destinationLocation.lng],
-    ];
-    L.polyline(latlngs, { color: '#00B8A9', weight: 4, opacity: 0.7 }).addTo(routeMap);
+//   function drawStraightLine() {
+//     const latlngs = [
+//       [pickupLocation.lat, pickupLocation.lng],
+//       [destinationLocation.lat, destinationLocation.lng],
+//     ];
+//     L.polyline(latlngs, { color: '#00B8A9', weight: 4, opacity: 0.7 }).addTo(routeMap);
 
-    const bounds = L.latLngBounds(latlngs);
-    routeMap.fitBounds(bounds, { padding: [50, 50] });
-  }
-}
+//     const bounds = L.latLngBounds(latlngs);
+//     routeMap.fitBounds(bounds, { padding: [50, 50] });
+//   }
+// }
 
 function submitRequest() {
   // Show success page

@@ -47,7 +47,7 @@
 
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex min-h-screen font-expo-arabic">
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa]">
     <!-- Desktop Sidebar (Right side for RTL) -->
     <aside
       class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
@@ -450,7 +450,7 @@
               </div>
               <!-- Ongoing Orders Section -->
               <div class="mt-6">
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-[#E9E9E9]">
+                <div class="bg-white rounded-2xl p-4 shadow-sm">
                   <div class="flex items-start justify-between mb-3">
                     <div class="text-right">
                       <p class="text-[#353535] text-[14px] font-medium">منزل جديد</p>
@@ -481,14 +481,14 @@
 
                   <div class="rounded-lg bg-[#F7F7F7] p-3 px-2 space-y-3">
                     <button
-                      onclick="toggleOngoingDetails()"
+                      onclick="toggleOngoingDetails(1)"
                       id="order-details-toggle"
                       class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B]"
                     >
-                      <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
                       <i class="fas fa-chevron-down text-[#C0C0C0]" id="details-icon"></i>
+                      <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
                     </button>
-                    <div id="ongoing-details-1" class="hidden px-2">
+                    <div id="order-details-1" class="hidden px-2">
                       <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
                         <!-- Row: Personal + Date/Time -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
