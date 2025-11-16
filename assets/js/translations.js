@@ -648,12 +648,15 @@ const translations = {
       'from': 'From',
       'to': 'To',
       'overall': 'Overall Rating',
-      'excellent': 'ممتاز',
-      'good': 'جيد',
-      'average': 'متوسط',
-      'poor': 'سيء',
-      'noRatings': 'لا توجد تقييمات بعد',
-      'example': 'طلبنا خدمة تنظيف وفك وتركيب وكانت التجربة ممتازة. السيارة وصلت في الوقت المحدد'
+      'excellent': 'Excellent',
+      'good': 'Good',
+      'average': 'Average',
+      'poor': 'Poor',
+      'noRatings': 'there is no ratings',
+      'example': 'We requested a cleaning, disassembly, and assembly service, and the experience was excellent. The car arrived on time.',
+      'rateTitle': 'Rate your experience with the moving company',
+      'rateDescription': 'Your feedback is important to us and helps us improve our services',
+
     },
     'customerDashboard': {
       'title': 'Customer Dashboard',
@@ -882,6 +885,7 @@ const translations = {
       "ratings": "التقييمات"
     },
     "dashboard": {
+      'title': 'لوحة التحكم',
       "welcome": "مرحبًا",
       "noOrders": "لا يوجد طلب لتتبعه",
       "familyHome": "منزل العائلة",
@@ -969,6 +973,36 @@ const translations = {
       "completed": "تم إكتمال الطلب",
       "downloadInvoice": "تحميل الفاتورة"
     },
+    'rate': {
+      'title': 'تقييم',
+      'company': 'تقييم الشركة',
+      'customer': 'تقييم العميل',
+      'service': 'تقييم الخدمة',
+      'communication': 'التواصل',
+      'punctuality': 'الالتزام بالمواعيد',
+      'professionalism': 'الاحترافية',
+      'comment': 'أضف تعليق',
+      'submit': 'إرسال التقييم',
+      'rateTitle': 'قيّم تجربتك مع شركة النقل',
+      'rateDescription': 'ملاحظاتك مهمة لينا وبتساعدنا نطوّر خدماتنا',
+      'experiencePlaceholder': 'إزاي كانت تجربتك؟',
+      'submitRating': 'إرسال التقييم',
+      'ratings': 'التقييمات',
+      'filter': 'تصفية',
+      'monthAgo': 'منذ شهر',
+      'from': 'من',
+      'to': 'إلى',
+      'overall': 'التقييم العام',
+      'excellent': 'ممتاز',
+      'good': 'جيد',
+      'average': 'متوسط',
+      'poor': 'ضعيف',
+      'noRatings': 'لا توجد تقييمات',
+      'example': 'طلبنا خدمة تنظيف وفك وتركيب، وكانت التجربة ممتازة ووصلت العربية في المعاد.',
+      'rateTitle': 'قيّم تجربتك مع شركة النقل',
+      'rateDescription': 'ملاحظاتك مهمة لينا وبتساعدنا نطوّر خدماتنا'
+    },
+
     "companyNavigation": {
       "manageOrders": "إدارة طلبات النقل",
       "manageQuotes": "طلبات الأسعار"

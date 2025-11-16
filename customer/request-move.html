@@ -1167,8 +1167,8 @@
         <!-- Step 7: Date & Time -->
         <div id="step-7" class="step-content hidden">
           <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm border border-gray-200">
-            <h2 class="text-xl font-bold text-[#353535] text-center mb-2">الموعد والمرونة</h2>
-            <p class="text-[14px] text-[#353535] text-center mb-6">
+            <h2 class="text-xl font-bold text-[#353535] text-start mb-2">الموعد والمرونة</h2>
+            <p class="text-[14px] text-[#353535] text-start mb-6">
               يرجى تحديد تاريخ ووقت النقل المطلوب
             </p>
 
@@ -1191,7 +1191,7 @@
                   />
 
                   <!-- AM/PM Toggle -->
-                  <div class="flex gap-2">
+                  <div class="flex gap-2 px-2 bg-[#7676801F] rounded-lg items-center">
                     <button
                       type="button"
                       id="am-btn"
@@ -1271,17 +1271,16 @@
               <!-- Action Buttons -->
               <div class="action-buttons flex gap-4 pt-4">
                 <button
-                  type="submit"
-                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
-                >
-                  التالي
-                </button>
-                <button
                   type="button"
                   onclick="prevStep()"
                   class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
                 >
-                  تراجع
+                  تراجع</button
+                ><button
+                  type="submit"
+                  class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+                >
+                  التالي
                 </button>
               </div>
             </form>
@@ -1291,7 +1290,7 @@
         <!-- Step 8: Preview/Summary -->
         <div id="step-8" class="step-content hidden">
           <!-- Date and Flexibility -->
-          <div class="bg-white rounded-2xl p-6 mb-4 border border-gray-200">
+          <div class="rounded-2xl p-6 mb-4 border-b border-gray-200">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-[18px] font-bold text-[#353535]">الموعد والمرونة</h3>
               <button
@@ -1309,7 +1308,7 @@
           </div>
 
           <!-- Personal Data -->
-          <div class="bg-white rounded-2xl p-6 mb-4 shadow-sm">
+          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-[18px] font-bold text-[#353535]">البيانات الشخصية</h3>
               <button type="button" class="text-[#00B8A9]">
@@ -1324,7 +1323,7 @@
           </div>
 
           <!-- Destination Address -->
-          <div class="bg-white rounded-2xl p-6 mb-4 shadow-sm">
+          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-[18px] font-bold text-[#353535]">العنوان: المراد النقل إليه</h3>
               <button
@@ -1350,7 +1349,7 @@
           </div>
 
           <!-- Current Moving Address -->
-          <div class="bg-white rounded-2xl p-6 mb-4 shadow-sm">
+          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-[18px] font-bold text-[#353535]">عنوان النقل الحالي</h3>
               <button
@@ -1376,7 +1375,7 @@
           </div>
 
           <!-- Additional Services -->
-          <div class="bg-white rounded-2xl p-6 mb-4 shadow-sm">
+          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-[18px] font-bold text-[#353535]">الخدمات الإضافية</h3>
               <button
@@ -1398,7 +1397,7 @@
           </div>
 
           <!-- Furniture Details -->
-          <div class="bg-white rounded-2xl p-6 mb-4 shadow-sm">
+          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-[18px] font-bold text-[#353535]">تفاصيل الأثاث</h3>
               <button
@@ -1422,7 +1421,7 @@
           </div>
 
           <!-- Terms Checkbox -->
-          <div class="bg-white rounded-2xl p-4 mb-4 shadow-sm flex items-center gap-3">
+          <div class="rounded-2xl p-4 mb-4 shadow-sm flex items-center gap-3">
             <input
               type="checkbox"
               id="agreeTerms"

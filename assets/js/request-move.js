@@ -739,17 +739,17 @@ function changeMonth(direction) {
 // AM/PM Toggle
 function toggleAMPM(period) {
   selectedAMPM = period;
-  $('#am-btn').removeClass('bg-[#00B8A9] text-white').addClass('bg-[#F5F5F5] text-[#353535]');
-  $('#pm-btn').removeClass('bg-[#00B8A9] text-white').addClass('bg-[#F5F5F5] text-[#353535]');
+  $('#am-btn').removeClass('bg-white ').addClass('bg-[#F5F5F5] ');
+  $('#pm-btn').removeClass('bg-white ').addClass('bg-[#F5F5F5] ');
 
   if (period === 'AM') {
     $('#am-btn')
-      .removeClass('bg-[#F5F5F5] text-[#353535]')
-      .addClass('bg-[#00B8A9] text-white');
+      .removeClass('bg-[#F5F5F5] ')
+      .addClass('bg-white ');
   } else {
     $('#pm-btn')
-      .removeClass('bg-[#F5F5F5] text-[#353535]')
-      .addClass('bg-[#00B8A9] text-white');
+      .removeClass('bg-[#F5F5F5] ')
+      .addClass('bg-white ');
   }
 }
 
