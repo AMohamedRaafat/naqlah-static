@@ -489,7 +489,7 @@ const translations = {
     'registerCompany': {
       'title': 'Join as a Moving Company',
       'companyLogo': 'Company Logo',
-      'uploadLogo': 'Upload Logo',
+      'uploadLogo': 'Change Logo',
       'companyName': 'Commercial Company Name',
       'commercialRegistration': 'Commercial Registration',
       'attachFile': 'Attach commercial registration',
@@ -528,7 +528,8 @@ const translations = {
       'submitButton': 'Send Account Creation Request',
       'verificationPendingTitle': 'Verifying your account 🎯',
       'verificationPendingDescription': 'Account creation request sent successfully. We are reviewing and verifying the information you provided about your company. You will be notified via email and phone number when your company account is verified.',
-      'goToHome': 'Go to Home'
+      'goToHome': 'Go to Home',
+      'selectService': 'Select service'
     },
     'manageOrders': {
       'title': 'Manage Transport Orders',
@@ -581,6 +582,15 @@ const translations = {
         'reportProblemSubmit': "Submit Report",
         'reportProblemSuccess': "Report Submitted Successfully",
         'reportProblemSuccessMessage': "Your report has been sent to the Naqlah team and will be followed up. We will contact you soon.",
+        'selectProblemType': "Select problem type",
+        'problemTypes': {
+          'delay': 'Delay in arrival',
+          'noCommitment': 'Moving company non-compliance',
+          'damage': 'Furniture damage or breakage',
+          'badBehavior': 'Poor crew behavior',
+          'other': 'Other'
+        },
+        'attachPhotoInstructions': "Attach PNG, JPG files without editing",
       }
     },
     'manageQuotes': {
@@ -632,12 +642,12 @@ const translations = {
       'rateDescription': 'Your feedback is important to us and helps us improve our services',
       'experiencePlaceholder': 'How was your experience?',
       'submitRating': 'Submit Rating',
-      'ratings': 'التقييمات',
-      'filter': 'فلترة',
+      'ratings': 'ratings',
+      'filter': 'Filter',
       'monthAgo': 'شهر 1',
-      'from': 'من',
-      'to': 'إلى',
-      'overall': 'التقييم العام',
+      'from': 'From',
+      'to': 'To',
+      'overall': 'Overall Rating',
       'excellent': 'ممتاز',
       'good': 'جيد',
       'average': 'متوسط',
@@ -1023,11 +1033,21 @@ const translations = {
       "orderLocation": "موقع الطلب",
       "orderContact": "رقم التواصل",
       "reportProblem": "إبلاغ عن مشكلة",
-      "reportProblemPlaceholder": "أكتب تفاصيل المشكلة",
-      "reportProblemSubmit": "إرسال المشكلة",
-      "reportProblemSuccess": "تم إرسال المشكلة بنجاح",
-      "reportProblemSuccessMessage": "تم إرسال المشكلة بنجاح",
-      "reportProblemSuccessMessage": "تم إرسال المشكلة بنجاح",
+      "reportDetailsPlaceholder": "أكتب تفاصيل المشكلة",
+      'reportDetails': "تفاصيل الإبلاغ",
+      'selectProblemType': "حدد نوع المشكلة",
+      'problemTypes': {
+        'delay': 'تأخير في الوصول',
+        'noCommitment': 'عدم التزام شركة النقل',
+        'damage': 'تلف   أو كسر في الأثاث',
+        'badBehavior': 'سوء تعامل من الطاقم',
+        'other': 'أخرى'
+      },
+      'attachPhotoInstructions': "أرفق بصيغة PNG, JPG, MP4",
+      'submitReport': "إبلاغ",
+      'reportSubmitted': "تم إرسال الإبلاغ بنجاح",
+      'reportSubmittedMessage': "تم إرسال الإبلاغ بنجاح",
+      'reportSubmittedMessage': "تم إرسال الإبلاغ بنجاح",
     },
     "login": {
       "title": "تسجيل الدخول",
@@ -1136,7 +1156,7 @@ const translations = {
     "registerCompany": {
       "pageTitle": "الإنضمام كشركة نقل",
       "companyLogo": "صورة الشركة",
-      "uploadLogo": "رفع الصورة",
+      "uploadLogo": "تغيير الصورة",
       "companyName": "اسم الشركة التجاري",
       "commercialRegistration": "السجل التجاري",
       "attachFile": "أرفق السجل التجاري",
@@ -1162,6 +1182,7 @@ const translations = {
       "goToHome": "التوجّه إلى الرئيسية",
       "opreationalAreas": "المناطق التشغيلية",
       "opreationalAreasSelect": "حدد المناطق التشغيلية",
+      'selectService': 'حدد الخدمات المقدمة',
       "services": {
         "disassembly": "تفكيك وتركيب",
         "packing": "تغليف محكم",
