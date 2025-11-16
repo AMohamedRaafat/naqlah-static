@@ -18,6 +18,8 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css" />
     <style>
       /* Unify furniture inputs size and remove number spinners */
       .furn-input::-webkit-outer-spin-button,
@@ -291,7 +293,7 @@
           </div>
 
           <!-- Collapsible: مراجعة تفاصيل الطلب -->
-          <div class="border-t border-gray-50 bg-gray-50 py-3 rounded-xl">
+          <div class="border-t border-gray-50 bg-gray-50 p-3 rounded-xl">
             <button
               id="order-details-toggle"
               class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B]"
@@ -371,37 +373,39 @@
                     >2 مرايا</span
                   >
                 </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <img
-                    src="../assets/landing/truck.png"
-                    alt="img"
-                    class="w-full h-24 object-cover rounded-md cursor-pointer"
-                    data-img-preview
-                  />
-                  <img
-                    src="../assets/landing/truck.png"
-                    alt="img"
-                    class="w-full h-24 object-cover rounded-md cursor-pointer"
-                    data-img-preview
-                  />
-                  <img
-                    src="../assets/landing/truck.png"
-                    alt="img"
-                    class="w-full h-24 object-cover rounded-md cursor-pointer"
-                    data-img-preview
-                  />
-                  <img
-                    src="../assets/landing/truck.png"
-                    alt="img"
-                    class="w-full h-24 object-cover rounded-md cursor-pointer"
-                    data-img-preview
-                  />
-                  <img
-                    src="../assets/landing/truck.png"
-                    alt="img"
-                    class="w-full h-24 object-cover rounded-md cursor-pointer"
-                    data-img-preview
-                  />
+                <div class="owl-carousel">
+                  <div class="item">
+                    <img
+                      src="../assets/landing/truck.png"
+                      alt="img"
+                      class="w-full h-24 object-cover rounded-md cursor-pointer"
+                      data-img-preview
+                    />
+                  </div>
+                  <div class="item">
+                    <img
+                      src="../assets/landing/truck.png"
+                      alt="img"
+                      class="w-full h-24 object-cover rounded-md cursor-pointer"
+                      data-img-preview
+                    />
+                  </div>
+                  <div class="item">
+                    <img
+                      src="../assets/landing/truck.png"
+                      alt="img"
+                      class="w-full h-24 object-cover rounded-md cursor-pointer"
+                      data-img-preview
+                    />
+                  </div>
+                  <div class="item">
+                    <img
+                      src="../assets/landing/truck.png"
+                      alt="img"
+                      class="w-full h-24 object-cover rounded-md cursor-pointer"
+                      data-img-preview
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -422,7 +426,7 @@
           </div>
 
           <!-- Updates (collapsible like order details) -->
-          <section class="bg-gray-50 mt-4 rounded-2xl py-3">
+          <section class="bg-gray-50 mt-4 rounded-2xl p-3">
             <div class="rounded-xl">
               <button
                 id="updates-toggle"
@@ -804,7 +808,8 @@
         </section>
       </div>
     </main>
-
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -1582,6 +1587,28 @@
           }
         });
       })();
+
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 3,
+          },
+          768: {
+            items: 3,
+          },
+          1024: {
+            items: 3,
+          },
+        },
+        rtl: true,
+      });
     </script>
   </body>
 </html>

@@ -18,6 +18,10 @@
       crossorigin=""
     />
     <script src="../assets/js/tailwind-config.js"></script>
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css" />
   </head>
   <body class="flex min-h-screen font-expo-arabic md:flex-row flex-col">
     <!-- Desktop Sidebar (Company) -->
@@ -341,51 +345,52 @@
               <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">مرايا 2</span>
               <span class="px-3 py-2 rounded-lg bg-white border border-[#EDEDED]">مطبخ</span>
             </div>
-            <div class="relative mt-4">
-              <div class="overflow-hidden rounded-xl">
-                <div
-                  id="images-track"
-                  class="flex gap-3 transition-transform duration-300 ease-in-out"
-                >
+            <!-- Furniture Images Carousel -->
+            <div class="pt-2">
+              <div class="owl-carousel furniture-carousel">
+                <div class="item">
                   <img
-                    src="../assets/landing/truck.png"
-                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
-                    alt="photo"
+                    src="assets/furniture/sample1.jpg"
+                    alt="Furniture"
+                    class="w-full h-20 object-cover rounded-lg"
                   />
+                </div>
+                <div class="item">
                   <img
-                    src="../assets/landing/truck.png"
-                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
-                    alt="photo"
+                    src="assets/furniture/sample2.jpg"
+                    alt="Furniture"
+                    class="w-full h-20 object-cover rounded-lg"
                   />
+                </div>
+                <div class="item">
                   <img
-                    src="../assets/landing/truck.png"
-                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
-                    alt="photo"
+                    src="assets/furniture/sample3.jpg"
+                    alt="Furniture"
+                    class="w-full h-20 object-cover rounded-lg"
                   />
+                </div>
+                <div class="item">
                   <img
-                    src="../assets/landing/truck.png"
-                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
-                    alt="photo"
+                    src="assets/furniture/sample1.jpg"
+                    alt="Furniture"
+                    class="w-full h-20 object-cover rounded-lg"
                   />
+                </div>
+                <div class="item">
                   <img
-                    src="../assets/landing/truck.png"
-                    class="w-full h-28 object-cover rounded-md flex-shrink-0 cursor-pointer"
-                    alt="photo"
+                    src="assets/furniture/sample2.jpg"
+                    alt="Furniture"
+                    class="w-full h-20 object-cover rounded-lg"
+                  />
+                </div>
+                <div class="item">
+                  <img
+                    src="assets/furniture/sample3.jpg"
+                    alt="Furniture"
+                    class="w-full h-20 object-cover rounded-lg"
                   />
                 </div>
               </div>
-              <button
-                id="img-prev"
-                class="absolute top-1/2 -translate-y-1/2 right-2 bg-white/90 hover:bg-white w-8 h-8 rounded-full grid place-items-center shadow"
-              >
-                <i class="fas fa-chevron-right"></i>
-              </button>
-              <button
-                id="img-next"
-                class="absolute top-1/2 -translate-y-1/2 left-2 bg-white/90 hover:bg-white w-8 h-8 rounded-full grid place-items-center shadow"
-              >
-                <i class="fas fa-chevron-left"></i>
-              </button>
             </div>
           </div>
 
@@ -415,7 +420,29 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
     <script>
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 3,
+          },
+          768: {
+            items: 3,
+          },
+          1024: {
+            items: 3,
+          },
+        },
+        rtl: true,
+      });
       function toggleMobileMenu() {
         var el = document.getElementById('mobile-menu-sidebar');
         if (!el) return;

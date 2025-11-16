@@ -16,7 +16,7 @@ $(document).ready(function () {
 
   // Align modal close buttons based on language
   updateModalCloseAlignment(window.currentLocale);
-  
+
   // Initialize phone validation for all phone inputs
   initPhoneValidation();
 });
@@ -103,7 +103,7 @@ function validateEmail(email) {
 function validatePhone(phone) {
   // Remove any non-numeric characters
   const cleanPhone = phone.replace(/\D/g, '');
-  
+
   // Saudi phone validation: 9 digits starting with 5
   const re = /^5\d{8}$/;
   return re.test(cleanPhone);
@@ -114,14 +114,14 @@ function validatePhoneWithError(phoneInput, errorElement) {
   const $input = $(phoneInput);
   const phone = $input.val() || phoneInput.value || '';
   const cleanPhone = phone.replace(/\D/g, '');
-  
+
   // Clear previous errors
   if (errorElement) {
     $(errorElement).addClass('hidden');
     $input.removeClass('border-red-500');
     $input.parent().removeClass('border-red-500');
   }
-  
+
   // Check if empty
   if (!cleanPhone) {
     if (errorElement) {
@@ -130,7 +130,7 @@ function validatePhoneWithError(phoneInput, errorElement) {
     }
     return false;
   }
-  
+
   // Check if not all numbers (this shouldn't happen due to input restriction, but check anyway)
   if (phone !== cleanPhone) {
     if (errorElement) {
@@ -139,7 +139,7 @@ function validatePhoneWithError(phoneInput, errorElement) {
     }
     return false;
   }
-  
+
   // Check length
   if (cleanPhone.length !== 9) {
     if (errorElement) {
@@ -148,7 +148,7 @@ function validatePhoneWithError(phoneInput, errorElement) {
     }
     return false;
   }
-  
+
   // Check if starts with 1 (invalid)
   if (cleanPhone.startsWith('1')) {
     if (errorElement) {
@@ -157,7 +157,7 @@ function validatePhoneWithError(phoneInput, errorElement) {
     }
     return false;
   }
-  
+
   // Check if starts with 5
   if (!cleanPhone.startsWith('5')) {
     if (errorElement) {
@@ -166,43 +166,43 @@ function validatePhoneWithError(phoneInput, errorElement) {
     }
     return false;
   }
-  
+
   return true;
 }
 
 // Initialize phone input validation for all phone inputs
 function initPhoneValidation() {
   // Find all phone inputs
-  $('input[type="tel"]').each(function() {
+  $('input[type="tel"]').each(function () {
     const $input = $(this);
     const inputId = $input.attr('id');
-    
+
     // Skip readonly inputs
     if ($input.prop('readonly')) {
       return;
     }
-    
+
     // Find or create error element
     let $errorElement = null;
-    
+
     // Try to find by ID pattern first
     const errorId = inputId ? inputId + '-error' : null;
     if (errorId) {
       $errorElement = $('#' + errorId);
     }
-    
+
     // If not found, try to find sibling error element
     if ($errorElement.length === 0) {
       // Check parent container for error element
       const $parent = $input.parent();
       $errorElement = $parent.siblings('.text-red-500, .text-red-600').first();
-      
+
       // If still not found, check next sibling
       if ($errorElement.length === 0) {
         $errorElement = $parent.next('.text-red-500, .text-red-600').first();
       }
     }
-    
+
     // If still no error element, create one after the parent container
     if ($errorElement.length === 0) {
       const $parent = $input.parent();
@@ -215,20 +215,20 @@ function initPhoneValidation() {
         $input.after($errorElement);
       }
     }
-    
+
     // Restrict input to numbers only
-    $input.on('input', function() {
+    $input.on('input', function () {
       const value = $(this).val();
       const numbersOnly = value.replace(/\D/g, '');
       if (value !== numbersOnly) {
         $(this).val(numbersOnly);
       }
-      
+
       // Limit to 9 digits
       if (numbersOnly.length > 9) {
         $(this).val(numbersOnly.substring(0, 9));
       }
-      
+
       // Validate in real-time
       const cleanValue = $(this).val();
       if (cleanValue) {
@@ -265,20 +265,20 @@ function initPhoneValidation() {
       // Also remove from parent flex container if exists
       $input.parent().removeClass('border-red-500');
     });
-    
+
     // Validate on blur
-    $input.on('blur', function() {
+    $input.on('blur', function () {
       if ($(this).val()) {
         validatePhoneWithError($input, $errorElement);
       }
     });
-    
+
     // Validate on form submit
     const $form = $input.closest('form');
     if ($form.length > 0) {
       // Remove any existing submit handler for this input to avoid duplicates
       $form.off('submit.phoneValidation-' + inputId);
-      $form.on('submit.phoneValidation-' + inputId, function(e) {
+      $form.on('submit.phoneValidation-' + inputId, function (e) {
         if (!validatePhoneWithError($input, $errorElement)) {
           e.preventDefault();
           return false;

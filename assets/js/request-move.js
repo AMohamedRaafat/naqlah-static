@@ -830,6 +830,24 @@ function updatePreview() {
       ? furnitureItems.map(item => `${item.quantity} ${furnitureLabels[item.type]}`).join(' - ')
       : '-'
   );
+
+  function renderFurnitureImages() {
+    const container = $('#preview-furniture-images');
+    container.empty();
+
+    uploadedFiles.forEach((fileObj) => {
+      const fileURL = URL.createObjectURL(fileObj.file);
+
+      const card = $(`
+        <div class="item">
+          <img src="${fileURL}" class="w-full h-20 object-cover rounded-lg" />
+        </div>
+      `);
+      container.append(card);
+    });
+
+  }
+  renderFurnitureImages()
   // // Initialize route map
   // setTimeout(() => {
   //   initRouteMap();
@@ -1072,7 +1090,25 @@ $(document).ready(function () {
   toggleElevatorSize('pickup', $('#pickup-elevator').val());
   toggleElevatorSize('destination', $('#destination-elevator').val());
 
-
-
+  $('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 30,
+    nav: false,
+    dots: false,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 3,
+      },
+      768: {
+        items: 3,
+      },
+      1024: {
+        items: 3,
+      },
+    },
+    rtl: true,
+  });
 });
-

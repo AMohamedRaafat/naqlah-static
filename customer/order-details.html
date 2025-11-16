@@ -460,9 +460,9 @@
       <!-- Report Problem Modal -->
       <div
         id="report-modal"
-        class="hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60 px-4"
+        class="hidden fixed inset-0 z-[9999] items-center justify-center bg-black/60"
       >
-        <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-auto p-5 relative">
+        <div class="bg-white rounded-2xl max-w-sm w-[90%] mx-auto p-4 relative">
           <h3
             class="text-center text-lg font-semibold text-[#353535] mb-1"
             data-i18n="orderDetails.reportProblem"
@@ -470,100 +470,51 @@
             الإبلاغ عن مشكلة
           </h3>
           <p
-            class="text-center text-[#8E8E8E] text-sm mb-4"
+            class="text-center text-[#8E8E8E] text-sm mb-2"
             data-i18n="orderDetails.selectProblemType"
           >
             حدد نوع المشكلة
           </p>
-          <button
-            id="report-close"
-            class="absolute -top-3 -left-3 bg-white w-10 h-10 rounded-full grid place-items-center shadow z-[10001]"
-          >
-            <i class="fas fa-times"></i>
-          </button>
 
-          <div class="space-y-2 mb-4">
-            <label
-              class="flex items-center justify-start gap-2 px-4 py-3 rounded-xl bg-[#F7F7F7] text-[#575757] cursor-pointer"
-              for="report-type-delay"
+          <input id="damage-type" type="hidden" value="الفك" />
+          <div class="space-y-2 mb-3" id="damage-options">
+            <div
+              class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2"
+              data-value="arrival-delay"
             >
               <span
-                class="w-5 h-5 rounded-full border-2 border-[#00B8A9] peer-checked:bg-[#00B8A9]"
-              ></span>
-              <span data-i18n="orderDetails.problemTypes.delay">تأخير في الوصول</span>
-              <input
-                id="report-type-delay"
-                type="radio"
-                name="report-type"
-                value="delay"
-                class="hidden peer"
-              />
-            </label>
-            <label
-              class="flex items-center justify-start gap-2 px-4 py-3 rounded-xl bg-[#F7F7F7] text-[#575757] cursor-pointer"
-              for="report-type-no-commit"
+                class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9] bg-[#00B8A9]"
+              ></span
+              ><span class="text-[13px] text-[#353535]">تأخير في الوصول</span>
+            </div>
+            <div
+              class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2"
+              data-value="the-transport-company's-non-compliance"
             >
-              <span
-                class="w-5 h-5 rounded-full border-2 border-[#00B8A9] peer-checked:bg-[#00B8A9]"
-              ></span>
-              <span data-i18n="orderDetails.problemTypes.noCommitment">عدم التزام شركة النقل</span>
-              <input
-                id="report-type-no-commit"
-                type="radio"
-                name="report-type"
-                value="no-commit"
-                class="hidden peer"
-              />
-            </label>
-            <label
-              class="flex items-center justify-start gap-2 px-4 py-3 rounded-xl bg-[#F7F7F7] text-[#575757] cursor-pointer"
-              for="report-type-damage"
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9]"></span>
+              <span class="text-[13px] text-[#353535]">عدم التزام شركة النقل</span>
+            </div>
+            <div
+              class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2"
+              data-value="damage-or-breakage-to-the-furniture"
             >
-              <span
-                class="w-5 h-5 rounded-full border-2 border-[#00B8A9] peer-checked:bg-[#00B8A9]"
-              ></span>
-              <span data-i18n="orderDetails.problemTypes.damage">تلف أو كسر في الأثاث</span>
-              <input
-                id="report-type-damage"
-                type="radio"
-                name="report-type"
-                value="broken"
-                class="hidden peer"
-              />
-            </label>
-            <label
-              class="flex items-center justify-start gap-2 px-4 py-3 rounded-xl bg-[#F7F7F7] text-[#575757] cursor-pointer"
-              for="report-type-bad-behavior"
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9]"></span>
+              <span class="text-[13px] text-[#353535]">تلف أو كسر في الأثاث</span>
+            </div>
+            <div
+              class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2"
+              data-value="poor-treatment-of-the-crew"
             >
-              <span
-                class="w-5 h-5 rounded-full border-2 border-[#00B8A9] peer-checked:bg-[#00B8A9]"
-              ></span>
-              <span data-i18n="orderDetails.problemTypes.badBehavior">سوء تعامل من الطاقم</span>
-              <input
-                id="report-type-bad-behavior"
-                type="radio"
-                name="report-type"
-                value="bad-behavior"
-                class="hidden peer"
-              />
-            </label>
-            <label
-              class="flex items-center justify-start gap-2 px-4 py-3 rounded-xl bg-[#F7F7F7] text-[#575757] cursor-pointer"
-              for="report-type-other"
-              onclick="chooseReason('report-type-other')"
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9]"></span>
+              <span class="text-[13px] text-[#353535]">سوء تعامل مع الطاقم</span>
+            </div>
+            <div
+              class="damage-option rounded-xl text-[#353535] bg-[#C8C8C829] px-4 py-3 cursor-pointer flex items-center gap-2"
+              data-value="other"
             >
-              <span
-                class="w-5 h-5 rounded-full border-2 border-[#00B8A9] peer-checked:bg-[#00B8A9]"
-              ></span>
-              <span data-i18n="orderDetails.problemTypes.other">أخرى</span>
-              <input
-                id="report-type-other"
-                type="radio"
-                name="report-type"
-                value="other"
-                class="hidden peer"
-              />
-            </label>
+              <span class="selector-dot w-5 h-5 rounded-full border border-[#00B8A9]"></span>
+              <span class="text-[13px] text-[#353535]">أخرى</span>
+            </div>
           </div>
 
           <div class="mb-3">
@@ -663,7 +614,7 @@
               <button
                 type="button"
                 onclick="selectLocale('ar')"
-                class="w-full flex items-center justify-between px-4 py-3"
+                class="w-full flex items-center justify-betqen px-4 py-3"
               >
                 <span class="text-[#00B8A9]">العربية</span
                 ><i id="lang-check-ar" class="fas fa-check text-[#00B8A9] hidden"></i>
@@ -972,7 +923,37 @@
             reader.readAsDataURL(f);
           });
         }
+        // Delegated opener
+        document.addEventListener('click', function (e) {
+          var hidden = document.getElementById('damage-type');
+          var options = reportModal.querySelectorAll('.damage-option');
+          options.forEach(function (opt) {
+            var isSelected = opt.getAttribute('data-value') === (hidden && hidden.value);
+            var dot = opt.querySelector('.selector-dot');
+            if (dot) {
+              if (isSelected) dot.classList.add('bg-[#00B8A9]');
+              else dot.classList.remove('bg-[#00B8A9]');
+            }
+          });
+        });
+        var container = reportModal.querySelector('#damage-options');
+        var hidden = document.getElementById('damage-type');
+        if (!container || !hidden) return;
+        container.addEventListener('click', function (e) {
+          var opt = e.target.closest('.damage-option');
+          if (!opt) return;
+          hidden.value = opt.getAttribute('data-value') || '';
+          container.querySelectorAll('.damage-option').forEach(function (o) {
+            var active = o === opt;
+            var dot = o.querySelector('.selector-dot');
+            if (dot) {
+              if (active) dot.classList.add('bg-[#00B8A9]');
+              else dot.classList.remove('bg-[#00B8A9]');
+            }
+          });
+        });
       });
+
       function chooseReason(id) {
         document.getElementById(id).checked = true;
       }

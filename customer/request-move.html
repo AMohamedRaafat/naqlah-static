@@ -16,6 +16,8 @@
     <!-- Leaflet CSS and JS for maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css" />
 
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
@@ -314,7 +316,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.pickupDetails.city"
                 >
-                  المدينة <span class="text-red-500">*</span>
+                  المدينة
                 </label>
                 <input
                   type="text"
@@ -331,7 +333,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.pickupDetails.address"
                 >
-                  العنوان <span class="text-red-500">*</span>
+                  العنوان
                 </label>
                 <input
                   type="text"
@@ -347,7 +349,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.pickupDetails.buildingName"
                 >
-                  إسم المبنى <span class="text-red-500">*</span>
+                  إسم المبنى
                 </label>
                 <input
                   type="text"
@@ -364,7 +366,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.pickupDetails.floorNumber"
                 >
-                  رقم الطابق <span class="text-red-500">*</span>
+                  رقم الطابق
                 </label>
                 <input
                   type="number"
@@ -380,7 +382,7 @@
                 class="block text-sm font-medium text-gray-700 mb-2"
                 data-i18n="requestMove.pickupDetails.hasElevator"
               >
-                يوجد مصعد؟ <span class="text-red-500">*</span>
+                يوجد مصعد؟
               </label>
 
               <div class="relative">
@@ -422,7 +424,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.pickupDetails.elevatorSize"
                 >
-                  حجم المصعد التقريبي <span class="text-red-500">*</span>
+                  حجم المصعد التقريبي
                 </label>
                 <div class="relative">
                   <select
@@ -573,9 +575,7 @@
 
             <form id="destination-details-form" class="space-y-4">
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >المدينة <span class="text-red-500">*</span></label
-                >
+                <label class="block text-sm font-medium text-gray-700 mb-2">المدينة </label>
                 <input
                   type="text"
                   id="destination-details-city"
@@ -587,9 +587,7 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >العنوان <span class="text-red-500">*</span></label
-                >
+                <label class="block text-sm font-medium text-gray-700 mb-2">العنوان </label>
                 <input
                   type="text"
                   id="destination-details-address"
@@ -604,8 +602,8 @@
                 <label
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.pickupDetails.buildingName"
-                  >إسم البناء <span class="text-red-500">*</span></label
-                >
+                  >إسم البناء
+                </label>
                 <input
                   type="text"
                   id="destination-building-name"
@@ -617,9 +615,7 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >رقم الطابق <span class="text-red-500">*</span></label
-                >
+                <label class="block text-sm font-medium text-gray-700 mb-2">رقم الطابق </label>
                 <input
                   type="number"
                   id="destination-floor"
@@ -629,9 +625,7 @@
                 />
               </div>
 
-              <label class="block text-sm font-medium text-gray-700 mb-2"
-                >يوجد مصعد؟ <span class="text-red-500">*</span></label
-              >
+              <label class="block text-sm font-medium text-gray-700 mb-2">يوجد مصعد؟ </label>
 
               <div class="relative">
                 <select
@@ -651,8 +645,8 @@
 
               <div id="destination-elevator-size-wrapper" class="hidden">
                 <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >حجم المصعد التقريبي <span class="text-red-500">*</span></label
-                >
+                  >حجم المصعد التقريبي
+                </label>
                 <div class="relative">
                   <select
                     id="destination-elevator-size"
@@ -724,7 +718,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.furnitureDetails.rooms.label"
                 >
-                  عدد الغرف <span class="text-red-500">*</span>
+                  عدد الغرف
                 </label>
                 <div class="relative">
                   <select
@@ -878,7 +872,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.furnitureDetails.valuables.label"
                 >
-                  هل يوجد قطع ثمينة للنقل؟ <span class="text-red-500">*</span>
+                  هل يوجد قطع ثمينة للنقل؟
                 </label>
                 <div class="relative flex-1">
                   <select
@@ -909,7 +903,7 @@
                   class="block text-sm font-medium text-gray-700"
                   data-i18n="requestMove.furnitureDetails.valuables.attachPhotos"
                 >
-                  أرفق صور القطع الثمينة <span class="text-red-500">*</span>
+                  أرفق صور القطع الثمينة
                 </label>
 
                 <!-- Upload Area -->
@@ -950,7 +944,7 @@
                   class="block text-sm font-medium text-gray-700 mb-2"
                   data-i18n="requestMove.furnitureDetails.furniture.attachPhotos"
                 >
-                  أرفق صور الأثاث <span class="text-red-500">*</span>
+                  أرفق صور الأثاث
                 </label>
                 <div
                   class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center cursor-pointer hover:border-[#00B8A9] transition-colors"
@@ -1415,7 +1409,7 @@
               </p>
             </div>
             <!-- Furniture Images -->
-            <div class="grid grid-cols-3 gap-2" id="preview-furniture-images">
+            <div class="owl-carousel" id="preview-furniture-images">
               <!-- Images will be populated dynamically -->
             </div>
           </div>
@@ -1904,6 +1898,7 @@
       </div>
     </div>
     <!-- Scripts -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
     <script src="../assets/js/translations.js"></script>
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/request-move.js"></script>

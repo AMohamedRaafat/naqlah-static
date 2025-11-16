@@ -8,23 +8,10 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
-    <!-- Owl Carousel CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
     />
 
     <!-- Leaflet CSS -->
@@ -45,6 +32,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/custom.css" />
 
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css" />
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
   <body class="flex min-h-screen font-expo-arabic bg-[#fafafa]">
@@ -348,7 +337,7 @@
       <!-- Main Content -->
       <main class="flex-1 flex flex-col">
         <!-- Welcome Message -->
-        <div class="bg-white px-4 py-6 text-start">
+        <div class="px-4 py-6 text-start">
           <h2 class="text-[14px] font-semibold text-[#353535]">
             <span data-i18n="dashboard.welcome">مرحبًا</span>
             <span id="user-name">منصور الفهماوي</span>
@@ -405,7 +394,7 @@
         <div id="orders-state" class="hidden flex-1 px-4 py-6">
           <div id="quotes-list">
             <!-- Orders State (Hidden by default) -->
-            <div data-state="ongoing">
+            <div data-state="ongoing" class="bg-white p-4 rounded-lg">
               <div class="flex items-center justify-between">
                 <div class="dropdown relative">
                   <button onclick="toggleOrderMenu()">
@@ -555,13 +544,19 @@
                           >
                             الخدمات الإضافية
                           </h5>
-                          <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                            <p>تغليف محكم</p>
-                            <p>تأمين ضد الفقد والكسر</p>
-                            <p class="pt-1">
-                              <span class="font-medium text-[#4B4B4B]">فك وتركيب:</span>
-                            </p>
-                            <p>3 مكيف، 3 دواليب، 4 سرير، 1 مكتب</p>
+                          <div class="flex flex-wrap gap-2 text-[12px]">
+                            <span
+                              class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                              >تغليف محكم</span
+                            >
+                            <span
+                              class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                              >تأمين ضد الفقد والكسر</span
+                            >
+                            <span
+                              class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                              >تفكيك وتركيب</span
+                            >
                           </div>
                         </div>
                       </div>
@@ -570,14 +565,14 @@
                 </div>
               </div>
             </div>
-            <div data-state="quotes" class="hidden">
+            <div data-state="quotes" class="hidden bg-white p-4 rounded-lg">
               <!-- Price Quotes Section Header -->
               <div class="flex items-center justify-center gap-2 mb-4">
                 <span class="text-[#00b8a9] text-[14px]"> متبقي للبدء 0ي 4س 40د </span>
               </div>
 
               <!-- Current Order Card -->
-              <div class="bg-white rounded-2xl p-4 shadow-sm mb-4">
+              <div class="bg-white rounded-2xl shadow-sm mb-4">
                 <div class="flex items-start justify-between mb-3">
                   <div class="text-right">
                     <h4 class="text-[14px] font-medium text-[#4B4B4B]" id="order-customer-name">
@@ -685,13 +680,19 @@
                       >
                         الخدمات الإضافية
                       </h5>
-                      <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                        <p>تغليف محكم</p>
-                        <p>تأمين ضد الفقد والكسر</p>
-                        <p class="pt-1">
-                          <span class="font-medium text-[#4B4B4B]">فك وتركيب:</span>
-                        </p>
-                        <p>3 مكيف، 3 دواليب، 4 سرير، 1 مكتب</p>
+                      <div class="flex flex-wrap gap-2 text-[12px]">
+                        <span
+                          class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                          >تغليف محكم</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                          >تأمين ضد الفقد والكسر</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                          >تفكيك وتركيب</span
+                        >
                       </div>
                     </div>
 
@@ -704,8 +705,24 @@
                         تفاصيل الأثاث
                       </h5>
                       <div class="space-y-1 text-[13px] text-[#868686] text-right">
-                        <p>5 غرف</p>
-                        <p>2 صالة، 3 مكيف، 3 دواليب، 4 سرير، 1 مكتب، 2 سجاد</p>
+                        <div class="flex flex-wrap gap-2 text-[12px] mb-3">
+                          <span
+                            class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                            >5 غرف</span
+                          >
+                          <span
+                            class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                            >2 سجاد</span
+                          >
+                          <span
+                            class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                            >1 مكتب</span
+                          >
+                          <span
+                            class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
+                            >2 مرايا</span
+                          >
+                        </div>
 
                         <!-- Furniture Images Carousel -->
                         <div class="pt-2">
@@ -1220,36 +1237,11 @@
     <!-- Scripts -->
     <script src="../assets/js/translations.js"></script>
     <!-- Owl Carousel JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/dashboard.js"></script>
-    <script>
-      // Initialize Furniture Carousel
-      $(document).ready(function () {
-        $('.furniture-carousel').owlCarousel({
-          items: 3,
-          margin: 8,
-          loop: true,
-          nav: false,
-          dots: false,
-          autoplay: false,
-          touchDrag: true,
-          mouseDrag: true,
-          pullDrag: true,
-          responsive: {
-            0: {
-              items: 2,
-              margin: 6,
-            },
-            640: {
-              items: 3,
-              margin: 8,
-            },
-          },
-        });
-      });
-    </script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+
     <script>
       // Handle accept confirmation
       function confirmAccept() {
@@ -1313,6 +1305,27 @@
           });
         });
       })();
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 3,
+          },
+          768: {
+            items: 3,
+          },
+          1024: {
+            items: 3,
+          },
+        },
+        rtl: true,
+      });
     </script>
   </body>
 </html>
