@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../assets/css/custom.css" />
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex min-h-screen font-expo-arabic md:flex-row flex-col">
+  <body class="flex min-h-screen font-expo-arabic md:flex-row flex-col bg-[#fafafa]">
     <!-- Desktop Sidebar (Customer) -->
     <aside
       id="desktop-sidebar"
@@ -375,36 +375,6 @@
             <p id="phoneNumber-error" class="text-red-500 text-sm mt-1 hidden"></p>
           </div>
 
-          <!-- Expected Services -->
-          <div class="space-y-3">
-            <label
-              class="block text-[#353535] font-medium text-[14px]"
-              data-i18n="account.expectedServices"
-              >الخدمات المتوقعة</label
-            >
-            <div class="relative">
-              <select
-                id="services-select"
-                class="w-full px-4 py-3 border border-[#EDEDED] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm appearance-none bg_white"
-              >
-                <option value="" data-i18n="registerCompany.selectServices">حدد الخدمات</option>
-                <option value="disassembly" data-i18n="registerCompany.services.disassembly">
-                  تفكيك وتركيب
-                </option>
-                <option value="packing" data-i18n="registerCompany.services.packing">
-                  تغليف محكم
-                </option>
-                <option value="moving" data-i18n="registerCompany.services.moving">
-                  نقل بين مدن
-                </option>
-              </select>
-              <i
-                class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
-              ></i>
-            </div>
-            <div id="selected-services" class="flex flex-wrap gap-2 mt-3"></div>
-          </div>
-
           <!-- About -->
           <div class="space-y-2">
             <label class="block text-[#353535] font-medium text-[14px]" data-i18n="account.about"
@@ -447,55 +417,6 @@
       // Form Validation
       $(document).ready(function () {
         const form = $('#customer-account-form');
-
-        // Services management (for customer account)
-        let selectedServices = [];
-        const serviceLabels = {
-          disassembly: 'تفكيك وتركيب',
-          packing: 'تغليف محكم',
-          moving: 'نقل بين مدن',
-        };
-
-        // Function to render selected services as chips
-        function renderServices() {
-          const container = $('#selected-services');
-          container.empty();
-          selectedServices.forEach((service) => {
-            const chip = $(`
-              <div class="flex items-center gap-2 px-3 py-2 bg-white border border-[#EDEDED] rounded-lg text-sm">
-                <button
-                  type="button"
-                  onclick="removeService('${service}')"
-                  class="text-[#00B8A9] hover:text-red-500 transition-colors"
-                >
-                  <i class="fas fa-times"></i>
-                </button>
-                <span class="text-[#353535]">${serviceLabels[service]}</span>
-              </div>
-            `);
-            container.append(chip);
-          });
-        }
-
-        // Function to remove service
-        window.removeService = function (service) {
-          selectedServices = selectedServices.filter((s) => s !== service);
-          renderServices();
-        };
-
-        // Handle service selection from dropdown
-        $('#services-select').on('change', function () {
-          const value = $(this).val();
-          $(this).val('');
-          if (!value || selectedServices.includes(value)) {
-            if (selectedServices.includes(value)) {
-              showNotification('هذه الخدمة مضافة بالفعل', 'warning');
-            }
-            return;
-          }
-          selectedServices.push(value);
-          renderServices();
-        });
 
         // Validate First Name
         $('#firstName').on('input blur', function () {

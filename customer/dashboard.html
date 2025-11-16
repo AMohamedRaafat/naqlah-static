@@ -488,7 +488,7 @@
                       <i class="fas fa-chevron-down text-[#C0C0C0]" id="details-icon"></i>
                       <span data-i18n="dashboard.reviewOrderDetails">مراجعة تفاصيل الطلب</span>
                     </button>
-                    <div id="order-details-1" class="hidden px-2">
+                    <div id="ongoing-details-1" class="hidden px-2">
                       <div class="text-[13px] text-[#6B7280] leading-6 space-y-3">
                         <!-- Row: Personal + Date/Time -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -771,203 +771,204 @@
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Company Offers Header -->
-              <button
-                onclick="toggleCompanyOffers()"
-                id="company-offers-toggle"
-                class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
-              >
-                <i class="fas fa-chevron-up text-[#C0C0C0]" id="offers-icon"></i>
-                <h4 class="text-[14px] font-medium text-[#4B4B4B]">
-                  <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
-                  <span class="text-[#868686]">(4)</span>
-                </h4>
-              </button>
+                <!-- Company Offers Header -->
+                <button
+                  onclick="toggleCompanyOffers()"
+                  id="company-offers-toggle"
+                  class="w-full flex items-center justify-between bg-white rounded-xl p-4 shadow-sm mb-3"
+                >
+                  <i class="fas fa-chevron-up text-[#C0C0C0]" id="offers-icon"></i>
+                  <h4 class="text-[14px] font-medium text-[#4B4B4B]">
+                    <span data-i18n="dashboard.companyOffers">عروض شركات النقل</span>
+                    <span class="text-[#868686]">(4)</span>
+                  </h4>
+                </button>
 
-              <!-- Company Offers List -->
-              <div id="company-offers" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
-                <!-- Offer 1 - Full Details (redesigned) -->
-                <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
-                  <div>
-                    <div class="flex gap-3">
-                      <div
-                        style="width: 85px; height: 85px"
-                        class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
-                      >
-                        <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
-                      </div>
-                      <div class="text-right flex-1">
-                        <div class>
-                          <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">
-                                ثابت موثق لنقل الأثاث
-                              </h5>
-                              <div class="flex items-center gap-1">
-                                <span class="text-[12px] text-[#868686]">4.5</span>
-                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                <!-- Company Offers List -->
+                <div id="company-offers" class="grid grid-cols-1 lg:grid-cols-2 gap-3 my-4">
+                  <!-- Offer 1 - Full Details (redesigned) -->
+                  <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
+                    <div>
+                      <div class="flex gap-3">
+                        <div
+                          style="width: 85px; height: 85px"
+                          class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
+                        >
+                          <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
+                        </div>
+                        <div class="text-right flex-1">
+                          <div class>
+                            <div class="flex items-center justify-between">
+                              <div class="flex items-center gap-2">
+                                <h5 class="text-[14px] font-medium text-[#4B4B4B]">
+                                  ثابت موثق لنقل الأثاث
+                                </h5>
+                                <div class="flex items-center gap-1">
+                                  <span class="text-[12px] text-[#868686]">4.5</span>
+                                  <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                </div>
                               </div>
-                            </div>
-                            <button
-                              onclick="toggleCompanyDescription(1)"
-                              class="text-[12px] text-[#00B8A9]"
-                              id="read-more-btn-1"
-                            >
-                              <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
-                            </button>
-                          </div>
-                          <div class="flex items-center justify-between mt-3 mb-3">
-                            <div class="text-left">
-                              <p
-                                class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                              <button
+                                onclick="toggleCompanyDescription(1)"
+                                class="text-[12px] text-[#00B8A9]"
+                                id="read-more-btn-1"
                               >
-                                780
-                                <span class="icon-riyal w-6 h-6"></span>
-                              </p>
-                              <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                                <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
+                              </button>
                             </div>
-                            <button
-                              onclick="showModal('accept-confirmation-modal')"
-                              class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
-                              data-i18n="dashboard.accept"
-                            >
-                              قبول
-                            </button>
+                            <div class="flex items-center justify-between mt-3 mb-3">
+                              <div class="text-left">
+                                <p
+                                  class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                                >
+                                  780
+                                  <span class="icon-riyal w-6 h-6"></span>
+                                </p>
+                                <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                              </div>
+                              <button
+                                onclick="showModal('accept-confirmation-modal')"
+                                class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
+                                data-i18n="dashboard.accept"
+                              >
+                                قبول
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <!-- Services Tags -->
-                    <div class="flex flex-wrap gap-2 mb-3">
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تركيب دواليب</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >نقل أثاث</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تركيب مطبخ</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تأمين ضد الفقد والكسر</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تغليف محكم</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تركيب مكيفات</span
-                      >
-                    </div>
+                      <!-- Services Tags -->
+                      <div class="flex flex-wrap gap-2 mb-3">
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تركيب دواليب</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >نقل أثاث</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تركيب مطبخ</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تأمين ضد الفقد والكسر</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تغليف محكم</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تركيب مكيفات</span
+                        >
+                      </div>
 
-                    <!-- Description -->
-                    <div id="company-description-1" class="hidden">
-                      <p class="text-[12px] text-[#868686] text-start leading-relaxed mt-3">
-                        مرحبًا نشكرك على اهتمامك بخدماتنا تميز بإحترافية عالية في نقل الأثاث دون
-                        خدوش أو تلف، مع توفير تغليف آمن لحماية ممتلكاتك والتزام بالمواعيد بدقة لضمان
-                        راحتك. أسعارنا شفافة بدون رسوم مخفية. بالإضافة إلى تأمين لحماية الأثاث أثناء
-                        النقل. نحن مستعدون لنقل أثاثك بكل سهولة اضغط على "قبول" للبدء الآن!
-                      </p>
+                      <!-- Description -->
+                      <div id="company-description-1" class="hidden">
+                        <p class="text-[12px] text-[#868686] text-start leading-relaxed mt-3">
+                          مرحبًا نشكرك على اهتمامك بخدماتنا تميز بإحترافية عالية في نقل الأثاث دون
+                          خدوش أو تلف، مع توفير تغليف آمن لحماية ممتلكاتك والتزام بالمواعيد بدقة
+                          لضمان راحتك. أسعارنا شفافة بدون رسوم مخفية. بالإضافة إلى تأمين لحماية
+                          الأثاث أثناء النقل. نحن مستعدون لنقل أثاثك بكل سهولة اضغط على "قبول" للبدء
+                          الآن!
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- Offer 2 -->
-                <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
-                  <div>
-                    <div class="flex gap-3">
-                      <div
-                        style="width: 85px; height: 85px"
-                        class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
-                      >
-                        <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
-                      </div>
-                      <div class="text-right flex-1">
-                        <div class>
-                          <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                              <h5 class="text-[14px] font-medium text-[#4B4B4B]">شركة النقل</h5>
-                              <div class="flex items-center gap-1">
-                                <span class="text-[12px] text-[#868686]">4.4</span>
-                                <i class="fas fa-star text-yellow-400 text-xs"></i>
+                  <!-- Offer 2 -->
+                  <div class="bg-white rounded-xl border border-[#EAE9E999] p-4 shadow-sm">
+                    <div>
+                      <div class="flex gap-3">
+                        <div
+                          style="width: 85px; height: 85px"
+                          class="bg-gray-100 rounded-md flex items-center justify-center border border-[#DCDCDC]"
+                        >
+                          <i class="fas fa-truck text-[#00B8A9] text-2xl"></i>
+                        </div>
+                        <div class="text-right flex-1">
+                          <div class>
+                            <div class="flex items-center justify-between">
+                              <div class="flex items-center gap-2">
+                                <h5 class="text-[14px] font-medium text-[#4B4B4B]">شركة النقل</h5>
+                                <div class="flex items-center gap-1">
+                                  <span class="text-[12px] text-[#868686]">4.4</span>
+                                  <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                </div>
                               </div>
-                            </div>
-                            <button
-                              onclick="toggleCompanyDescription(2)"
-                              class="text-[12px] text-[#00B8A9]"
-                              id="read-more-btn-2"
-                            >
-                              <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
-                            </button>
-                          </div>
-                          <div class="flex items-center justify-between mt-3 mb-3">
-                            <div class="text-left">
-                              <p
-                                class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                              <button
+                                onclick="toggleCompanyDescription(2)"
+                                class="text-[12px] text-[#00B8A9]"
+                                id="read-more-btn-2"
                               >
-                                780
-                                <span class="icon-riyal w-6 h-6"></span>
-                              </p>
-                              <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                                <span data-i18n="dashboard.readMore">إقرأ المزيد</span>
+                              </button>
                             </div>
-                            <button
-                              onclick="showModal('accept-confirmation-modal')"
-                              class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
-                              data-i18n="dashboard.accept"
-                            >
-                              قبول
-                            </button>
+                            <div class="flex items-center justify-between mt-3 mb-3">
+                              <div class="text-left">
+                                <p
+                                  class="text-[24px] font-bold text-[#4B4B4B] flex items-center gap-1"
+                                >
+                                  780
+                                  <span class="icon-riyal w-6 h-6"></span>
+                                </p>
+                                <p class="text-[12px] text-[#868686]">11:30 - 3.15.2025 - الأحد</p>
+                              </div>
+                              <button
+                                onclick="showModal('accept-confirmation-modal')"
+                                class="px-6 py-2 bg-[#00B8A9] text-white text-[14px] font-medium rounded-lg hover:bg-[#009688] transition-colors"
+                                data-i18n="dashboard.accept"
+                              >
+                                قبول
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <!-- Services Tags -->
-                    <div class="flex flex-wrap gap-2 mb-3">
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تركيب دواليب</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >نقل أثاث</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تركيب مطبخ</span
-                      >
-                      <span
-                        class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
-                        >تأمين ضد الفقد والكسر</span
-                      >
-                    </div>
+                      <!-- Services Tags -->
+                      <div class="flex flex-wrap gap-2 mb-3">
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تركيب دواليب</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >نقل أثاث</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تركيب مطبخ</span
+                        >
+                        <span
+                          class="px-3 py-1 bg-white text-[#00B8A9] text-[12px] rounded-md border border-gray-200"
+                          >تأمين ضد الفقد والكسر</span
+                        >
+                      </div>
 
-                    <!-- Description -->
-                    <div id="company-description-2" class="hidden">
-                      <p class="text-[12px] text-[#868686] text-start leading-relaxed mt-3">
-                        نقدم خدمات نقل أثاث احترافية مع فريق متخصص وخبرة طويلة في المجال. نضمن لك
-                        سلامة ممتلكاتك وسرعة في التنفيذ.
-                      </p>
+                      <!-- Description -->
+                      <div id="company-description-2" class="hidden">
+                        <p class="text-[12px] text-[#868686] text-start leading-relaxed mt-3">
+                          نقدم خدمات نقل أثاث احترافية مع فريق متخصص وخبرة طويلة في المجال. نضمن لك
+                          سلامة ممتلكاتك وسرعة في التنفيذ.
+                        </p>
+                      </div>
                     </div>
                   </div>
+                  <!-- Show More Button -->
                 </div>
-                <!-- Show More Button -->
+                <button
+                  class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
+                  onclick="window.location.href='./quotes.html'"
+                  data-i18n="dashboard.showMore"
+                >
+                  <span class="mx-2 font-regular">أظهر المزيد</span>
+                </button>
               </div>
-              <button
-                class="w-full text-center text-[#00B8A9] text-[14px] font-medium py-2"
-                onclick="window.location.href='./quotes.html'"
-                data-i18n="dashboard.showMore"
-              >
-                <span class="mx-2 font-regular">أظهر المزيد</span>
-              </button>
             </div>
           </div>
         </div>
