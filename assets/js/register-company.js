@@ -155,6 +155,7 @@ $(document).ready(function () {
     if (file) {
       registrationFile = file;
       $('#file-attached').removeClass('hidden');
+      $('#fileName').text(file.name);
     }
   });
 

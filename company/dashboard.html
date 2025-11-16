@@ -279,7 +279,7 @@
               data-filter="all"
             >
               <span
-                class="mx-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#00B8A9] text-xs"
+                class="me-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#00B8A9] text-xs"
                 >7</span
               >
               <span data-i18n="companyDashboard.tabs.all">الكل</span>
@@ -289,7 +289,7 @@
               data-filter="running"
             >
               <span
-                class="mx-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-[#6B7280] text-xs"
+                class="me-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-[#6B7280] text-xs"
                 >6</span
               >
               <span data-i18n="companyDashboard.tabs.running">الجارية</span>
@@ -299,22 +299,22 @@
               data-filter="completed"
             >
               <span
-                class="mx-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-[#6B7280] text-xs"
+                class="me-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-[#6B7280] text-xs"
                 >1</span
               >
               <span data-i18n="companyDashboard.tabs.completed">المنتهية</span>
             </button>
           </div>
           <!-- Table-like rows -->
-          <div class="grid grid-cols-3 text-[#9CA3AF] text-sm px-2 py-2 border-b border-[#ECECEC]">
-            <div data-i18n="companyDashboard.columns.customer">العميل</div>
-            <div data-i18n="companyDashboard.columns.status" class="text-center">الحالة</div>
-            <div data-i18n="companyDashboard.columns.details" class="text-center">التفاصيل</div>
+          <div class="flex text-[#9CA3AF] text-sm px-2 py-2 border-b border-[#ECECEC]">
+            <div data-i18n="companyDashboard.columns.customer" class="flex-1">العميل</div>
+            <div data-i18n="companyDashboard.columns.status" class="text-center flex-1">الحالة</div>
+            <div data-i18n="companyDashboard.columns.details" class="text-end">التفاصيل</div>
           </div>
           <div class="" id="orders-list">
             <!-- Row 1 -->
-            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
-              <div class="text-[#4B5563] relative">
+            <div class="flex py-3 px-2" data-status="running">
+              <div class="text-[#4B5563] relative flex-1">
                 <div class="flex gap-2">
                   <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
                   <div class="flex flex-col">
@@ -326,110 +326,19 @@
                 </div>
               </div>
               <div
-                class="text-[#353535] text-sm text-center"
+                class="text-[#353535] text-sm text-start flex-1"
                 data-i18n="companyDashboard.badges.journeyStarted"
               >
                 بدء رحلة النقل
               </div>
-              <div class="text-[#353535] text-xs text-center">
+              <div class="text-[#353535] text-xs text-end">
                 <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-              </div>
-            </div>
-            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
-              <div class="text-[#4B5563] relative">
-                <div class="flex gap-2">
-                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
-                  <div class="flex flex-col">
-                    <span class="text-[14px] text-nowrap" data-i18n="examples.customerName1"
-                      >منصور الفهماني</span
-                    >
-                    <span class="text-xs text-[#9CA3AF]">ORD938274</span>
+                  <div dir="rtl" class="ltr:hidden">
+                    <i class="fas fa-chevron-left text-[#353535]"></i>
                   </div>
-                </div>
-              </div>
-              <div
-                class="text-[#353535] text-sm text-center"
-                data-i18n="companyDashboard.badges.journeyStarted"
-              >
-                بدء رحلة النقل
-              </div>
-              <div class="text-[#353535] text-xs text-center">
-                <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-              </div>
-            </div>
-            <div class="grid grid-cols-3 py-3 px-2" data-status="completed">
-              <div class="text-[#4B5563] relative">
-                <div class="flex gap-2">
-                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
-                  <div class="flex flex-col">
-                    <span class="text-[14px] text-nowrap" data-i18n="examples.customerName1"
-                      >منصور الفهماني</span
-                    >
-                    <span class="text-xs text-[#9CA3AF]">ORD938274</span>
+                  <div dir="ltr" class="rtl:hidden">
+                    <i class="fas fa-chevron-right text-[#353535]"></i>
                   </div>
-                </div>
-              </div>
-              <div
-                class="text-[#353535] text-sm text-center"
-                data-i18n="companyDashboard.badges.journeyStarted"
-              >
-                بدء رحلة النقل
-              </div>
-              <div class="text-[#353535] text-xs text-center">
-                <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-              </div>
-            </div>
-            <div class="grid grid-cols-3 py-3 px-2" data-status="completed">
-              <div class="text-[#4B5563] relative">
-                <div class="flex gap-2">
-                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
-                  <div class="flex flex-col">
-                    <span class="text-[14px] text-nowrap" data-i18n="examples.customerName1"
-                      >منصور الفهماني</span
-                    >
-                    <span class="text-xs text-[#9CA3AF]">ORD938274</span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="text-[#353535] text-sm text-center"
-                data-i18n="companyDashboard.badges.journeyStarted"
-              >
-                بدء رحلة النقل
-              </div>
-              <div class="text-[#353535] text-xs text-center">
-                <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-              </div>
-            </div>
-            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
-              <div class="text-[#4B5563] relative">
-                <div class="flex gap-2">
-                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
-                  <div class="flex flex-col">
-                    <span class="text-[14px] text-nowrap" data-i18n="examples.customerName1"
-                      >منصور الفهماني</span
-                    >
-                    <span class="text-xs text-[#9CA3AF]">ORD938274</span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="text-[#353535] text-sm text-center"
-                data-i18n="companyDashboard.badges.journeyStarted"
-              >
-                بدء رحلة النقل
-              </div>
-              <div class="text-[#353535] text-xs text-center">
-                <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
                 </a>
               </div>
             </div>
@@ -437,7 +346,7 @@
         </section>
 
         <!-- Quotes Requests Card -->
-        <section class="bg-white rounded-2xl p-4 lg:p-6">
+        <section class="bg-white rounded-2xl py-4 lg:p-6">
           <div class="flex items-center justify-between mb-4">
             <h2
               class="text-[16px] lg:text-[18px] font-semibold text-[#353535]"
@@ -452,33 +361,33 @@
               <a href="./manage-quotes.html" class="text-[#00B8A9]" data-i18n="common.all"></a>
             </div>
           </div>
-          <div class="grid grid-cols-3 gap-2 text-sm mb-4" data-tabs-group="quotes">
+          <div class="flex gap-2 text-sm mb-4" data-tabs-group="quotes">
             <button
               class="tab-btn px-2 py-2 bg-[#D2F2F0] border border-[#00B8A9] rounded-lg flex items-center justify-center"
               data-filter="all"
             >
               <span
-                class="ml-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#00B8A9] text-xs"
+                class="count me-2 inline-flex items-center justify-center rounded-full bg-white text-[#00B8A9] text-xs"
                 >7</span
               >
               <span data-i18n="companyDashboard.tabs.all">الكل</span>
             </button>
             <button
-              class="tab-btn px-2 py-2 rounded-lg hover:bg-gray-50 flex items-center justify-center"
+              class="flex-1 tab-btn px-2 py-2 rounded-lg hover:bg-gray-50 flex items-center justify-center"
               data-filter="submitted"
             >
               <span
-                class="count-circle ml-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#DCE9E8] text-[#00B8A9] text-xs"
+                class="count count-circle me-2 inline-flex items-center justify-center rounded-full bg-[#DCE9E8] text-[#00B8A9] text-xs"
                 >6</span
               >
               <span data-i18n="companyDashboard.tabs.submitted">مقدمة</span>
             </button>
             <button
-              class="tab-btn px-2 py-2 rounded-lg flex items-center justify-center"
+              class="flex-1 tab-btn px-2 py-2 rounded-lg flex items-center justify-center"
               data-filter="notSubmitted"
             >
               <span
-                class="count-circle ml-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#DC46321F] text-[#DC4632] text-xs"
+                class="count count-circle me-2 inline-flex items-center justify-center rounded-full bg-[#DC46321F] text-[#DC4632] text-xs"
                 >12</span
               >
               <span data-i18n="companyDashboard.tabs.notSubmitted">غير مقدمة</span>
@@ -514,8 +423,11 @@
                     </div>
                   </div>
                 </div>
-                <div>
+                <div dir="rtl" class="ltr:hidden">
                   <i class="fas fa-chevron-left text-[#353535]"></i>
+                </div>
+                <div dir="ltr" class="rtl:hidden">
+                  <i class="fas fa-chevron-right text-[#353535]"></i>
                 </div>
               </div>
               <div>
@@ -572,8 +484,11 @@
                     </div>
                   </div>
                 </div>
-                <div>
+                <div dir="rtl" class="ltr:hidden">
                   <i class="fas fa-chevron-left text-[#353535]"></i>
+                </div>
+                <div dir="ltr" class="rtl:hidden">
+                  <i class="fas fa-chevron-right text-[#353535]"></i>
                 </div>
               </div>
               <div>

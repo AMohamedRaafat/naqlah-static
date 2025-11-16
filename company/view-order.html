@@ -261,11 +261,20 @@
       <div class="container mx-auto max-w-3xl">
         <!-- Breadcrumb -->
         <div class="mb-2 text-sm text-[#7E7E7E]">
-          <a href="./dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard">لوحة التحكم</a>
+          <a href="./dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard"
+            >لوحة التحكم</a
+          >
           <span class="mx-2">—</span>
-          <a href="./manage-orders.html" class="hover:text-[#00B8A9]" data-i18n="companyNavigation.manageOrders">إدارة طلبات النقل</a>
+          <a
+            href="./manage-orders.html"
+            class="hover:text-[#00B8A9]"
+            data-i18n="companyNavigation.manageOrders"
+            >إدارة طلبات النقل</a
+          >
           <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium" data-i18n="viewOrder.title">عرض تفاصيل الطلب</span>
+          <span class="text-[#312E37] font-medium" data-i18n="viewOrder.title"
+            >عرض تفاصيل الطلب</span
+          >
         </div>
 
         <!-- Header Card -->
@@ -282,7 +291,7 @@
           </div>
 
           <!-- Collapsible: مراجعة تفاصيل الطلب -->
-          <div class="border-t border-gray-50 bg-gray-50 p-3 rounded-xl">
+          <div class="border-t border-gray-50 bg-gray-50 py-3 rounded-xl">
             <button
               id="order-details-toggle"
               class="w-full flex items-center justify-between text-[14px] font-medium text-[#4B4B4B]"
@@ -329,13 +338,13 @@
                   الخدمات الإضافية
                 </h5>
                 <div class="flex flex-wrap gap-2 text-[12px]">
-                  <span class="px-3 py-1 bg-white text-[#00B8A9] rounded-md border border-gray-200"
+                  <span class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
                     >تغليف محكم</span
                   >
-                  <span class="px-3 py-1 bg-white text-[#00B8A9] rounded-md border border-gray-200"
+                  <span class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
                     >تأمين ضد الفقد والكسر</span
                   >
-                  <span class="px-3 py-1 bg-white text-[#00B8A9] rounded-md border border-gray-200"
+                  <span class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
                     >تفكيك وتركيب</span
                   >
                 </div>
@@ -349,20 +358,32 @@
                   تفاصيل الأثاث
                 </h5>
                 <div class="flex flex-wrap gap-2 text-[12px] mb-3">
-                  <span class="px-3 py-1 bg-white text-[#00B8A9] rounded-md border border-gray-200"
+                  <span class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
                     >5 غرف</span
                   >
-                  <span class="px-3 py-1 bg-white text-[#00B8A9] rounded-md border border-gray-200"
+                  <span class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
                     >2 سجاد</span
                   >
-                  <span class="px-3 py-1 bg-white text-[#00B8A9] rounded-md border border-gray-200"
+                  <span class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
                     >1 مكتب</span
                   >
-                  <span class="px-3 py-1 bg-white text-[#00B8A9] rounded-md border border-gray-200"
+                  <span class="px-3 py-1 bg-white text-[#474747] rounded-md border border-gray-200"
                     >2 مرايا</span
                   >
                 </div>
                 <div class="grid grid-cols-3 gap-2">
+                  <img
+                    src="../assets/landing/truck.png"
+                    alt="img"
+                    class="w-full h-24 object-cover rounded-md cursor-pointer"
+                    data-img-preview
+                  />
+                  <img
+                    src="../assets/landing/truck.png"
+                    alt="img"
+                    class="w-full h-24 object-cover rounded-md cursor-pointer"
+                    data-img-preview
+                  />
                   <img
                     src="../assets/landing/truck.png"
                     alt="img"
@@ -401,7 +422,7 @@
           </div>
 
           <!-- Updates (collapsible like order details) -->
-          <section class="bg-gray-50 mt-4 rounded-2xl p-3">
+          <section class="bg-gray-50 mt-4 rounded-2xl py-3">
             <div class="rounded-xl">
               <button
                 id="updates-toggle"
@@ -450,11 +471,11 @@
                   <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#C8C8C829] text-[#909090] step-toggle"
                       data-target="panel-check-furniture"
                     >
                       <span>التحقق من الأثاث</span>
-                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
+                      <i class="fas fa-chevron-down text-[#909090]"></i>
                     </button>
                     <div id="panel-check-furniture" class="hidden">
                       <div class="bg-[#E3F3F2] p-4 text-[#353535]">
@@ -475,14 +496,14 @@
                             </div>
                             <div class="col-span-3 flex items-center justify-start gap-1">
                               <button
-                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
-                              >
-                                <i class="fas fa-pen"></i>
-                              </button>
-                              <button
                                 class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
                               >
                                 <i class="fas fa-check"></i>
+                              </button>
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
                               </button>
                             </div>
                           </div>
@@ -499,14 +520,13 @@
                             </div>
                             <div class="col-span-3 flex items-center justify-start gap-1">
                               <button
+                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-check"></i></button
+                              ><button
                                 class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
                               >
                                 <i class="fas fa-pen"></i>
-                              </button>
-                              <button
-                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
-                              >
-                                <i class="fas fa-check"></i>
                               </button>
                             </div>
                           </div>
@@ -523,14 +543,14 @@
                             </div>
                             <div class="col-span-3 flex items-center justify-start gap-1">
                               <button
-                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
-                              >
-                                <i class="fas fa-pen"></i>
-                              </button>
-                              <button
                                 class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
                               >
                                 <i class="fas fa-check"></i>
+                              </button>
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
                               </button>
                             </div>
                           </div>
@@ -547,14 +567,13 @@
                             </div>
                             <div class="col-span-3 flex items-center justify-start gap-1">
                               <button
+                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-check"></i></button
+                              ><button
                                 class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
                               >
                                 <i class="fas fa-pen"></i>
-                              </button>
-                              <button
-                                class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
-                              >
-                                <i class="fas fa-check"></i>
                               </button>
                             </div>
                           </div>
@@ -571,14 +590,14 @@
                             </div>
                             <div class="col-span-3 flex items-center justify-start gap-1">
                               <button
-                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
-                              >
-                                <i class="fas fa-pen"></i>
-                              </button>
-                              <button
                                 class="furn-commit w-7 h-7 rounded-full bg-[#01B4AA] grid place-items-center text-white text-xs"
                               >
                                 <i class="fas fa-check"></i>
+                              </button>
+                              <button
+                                class="furn-edit w-7 h-7 rounded-full bg-[#F44336] grid place-items-center text-white text-xs"
+                              >
+                                <i class="fas fa-pen"></i>
                               </button>
                             </div>
                           </div>
@@ -648,11 +667,11 @@
                   <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#C8C8C829] text-[#909090] step-toggle"
                       data-target="panel-unpack-install"
                     >
                       <span>الفك والتحميل</span>
-                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
+                      <i class="fas fa-chevron-down text-[#909090]"></i>
                     </button>
                     <div id="panel-unpack-install" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
@@ -683,14 +702,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="rounded-xl overflow-hidden bg-[#01B4AA17]">
+                  <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-none text-[#00B8A9] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#C8C8C829] text-[#909090] step-toggle"
                       data-target="panel-go-delivery"
                     >
                       <span>التوجه إلى موقع التسليم</span>
-                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
+                      <i class="fas fa-chevron-down text-[#909090]"></i>
                     </button>
                     <div id="panel-go-delivery" class="hidden">
                       <div class="p-4 text-start text-[#575757]">
@@ -720,11 +739,11 @@
                   <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#C8C8C829] text-[#909090] step-toggle"
                       data-target="panel-download-install"
                     >
                       <span>التنزيل والتركيب</span>
-                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
+                      <i class="fas fa-chevron-down text-[#909090]"></i>
                     </button>
                     <div id="panel-download-install" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">
@@ -758,11 +777,11 @@
                   <div class="rounded-xl overflow-hidden">
                     <button
                       type="button"
-                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#01B4AA17] text-[#01B4AA] step-toggle"
+                      class="w-full flex items-center justify-between px-4 py-3 rounded-none bg-[#C8C8C829] text-[#909090] step-toggle"
                       data-target="panel-finished"
                     >
                       <span>تم إكمال الطلب</span>
-                      <i class="fas fa-chevron-down text-[#00B8A9]"></i>
+                      <i class="fas fa-chevron-down text-[#909090]"></i>
                     </button>
                     <div id="panel-finished" class="hidden">
                       <div class="bg-[#01B4AA17] p-4 text-start text-[#575757]">

@@ -346,7 +346,8 @@ const translations = {
       "remaining": "Remaining"
     },
     "registerCompany": {
-      "pageTitle": "Join as Moving Company",
+      "title": "Account Information",
+      "registerTitle": "Join as Moving Company",
       "companyLogo": "Company Logo",
       "uploadLogo": "Upload Logo",
       "companyName": "Company Commercial Name",
@@ -487,7 +488,8 @@ const translations = {
       'updateSuccess': 'Your data has been updated successfully'
     },
     'registerCompany': {
-      'title': 'Join as a Moving Company',
+      'title': 'Account Information',
+      'registerTitle': 'Join as a Moving Company',
       'companyLogo': 'Company Logo',
       'uploadLogo': 'Change Logo',
       'companyName': 'Commercial Company Name',
@@ -506,6 +508,7 @@ const translations = {
         'tabuk': 'Tabuk',
         'abha': 'Abha'
       },
+      "city-region": "City / Region",
       'email': 'Email',
       'password': 'Password',
       'confirmPassword': 'Confirm Password',
@@ -594,17 +597,25 @@ const translations = {
       }
     },
     'manageQuotes': {
-      'title': 'Quote Requests',
-      'filter': 'Filter',
-      'all': 'All',
-      'status': {
-        'pending': 'Pending',
+      'title': 'Manage Quote Requests',
+      'filter': {
+        'title': 'Filter',
+        'quotesRequests': 'Quote Requests',
+        'status': 'Status',
+        'deliveryDate': 'Delivery Date',
+        'city': 'City',
+        'applyFilter': 'Save & Filter',
+        'cancel': 'Cancel',
+        'from': 'From',
+        'to': 'To'
+      },
+      'tabs': {
+        'all': 'All',
         'submitted': 'Submitted',
-        'accepted': 'Accepted',
-        'rejected': 'Rejected'
+        'notSubmitted': 'Not Submitted'
       },
       'quoteDetails': {
-        'quoteNumber': 'Quote Number',
+        'quoteNumber': 'Request Number',
         'customer': 'Customer',
         'date': 'Date',
         'time': 'Time',
@@ -615,6 +626,7 @@ const translations = {
         'actions': 'Actions'
       }
     },
+
     'payment': {
       'title': 'Payment',
       'details': 'Payment Details',
@@ -1187,6 +1199,7 @@ const translations = {
       "remaining": "متبقي"
     },
     "registerCompany": {
+      'title': 'معلومات الحساب',
       "pageTitle": "الإنضمام كشركة نقل",
       "companyLogo": "صورة الشركة",
       "uploadLogo": "تغيير الصورة",
@@ -1195,6 +1208,7 @@ const translations = {
       "attachFile": "أرفق السجل التجاري",
       "fileAttached": "ملف السجل التجاري",
       "city": "المدينة",
+      "city-region": "المدينة / المنطقة",
       "selectCity": "اختر المدينة",
       "email": "البريد الإلكتروني",
       "password": "الرمز السري",

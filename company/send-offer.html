@@ -40,6 +40,13 @@
         appearance: none;
         background-image: none !important;
       }
+      .price_input {
+        @media (max-width: 480px) {
+          &::placeholder {
+            font-size: 12.5px;
+          }
+        }
+      }
     </style>
   </head>
   <body class="flex min-h-screen font-expo-arabic md:flex-row flex-col">
@@ -298,8 +305,12 @@
             <!-- Grouped rows to match design -->
             <div class="rounded-2xl border border-[#E5E7EB] overflow-hidden">
               <!-- Time row -->
-              <div class="grid grid-cols-[120px_1fr]">
-                <div class="p-4 border-l border-[#E5E7EB] text-[#3C3D41]">التوقيت</div>
+              <div class="grid grid-cols-[85px_1fr]">
+                <div
+                  class="p-4 flex items-center justify-center border-l border-[#E5E7EB] text-[#3C3D41]"
+                >
+                  التوقيت
+                </div>
                 <div class="p-4">
                   <div class="flex items-center gap-3" data-picker-row>
                     <div class="flex-1 rounded-xl cursor-pointer" data-picker>
@@ -314,8 +325,12 @@
                 </div>
               </div>
               <!-- Date row -->
-              <div class="grid grid-cols-[120px_1fr] border-t border-[#E5E7EB]">
-                <div class="p-4 border-l border-[#E5E7EB] text-[#353535]">التاريخ</div>
+              <div class="grid grid-cols-[85px_1fr] border-t border-[#E5E7EB]">
+                <div
+                  class="p-4 flex items-center justify-center border-l border-[#E5E7EB] text-[#353535]"
+                >
+                  التاريخ
+                </div>
                 <div class="p-4">
                   <div class="flex items-center gap-3" data-picker-row>
                     <div class="flex-1 relative rounded-xl cursor-pointer bg-[#F6F7F7]" data-picker>
@@ -337,8 +352,12 @@
                 </div>
               </div>
               <!-- Pricing input row (with riyal icon) -->
-              <div class="grid grid-cols-[120px_1fr] border-t border-[#E5E7EB]">
-                <div class="p-4 border-l border-[#E5E7EB] text-[#3C3D41]">التسعيرة</div>
+              <div class="grid grid-cols-[85px_1fr] border-t border-[#E5E7EB] bg-[#F2FBFA]">
+                <div
+                  class="p-4 flex items-center justify-center border-l border-[#E5E7EB] text-[#3C3D41]"
+                >
+                  التسعيرة
+                </div>
                 <div class="p-4">
                   <div class="flex items-center gap-3">
                     <div class="flex-1 rounded-xl cursor-pointer" data-picker>
@@ -347,7 +366,7 @@
                         type="number"
                         min="0"
                         placeholder="أدخل التسعيرة شاملة الضريبة"
-                        class="w-full py-2.5 px-2 text-[14px] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-[#353535]"
+                        class="price_input w-full py-2.5 px-2 text-[14px] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-[#353535]"
                       />
                     </div>
                     <span class="icon-riyal w-5 h-5 text-[#353535]"></span>
@@ -365,7 +384,9 @@
                     id="services-select"
                     class="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-sm bg-white"
                   >
-                    <option value="">أضف خدمات أخرى</option>
+                    <option value="">
+                      <span>اختر الخدمات المقدمة </span>
+                    </option>
                     <option value="insurance">تأمين ضد الفقد والكسر</option>
                     <option value="cleaning">تنظيف بعد النقل</option>
                     <option value="assembly">تفكيك وتركيب</option>
@@ -389,17 +410,17 @@
             </div>
 
             <div class="grid grid-cols-2 gap-3 mt-2">
-              <a
-                href="./view-offer.html"
-                class="block text-center bg-[#F2F2F2] text-[#444] py-3 rounded-xl font-semibold"
-                >تراجع</a
-              >
               <button
                 type="submit"
                 class="bg-gradient-to-l from-[#00B8A9] to-[#00B8A9] text-white py-3 rounded-xl font-semibold"
               >
                 قدّم عرض سعر
               </button>
+              <a
+                href="./view-offer.html"
+                class="block text-center bg-[#F2F2F2] text-[#444] py-3 rounded-xl font-semibold"
+                >تراجع</a
+              >
             </div>
           </form>
         </section>

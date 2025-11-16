@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>فلترة طلبات الأسعار - الشركة</title>
+    <title data-i18n="common.filter">الفلتر - الشركة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -51,7 +51,7 @@
           <li>
             <a
               href="../company/manage-quotes.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors sidebar-active"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
               <i class="icon-quotes w-6 h-6"></i>
               <span data-i18n="companyNavigation.manageQuotes">طلبات الأسعار</span>
@@ -60,9 +60,9 @@
           <li>
             <a
               href="./manage-orders.html"
-              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
+              class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors sidebar-active"
             >
-              <i class="icon-orders w-6 h-6"></i>
+              <i class="icon-star w-6 h-6"></i>
               <span data-i18n="companyNavigation.manageOrders">إدارة طلبات النقل</span>
             </a>
           </li>
@@ -71,7 +71,7 @@
               href="rates.html"
               class="flex items-center gap-4 px-4 py-3 rounded-md text-gray-800 hover:bg-gray-50 transition-colors"
             >
-              <i class="icon-star w-6 h-6"></i>
+              <i class="icon-settings w-6 h-6"></i>
               <span data-i18n="navigation.ratings">التقييمات</span>
             </a>
           </li>
@@ -100,7 +100,7 @@
     <!-- Mobile Navbar -->
     <div class="lg:hidden bg-white text-gray-900 font-expo-arabic border-b border-gray-200">
       <div class="flex items-center justify-between px-4 py-4">
-        <h1 class="text-lg font-semibold">الفلتر</h1>
+        <h1 class="text-lg font-semibold" data-i18n="common.filter">الفلتر</h1>
         <div class="flex items-center gap-3">
           <!-- User Avatar - Navigate to Profile -->
           <a
@@ -149,7 +149,7 @@
                 <li>
                   <a
                     href="account-info.html"
-                    onclick="toggleMobileMenu();"
+                    onclick="toggleMobileMenu(); "
                     class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
                     <i
@@ -164,7 +164,7 @@
                   <a
                     href="manage-quotes.html"
                     onclick="toggleMobileMenu()"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
                   >
                     <i
                       class="icon-quotes h-6 w-6 text-[#a9a9a9] flex items-center justify-center"
@@ -194,7 +194,7 @@
                   <a
                     href="rates.html"
                     onclick="toggleMobileMenu()"
-                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
                   >
                     <i
                       class="icon-star w-6 h-6 text-[#a9a9a9] flex items-center justify-center"
@@ -248,87 +248,146 @@
             >لوحة التحكم</a
           >
           <span class="mx-2">—</span>
-          <a
-            href="./manage-quotes.html"
-            class="hover:text-[#00B8A9]"
-            data-i18n="companyNavigation.manageQuotes"
-            >طلبات الأسعار</a
+          <span class="text-[#312E37] font-medium" data-i18n="manageOrders.filter.title"
+            >الفلتر</span
           >
-          <span class="mx-2">—</span>
-          <span class="text-[#312E37] font-medium" data-i18n="common.filter">الفلتر</span>
         </div>
-
         <section class="bg-white rounded-2xl p-4 lg:p-6">
           <div class="grid gap-6">
-            <!-- Requests tabs -->
+            <!-- Orders tabs -->
             <div>
-              <h3
-                class="text-[#161616] font-semibold mb-3"
-                data-i18n="manageQuotes.filter.requests"
-              >
+              <h3 class="text-[#161616] font-semibold mb-3" data-i18n="manageOrders.filter.orders">
                 الطلبات
               </h3>
               <div class="flex flex-wrap gap-3">
                 <div>
-                  <input id="q_all" type="checkbox" class="hidden peer" />
-                  <label
-                    for="q_all"
+                  <input id="ord_all" type="checkbox" class="hidden peer" /><label
+                    for="ord_all"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.all"
                     >الكل</label
                   >
                 </div>
                 <div>
-                  <input id="q_submitted" type="checkbox" class="hidden peer" />
-                  <label
-                    for="q_submitted"
+                  <input id="ord_running" type="checkbox" class="hidden peer" /><label
+                    for="ord_running"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
-                    >المقدمة</label
+                    data-i18n="manageOrders.status.inProgress"
+                    >الجارية</label
                   >
                 </div>
                 <div>
-                  <input id="q_not_submitted" type="checkbox" class="hidden peer" />
-                  <label
-                    for="q_not_submitted"
+                  <input id="ord_completed" type="checkbox" class="hidden peer" /><label
+                    for="ord_completed"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
-                    >غير المقدمة</label
+                    data-i18n="manageOrders.status.completed"
+                    >المنتهية</label
                   >
                 </div>
               </div>
             </div>
 
-            <!-- Delivery dates -->
+            <!-- Status -->
+            <div>
+              <h3 class="text-[#161616] font-semibold mb-3" data-i18n="manageOrders.filter.status">
+                الحالة
+              </h3>
+              <div class="flex flex-wrap gap-3">
+                <div>
+                  <input id="st_start" type="checkbox" class="hidden peer" /><label
+                    for="st_start"
+                    class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.status.journeyStarted"
+                    >بدء رحلة النقل</label
+                  >
+                </div>
+                <div>
+                  <input id="st_unpack" type="checkbox" class="hidden peer" /><label
+                    for="st_unpack"
+                    class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.status.loadingUnpacking"
+                    >الفك والتحميل</label
+                  >
+                </div>
+                <div>
+                  <input id="st_check" type="checkbox" class="hidden peer" /><label
+                    for="st_check"
+                    class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.status.furnitureCheck"
+                    >التحقق من الأثاث</label
+                  >
+                </div>
+                <div>
+                  <input id="st_down" type="checkbox" class="hidden peer" /><label
+                    for="st_down"
+                    class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.status.unloadingAssembly"
+                    >التنزيل والتركيب</label
+                  >
+                </div>
+                <div>
+                  <input id="st_arrive1" type="checkbox" class="hidden peer" /><label
+                    for="st_arrive1"
+                    class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.status.arrivedFirstLocation"
+                    >الوصول إلى الموقع الأول</label
+                  >
+                </div>
+                <div>
+                  <input id="st_arrive2" type="checkbox" class="hidden peer" /><label
+                    for="st_arrive2"
+                    class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.status.headingSecondLocation"
+                    >التوجه إلى الموقع الثاني</label
+                  >
+                </div>
+                <div>
+                  <input id="st_done" type="checkbox" class="hidden peer" /><label
+                    for="st_done"
+                    class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="manageOrders.status.orderCompleted"
+                    >تم إكتمال الطلب</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Dates -->
             <div>
               <h3
                 class="text-[#161616] font-semibold mb-3"
-                data-i18n="manageQuotes.filter.deliveryDate"
+                data-i18n="manageOrders.filter.deliveryDate"
               >
                 تاريخ التسليم
               </h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div
-                  class="flex items-center gap-4 px-4 py-3 rounded-xl bg-white cursor-pointer border border-[#E5E7EB] focus-within:ring-2 focus-within:ring-[#00B8A9]"
+                  class="flex items-center justify-between px-4 py-3 rounded-xl bg-white cursor-pointer border border-[#E5E7EB] focus-within:ring-2 focus-within:ring-[#00B8A9]"
                   data-date-trigger
                 >
-                  <span>من</span>
+                  <div class="flex items-center gap-3">
+                    <i class="far fa-calendar text-[#7E7E7E]"></i>
+                    <span data-i18n="manageOrders.filter.from">من</span>
+                  </div>
                   <input
                     type="date"
                     aria-label="من"
                     dir="ltr"
-                    value=""
                     class="w-full bg-transparent outline-none text-sm text-[#161616] placeholder-[#9CA3AF]"
                   />
                 </div>
                 <div
-                  class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white cursor-pointer border border-[#E5E7EB] focus-within:ring-2 focus-within:ring-[#00B8A9]"
+                  class="flex items-center justify-between px-4 py-3 rounded-xl bg-white cursor-pointer border border-[#E5E7EB] focus-within:ring-2 focus-within:ring-[#00B8A9]"
                   data-date-trigger
                 >
-                  <span>إلى</span>
+                  <div class="flex items-center gap-3">
+                    <i class="far fa-calendar text-[#7E7E7E]"></i>
+                    <span data-i18n="manageOrders.filter.to">إلى</span>
+                  </div>
                   <input
                     type="date"
-                    id="date"
                     aria-label="إلى"
                     dir="ltr"
-                    value=""
                     class="w-full bg-transparent outline-none text-sm text-[#161616] placeholder-[#9CA3AF]"
                   />
                 </div>
@@ -337,83 +396,88 @@
 
             <!-- Cities -->
             <div>
-              <h3 class="text-[#161616] font-semibold mb-3" data-i18n="registerCompany.city">
+              <h3 class="text-[#161616] font-semibold mb-3" data-i18n="manageOrders.filter.city">
                 المدينة
               </h3>
               <div class="flex flex-wrap gap-3">
                 <div>
-                  <input id="c_riyadh" type="checkbox" class="hidden peer" /><label
-                    for="c_riyadh"
+                  <input id="city_riyadh" type="checkbox" class="hidden peer" /><label
+                    for="city_riyadh"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="registerCompany.cities.riyadh"
                     >الرياض</label
                   >
                 </div>
                 <div>
-                  <input id="c_makkah" type="checkbox" class="hidden peer" /><label
-                    for="c_makkah"
+                  <input id="city_makkah" type="checkbox" class="hidden peer" /><label
+                    for="city_makkah"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="registerCompany.cities.mecca"
                     >مكة</label
                   >
                 </div>
                 <div>
-                  <input id="c_dammam" type="checkbox" class="hidden peer" /><label
-                    for="c_dammam"
+                  <input id="city_dammam" type="checkbox" class="hidden peer" /><label
+                    for="city_dammam"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="registerCompany.cities.dammam"
                     >الدمام</label
                   >
                 </div>
                 <div>
-                  <input id="c_khobar" type="checkbox" class="hidden peer" /><label
-                    for="c_khobar"
+                  <input id="city_khobar" type="checkbox" class="hidden peer" /><label
+                    for="city_khobar"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="registerCompany.cities.khobar"
                     >الخبر</label
                   >
                 </div>
                 <div>
-                  <input id="c_jeddah" type="checkbox" class="hidden peer" /><label
-                    for="c_jeddah"
+                  <input id="city_jeddah" type="checkbox" class="hidden peer" /><label
+                    for="city_jeddah"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
+                    data-i18n="registerCompany.cities.jeddah"
                     >جدة</label
                   >
                 </div>
                 <div>
-                  <input id="c_khamis" type="checkbox" class="hidden peer" /><label
-                    for="c_khamis"
+                  <input id="city_khamis" type="checkbox" class="hidden peer" /><label
+                    for="city_khamis"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
                     >خميس مشيط</label
                   >
                 </div>
                 <div>
-                  <input id="c_jazan" type="checkbox" class="hidden peer" /><label
-                    for="c_jazan"
+                  <input id="city_jazan" type="checkbox" class="hidden peer" /><label
+                    for="city_jazan"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
                     >جازان</label
                   >
                 </div>
                 <div>
-                  <input id="c_arar" type="checkbox" class="hidden peer" /><label
-                    for="c_arar"
+                  <input id="city_arar" type="checkbox" class="hidden peer" /><label
+                    for="city_arar"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
                     >عرعر</label
                   >
                 </div>
                 <div>
-                  <input id="c_yanbu" type="checkbox" class="hidden peer" /><label
-                    for="c_yanbu"
+                  <input id="city_yanbu" type="checkbox" class="hidden peer" /><label
+                    for="city_yanbu"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
                     >ينبع</label
                   >
                 </div>
                 <div>
-                  <input id="c_ahsa" type="checkbox" class="hidden peer" /><label
-                    for="c_ahsa"
+                  <input id="city_ahsa" type="checkbox" class="hidden peer" /><label
+                    for="city_ahsa"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
                     >الأحساء</label
                   >
                 </div>
                 <div>
-                  <input id="c_taif" type="checkbox" class="hidden peer" /><label
-                    for="c_taif"
+                  <input id="city_taif" type="checkbox" class="hidden peer" /><label
+                    for="city_taif"
                     class="px-5 py-2 inline-block rounded-xl bg-white border border-[#E5E7EB] peer-checked:bg-[#E1F5F3] peer-checked:text-[#00B8A9]"
                     >الطائف</label
                   >
@@ -424,14 +488,15 @@
             <!-- Actions -->
             <div class="flex items-center gap-4 mt-4">
               <button
-                class="flex-1 bg-gradient-to-l font-semibold from-[#00B8A9] font-semibold to-[#00B8A9] text-white py-3 rounded-xl"
-                onclick="filterQuotes()"
+                onclick="filterOrders()"
+                class="flex-1 bg-gradient-to-l from-[#00B8A9] to-[#00B8A9] text-white py-3 rounded-xl font-semibold"
               >
-                حفظ وفلترة
+                <span data-i18n="manageOrders.filter.applyFilter">حفظ وفلترة</span>
               </button>
               <a
-                href="./manage-quotes.html"
-                class="flex-1 text-center font-semibold bg-[#F2F2F2] text-[#444] py-3 rounded-xl"
+                href="./manage-orders.html"
+                class="flex-1 text-center bg-[#F2F2F2] text-[#444] py-3 rounded-xl font-semibold"
+                data-i18n="manageOrders.filter.cancel"
                 >تراجع</a
               >
             </div>
@@ -439,16 +504,18 @@
         </section>
       </div>
     </main>
+
     <script>
+      function filterOrders() {
+        window.location.href = './rates.html';
+      }
       function toggleMobileMenu() {
         var el = document.getElementById('mobile-menu-sidebar');
         if (!el) return;
         el.classList.toggle('hidden');
         el.classList.toggle('flex');
       }
-      function filterQuotes() {
-        window.location.href = './filtered-quotes.html';
-      }
+      // Make the whole date card clickable and open the native picker (robust for mobile/iOS)
       document.querySelectorAll('[data-date-trigger]').forEach(function (wrapper) {
         var input = wrapper.querySelector('input[type="date"]');
         if (!input) return;

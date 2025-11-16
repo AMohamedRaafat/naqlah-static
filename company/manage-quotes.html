@@ -108,7 +108,7 @@
           <!-- User Avatar - Navigate to Profile -->
           <a
             href="account-info.html"
-            class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
+            class="rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
           >
             <div class="w-full h-full bg-gray-200"></div>
           </a>
@@ -274,13 +274,13 @@
               ></a>
             </div>
           </div>
-          <div class="grid grid-cols-3 gap-2 text-sm mb-4" data-tabs-group="quotes">
+          <div class="flex gap-2 text-sm mb-4" data-tabs-group="quotes">
             <button
               class="tab-btn px-2 py-2 bg-[#D2F2F0] border border-[#00B8A9] rounded-lg flex items-center justify-center"
               data-filter="all"
             >
               <span
-                class="ml-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#00B8A9] text-xs"
+                class="count me-2 inline-flex items-center justify-center rounded-full bg-white text-[#00B8A9] text-xs"
                 >7</span
               >
               <span data-i18n="manageQuotes.tabs.all">الكل</span>
@@ -290,7 +290,7 @@
               data-filter="submitted"
             >
               <span
-                class="count-circle ml-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#DCE9E8] text-[#00B8A9] text-xs"
+                class="flex-1 count count-circle me-2 inline-flex items-center justify-center rounded-full bg-[#DCE9E8] text-[#00B8A9] text-xs"
                 >6</span
               >
               <span data-i18n="manageQuotes.tabs.submitted">مقدمة</span>
@@ -300,7 +300,7 @@
               data-filter="notSubmitted"
             >
               <span
-                class="count-circle ml-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#DC46321F] text-[#DC4632] text-xs"
+                class="flex-1 count count-circle me-2 inline-flex items-center justify-center rounded-full bg-[#DC46321F] text-[#DC4632] text-xs"
                 >12</span
               >
               <span data-i18n="manageQuotes.tabs.notSubmitted">غير مقدمة</span>
@@ -311,7 +311,7 @@
             <!-- Card 1 -->
             <a
               href="./view-offer.html"
-              class="block rounded-2xl p-4 hover:bg-gray-50 transition-colors"
+              class="block rounded-2xl py-4 hover:bg-gray-50 transition-colors"
               data-state="submitted"
             >
               <div
@@ -333,7 +333,12 @@
                     <div><span>3</span> <span>م</span></div>
                   </div>
                 </div>
-                <div><i class="fas fa-chevron-left text-[#353535]"></i></div>
+                <div dir="rtl" class="ltr:hidden">
+                  <i class="fas fa-chevron-left text-[#353535]"></i>
+                </div>
+                <div dir="ltr" class="rtl:hidden">
+                  <i class="fas fa-chevron-right text-[#353535]"></i>
+                </div>
               </div>
               <div>
                 <div class="flex flex-wrap gap-2 text-xs">
@@ -365,7 +370,7 @@
             <!-- Card 2 -->
             <a
               href="./view-offer.html"
-              class="block rounded-2xl p-4 hover:bg-gray-50 transition-colors"
+              class="block rounded-2xl py-4 hover:bg-gray-50 transition-colors"
               data-state="notSubmitted"
             >
               <div
@@ -387,7 +392,12 @@
                     <div><span>3</span> <span>م</span></div>
                   </div>
                 </div>
-                <div><i class="fas fa-chevron-left text-[#353535]"></i></div>
+                <div dir="rtl" class="ltr:hidden">
+                  <i class="fas fa-chevron-left text-[#353535]"></i>
+                </div>
+                <div dir="ltr" class="rtl:hidden">
+                  <i class="fas fa-chevron-right text-[#353535]"></i>
+                </div>
               </div>
               <div>
                 <div class="flex flex-wrap gap-2 text-xs">

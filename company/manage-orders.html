@@ -304,14 +304,14 @@
             </button>
           </div>
           <!-- Table-like rows -->
-          <div class="grid grid-cols-3 text-[#9CA3AF] text-sm px-2 py-2 border-b border-[#ECECEC]">
-            <div data-i18n="companyDashboard.columns.customer">العميل</div>
-            <div data-i18n="companyDashboard.columns.status" class="text-center">الحالة</div>
+          <div class="flex text-[#9CA3AF] text-sm px-2 py-2 border-b border-[#ECECEC]">
+            <div data-i18n="companyDashboard.columns.customer" class="flex-1">العميل</div>
+            <div data-i18n="companyDashboard.columns.status" class="text-center flex-1">الحالة</div>
             <div data-i18n="companyDashboard.columns.details" class="text-center">التفاصيل</div>
           </div>
           <div id="orders-list">
-            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
-              <div class="text-[#4B5563] relative">
+            <div class="flex py-3 px-2" data-status="running">
+              <div class="text-[#4B5563] relative flex-1">
                 <div class="flex gap-2">
                   <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
                   <div class="flex flex-col">
@@ -321,20 +321,25 @@
                 </div>
               </div>
               <div
-                class="text-[#353535] text-sm text-center"
+                class="text-[#353535] text-sm text-center flex-1"
                 data-i18n="companyDashboard.badges.journeyStarted"
               >
                 بدء رحلة النقل
               </div>
-              <div class="text-[#353535] text-xs text-center">
+              <div class="text-[#353535] text-xs text-end">
                 <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
+                  <div dir="rtl" class="ltr:hidden">
+                    <i class="fas fa-chevron-left text-[#353535]"></i>
+                  </div>
+                  <div dir="ltr" class="rtl:hidden">
+                    <i class="fas fa-chevron-right text-[#353535]"></i>
+                  </div>
                 </a>
               </div>
             </div>
             <!-- Completed example -->
-            <div class="grid grid-cols-3 py-3 px-2" data-status="completed">
-              <div class="text-[#4B5563] relative">
+            <div class="flex py-3 px-2" data-status="completed">
+              <div class="text-[#4B5563] relative flex-1">
                 <div class="flex gap-2">
                   <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
                   <div class="flex flex-col">
@@ -344,59 +349,20 @@
                 </div>
               </div>
               <div
-                class="text-[#16A34A] text-sm text-center"
+                class="text-[#16A34A] text-sm text-center flex-1"
                 data-i18n="companyDashboard.badges.completed"
               >
                 تم إكتمال الطلب
               </div>
-              <div class="text-[#353535] text-xs text-center">
+              <div class="text-[#353535] text-xs text-end">
                 <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-              </div>
-            </div>
-            <!-- Ongoing loading -->
-            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
-              <div class="text-[#4B5563] relative">
-                <div class="flex gap-2">
-                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
-                  <div class="flex flex-col">
-                    <span class="text-[14px] text-nowrap"> فهد عبدالله</span>
-                    <span class="text-xs text-[#9CA3AF]">ORD938738</span>
+                  <div dir="rtl" class="ltr:hidden">
+                    <i class="fas fa-chevron-left text-[#353535]"></i>
                   </div>
-                </div>
-              </div>
-              <div
-                class="text-[#4B5563] text-sm text-center"
-                data-i18n="companyDashboard.badges.loading"
-              >
-                تم التحميل
-              </div>
-              <div class="text-[#353535] text-xs text-center">
-                <a href="./view-order.html" title="عرض التفاصيل">
-                  <i class="fas fa-chevron-left"></i>
-                </a>
-              </div>
-            </div>
-            <!-- Ongoing furniture check -->
-            <div class="grid grid-cols-3 py-3 px-2" data-status="running">
-              <div class="text-[#4B5563] relative">
-                <div class="flex gap-2">
-                  <div class="bg-[#E8F3F2] w-5 h-5 rounded-full mt-2"></div>
-                  <div class="flex flex-col">
-                    <span class="text-[14px] text-nowrap"> ري ال ألحمدي</span>
-                    <span class="text-xs text-[#9CA3AF]">ORD938293</span>
+                  <div dir="ltr" class="rtl:hidden">
+                    <i class="fas fa-chevron-right text-[#353535]"></i>
                   </div>
-                </div>
-              </div>
-              <div
-                class="text-[#4B5563] text-sm text-center"
-                data-i18n="companyDashboard.badges.furnitureCheck"
-              >
-                التحقق من الأثاث
-              </div>
-              <div class="text-[#353535] text-xs text-center">
-                <i class="fas fa-chevron-left"></i>
+                </a>
               </div>
             </div>
           </div>

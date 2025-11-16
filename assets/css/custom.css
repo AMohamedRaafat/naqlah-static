@@ -297,14 +297,22 @@ body {
   -webkit-mask-size: contain;
   mask-size: contain;
 }
-
-.count-circle {
-  position: relative;
-  align-content: center !important;
+.count {
+  display: flex;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px !important;
 }
+.count-circle {
+  position: relative !important;
+}
+
 .count-circle::before {
-  position: absolute;
   content: '';
+  position: absolute;
   -webkit-mask-image: url('../icons/circle.svg');
   mask-image: url('../icons/circle.svg');
   -webkit-mask-repeat: no-repeat;

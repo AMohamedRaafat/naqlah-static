@@ -338,14 +338,14 @@
                 <i class="fas fa-times"></i>
               </button>
               <i class="fas fa-paperclip"></i>
-              <span data-i18n="registerCompany.fileAttached">ملف السجل التجاري</span>
+              <span id="fileName"></span>
             </div>
           </div>
 
           <!-- City -->
           <div class="space-y-2">
             <label for="city" class="block text-[#353535] font-medium">
-              <span data-i18n="registerCompany.city">المدينة</span>
+              <span data-i18n="registerCompany.city-region">المدينة</span>
             </label>
             <div class="relative">
               <select
@@ -483,9 +483,6 @@
                 <option value="moving" data-i18n="registerCompany.services.moving">
                   نقل من بين مدن
                 </option>
-                <option value="tracking" data-i18n="registerCompany.services.tracking">
-                  تتبع مباشر
-                </option>
               </select>
               <i
                 class="fas fa-chevron-down absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
@@ -507,6 +504,7 @@
               id="aboutCompany"
               required
               rows="4"
+              data-i18n="registerCompany.aboutCompanyPlaceholder"
               class="w-full px-4 py-3 border border-[#EDEDED] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] resize-none"
             ></textarea>
             <p id="aboutCompany-error" class="text-red-500 text-sm hidden"></p>
