@@ -31,7 +31,7 @@ const translations = {
     "hero": {
       "title": "Start your order now and enjoy",
       "titleLine2": "a stress-free moving experience",
-      "subtitle": "Ready to move? Book an appointment, specify your needs, and let our professional team move your furniture safely and quickly",
+      "subtitle": "Ready to move? Book an appointment, specify your details and watch our professional team get the job done efficiently and quickly.",
       "certifiedBy": "Certified by",
       "ctaOrderMove": "Request a transfer",
       "ctaJoinPartner": "Join as a moving company"
@@ -345,54 +345,7 @@ const translations = {
       "loginViaNafath": "Login via Nafath",
       "remaining": "Remaining"
     },
-    "registerCompany": {
-      "title": "Account Information",
-      "registerTitle": "Join as Moving Company",
-      "companyLogo": "Company Logo",
-      "uploadLogo": "Upload Logo",
-      "companyName": "Company Commercial Name",
-      "commercialRegistration": "Commercial Registration",
-      "attachFile": "Attach Commercial Registration",
-      "fileAttached": "Commercial Registration File",
-      "city": "City",
-      "selectCity": "Select City",
-      "email": "Email",
-      "password": "Password",
-      "confirmPassword": "Confirm Password",
-      "phoneNumber": "Phone Number",
-      "phoneNumberPlaceholder": "Enter phone number",
-      "featuredServices": "Featured Services",
-      "selectServices": "Select Featured Services",
-      "aboutCompany": "Brief About Company",
-      "aboutCompanyPlaceholder": "Write a brief about your company",
-      "agreeTerms": "By creating an account, I agree to",
-      "termsLink": "Terms of Use",
-      "and": "and",
-      "privacyLink": "Privacy Policy",
-      "submitButton": "Submit Account Creation Request",
-      "verificationPendingTitle": "Your account is being reviewed 🎯",
-      "verificationPendingDescription": "Your account creation request has been sent successfully. We are reviewing and verifying the information you provided about your company. You will be notified via email and phone number once the company account is verified.",
-      "goToHome": "Go to Home",
-      "opreationalAreas": "Operational Areas",
-      "opreationalAreasSelect": "Select Operational Areas",
-      "services": {
-        "disassembly": "Disassembly & Assembly",
-        "packing": "Secure Packing",
-        "insurance": "Insurance Against Loss",
-        "cleaning": "Cleaning After Moving",
-        "moving": "Moving Between Cities"
-      },
-      "cities": {
-        "jeddah": "Jeddah",
-        "riyadh": "Riyadh",
-        "dammam": "Dammam",
-        "mecca": "Mecca",
-        "medina": "Medina",
-        "khobar": "Khobar",
-        "tabuk": "Tabuk",
-        "abha": "Abha"
-      }
-    },
+
     'privacyTerms': {
       'title': 'Privacy Policy and Terms of Use',
       'lastUpdated': 'Last updated: 05.02.2025',
@@ -487,52 +440,56 @@ const translations = {
       'changeImage': 'Change Image',
       'updateSuccess': 'Your data has been updated successfully'
     },
-    'registerCompany': {
-      'title': 'Account Information',
-      'registerTitle': 'Join as a Moving Company',
-      'companyLogo': 'Company Logo',
-      'uploadLogo': 'Change Logo',
-      'companyName': 'Commercial Company Name',
-      'commercialRegistration': 'Commercial Registration',
-      'attachFile': 'Attach commercial registration',
-      'fileAttached': 'Commercial registration file',
-      'city': 'City',
-      'selectCity': 'Select City',
-      'cities': {
-        'jeddah': 'Jeddah',
-        'riyadh': 'Riyadh',
-        'dammam': 'Dammam',
-        'mecca': 'Mecca',
-        'medina': 'Medina',
-        'khobar': 'Khobar',
-        'tabuk': 'Tabuk',
-        'abha': 'Abha'
-      },
+    "registerCompany": {
+      "title": "Account Information",
+      "registerTitle": "Join as Moving Company",
+      "companyLogo": "Company Logo",
+      "uploadLogo": "Upload Logo",
+      "companyName": "Commercial Company Name",
+      "commercialRegistration": "Commercial Registration",
+      "attachFile": "Attach Commercial Registration",
+      "fileAttached": "Commercial Registration File",
+      "city": "City",
+      "selectCity": "Select City",
       "city-region": "City / Region",
-      'email': 'Email',
-      'password': 'Password',
-      'confirmPassword': 'Confirm Password',
-      'phoneNumber': 'Phone Number',
-      'featuredServices': 'Featured Services',
-      'selectService': 'Select services',
-      'services': {
-        'disassembly': 'Disassembly and Assembly',
-        'packing': 'Secure Packing',
-        'insurance': 'Insurance against loss and breakage',
-        'cleaning': 'Post-move Cleaning',
-        'moving': 'Inter-city Moving',
-        'tracking': 'Live Tracking'
+      "cities": {
+        "jeddah": "Jeddah",
+        "riyadh": "Riyadh",
+        "dammam": "Dammam",
+        "mecca": "Mecca",
+        "medina": "Medina",
+        "khobar": "Khobar",
+        "tabuk": "Tabuk",
+        "abha": "Abha"
       },
-      'aboutCompany': 'Brief about the company',
-      'agreeTerms': 'By creating an account, I agree to the',
-      'termsLink': 'Terms of Use',
-      'and': 'and',
-      'privacyLink': 'Privacy Policy',
-      'submitButton': 'Send Account Creation Request',
-      'verificationPendingTitle': 'Verifying your account 🎯',
-      'verificationPendingDescription': 'Account creation request sent successfully. We are reviewing and verifying the information you provided about your company. You will be notified via email and phone number when your company account is verified.',
-      'goToHome': 'Go to Home',
-      'selectService': 'Select service'
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "phoneNumber": "Phone Number",
+      "phoneNumberPlaceholder": "Enter phone number",
+      "featuredServices": "Featured Services",
+      "selectServices": "Select Featured Services",
+      "selectService": "Select service",
+      "services": {
+        "disassembly": "Disassembly and Assembly",
+        "packing": "Secure Packing",
+        "insurance": "Insurance Against Loss",
+        "cleaning": "Post-move Cleaning",
+        "moving": "Inter-city Moving",
+        "tracking": "Live Tracking"
+      },
+      "aboutCompany": "Brief About Company",
+      "aboutCompanyPlaceholder": "Write a brief about your company",
+      "agreeTerms": "By creating an account, I agree to",
+      "termsLink": "Terms of Use",
+      "and": "and",
+      "privacyLink": "Privacy Policy",
+      "submitButton": "Send Account Creation Request",
+      "verificationPendingTitle": "Verifying your account 🎯",
+      "verificationPendingDescription": "Account creation request sent successfully. We are reviewing and verifying the information you provided about your company. You will be notified via email and phone number when your company account is verified.",
+      "goToHome": "Go to Home",
+      "opreationalAreas": "Operational Areas",
+      "opreationalAreasSelect": "Select Operational Areas"
     },
     'manageOrders': {
       'title': 'Manage Transport Orders',
@@ -842,7 +799,7 @@ const translations = {
     "hero": {
       "title": "ابدأ طلبك الآن واستمتع",
       "titleLine2": "بتجربة نقل خالية من التوتر!",
-      "subtitle": "جاهز للانتقال؟ احجز موعد، حدد الاحتياجات ودلبة فريقنا المحترف بنقل أثاثك بأمانة كاملة وسرعة",
+      "subtitle": "جاهز للانتقال؟ احجز موعدًا، حدّد تفاصيلك وراقب فريقنا المحترف ينجز المهمة بكفاءة وسرعة",
       "certifiedBy": "معتمد لدى",
       "ctaOrderMove": "اطلب نقلة",
       "ctaJoinPartner": "إنضم كشركة نقل"
@@ -1467,4 +1424,3 @@ function t(key, locale = null) {
 window.t = t;
 window.currentLocale = localStorage.getItem('locale') || 'ar';
 window.translations = translations;
-
