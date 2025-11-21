@@ -20,7 +20,7 @@
     />
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
   </head>
-  <body class="flex min-h-screen font-expo-arabic">
+  <body class="flex min-h-screen font-expo-arabic bg-[#fafafa]">
     <!-- Desktop Sidebar -->
     <aside
       id="desktop-sidebar"
@@ -435,11 +435,11 @@
             </div>
 
             <!-- Action Buttons -->
-            <div class="action-buttons flex gap-4 pt-4">
+            <div class="action-buttons flex flex-wrap gap-4 pt-4">
               <button
                 onclick="showModal('postpond-success-modal')"
                 type="button"
-                class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
+                class="min-w-0 w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
                 data-i18n="postpone.buttons.save"
               >
                 حفظ
@@ -447,7 +447,7 @@
               <button
                 type="button"
                 onclick="prevStep()"
-                class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
+                class="min-w-0 w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
                 data-i18n="postpone.buttons.back"
               >
                 تراجع
@@ -547,7 +547,7 @@
     <script src="../assets/js/app.js"></script>
     <script>
       // Ensure mobile menu is properly hidden on load and handles overflow
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         const mobileMenu = document.getElementById('mobile-menu-sidebar');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
           mobileMenu.classList.add('hidden');

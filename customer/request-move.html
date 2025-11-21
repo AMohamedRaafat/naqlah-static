@@ -21,7 +21,7 @@
 
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fafafa]">
+  <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fff]">
     <!-- Desktop Navbar -->
     <nav
       id="desktop-navbar"
@@ -187,10 +187,10 @@
     <!-- Main Content -->
     <div class="min-h-screen bg-[#fafafa] font-expo-arabic">
       <!-- Breadcrumb and Progress Bar -->
-      <div class="bg-white border-b border-gray-200">
-        <div class="container mx-auto max-w-4xl px-4 py-4">
+      <div class="bg-[#f8f8f8]">
+        <div class="container mx-auto max-w-4xl">
           <!-- Breadcrumb -->
-          <div class="mb-4 text-sm text-[#7E7E7E]">
+          <div class="mb-4 text-sm text-[#7E7E7E] px-4 py-2">
             <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard"
               >لوحة التحكم</a
             >
@@ -201,7 +201,7 @@
           </div>
 
           <!-- Progress Bar -->
-          <div class="flex items-center gap-2 mb-4">
+          <div class="flex bg-white items-center gap-2 px-4 py-2">
             <button onclick="prevStep()" id="back-btn" class="text-gray-600 hover:text-[#00B8A9]">
               <i class="fas fa-arrow-right text-xl"></i>
             </button>
