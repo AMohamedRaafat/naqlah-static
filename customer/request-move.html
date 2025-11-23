@@ -21,7 +21,7 @@
 
     <script src="../assets/js/tailwind-config.js"></script>
   </head>
-  <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fafafa]">
+  <body class="flex flex-col min-h-screen font-expo-arabic bg-[#fff]">
     <!-- Desktop Navbar -->
     <nav
       id="desktop-navbar"
@@ -974,7 +974,7 @@
               </div>
 
               <!-- File Previews -->
-                <div id="file-previews" class="owl-carousel mt-4"></div>
+              <div id="file-previews" class="owl-carousel mt-4"></div>
 
               <!-- Action Buttons -->
               <div class="action-buttons flex gap-4 pt-4">
@@ -1243,13 +1243,48 @@
                   <!-- Calendar Grid -->
                   <div class="grid grid-cols-7 gap-2 text-center">
                     <!-- Day Headers -->
-                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.sun">SUN</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.mon">MON</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.tue">TUE</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.wed">WED</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.thu">THU</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.fri">FRI</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.sat">SAT</div>
+                    <div
+                      class="text-[12px] text-[#868686] font-medium py-2"
+                      data-i18n="calendar.days.sun"
+                    >
+                      SUN
+                    </div>
+                    <div
+                      class="text-[12px] text-[#868686] font-medium py-2"
+                      data-i18n="calendar.days.mon"
+                    >
+                      MON
+                    </div>
+                    <div
+                      class="text-[12px] text-[#868686] font-medium py-2"
+                      data-i18n="calendar.days.tue"
+                    >
+                      TUE
+                    </div>
+                    <div
+                      class="text-[12px] text-[#868686] font-medium py-2"
+                      data-i18n="calendar.days.wed"
+                    >
+                      WED
+                    </div>
+                    <div
+                      class="text-[12px] text-[#868686] font-medium py-2"
+                      data-i18n="calendar.days.thu"
+                    >
+                      THU
+                    </div>
+                    <div
+                      class="text-[12px] text-[#868686] font-medium py-2"
+                      data-i18n="calendar.days.fri"
+                    >
+                      FRI
+                    </div>
+                    <div
+                      class="text-[12px] text-[#868686] font-medium py-2"
+                      data-i18n="calendar.days.sat"
+                    >
+                      SAT
+                    </div>
 
                     <!-- Calendar Days -->
                     <div id="calendar-days" class="col-span-7 grid grid-cols-7 gap-2">
@@ -1285,7 +1320,12 @@
           <!-- Date and Flexibility -->
           <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.dateAndTime">الموعد والمرونة</h3>
+              <h3
+                class="text-[18px] font-bold text-[#353535]"
+                data-i18n="customerDashboard.dateAndTime"
+              >
+                الموعد والمرونة
+              </h3>
               <button
                 type="button"
                 onclick="currentStep = 7; updateProgress();"
@@ -1304,7 +1344,12 @@
           <!-- Personal Data -->
           <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.personalData">البيانات الشخصية</h3>
+              <h3
+                class="text-[18px] font-bold text-[#353535]"
+                data-i18n="customerDashboard.personalData"
+              >
+                البيانات الشخصية
+              </h3>
               <button type="button" class="text-[#00B8A9]">
                 <i class="fas fa-pen text-lg"></i>
               </button>
@@ -1320,7 +1365,12 @@
           <!-- Destination Address -->
           <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.destinationAddress">العنوان: المراد النقل إليه</h3>
+              <h3
+                class="text-[18px] font-bold text-[#353535]"
+                data-i18n="customerDashboard.destinationAddress"
+              >
+                العنوان: المراد النقل إليه
+              </h3>
               <button
                 type="button"
                 onclick="currentStep = 3; updateProgress();"
@@ -1343,7 +1393,12 @@
           <!-- Current Moving Address -->
           <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.currentAddress">عنوان النقل الحالي</h3>
+              <h3
+                class="text-[18px] font-bold text-[#353535]"
+                data-i18n="customerDashboard.currentAddress"
+              >
+                عنوان النقل الحالي
+              </h3>
               <button
                 type="button"
                 onclick="currentStep = 1; updateProgress();"
@@ -1366,7 +1421,12 @@
           <!-- Additional Services -->
           <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.additionalServices">الخدمات الإضافية</h3>
+              <h3
+                class="text-[18px] font-bold text-[#353535]"
+                data-i18n="customerDashboard.additionalServices"
+              >
+                الخدمات الإضافية
+              </h3>
               <button
                 type="button"
                 onclick="currentStep = 6; updateProgress();"
@@ -1384,7 +1444,12 @@
           <!-- Furniture Details -->
           <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.furnitureDetails">تفاصيل الأثاث</h3>
+              <h3
+                class="text-[18px] font-bold text-[#353535]"
+                data-i18n="customerDashboard.furnitureDetails"
+              >
+                تفاصيل الأثاث
+              </h3>
               <button
                 type="button"
                 onclick="currentStep = 5; updateProgress();"
@@ -1398,12 +1463,22 @@
               <p class="text-[14px] text-[#353535]" id="preview-furniture-count">-</p>
               <p class="text-[12px] text-[#868686]" id="preview-furniture-items">-</p>
             </div>
-            <p class="text-[12px] text-[#868686] mb-2" data-i18n="requestMove.preview.furnitureImages">صور قطع الأثاث</p>
+            <p
+              class="text-[12px] text-[#868686] mb-2"
+              data-i18n="requestMove.preview.furnitureImages"
+            >
+              صور قطع الأثاث
+            </p>
             <!-- Furniture Images -->
             <div class="owl-carousel" id="preview-furniture-images">
               <!-- Images will be populated dynamically -->
             </div>
-            <p class="text-[12px] text-[#868686] mt-4 mb-2" data-i18n="requestMove.preview.valuables">القطع الثمينة</p>
+            <p
+              class="text-[12px] text-[#868686] mt-4 mb-2"
+              data-i18n="requestMove.preview.valuables"
+            >
+              القطع الثمينة
+            </p>
             <div class="owl-carousel" id="preview-precious-images"></div>
           </div>
 
@@ -1465,11 +1540,26 @@
             </div>
 
             <!-- Title -->
-            <h2 class="text-2xl font-bold text-center text-[#353535] mb-4" data-i18n="requestMove.processing.title">جار معالجة طلبك 🎯</h2>
+            <h2
+              class="text-2xl font-bold text-center text-[#353535] mb-4"
+              data-i18n="requestMove.processing.title"
+            >
+              جار معالجة طلبك 🎯
+            </h2>
 
             <!-- Description -->
-            <p class="text-center text-[#868686] text-sm leading-relaxed px-4" data-i18n="requestMove.processing.desc1">تم إنشاء طلبك بنجاح، سيتم إرسال عروض أسعار لك</p>
-            <p class="text-center text-[#868686] text-sm mb-8 leading-relaxed px-4" data-i18n="requestMove.processing.desc2">من قبل شركات النقل خلال الساعات القادمة</p>
+            <p
+              class="text-center text-[#868686] text-sm leading-relaxed px-4"
+              data-i18n="requestMove.processing.desc1"
+            >
+              تم إنشاء طلبك بنجاح، سيتم إرسال عروض أسعار لك
+            </p>
+            <p
+              class="text-center text-[#868686] text-sm mb-8 leading-relaxed px-4"
+              data-i18n="requestMove.processing.desc2"
+            >
+              من قبل شركات النقل خلال الساعات القادمة
+            </p>
 
             <!-- Dashed Separator -->
             <div class="border-t-2 border-dashed border-gray-300 mb-8"></div>
@@ -1477,10 +1567,20 @@
             <!-- Status Section -->
             <div class="flex items-center justify-between mb-8 px-4">
               <div class="text-left">
-                <p class="text-[14px] text-[#353535] font-bold" data-i18n="requestMove.processing.statusLabel">حالة الطلب</p>
+                <p
+                  class="text-[14px] text-[#353535] font-bold"
+                  data-i18n="requestMove.processing.statusLabel"
+                >
+                  حالة الطلب
+                </p>
               </div>
               <div class="text-right">
-                <p class="text-[14px] text-[#868686] font-semibold" data-i18n="requestMove.processing.statusWaiting">بإنتظار الرد</p>
+                <p
+                  class="text-[14px] text-[#868686] font-semibold"
+                  data-i18n="requestMove.processing.statusWaiting"
+                >
+                  بإنتظار الرد
+                </p>
               </div>
             </div>
 
