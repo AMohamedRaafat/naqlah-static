@@ -489,3 +489,15 @@ footer > div {
     zoom: 0.96 !important; /* 360px / 375px = 0.96, scales down to match 375px appearance */
   }
 }
+
+#move-time::-webkit-datetime-edit-ampm-field {
+  display: none;
+  visibility: hidden;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#move-time::-webkit-datetime-edit-fields-wrapper {
+  align-items: center;
+}

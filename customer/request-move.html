@@ -187,10 +187,10 @@
     <!-- Main Content -->
     <div class="min-h-screen bg-[#fafafa] font-expo-arabic">
       <!-- Breadcrumb and Progress Bar -->
-      <div class="bg-white border-b border-gray-200">
+      <div class="bg-[#F8F8F8]">
         <div class="container mx-auto max-w-4xl px-4 py-4">
           <!-- Breadcrumb -->
-          <div class="mb-4 text-sm text-[#7E7E7E]">
+          <div class="text-sm text-[#7E7E7E]">
             <a href="dashboard.html" class="hover:text-[#00B8A9]" data-i18n="navigation.dashboard"
               >لوحة التحكم</a
             >
@@ -199,25 +199,23 @@
               >اطلب نقلة</span
             >
           </div>
-
-          <!-- Progress Bar -->
-          <div class="flex items-center gap-2 mb-4">
-            <button onclick="prevStep()" id="back-btn" class="text-gray-600 hover:text-[#00B8A9]">
-              <i class="fas fa-arrow-right text-xl"></i>
-            </button>
-            <div class="flex-1 bg-gray-200 h-2 rounded-full overflow-hidden">
-              <div
-                id="progress-bar"
-                class="bg-[#00B8A9] h-full transition-all duration-300"
-                style="width: 12.5%"
-              ></div>
-            </div>
-          </div>
         </div>
       </div>
 
       <!-- Step Content -->
-      <div class="container mx-auto max-w-4xl px-4 py-6">
+      <div id="main-container" class="container bg-[#fcfcfc] mx-auto max-w-4xl px-4 py-6">
+        <div class="flex items-center gap-2 mb-4">
+          <button onclick="prevStep()" id="back-btn" class="text-gray-600 hover:text-[#00B8A9]">
+            <i class="fas fa-arrow-right text-xl"></i>
+          </button>
+          <div class="flex-1 bg-gray-200 h-2 rounded-full overflow-hidden">
+            <div
+              id="progress-bar"
+              class="bg-[#00B8A9] h-full transition-all duration-300"
+              style="width: 12.5%"
+            ></div>
+          </div>
+        </div>
         <!-- Step 1: Pickup Location -->
         <div id="step-1" class="step-content">
           <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm border border-gray-200">
@@ -229,6 +227,7 @@
               >
               <input
                 type="text"
+                id="order-title"
                 data-i18n-placeholder="requestMove.orderTitlePlaceholder"
                 placeholder="نقل الى منزل جديد"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B8A9] text-right placeholder:text-gray-400 text-sm"
@@ -935,7 +934,7 @@
                 </div>
 
                 <!-- File Previews -->
-                <div id="precious-files-previews" class="grid grid-cols-3 gap-3 mt-4"></div>
+                <div id="precious-files-previews" class="owl-carousel mt-4"></div>
               </div>
 
               <!-- Furniture Photos Upload Area -->
@@ -975,7 +974,7 @@
               </div>
 
               <!-- File Previews -->
-              <div id="file-previews" class="grid grid-cols-3 gap-3 mt-4"></div>
+                <div id="file-previews" class="owl-carousel mt-4"></div>
 
               <!-- Action Buttons -->
               <div class="action-buttons flex gap-4 pt-4">
@@ -1192,7 +1191,7 @@
                       onclick="toggleAMPM('AM')"
                       class="px-6 py-3 rounded-xl font-medium transition-colors bg-[#F5F5F5] text-[#353535]"
                     >
-                      AM
+                      <span data-i18n="companyDashboard.time.morning">AM</span>
                     </button>
                     <button
                       type="button"
@@ -1200,7 +1199,7 @@
                       onclick="toggleAMPM('PM')"
                       class="px-6 py-3 rounded-xl font-medium transition-colors bg-[#F5F5F5] text-[#353535]"
                     >
-                      PM
+                      <span data-i18n="companyDashboard.time.evening">PM</span>
                     </button>
                   </div>
                 </div>
@@ -1244,13 +1243,13 @@
                   <!-- Calendar Grid -->
                   <div class="grid grid-cols-7 gap-2 text-center">
                     <!-- Day Headers -->
-                    <div class="text-[12px] text-[#868686] font-medium py-2">SUN</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2">MON</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2">TUE</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2">WED</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2">THU</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2">FRI</div>
-                    <div class="text-[12px] text-[#868686] font-medium py-2">SAT</div>
+                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.sun">SUN</div>
+                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.mon">MON</div>
+                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.tue">TUE</div>
+                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.wed">WED</div>
+                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.thu">THU</div>
+                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.fri">FRI</div>
+                    <div class="text-[12px] text-[#868686] font-medium py-2" data-i18n="calendar.days.sat">SAT</div>
 
                     <!-- Calendar Days -->
                     <div id="calendar-days" class="col-span-7 grid grid-cols-7 gap-2">
@@ -1269,12 +1268,12 @@
                   onclick="prevStep()"
                   class="w-1/4 bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
                 >
-                  تراجع</button
+                  <span data-i18n="dashboard.cancel">تراجع</span></button
                 ><button
                   type="submit"
                   class="w-3/4 bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
                 >
-                  التالي
+                  <span data-i18n="common.next">التالي</span>
                 </button>
               </div>
             </form>
@@ -1282,11 +1281,11 @@
         </div>
 
         <!-- Step 8: Preview/Summary -->
-        <div id="step-8" class="step-content hidden">
+        <div id="step-8" class="step-content hidden bg-white border border-[#ededed] rounded-2xl">
           <!-- Date and Flexibility -->
-          <div class="rounded-2xl p-6 mb-4 border-b border-gray-200">
+          <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]">الموعد والمرونة</h3>
+              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.dateAndTime">الموعد والمرونة</h3>
               <button
                 type="button"
                 onclick="currentStep = 7; updateProgress();"
@@ -1295,31 +1294,33 @@
                 <i class="fas fa-pen text-lg"></i>
               </button>
             </div>
+            <div class="w-4/5 mx-auto h-px bg-[#ededed] mb-4"></div>
             <div class="text-start">
-              <p class="text-[14px] text-[#353535] mb-1" id="preview-time">11:30 ص</p>
-              <p class="text-[12px] text-[#868686]" id="preview-date">15 مارس 2025</p>
+              <p class="text-[14px] text-[#353535] mb-1" id="preview-time">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-date">-</p>
             </div>
           </div>
 
           <!-- Personal Data -->
-          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
+          <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]">البيانات الشخصية</h3>
+              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.personalData">البيانات الشخصية</h3>
               <button type="button" class="text-[#00B8A9]">
                 <i class="fas fa-pen text-lg"></i>
               </button>
             </div>
+            <div class="w-4/5 mx-auto h-px bg-[#ededed] mb-4"></div>
             <div class="text-start space-y-1">
-              <p class="text-[14px] text-[#353535]" id="preview-customer-name">منصور الشهواني</p>
-              <p class="text-[14px] text-[#353535]" id="preview-customer-phone">598839405</p>
-              <p class="text-[12px] text-[#868686]">منزل جديد</p>
+              <p class="text-[14px] text-[#353535]" id="preview-customer-name">-</p>
+              <p class="text-[14px] text-[#353535]" id="preview-customer-phone">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-order-title">-</p>
             </div>
           </div>
 
           <!-- Destination Address -->
-          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
+          <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]">العنوان: المراد النقل إليه</h3>
+              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.destinationAddress">العنوان: المراد النقل إليه</h3>
               <button
                 type="button"
                 onclick="currentStep = 3; updateProgress();"
@@ -1328,24 +1329,21 @@
                 <i class="fas fa-pen text-lg"></i>
               </button>
             </div>
+            <div class="w-4/5 mx-auto h-px bg-[#ededed] mb-4"></div>
             <div class="text-start space-y-1">
-              <p class="text-[14px] text-[#353535]" id="preview-dest-city">الرياض</p>
-              <p class="text-[12px] text-[#868686]" id="preview-dest-address">
-                حي التعاون شارع سعد بن أبي وقاص 3679
-              </p>
-              <p class="text-[12px] text-[#868686]" id="preview-dest-floor">طابق 4</p>
-              <p class="text-[12px] text-[#868686]" id="preview-dest-elevator">يوجد مصعد</p>
-              <p class="text-[12px] text-[#868686]" id="preview-dest-building">مصعد وسط</p>
-              <p class="text-[12px] text-[#868686]" id="preview-dest-notes">
-                يرجى استخدام المصعد الكبير المخصص لنقل الأثاث داخل بيت الدرج
-              </p>
+              <p class="text-[14px] text-[#353535]" id="preview-dest-city">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-dest-address">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-dest-floor">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-dest-elevator">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-dest-building">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-dest-notes">-</p>
             </div>
           </div>
 
           <!-- Current Moving Address -->
-          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
+          <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]">عنوان النقل الحالي</h3>
+              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.currentAddress">عنوان النقل الحالي</h3>
               <button
                 type="button"
                 onclick="currentStep = 1; updateProgress();"
@@ -1354,24 +1352,21 @@
                 <i class="fas fa-pen text-lg"></i>
               </button>
             </div>
+            <div class="w-4/5 mx-auto h-px bg-[#ededed] mb-4"></div>
             <div class="text-start space-y-1">
-              <p class="text-[14px] text-[#353535]" id="preview-pickup-city">الرياض</p>
-              <p class="text-[12px] text-[#868686]" id="preview-pickup-address">
-                حي التعاون شارع ابن ماجد فلسطين 5843
-              </p>
-              <p class="text-[12px] text-[#868686]" id="preview-pickup-floor">طابق 7</p>
-              <p class="text-[12px] text-[#868686]" id="preview-pickup-elevator">يوجد مصعد</p>
-              <p class="text-[12px] text-[#868686]" id="preview-pickup-building">مصعد كبير</p>
-              <p class="text-[12px] text-[#868686]" id="preview-pickup-notes">
-                يرجى استخدام المصعد الكبير المخصص لنقل الأثاث داخل بيت الدرج
-              </p>
+              <p class="text-[14px] text-[#353535]" id="preview-pickup-city">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-pickup-address">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-pickup-floor">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-pickup-elevator">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-pickup-building">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-pickup-notes">-</p>
             </div>
           </div>
 
           <!-- Additional Services -->
-          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
+          <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]">الخدمات الإضافية</h3>
+              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.additionalServices">الخدمات الإضافية</h3>
               <button
                 type="button"
                 onclick="currentStep = 6; updateProgress();"
@@ -1380,20 +1375,16 @@
                 <i class="fas fa-pen text-lg"></i>
               </button>
             </div>
+            <div class="w-4/5 mx-auto h-px bg-[#ededed] mb-4"></div>
             <div class="text-start space-y-1">
-              <p class="text-[14px] text-[#353535]">تغليف محكم</p>
-              <p class="text-[12px] text-[#868686]" id="preview-services-list">
-                تأمين ضد الفقد والكسر<br />
-                فك وتركيب - 1 مكتب - 3 مكيف - 3 دولاب - 4 سرير<br />
-                -
-              </p>
+              <p class="text-[12px] text-[#868686]" id="preview-services-list">-</p>
             </div>
           </div>
 
           <!-- Furniture Details -->
-          <div class="rounded-2xl p-6 mb-4 shadow-sm border-b border-gray-200">
+          <div class="rounded-2xl p-6 mb-4">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-[18px] font-bold text-[#353535]">تفاصيل الأثاث</h3>
+              <h3 class="text-[18px] font-bold text-[#353535]" data-i18n="customerDashboard.furnitureDetails">تفاصيل الأثاث</h3>
               <button
                 type="button"
                 onclick="currentStep = 5; updateProgress();"
@@ -1402,20 +1393,22 @@
                 <i class="fas fa-pen text-lg"></i>
               </button>
             </div>
+            <div class="w-4/5 mx-auto h-px bg-[#ededed] mb-4"></div>
             <div class="text-start mb-4">
-              <p class="text-[14px] text-[#353535]" id="preview-furniture-count">5 غرف</p>
-              <p class="text-[12px] text-[#868686]" id="preview-furniture-items">
-                5 غرف - 2 سراح - 1 مكتب - 2 سطح - 1 مجلس
-              </p>
+              <p class="text-[14px] text-[#353535]" id="preview-furniture-count">-</p>
+              <p class="text-[12px] text-[#868686]" id="preview-furniture-items">-</p>
             </div>
+            <p class="text-[12px] text-[#868686] mb-2" data-i18n="requestMove.preview.furnitureImages">صور قطع الأثاث</p>
             <!-- Furniture Images -->
             <div class="owl-carousel" id="preview-furniture-images">
               <!-- Images will be populated dynamically -->
             </div>
+            <p class="text-[12px] text-[#868686] mt-4 mb-2" data-i18n="requestMove.preview.valuables">القطع الثمينة</p>
+            <div class="owl-carousel" id="preview-precious-images"></div>
           </div>
 
           <!-- Terms Checkbox -->
-          <div class="rounded-2xl p-4 mb-4 shadow-sm flex items-center gap-3">
+          <div class="p-4 mb-4 shadow-sm flex items-center gap-3">
             <input
               type="checkbox"
               id="agreeTerms"
@@ -1434,7 +1427,7 @@
           </div>
 
           <!-- Action Buttons -->
-          <div class="action-buttons flex gap-4 mb-6">
+          <div class="action-buttons flex gap-4 mb-6 px-4">
             <button
               type="button"
               onclick="submitRequest()"
@@ -1472,13 +1465,11 @@
             </div>
 
             <!-- Title -->
-            <h2 class="text-2xl font-bold text-center text-[#353535] mb-4">جار معالجة طلبك 🎯</h2>
+            <h2 class="text-2xl font-bold text-center text-[#353535] mb-4" data-i18n="requestMove.processing.title">جار معالجة طلبك 🎯</h2>
 
             <!-- Description -->
-            <p class="text-center text-[#868686] text-sm mb-8 leading-relaxed px-4">
-              تم إنشاء طلبك بنجاح، سيتم إرسال عروض أسعار لك<br />
-              من قبل شركات النقل خلال الساعات القادمة
-            </p>
+            <p class="text-center text-[#868686] text-sm leading-relaxed px-4" data-i18n="requestMove.processing.desc1">تم إنشاء طلبك بنجاح، سيتم إرسال عروض أسعار لك</p>
+            <p class="text-center text-[#868686] text-sm mb-8 leading-relaxed px-4" data-i18n="requestMove.processing.desc2">من قبل شركات النقل خلال الساعات القادمة</p>
 
             <!-- Dashed Separator -->
             <div class="border-t-2 border-dashed border-gray-300 mb-8"></div>
@@ -1486,10 +1477,10 @@
             <!-- Status Section -->
             <div class="flex items-center justify-between mb-8 px-4">
               <div class="text-left">
-                <p class="text-[14px] text-[#353535] font-bold">حالة الطلب</p>
+                <p class="text-[14px] text-[#353535] font-bold" data-i18n="requestMove.processing.statusLabel">حالة الطلب</p>
               </div>
               <div class="text-right">
-                <p class="text-[14px] text-[#868686] font-semibold">بإنتظار الرد</p>
+                <p class="text-[14px] text-[#868686] font-semibold" data-i18n="requestMove.processing.statusWaiting">بإنتظار الرد</p>
               </div>
             </div>
 
@@ -1499,13 +1490,13 @@
                 onclick="window.location.href='dashboard.html'"
                 class="w-full bg-[#00B8A9] hover:bg-[#009688] text-white font-semibold py-4 rounded-md transition-colors"
               >
-                متابعة الطلب
+                <span data-i18n="requestMove.processing.followOrder">متابعة الطلب</span>
               </button>
               <button
                 onclick="window.location.href='dashboard.html'"
                 class="w-full bg-white hover:bg-gray-50 text-[#353535] font-semibold py-4 rounded-md transition-colors border-2 border-gray-300"
               >
-                العودة إلى الرئيسية
+                <span data-i18n="requestMove.processing.backHome">العودة إلى الرئيسية</span>
               </button>
             </div>
           </div>

@@ -17,6 +17,8 @@ function updateProgress() {
   // Show current step
   $(`#step-${currentStep}`).removeClass('hidden');
 
+  
+
   // Initialize destination map when reaching step 3
   if (currentStep === 3) {
     setTimeout(() => {
@@ -466,28 +468,34 @@ function renderPreciousFilesPreviews() {
 
   preciousFiles.forEach((fileObj) => {
     const fileURL = URL.createObjectURL(fileObj.file);
-
-    const preview = $(`
-      <div class="relative aspect-square rounded-lg overflow-hidden border border-gray-200 group">
-        ${fileObj.type === 'image'
-        ? `<img src="${fileURL}" alt="Preview" class="w-full h-full object-cover" />`
-        : `<video src="${fileURL}" class="w-full h-full object-cover"></video>
-               <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                 <i class="fas fa-play text-white text-2xl"></i>
-               </div>`
-      }
-        <button
-          type="button"
-          onclick="removePreciousFile('${fileObj.id}')"
-          class="absolute top-2 right-2 w-6 h-6 bg-[#00B8A9] hover:bg-red-500 text-white rounded-full flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100"
-        >
-          <i class="fas fa-times text-xs"></i>
-        </button>
+    const card = $(`
+      <div class="item">
+        <div class="relative rounded-lg overflow-hidden border border-gray-200 group">
+          ${fileObj.type === 'image'
+            ? `<img src="${fileURL}" class="w-full h-24 object-cover" />`
+            : `<video src="${fileURL}" class="w-full h-24 object-cover" muted loop></video>`}
+          <button type="button" onclick="removePreciousFile('${fileObj.id}')" class="absolute top-2 right-2 w-6 h-6 bg-[#00B8A9] hover:bg-red-500 text-white rounded-full flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100">
+            <i class="fas fa-times text-xs"></i>
+          </button>
+        </div>
       </div>
     `);
-
-    container.append(preview);
+    container.append(card);
   });
+
+  if (container.hasClass('owl-loaded')) {
+    container.trigger('destroy.owl.carousel');
+  }
+  if (preciousFiles.length > 0) {
+    container.owlCarousel({
+      loop: false,
+      margin: 12,
+      nav: false,
+      dots: true,
+      rtl: true,
+      responsive: { 0: { items: 3 }, 768: { items: 4 }, 1024: { items: 5 } },
+    });
+  }
 }
 function renderFilePreviews() {
   const container = $('#file-previews');
@@ -495,28 +503,34 @@ function renderFilePreviews() {
 
   uploadedFiles.forEach((fileObj) => {
     const fileURL = URL.createObjectURL(fileObj.file);
-
-    const preview = $(`
-      <div class="relative aspect-square rounded-lg overflow-hidden border border-gray-200 group">
-        ${fileObj.type === 'image'
-        ? `<img src="${fileURL}" alt="Preview" class="w-full h-full object-cover" />`
-        : `<video src="${fileURL}" class="w-full h-full object-cover"></video>
-               <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                 <i class="fas fa-play text-white text-2xl"></i>
-               </div>`
-      }
-        <button
-          type="button"
-          onclick="removeFile('${fileObj.id}')"
-          class="absolute top-2 right-2 w-6 h-6 bg-[#00B8A9] hover:bg-red-500 text-white rounded-full flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100"
-        >
-          <i class="fas fa-times text-xs"></i>
-        </button>
+    const card = $(`
+      <div class="item">
+        <div class="relative rounded-lg overflow-hidden border border-gray-200 group">
+          ${fileObj.type === 'image'
+            ? `<img src="${fileURL}" class="w-full h-24 object-cover" />`
+            : `<video src="${fileURL}" class="w-full h-24 object-cover" muted loop></video>`}
+          <button type="button" onclick="removeFile('${fileObj.id}')" class="absolute top-2 right-2 w-6 h-6 bg-[#00B8A9] hover:bg-red-500 text-white rounded-full flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100">
+            <i class="fas fa-times text-xs"></i>
+          </button>
+        </div>
       </div>
     `);
-
-    container.append(preview);
+    container.append(card);
   });
+
+  if (container.hasClass('owl-loaded')) {
+    container.trigger('destroy.owl.carousel');
+  }
+  if (uploadedFiles.length > 0) {
+    container.owlCarousel({
+      loop: false,
+      margin: 12,
+      nav: false,
+      dots: true,
+      rtl: true,
+      responsive: { 0: { items: 3 }, 768: { items: 4 }, 1024: { items: 5 } },
+    });
+  }
 }
 
 // Remove file
@@ -769,21 +783,33 @@ function toggleElevatorSize(which, value) {
 let routeMap = null;
 
 function updatePreview() {
-  // Update date and time
-  const time = $('#move-time').val();
+  const rawTime = $('#move-time').val();
+  let timeText = '-';
+  if (rawTime) {
+    const [hStr, mStr] = rawTime.split(':');
+    const hours24 = parseInt(hStr || '0', 10);
+    const hours12 = ((hours24 % 12) || 12).toString().padStart(2, '0');
+    const locale = localStorage.getItem('locale') || 'ar';
+    const periodLabel = locale === 'ar' ? (selectedAMPM === 'AM' ? 'ص' : 'م') : selectedAMPM;
+    timeText = `${hours12}:${mStr || '00'} ${periodLabel}`;
+  }
+  const locale = localStorage.getItem('locale') || 'ar';
   const dateStr = selectedDate
-    ? selectedDate.toLocaleDateString('ar-EG', {
+    ? selectedDate.toLocaleDateString(locale === 'ar' ? 'ar-EG' : 'en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-    }).replace(/\d+/g, num => Number(num).toString())
+    })
     : '-';
 
-  $('#preview-time').text(`${time} ${selectedAMPM === 'AM' ? 'ص' : 'م'}`);
+  $('#preview-time').text(timeText);
   $('#preview-date').text(dateStr);
 
+  const orderTitle = $('#order-title').val();
+  $('#preview-order-title').text(orderTitle || '-');
+
   // Update pickup details
-  $('#preview-pickup-city').text(pickupLocation.city || 'الرياض');
+  $('#preview-pickup-city').text(pickupLocation.address ? (pickupLocation.city || '-') : '-');
   $('#preview-pickup-address').text(pickupLocation.address || '-');
   $('#preview-pickup-floor').text(`طابق ${$('#pickup-floor').val() || '-'}`);
   const pickupElevatorSize = $('#pickup-elevator-size').val();
@@ -799,7 +825,7 @@ function updatePreview() {
   $('#preview-pickup-notes').text($('#pickup-notes').val() || '-');
 
   // Update destination details
-  $('#preview-dest-city').text(destinationLocation.city || 'الرياض');
+  $('#preview-dest-city').text(destinationLocation.address ? (destinationLocation.city || '-') : '-');
   $('#preview-dest-address').text(destinationLocation.address || '-');
   $('#preview-dest-floor').text(`طابق ${$('#destination-floor').val() || '-'}`);
   $('#preview-dest-notes').text($('#destination-notes').val() || '-');
@@ -817,12 +843,17 @@ function updatePreview() {
   // Update services
   const servicesList = [];
   if ($('#service-packing').val() === 'yes') servicesList.push('تغليف محكم');
-  if ($('#service-insurance').val() === 'yes') servicesList.push('تأمين ضد الفقد والكسر');
-  if ($('#service-disassembly').val() === 'yes' && disassemblyItems.length > 0) {
+  if ($('#service-cleaning-before').val() === 'yes') servicesList.push('تنظيف الموقع الاول');
+  if ($('#disassembly-select').val() === 'yes' && disassemblyItems.length > 0) {
     const items = disassemblyItems.map((item) => `${item.quantity} ${item.type}`).join(' - ');
     servicesList.push(`فك وتركيب - ${items}`);
   }
   $('#preview-services-list').html(servicesList.join('<br>') || '-');
+  const disassemblyNotes = $('#disassembly-notes').val();
+  if (disassemblyNotes) {
+    const current = $('#preview-services-list').html();
+    $('#preview-services-list').html((current ? current + '<br>' : '') + disassemblyNotes);
+  }
   // Handle Furniture details preview rendering on load
   $('#preview-furniture-count').text($('#rooms-count').val() || '-');
   $('#preview-furniture-items').text(
@@ -831,23 +862,44 @@ function updatePreview() {
       : '-'
   );
 
-  function renderFurnitureImages() {
-    const container = $('#preview-furniture-images');
-    container.empty();
+  (function renderFurnitureImages() {
+    const furnitureContainer = $('#preview-furniture-images');
+    furnitureContainer.empty();
 
     uploadedFiles.forEach((fileObj) => {
-      const fileURL = URL.createObjectURL(fileObj.file);
-
-      const card = $(`
-        <div class="item">
-          <img src="${fileURL}" class="w-full h-20 object-cover rounded-lg" />
-        </div>
-      `);
-      container.append(card);
+      const url = URL.createObjectURL(fileObj.file);
+      const card = fileObj.type === 'image'
+        ? $(`<div class="item"><img src="${url}" class="w-full h-24 object-cover rounded-lg" /></div>`)
+        : $(`<div class="item"><video src="${url}" class="w-full h-24 object-cover rounded-lg" muted loop></video></div>`);
+      furnitureContainer.append(card);
     });
 
+    if (furnitureContainer.hasClass('owl-loaded')) furnitureContainer.trigger('destroy.owl.carousel');
+    furnitureContainer.owlCarousel({ loop: false, margin: 12, nav: false, dots: true, rtl: true, responsive: { 0: { items: 3 }, 768: { items: 4 }, 1024: { items: 5 } } });
+
+    const preciousContainer = $('#preview-precious-images');
+    preciousContainer.empty();
+    const includePrecious = $('#precious-files-select').val() === 'yes';
+    if (includePrecious && preciousFiles.length > 0) {
+      preciousFiles.forEach((fileObj) => {
+        const url = URL.createObjectURL(fileObj.file);
+        const card = fileObj.type === 'image'
+          ? $(`<div class="item"><img src="${url}" class="w-full h-24 object-cover rounded-lg" /></div>`)
+          : $(`<div class="item"><video src="${url}" class="w-full h-24 object-cover rounded-lg" muted loop></video></div>`);
+        preciousContainer.append(card);
+      });
+      if (preciousContainer.hasClass('owl-loaded')) preciousContainer.trigger('destroy.owl.carousel');
+      preciousContainer.owlCarousel({ loop: false, margin: 12, nav: false, dots: true, rtl: true, responsive: { 0: { items: 3 }, 768: { items: 4 }, 1024: { items: 5 } } });
+    } else {
+      if (preciousContainer.hasClass('owl-loaded')) preciousContainer.trigger('destroy.owl.carousel');
+    }
+  })();
+
+  const user = window.userData || {};
+  if (user) {
+    if (user.name) $('#preview-customer-name').text(user.name);
+    if (user.phone) $('#preview-customer-phone').text(user.phone);
   }
-  renderFurnitureImages()
   // // Initialize route map
   // setTimeout(() => {
   //   initRouteMap();

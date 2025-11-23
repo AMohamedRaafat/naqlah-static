@@ -344,6 +344,20 @@ const translations = {
       "verifying": "Verifying...",
       "loginViaNafath": "Login via Nafath",
       "remaining": "Remaining"
+    ,
+      "preview": {
+        "furnitureImages": "Furniture Photos",
+        "valuables": "Valuables"
+      },
+      "processing": {
+        "title": "Processing your request 🎯",
+        "desc1": "Your request has been created successfully, price quotes will be sent",
+        "desc2": "by moving companies in the coming hours",
+        "statusLabel": "Order Status",
+        "statusWaiting": "Waiting for response",
+        "followOrder": "Track Order",
+        "backHome": "Back to Home"
+      }
     },
 
     'privacyTerms': {
@@ -1154,6 +1168,20 @@ const translations = {
       "verifying": "جاري التحقق...",
       "loginViaNafath": "تسجيل الدخول عبر نفاذ",
       "remaining": "متبقي"
+    ,
+      "preview": {
+        "furnitureImages": "صور قطع الأثاث",
+        "valuables": "القطع الثمينة"
+      },
+      "processing": {
+        "title": "جار معالجة طلبك 🎯",
+        "desc1": "تم إنشاء طلبك بنجاح، سيتم إرسال عروض أسعار لك",
+        "desc2": "من قبل شركات النقل خلال الساعات القادمة",
+        "statusLabel": "حالة الطلب",
+        "statusWaiting": "بإنتظار الرد",
+        "followOrder": "متابعة الطلب",
+        "backHome": "العودة إلى الرئيسية"
+      }
     },
     "registerCompany": {
       'title': 'معلومات الحساب',
