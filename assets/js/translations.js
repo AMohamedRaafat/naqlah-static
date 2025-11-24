@@ -1470,6 +1470,27 @@ const translations = {
   }
 };
 
+function mergeMissingKeys(src, dest) {
+  if (!src || !dest) return;
+  const keys = Object.keys(src);
+  for (let i = 0; i < keys.length; i++) {
+    const k = keys[i];
+    const sv = src[k];
+    const dv = dest[k];
+    if (dv === undefined) {
+      if (sv && typeof sv === 'object') {
+        dest[k] = Array.isArray(sv) ? sv.slice() : JSON.parse(JSON.stringify(sv));
+      } else {
+        dest[k] = sv;
+      }
+    } else if (sv && typeof sv === 'object' && !Array.isArray(sv) && dv && typeof dv === 'object' && !Array.isArray(dv)) {
+      mergeMissingKeys(sv, dv);
+    }
+  }
+}
+
+mergeMissingKeys(translations.en, translations.ar);
+
 // Get translation
 function t(key, locale = null) {
   const currentLocale = locale || window.currentLocale || 'ar';
