@@ -344,7 +344,7 @@ const translations = {
       "verifying": "Verifying...",
       "loginViaNafath": "Login via Nafath",
       "remaining": "Remaining"
-    ,
+      ,
       "preview": {
         "furnitureImages": "Furniture Photos",
         "valuables": "Valuables"
@@ -642,7 +642,7 @@ const translations = {
 
     },
     'customerDashboard': {
-      'title': 'Customer Dashboard',
+      'title': 'Dashboard',
       'noOrders': 'No orders to track',
       'requestMove': 'Request a move',
       'waitingForQuote': 'Waiting for quote selection',
@@ -913,6 +913,7 @@ const translations = {
       },
       "loadingMore": "جاري التحميل..."
     },
+
     "footer": {
       "companyName": "نقلة",
       "siteLinks": "في الموقع",
@@ -984,6 +985,26 @@ const translations = {
       'example': 'طلبنا خدمة تنظيف وفك وتركيب، وكانت التجربة ممتازة ووصلت العربية في المعاد.',
       'rateTitle': 'قيّم تجربتك مع شركة النقل',
       'rateDescription': 'ملاحظاتك مهمة لينا وبتساعدنا نطوّر خدماتنا'
+    },
+
+    'customerDashboard': {
+      'title': 'لوحة التحكم',
+      'noOrders': 'لا توجد طلبات للمتابعة',
+      'requestMove': 'أطلب نقلة',
+      'waitingForQuote': 'بانتظار اختيار عرض السعر',
+      'goToDeliveryLocation': 'التوجه إلى موقع التسليم',
+      'personalData': 'البيانات الشخصية',
+      'dateAndTime': 'الموعد والمرونة',
+      'currentAddress': 'عنوان النقل الحالي',
+      'destinationAddress': 'العنوان المراد النقل إليه',
+      'additionalServices': 'الخدمات الإضافية',
+      'furnitureDetails': 'تفاصيل الأثاث',
+      'location': 'الموقع',
+      'reviewOrderDetails': 'مراجعة تفاصيل الطلب',
+      'readMore': 'إقرأ المزيد',
+      'accept': 'قبول',
+      'showMore': 'أظهر المزيد',
+      'companyOffers': 'عروض شركات النقل'
     },
 
     "companyNavigation": {
@@ -1168,7 +1189,7 @@ const translations = {
       "verifying": "جاري التحقق...",
       "loginViaNafath": "تسجيل الدخول عبر نفاذ",
       "remaining": "متبقي"
-    ,
+      ,
       "preview": {
         "furnitureImages": "صور قطع الأثاث",
         "valuables": "القطع الثمينة"
