@@ -247,7 +247,8 @@ const translations = {
       "customerTab": "Service Seeker",
       "companyTab": "Moving Company",
       "noAccount": "Don't have an account?",
-      "registerNow": "Create Account"
+      "registerNow": "Create Account",
+      "accept": "Accept",
     },
     "requestMove": {
       "firstStepTitle": "Request a move",
@@ -1092,7 +1093,8 @@ const translations = {
       "customerTab": "طالب خدمة",
       "companyTab": "شركة نقل",
       "noAccount": "ليس لديك حساب؟",
-      "registerNow": "أنشئ حساب"
+      "registerNow": "أنشئ حساب",
+      "accept": "قبول",
     },
     "requestMove": {
       "firstStepTitle": "أطلب نقلة",
