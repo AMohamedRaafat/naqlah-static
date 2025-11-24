@@ -765,6 +765,20 @@ function toggleAMPM(period) {
       .removeClass('bg-[#F5F5F5] ')
       .addClass('bg-white ');
   }
+
+  const input = document.getElementById('move-time');
+  if (input && input.value) {
+    const parts = input.value.split(':');
+    let h = parseInt(parts[0] || '0', 10);
+    const m = parts[1] || '00';
+    if (period === 'PM' && h < 12) {
+      h = h + 12;
+    }
+    if (period === 'AM' && h >= 12) {
+      h = h % 12;
+    }
+    input.value = String(h).padStart(2, '0') + ':' + m;
+  }
 }
 
 // Elevator size toggle
