@@ -940,6 +940,19 @@ const translations = {
       "failureBody": "حدث خطأ عند محاولة الدفع، يرجى التأكد من معلومات الدفع أو المحاولة مرة أخرى لاحقاً",
       "ok": "حسناً"
     },
+    "payment": {
+      "title": "الدفع",
+      "details": "تفاصيل الدفع",
+      "amount": "المبلغ",
+      "method": "طريقة الدفع",
+      "cardNumber": "رقم البطاقة",
+      "expiryDate": "تاريخ الانتهاء",
+      "cvv": "CVV",
+      "cardHolder": "اسم حامل البطاقة",
+      "payNow": "ادفع الآن",
+      "success": "تم الدفع بنجاح",
+      "failed": "فشل الدفع"
+    },
     "paymentPage": {
       "title": "الدفع",
       "breadcrumbDashboard": "لوحة التحكم",

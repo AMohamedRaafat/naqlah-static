@@ -398,6 +398,10 @@ body {
   -webkit-mask-size: contain;
   mask-size: contain;
 }
+input[type='time']::-webkit-datetime-edit-ampm-field { display: none; }
+input[type='time']::-webkit-calendar-picker-indicator { display: none; }
+input[type='time']::-webkit-clear-button { display: none; }
+input[type='time']::-webkit-inner-spin-button { display: none; }
 .icon-settings {
   display: inline-block;
   background-color: currentColor; /* icon color follows text color */

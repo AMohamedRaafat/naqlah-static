@@ -1135,7 +1135,15 @@ $(document).ready(function () {
   updateProgress();
 
   // Initialize calendar and AM/PM toggle
-  toggleAMPM('AM');
+  (function initAMPMFromInput() {
+    const val = $('#move-time').val();
+    if (val) {
+      const h = parseInt((val.split(':')[0] || '0'), 10);
+      toggleAMPM(h >= 12 ? 'PM' : 'AM');
+    } else {
+      toggleAMPM('AM');
+    }
+  })();
   renderCalendar();
 
   // Override nextStep to add preview update
@@ -1176,5 +1184,11 @@ $(document).ready(function () {
       },
     },
     rtl: true,
+  });
+  $('#move-time').on('input change', function () {
+    const val = this.value;
+    if (!val) return;
+    const h = parseInt((val.split(':')[0] || '0'), 10);
+    toggleAMPM(h >= 12 ? 'PM' : 'AM');
   });
 });
