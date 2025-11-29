@@ -613,6 +613,7 @@ const translations = {
       'failed': 'Payment Failed'
     },
     'rate': {
+      'pageTitle': "Ratings",
       'title': 'Rate',
       'company': 'Rate Company',
       'customer': 'Rate Customer',
@@ -972,6 +973,7 @@ const translations = {
       "downloadInvoice": "تحميل الفاتورة"
     },
     'rate': {
+      'pageTitle': "التقييمات",
       'title': 'تقييم',
       'company': 'تقييم الشركة',
       'customer': 'تقييم العميل',
