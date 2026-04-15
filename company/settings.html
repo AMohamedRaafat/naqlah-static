@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="settingsPage.title">الإعدادات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 26px;
+      }
+      .toggle-switch .toggle-input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+      .toggle-switch .toggle-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 44px;
+        height: 26px;
+        background: #fff;
+        border: 1px solid #f2f2f2;
+        border-radius: 9999px;
+        cursor: pointer;
+      }
+      .toggle-switch .toggle-label::before {
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        background: #e7e7e7;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+      .toggle-switch .toggle-input:checked + .toggle-label::before {
+        background: #01b4aa;
+        transform: translateX(18px);
+      }
+    </style>
+  </head>
+  <body class="flex min-h-screen font-expo-arabic md:flex-row flex-col bg-[#fafafa]">
+    <!-- Desktop Sidebar -->
+    <aside
+      id="desktop-sidebar"
+      class="hidden lg:flex flex-col w-64 bg-white border-l border-gray-200 shadow-sm"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center justify-center"
+          ><img src="../assets/logo.svg" alt="نقلة" class="h-16 w-auto"
+        /></a>
+      </div>
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="./dashboard.html"
+              class="flex items-center gap-4 px-4 py-3 rounded-md hover:bg-gray-50 transition-colors"
+              ><img src="../assets/menu-icons/home.svg" class="w-6 h-6" /><span
+                data-i18n="dashboard.title"
+                >لوحة التحكم</span
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="return false;"
+              class="flex items-center gap-4 px-4 py-3 rounded-md sidebar-active"
+              ><i class="fas fa-gear text-lg text-[#A9A9A9]"></i
+              ><span data-i18n="settingsPage.title">الإعدادات</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Mobile Navbar -->
+    <div class="lg:hidden bg-white text-gray-900 border-b border-gray-200 w-full">
+      <div class="flex items-center justify-between px-4 py-4">
+        <h1 class="text-lg font-semibold" data-i18n="settingsPage.title">الإعدادات</h1>
+        <div class="flex items-center gap-3">
+          <!-- User Avatar - Navigate to Profile -->
+          <a
+            href="./account-info.html"
+            class="w-7 h-7 rounded-full overflow-hidden border-2 border-[#00B8A9] bg-gray-200"
+          >
+            <div class="w-full h-full bg-gray-200"></div>
+          </a>
+
+          <!-- Menu Button -->
+          <button
+            id="mobile-menu-button"
+            onclick="toggleMobileMenu()"
+            class="p-0 border border-[#00B8A9] rounded-xl px-2 py-1"
+          >
+            <i class="fas fa-bars text-xl text-[#00B8A9]"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu-sidebar" class="hidden fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" onclick="toggleMobileMenu()"></div>
+        <div
+          class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-xl"
+          style="animation: slideInRight 0.3s ease-out"
+        >
+          <div class="flex flex-col h-full">
+            <div class="flex justify-end p-4">
+              <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+              </button>
+            </div>
+            <nav class="flex-1 px-4">
+              <ul class="space-y-0">
+                <li>
+                  <a
+                    href="./dashboard.html"
+                    onclick="toggleMobileMenu()"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    ><img src="../assets/menu-icons/home.svg" class="w-6 h-6" /><span
+                      class="text-[15px]"
+                      data-i18n="dashboard.title"
+                      >لوحة التحكم</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="return false;"
+                    class="flex items-center gap-4 px-4 py-3 hover:bg-gray-50 transition-colors sidebar-active"
+                    ><i class="fas fa-gear w-6 h-6 text-[#a9a9a9]"></i
+                    ><span class="text-[15px]" data-i18n="settingsPage.title">الإعدادات</span></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex items-start justify-center p-4 w-full">
+      <div class="container mx-auto max-w-3xl">
+        <div class="mb-2 text-sm text-[#7E7E7E]">
+          <a
+            href="./dashboard.html"
+            class="hover:text-[#00B8A9]"
+            data-i18n="dashboard.title"
+            >لوحة التحكم</a
+          >
+          <span class="mx-2">—</span>
+          <span class="text-[#312E37] font-medium" data-i18n="settingsPage.title">الإعدادات</span>
+        </div>
+        <section class="bg-white rounded-2xl p-4 shadow-sm">
+          <h2 class="text-[#6B7280] text-base mb-3" data-i18n="settingsPage.appLanguages">
+            لغات التطبيق
+          </h2>
+          <div class="border rounded-2xl p-4">
+            <button
+              id="lang-ar"
+              class="w-full flex items-center justify-between px-4 py-3 rounded-xl"
+            >
+              <span>العربية</span>
+            </button>
+            <div class="my-3 h-px bg-gray-200"></div>
+            <button
+              id="lang-en"
+              class="w-full flex items-center justify-between px-4 py-3 rounded-xl"
+            >
+              <span>English</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-2xl p-4 shadow-sm">
+          <h2 class="text-[#6B7280] text-base mb-3" data-i18n="settingsPage.notifications">
+            التنبيهات
+          </h2>
+          <div class="">
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-[#353535]"
+                data-i18n="settingsPage.notificationSettings.priceQuoteAvailable"
+                >عند توفر طلبات التسعيرة</span
+              >
+              <div class="toggle-switch">
+                <input id="tg1" type="checkbox" class="toggle-input" checked /><label
+                  for="tg1"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-[#353535]"
+                data-i18n="settingsPage.notificationSettings.statusUpdates"
+                >عند تحديث الحالات</span
+              >
+              <div class="toggle-switch">
+                <input id="tg2" type="checkbox" class="toggle-input" /><label
+                  for="tg2"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-[#353535]"
+                data-i18n="settingsPage.notificationSettings.priceQuoteAccepted"
+                >عند قبول عروض الأسعار</span
+              >
+              <div class="toggle-switch">
+                <input id="tg3" type="checkbox" class="toggle-input" checked /><label
+                  for="tg3"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-[#353535]"
+                data-i18n="settingsPage.notificationSettings.moveCompleted"
+                >عند إنهاء النقل</span
+              >
+              <div class="toggle-switch">
+                <input id="tg4" type="checkbox" class="toggle-input" /><label
+                  for="tg4"
+                  class="toggle-label"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <button
+            class="mt-8 w-full py-4 rounded-xl bg-[#00B8A9] text-white font-bold"
+            data-i18n="settingsPage.saveSettings"
+          >
+            حفظ الإعدادات
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      function toggleMobileMenu() {
+        var el = document.getElementById('mobile-menu-sidebar');
+        if (!el) return;
+        el.classList.toggle('hidden');
+        el.classList.toggle('flex');
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Language switcher functionality
+        var ar = document.getElementById('lang-ar');
+        var en = document.getElementById('lang-en');
+
+        if (ar && en) {
+          // Get current language
+          var currentLang = localStorage.getItem('locale') || 'ar';
+
+          // Function to update visual state
+          function updateVisualState(lang) {
+            if (lang === 'ar') {
+              ar.classList.add('bg-[#F8FAFC]');
+              ar.querySelector('span').classList.add('text-[#00B8A9]', 'font-semibold');
+              ar.querySelector('span').classList.remove('text-gray-700');
+              if (!ar.querySelector('i.fa-check')) {
+                var checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check text-[#00B8A9]';
+                ar.appendChild(checkIcon);
+              }
+
+              en.classList.remove('bg-[#F8FAFC]');
+              en.querySelector('span').classList.remove('text-[#00B8A9]', 'font-semibold');
+              en.querySelector('span').classList.add('text-gray-700');
+              var enCheck = en.querySelector('i.fa-check');
+              if (enCheck) enCheck.remove();
+            } else {
+              en.classList.add('bg-[#F8FAFC]');
+              en.querySelector('span').classList.add('text-[#00B8A9]', 'font-semibold');
+              en.querySelector('span').classList.remove('text-gray-700');
+              if (!en.querySelector('i.fa-check')) {
+                var checkIcon = document.createElement('i');
+                checkIcon.className = 'fas fa-check text-[#00B8A9]';
+                en.appendChild(checkIcon);
+              }
+
+              ar.classList.remove('bg-[#F8FAFC]');
+              ar.querySelector('span').classList.remove('text-[#00B8A9]', 'font-semibold');
+              ar.querySelector('span').classList.add('text-gray-700');
+              var arCheck = ar.querySelector('i.fa-check');
+              if (arCheck) arCheck.remove();
+            }
+          }
+
+          // Set initial state
+          updateVisualState(currentLang);
+
+          // Add click handlers
+          ar.addEventListener('click', function () {
+            if (currentLang !== 'ar') {
+              setLanguage('ar');
+              updateVisualState('ar');
+              currentLang = 'ar';
+            }
+          });
+
+          en.addEventListener('click', function () {
+            if (currentLang !== 'en') {
+              setLanguage('en');
+              updateVisualState('en');
+              currentLang = 'en';
+            }
+          });
+        }
+
+        // Handle save settings button click
+        $('button[data-i18n="settingsPage.saveSettings"]').on('click', function (e) {
+          e.preventDefault();
+
+          // Here you would normally save the settings
+          // For now, just show success toast
+          showNotification(t('settingsPage.settingsSaved') || 'تم حفظ الاعدادات', 'success');
+        });
+      });
+    </script>
+  </body>
+</html>
